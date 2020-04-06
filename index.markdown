@@ -4,3 +4,7 @@
 
 layout: home
 ---
+
+<p>
+Welcome to my blog. I host a wiki here and also post maths stuff occasionally.
+</p>
