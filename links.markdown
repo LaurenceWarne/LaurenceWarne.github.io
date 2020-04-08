@@ -4,7 +4,7 @@ title: Links
 permalink: /links/
 ---
 
-# Links
+# Miscellaneous Content
 
 * <a href="https://groupprops.subwiki.org/wiki/Main_Page">Everything Group Theory related</a>
 
@@ -23,6 +23,8 @@ permalink: /links/
 * <a href="https://github.com/LaurenceWarne/the-proof-is-trivial-parse/blob/master/lots-of-questions.pdf">Questions from the TSR thread "The Proof is Trivial"</a>
 
 * <a href="https://www.lboro.ac.uk/departments/maths/undergraduate/ug-christmas-challenge/">Loughborough Undergraduate Christmas Challenge</a>
+
+* <a href="http://rosalind.info/about/">Rosalind</a>: a platform for learning bioinformatics through computational problem solving
 
 # Blogs
 

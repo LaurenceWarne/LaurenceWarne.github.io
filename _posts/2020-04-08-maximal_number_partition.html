@@ -1,0 +1,217 @@
+---
+date: 2020-04-06
+tags: 
+- Question
+author: Laurence Warne
+title: Splitting Up a Number
+layout: post
+latex_header: \usepackage{mdframed}
+categories: 
+- Maths Optimisation
+reveal_preamble: \usepackage{multirow}
+excerpt: A question on number partitions.
+---
+
+<div id="outline-container-org2418bc2" class="outline-2">
+<h2 id="org2418bc2">Question</h2>
+<div class="outline-text-2" id="text-org2418bc2">
+<p>
+Given some \( n \in N \), how can I partition \( n \) into other natural numbers 
+which sum n such that the total product of all elements in the partition is 
+maxmimised?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4de19d5" class="outline-2">
+<h2 id="org4de19d5">Solution</h2>
+<div class="outline-text-2" id="text-org4de19d5">
+<p>
+Consider some valid partition \( P \) of \( n \):
+</p>
+
+<p>
+\[ P = (a_1, a_2, ...) \]
+</p>
+
+<p>
+And let:
+</p>
+
+<p>
+\[ f(P) = a_1 * a_2 * ... \]
+</p>
+
+<p>
+Note that all natural numbers &gt; 1 can be written as a sum of 2s and 3s exclusively, ie
+</p>
+
+<p>
+\[ a_1 = 2 + 2 + ... + 3 + 3 + ... \]
+</p>
+
+<p>
+What we will now show is that taking all the elements in the partition and breaking
+them up into 2s and 3s, will give a better partition.<br />
+</p>
+
+<p>
+<b>Lemma 1:</b>
+The product of some sequence of 2s and 3s is always greater or equal to the 
+corresponding sum with equality holding iff the sequence is (2, 2), (2,) or (3,). 
+Proof: 
+</p>
+
+<p>
+\[ 2 * 2 = 2 + 2 \]
+\[ 3 * 2 > 3 + 2 \]
+\[ 3 * 3 > 3 + 3 \]
+</p>
+
+<p>
+Hence if:
+</p>
+
+<p>
+\[ P_a_1 = (2, 2, ..., 3, 3, ...) \]
+</p>
+
+<p>
+Then
+</p>
+
+<p>
+\[ ka_1 \leq k f(P_a_1) \ \forall k \in R+ \]
+</p>
+
+<p>
+With equality holding iff \( a_1 < 5 \). From this it is clear that the optimal
+partition will consist of some sequence of 2s and 3s. For most numbers however 
+there are many ways to split a number into sums of 2s and 3s. We will now show how
+to find the optimal partition. Note:
+</p>
+
+<p>
+\[ 3 + 3 = 2 + 2 + 2 \]
+\[ 3 * 3 > 2 * 2 * 2 \]
+</p>
+
+<p>
+This implies that there will be no more than two lots of 2s in the optimal partition. 
+If \( 3 | n \) then the optimal partition is three lots of \( \frac{n}{3} \). If we
+consider trying to improve upon this partition by breaking up a 3 into a 2 and a 1
+, we decrease the product. And if we try to improve upon the partition by combining
+3s we decrease the product by lemma 1. Therefore the partition is optimal in this case.
+Now consider:
+</p>
+
+<p>
+\[ 1) n \equiv 1 \ mod \ 3 \Rightarrow \exists k \in N \ s.t \ n = 3k + 1 \]
+\[ 2) n \equiv 2 \ mod \ 3 \Rightarrow \exists k \in N \ s.t \ n = 3k + 2 \]
+</p>
+
+<p>
+For 1) we can choose from (1, 3 k times) or (2, 2, 3 (k - 1)) times. Given 2 * 2 &gt; 3 * 1
+we can identify the latter case as optimal. <br />
+</p>
+
+<p>
+For 2) the only option containing no ones or less than three 2s is (2, 3 k times).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgba028ad" class="outline-2">
+<h2 id="orgba028ad">Question Extension</h2>
+<div class="outline-text-2" id="text-orgba028ad">
+<p>
+What if \( n \in R+ \) and the elements of the partition can be any positive real?
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbbcba64" class="outline-2">
+<h2 id="orgbbcba64">Extension Solution</h2>
+<div class="outline-text-2" id="text-orgbbcba64">
+<p>
+Unlike the previous solution we will use some calculus. Consider:
+</p>
+
+<p>
+\[ (x, x), \ (x - a, x + a) \]
+</p>
+
+<p>
+Where \( x, a \in R^+ , \ x > a \). <br />
+</p>
+
+<p>
+Note the two tuples have the same sum but:
+</p>
+
+<p>
+\[ x^2 > x^2 - a^2 \]
+</p>
+
+<p>
+From this it is apparent that all elements of the optimal partition must be the same
+number. Let this number be \( k_n \) Consider the function:
+</p>
+
+<p>
+\[ f(x) = x^\frac{n}{x} \]
+</p>
+
+<p>
+For some constant \( n \). Then \( k_n \) is the maximum of this function with the
+added restriction that \( x | n \). <br />
+</p>
+
+<p>
+Rewrite \( f(x) \):
+</p>
+
+<p>
+\[ f(x) = e^\frac{n\ln{x}}{x} \]
+</p>
+
+<p>
+We find the stationary point by differentiating and equating to 0:
+</p>
+
+<p>
+\[ \left(\frac{n}{x^2} - \frac{n\ln{x}}{x^2}\right) e^\frac{n\ln{x}}{x} = 0 \]
+</p>
+
+<p>
+\( f(x) \not = 0 \ \forall x \in R \) hence we have:
+</p>
+
+<p>
+\[ \left(\frac{n}{x^2} - \frac{n\ln{x}}{x^2}\right) = 0 \]
+</p>
+
+<p>
+\[ \Rightarrow  ln{x} = 1 \]
+</p>
+
+<p>
+\[ \Rightarrow  x = e \]
+</p>
+
+<p>
+Hence the sole stationary point of the function occurs at \( x = e \) and is
+independent of \( n \). If we note that:
+</p>
+
+<p>
+\[ \lim_{x \to 0+}f(x) = \lim_{x \to \infty}f(x) = 0 \]
+</p>
+
+<p>
+Then we can identify the stationary point as a global maximum of the function, and
+reason that our desired k<sub>n</sub> lies somewhere around \( e \).
+</p>
+</div>
+</div>

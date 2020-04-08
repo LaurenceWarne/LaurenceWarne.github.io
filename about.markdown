@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 <p>
-My name is Laurence Warne and I'm a maths student at the University of Manchester. You can find me as @LaurenceWarne on <a href="https://github.com/LaurenceWarne">Github</a>.
+My name is Laurence Warne and I'm a maths student at the University of Manchester. I'm interested in Emacs, computational Number Theory, OSS, etc. You can find me as @LaurenceWarne on <a href="https://github.com/LaurenceWarne">Github</a>.
 </p>
 
 <img src="https://projecteuler.net/profile/__LW__.png" alt="Project Euler">
