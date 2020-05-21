@@ -26,6 +26,10 @@ permalink: /links/
 
 * <a href="http://rosalind.info/about/">Rosalind</a>: a platform for learning bioinformatics through computational problem solving
 
+* <a href="http://www.research.ibm.com/haifa/ponderthis/index.shtml">IBM monthly puzzles</a> (Ponder This)
+
 # Blogs
+
+* <a href="https://mathproblems123.wordpress.com/">Beni Bogoşel's Blog</a>
 
 * <a href="http://laurentmazare.github.io/index.html">Laurent Mazare's Blog (inactive)</a>
