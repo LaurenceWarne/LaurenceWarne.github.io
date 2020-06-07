@@ -6,11 +6,9 @@
 <!-- 2020-06-07 Sun 20:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>An Accumulated Sequence</title>
+<title>Chinese Remainder Theorem</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Laurence Warne" />
-<meta name="description" content="A question on the all ones sequence"
- />
+<meta name="author" content="LaurenceWarne" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -254,208 +252,208 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-Next: <a href='./questions.html'>Questions</a><span style='float: right;'>Up: <a href='./maths.html'>Maths</a></span><hr><h1 class="title">An Accumulated Sequence</h1>
+Next: <a href='./euclids-algorithm.html'>Euclids Algorithm</a><span style='float: right;'>Up: <a href='./number-theory.html'>Number Theory</a></span><hr><h1 class="title">Chinese Remainder Theorem</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7903bcd">1. Question</a></li>
-<li><a href="#orga6c4027">2. Recursions</a></li>
-<li><a href="#org48e6f31">3. To Closed Form</a></li>
+<li><a href="#org800bb56">1. Theorem Statement</a></li>
+<li><a href="#orgf44dee7">2. Applications</a></li>
+<li><a href="#orgc4f810d">3. Extension</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7903bcd" class="outline-2">
-<h2 id="org7903bcd"><span class="section-number-2">1</span> Question</h2>
+<div id="outline-container-org800bb56" class="outline-2">
+<h2 id="org800bb56"><span class="section-number-2">1</span> Theorem Statement</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Define the sequence \( (a_n)_n = 1 \). Now consider taking the first 4 elements of
-the sequence:
-\[ 1 \ \ 1 \ \ 1 \ \ 1 \]
-Now throw away the first element to get:
-\[ 1 \ \ 1 \ \ 1 \]
-Set the new second element to the sum of the first element and old second element,
-and similarly set the new third element to the sum of the old third element and
-new second element and so on to get:
-\[ 1 \ \ 2 \ \ 3 \]
-If we then apply the same process to this new sequence we get:
-\[ 2 \ \ 5 \]
-And so if we apply the process until we are left with one element we get 5. This can
-easily be generalised to starting with n lots of ones, and applying the process n - 1
-times to be left with one element, \( f(n) \). Can we find a closed form for \( f(n) \)?
+Given a system with \( a_i, n_i \in Z \):
+</p>
+\begin{align*}
+&x \equiv a_1 \pmod{n_1} \\
+&x \equiv a_2 \pmod{n_2} \\
+&... \\
+&x \equiv a_k \pmod{n_j}
+\end{align*}
+<p>
+If \( n_j \) are pairwise coprime, then the <b>Chinese Remainder Theorem</b> asserts that
+the system has a unique solution modulo \( N = n_1 * n_2 * ... * n_j \).
+</p>
+
+<p>
+A proof can be found <a href="https://brilliant.org/wiki/chinese-remainder-theorem/#theorem-and-proof">here</a>.
+</p>
+
+<p>
+They can also be solved in <a href="https://docs.sympy.org/0.7.5/modules/ntheory.html#sympy.ntheory.modular.crt">sympy</a>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orga6c4027" class="outline-2">
-<h2 id="orga6c4027"><span class="section-number-2">2</span> Recursions</h2>
+<div id="outline-container-orgf44dee7" class="outline-2">
+<h2 id="orgf44dee7"><span class="section-number-2">2</span> Applications</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-If we stack each pass of the process on top of one another, we obtain the diagram:
-</p>
-
-\begin{array}{|c|c|c|c|}
-\hline
-  1 & 1 & 1 & 1 \\\hline
-    & 1 & 2 & 3 \\\hline
-    &   & 2 & 5 \\\hline
-    &   &   & 5 \\\hline
-\end{array}
-
-<p>
-Note starting with more 1s in the first row simply extends the diagram to the right
-and does not change the triangle left of the new column. It can be seen from
-our definition above, each element in the diagram (above the first row) is equal to
-the sum of the element above it and the element immediately to the left of it, save
-for the elements we are interested in, which are equal solely to the elements above
-them.
+Note if we are given \( a \equiv b \pmod{n} \), and \( \{q_1 ... q_k \} \) is some pairwise coprime set whose product is \( n \) then the Chinese Remainder Theorem asserts that:
 </p>
 
 <p>
-However, we can incorporate these elements into
-the relation by making the following edit to our diagram:
-</p>
-
-\begin{array}{|c|c|c|c|}
-  \hline
-  1 & 1 & 1 & 1 \\\hline
-  0 & 1 & 2 & 3 \\\hline
-    & 0 & 2 & 5 \\\hline
-    &   & 0 & 5 \\\hline
-\end{array}
-
-<p>
-Let \( n \) span accross the columns, and \( k \) span accross the rows (like Pascal's triangle), ie so that \( f(3, 1) = 3 \) and consider the diagram again. We obtain:
+\[
+a \equiv b \pmod{n} \iff a \equiv b \pmod{q_i} \ \forall i = 1...k
+\]
 </p>
 
 <p>
-Formally:
+ie \( x \equiv 7 \pmod{30} \iff x \equiv 7 \pmod{3}, \ x \equiv 7 \pmod{5}, \ x \equiv 7 \pmod{2} \)
+</p>
+
+<p>
+<i>There exist an arbitrarily large number of consecutive integers, none of which is squarefree.</i>
+</p>
+
+<p>
+Let \( \{p_1 \ ... \ p_n\} \) be the set of the first \( n \) primes. Then the statement true if a solution exists for the set of simultaneous congruences:
 </p>
 
 \begin{align*}
-&f(n, 0)       = 1                          &\forall n     \\
-&f(n, k=n + 1) = 0                          &\forall n > 0 \\
-&f(n, k)       = f(n - 1, k) + f(n, k - 1)  &1 \le k \le n \\
+x &\equiv 0 \pmod{p_1^2} \\
+x + 1 &\equiv 0 \pmod{p_2^2}\\
+... \\
+x + (n - 1) &\equiv 0 \pmod{p_n^2}
 \end{align*}
 
 <p>
-We can reason from the above recursion that each number in the diagram can be written
-as some sum of the leftmost nonzero elements on each row, added to some sum of
-elements in the first row (\( k = 0 \)), which also happen to be equal to the leftmost
-element of the first row (\( f(0, 0) = 1 \)). These are the numbers we are interested
-in. ie:
+ie
 </p>
 
-<p>
-\[ f(n) = \sum_{r=1}^{n-1} A_r * f(r) \]
-</p>
+\begin{align*}
+x &\equiv 0 \pmod{p_1^2} \\
+x &\equiv -1 \pmod{p_2^2}\\
+... \\
+x &\equiv -n + 1 \pmod{p_n^2}
+\end{align*}
 
 <p>
-Where \( A_r \) is some constant to be determined. Now we can consider how each 
-\( f(r) \) contributes to \( f(n) \) via the following diagram:
-</p>
-
-\begin{array}{|c|c|c|c|}
-  \hline
-  f(r) \rightarrow & f(r) + B_1 \rightarrow \downarrow & f(r) + C_1 \rightarrow \downarrow & f(r) + D_1 \rightarrow \downarrow  \\\hline
-  0  & f(r + 1) & f(r) + B_2 \rightarrow & 2f(r) + C_2 \rightarrow \downarrow \\\hline
-  & 0 & f(r + 2) & 2f(r) + B_3 \rightarrow \\\hline
-\end{array}
-
-<p>
-Where \( C, B, D \) are constants consisting of sums of other \( f(s) \). Note we
-do not arrow constributions to \( f(r+1) \) as these are the source of the
-contributions and we need to keep these "atomic". We can observe from this diagram
-that:
-</p>
-
-<p>
-\[ A_r = f(n - r) \]
-</p>
-
-<p>
-This also works for the base row, as we can just rewrite 1 = f(1) (thus all 
-constants are 0), and hence:
-</p>
-
-<p>
-\[ f(n) = \sum_{r=1}^{n - 1} f(r)*f(n - r) \]
+Of which a unique solution is guarenteed by the Chinese Remainder Theorem.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org48e6f31" class="outline-2">
-<h2 id="org48e6f31"><span class="section-number-2">3</span> To Closed Form</h2>
+<div id="outline-container-orgc4f810d" class="outline-2">
+<h2 id="orgc4f810d"><span class="section-number-2">3</span> Extension</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-First of all lets let \( f(0) = 0 \) which will make things a little simpler, now
-let's define the generating function:
+If \( n_i \) are not pairwise coprime, it is still possible to apply CRT. Suppose that:
 </p>
 
 <p>
-\[ F(x) = \sum_{n=0} f(n)x^n \]
+\[
+x \equiv a \pmod n
+\]
 </p>
 
 <p>
-And now sum our recursion over all \( n \) where it's valid (\( n > 2 \)):
+Now we prove:
 </p>
 
 <p>
-\[ \sum_{n=2} f(n)x^n = \sum_{n=2}\sum_{r=0}^{n} f(r)*f(n - r)x^n \]
+\[
+(1)\ x \equiv a \pmod n \iff \forall k \in U, x \equiv a \pmod k
+\]
 </p>
 
 <p>
-Simplifying the LHS and using the definition of multiplication in the ring of 
-formal power series on the RHS:
+where
 </p>
 
 <p>
-\[ F(x) - x = \sum_{n=0}f(n)x^n \sum_{n=0}f(n)x^n \]
+\[
+U = \{ N^p : N \text{ prime },\ N | n,\ N^{p + 1} \not{|} n \}
+\]
 </p>
 
 <p>
-Simplifying and collecting terms:
+ie \( U \) is the prime number decomposition of \( n \).
 </p>
 
 <p>
-\[ F(x)^2 - F(x) + x = 0 \]
+The forward case is trivial:
+</p>
+
+
+\begin{align}
+&x \equiv a \pmod n \nonumber \\
+\Rightarrow& \exists \lambda \in Z \ s.t. \ x - a = \lambda n \nonumber
+\end{align}
+
+<p>
+Now applying modulo \( k \), since \( k | n \):
 </p>
 
 <p>
-Quadratic formula (neglecting + sign, this will give us \( f(0) = 1 \) ):
+\[
+\Rightarrow& x - a \equiv 0 \pmod{k}
+\]
 </p>
 
 <p>
-\[ F(x) = \frac{1 - \sqrt{1 - 4x}}{2} \]
+For the backward case, note that the distinct elements of \( U \) form the prime
+decomposition of \( n \), hence their product is \( n \). All of the distinct elements
+are also coprime.
+Consider the system \( S \):
+</p>
+\begin{align*}
+&x \equiv a \pmod{k_1}\\
+&x \equiv a \pmod{k_2}\\
+&...\\
+&x \equiv a \pmod{k_i}
+\end{align*}
+<p>
+where \( k_1, k_2, ... k_i \) are the distinct elements of \( U \). Then by standard
+CRT there exists a unique solution modulo \( k_1*k_2*...*k_i = n \). From inspection,
+we can identify the trivial solution \( x = a \), and thus by CRT this is the unique 
+solution modulo \( n \). Hence the solution set of \( S \) is identical to the
+solution set of:
 </p>
 
 <p>
-Attempt to extract \( x \) coefficients using binomial expansion:
+\[
+x \equiv a \pmod n
+\]
 </p>
 
 <p>
-\[ F(x) = \frac{-1}{2}\left( \frac{\frac{1}{2}}{1!}\left(-4x\right) + \frac{\frac{1}{2}\frac{-1}{2}}{2!}\left(-4x\right)^2 + ... \right) \]
+Hence (1) is proved. Suppose we have some system of linear congruences which satisfy the
+predicates required by CRT except there is some pair of congruences whose moduli are
+not coprime:
 </p>
 
 <p>
-After some arduous simplifications, we find the general \( x \) coefficient is given
-by:
+\[ x \equiv a_1 \pmod{k_1} \]
+\[ x \equiv a_2 \pmod{k_2} \]
 </p>
 
 <p>
-\[ \frac{(2n - 2)!}{n! * (n - 1)!} \]
+Then by (1), we can reduce these two congruences into more congruences, whose moduli are
+either pairwise coprime or of the form:
 </p>
 
 <p>
-Which is the (n - 1)th Catalan number, ie \( f(n) = C_{n - 1} \).
+\[ x \equiv a \pmod{a^{p_1}} \]
+\[ x \equiv b \pmod{a^{p_2}} \]
+</p>
+
+<p>
+Which has solutions \( \iff a = b \), in which case we can ignore the congruence with
+the smaller power. With these two reductions, we now have a system of congruences
+which we can apply CRT to.
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2020-04-06 Mon 11:53</p>
-<p class="author">Author: Laurence Warne</p>
+<p class="author">Author: LaurenceWarne</p>
 <p class="date">Created: 2020-06-07 Sun 20:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

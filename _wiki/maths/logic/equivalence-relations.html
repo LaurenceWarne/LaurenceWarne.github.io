@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-21 Thu 18:52 -->
+<!-- 2020-05-30 Sat 12:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Modular Arithmetic</title>
+<title>Equivalence Relations</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -252,84 +252,119 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-Previous: <a href='./logic.html'>Logic</a>, Next: <a href='./relations.html'>Relations</a><span style='float: right;'>Up: <a href='./set-theory.html'>Set Theory</a></span><hr><h1 class="title">Modular Arithmetic</h1>
+Previous: <a href='./basic-logic.html'>Basic Logic</a>, Next: <a href='./relations.html'>Relations</a><span style='float: right;'>Up: <a href='./logic.html'>Logic</a></span><hr><h1 class="title">Equivalence Relations</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org31f90db">1. Definition</a></li>
-<li><a href="#orgd0a9312">2. Residue Groups</a></li>
+<li><a href="#org4a34181">1. Definition</a></li>
+<li><a href="#orgf414b4f">2. Equivalence Relations</a>
+<ul>
+<li><a href="#org067a721">2.1. Reflexive</a></li>
+<li><a href="#org8d9f5ae">2.2. Symmetric</a></li>
+<li><a href="#org49a1a72">2.3. transitive</a></li>
+</ul>
+</li>
+<li><a href="#orgd556143">3. Equivalence Classes</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org31f90db" class="outline-2">
-<h2 id="org31f90db"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-org4a34181" class="outline-2">
+<h2 id="org4a34181"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-We say
+A relation \( R \) on some set \( S \) can be defined as:
 </p>
 
 <p>
-\[ a \equiv b \pmod n \iff a - b | n \]
+\[ T = \{ (a, b) : a, b \in S, aRb \} \]
+</p>
+
+<p>
+For example, the relation "=" over the reals:
+\[ aRb \iff a - b = 0 \]
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd0a9312" class="outline-2">
-<h2 id="orgd0a9312"><span class="section-number-2">2</span> Residue Groups</h2>
+
+<div id="outline-container-orgf414b4f" class="outline-2">
+<h2 id="orgf414b4f"><span class="section-number-2">2</span> Equivalence Relations</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Let \( n \in Z^+ \), let \( S \) be the set of natural numbers less than \( n \) which are coprime to \( n \):
+A relation is said to be an equivalence relation if it is <b>reflexive</b>, <b>symmetric</b> and <b>transitive</b>. 
+</p>
+</div>
+
+<div id="outline-container-org067a721" class="outline-3">
+<h3 id="org067a721"><span class="section-number-3">2.1</span> Reflexive</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+A relation is reflexive iff:
 </p>
 
 <p>
-\[ S = \{x : x \in Z^+, \ x < n, \ gcd(n, x) = 1\} \]
+\[ \forall a \in S, \ aRa \]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org8d9f5ae" class="outline-3">
+<h3 id="org8d9f5ae"><span class="section-number-3">2.2</span> Symmetric</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+A relation is symmetric iff:
 </p>
 
 <p>
-An important idea when working with modular arithmetic is:
+\[ \forall a, b \in S, \ aRb \Rightarrow bRa \]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org49a1a72" class="outline-3">
+<h3 id="org49a1a72"><span class="section-number-3">2.3</span> transitive</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+A relation is transitive iff:
 </p>
 
 <p>
-\[ (1) \ \forall a \in S, \ \exists b \in S \ s.t. \ ab \equiv 1 \pmod n \]
-</p>
-
-<p>
-Which we will now prove. Define
-</p>
-
-<p>
-\[ f: S \to S, \ \ f(x) = ax \pmod n \]
+\[ \forall a, b, c \in S, \ (aRb \wedge bRc) \Rightarrow aRc \]
 </p>
 
 
 <p>
-To show (1) it is sufficient to show \( f \) is a surjection (\( 1 \in S \ \forall n \)). And since the domain and codomain of the function are the same and finite, we can say \( f \) is surjective iff it is injective, which we will now prove.
+For example the relation \( \leq \) over the reals is reflexive and transitive but not symmetric and the relation \( = \) over the reals is all three and therefore an equivalence relation.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd556143" class="outline-2">
+<h2 id="orgd556143"><span class="section-number-2">3</span> Equivalence Classes</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+For an equivalence relation \( R \) over some set \( S \), the equivalence class of some \( a \in S \) is defined as:
 </p>
 
 <p>
-Suppose \( f \) is not injective,  ie
+\[ \{ x \in S : aRx \} \]
 </p>
 
 <p>
-\[ \exists \text{ distinct } k_1 < k_2 \in S \ s.t. \  f(k_1) = f(k_2)\]
-</p>
-
-\begin{align*}
-&\Rightarrow ak_2 \equiv ak_1 \pmod{n} \\
-&\Rightarrow a(k_2 - k_1) = \lambda n \\
-\end{align*}
-
-<p>
-But \( lcm(a, n) = an \) because \( a \) and \( n \) are coprime. This is hence a contradiction as the supposition implies there is nonzero some common multiple of \( a \) and \( n \) less than this, equal to \( a(k_2 - k_1) \)  (\( n > k_2 > k_1 > 0 \)). Hence we have \( f \) is a injection and thus statement (1).
+The set of all equivalence classes forms a <b>partition</b> of \( S \): a collection of disjoint sets whose union is equal to \( S \). The converse is also true, all unique partitions of \( S \) denote a unique equivalence relation on \( S \).
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-05-21 Thu 18:52</p>
+<p class="date">Created: 2020-05-30 Sat 12:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

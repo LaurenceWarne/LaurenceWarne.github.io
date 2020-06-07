@@ -6,11 +6,9 @@
 <!-- 2020-06-07 Sun 20:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>An Accumulated Sequence</title>
+<title>Graph Colouring</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Laurence Warne" />
-<meta name="description" content="A question on the all ones sequence"
- />
+<meta name="author" content="LaurenceWarne" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -254,208 +252,134 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-Next: <a href='./questions.html'>Questions</a><span style='float: right;'>Up: <a href='./maths.html'>Maths</a></span><hr><h1 class="title">An Accumulated Sequence</h1>
+Next: <a href='./graphs.html'>Graphs</a><span style='float: right;'>Up: <a href='./graph-theory.html'>Graph Theory</a></span><hr><h1 class="title">Graph Colouring</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7903bcd">1. Question</a></li>
-<li><a href="#orga6c4027">2. Recursions</a></li>
-<li><a href="#org48e6f31">3. To Closed Form</a></li>
+<li><a href="#org4428cf3">1. Definition</a></li>
+<li><a href="#orge23eec1">2. Chromatic Number</a>
+<ul>
+<li><a href="#org90847b9">2.1. Bounds</a></li>
+</ul>
+</li>
+<li><a href="#orgb1af7e0">3. Chromatic Polynomial</a>
+<ul>
+<li><a href="#org69af0ed">3.1. Theorem</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7903bcd" class="outline-2">
-<h2 id="org7903bcd"><span class="section-number-2">1</span> Question</h2>
+<div id="outline-container-org4428cf3" class="outline-2">
+<h2 id="org4428cf3"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Define the sequence \( (a_n)_n = 1 \). Now consider taking the first 4 elements of
-the sequence:
-\[ 1 \ \ 1 \ \ 1 \ \ 1 \]
-Now throw away the first element to get:
-\[ 1 \ \ 1 \ \ 1 \]
-Set the new second element to the sum of the first element and old second element,
-and similarly set the new third element to the sum of the old third element and
-new second element and so on to get:
-\[ 1 \ \ 2 \ \ 3 \]
-If we then apply the same process to this new sequence we get:
-\[ 2 \ \ 5 \]
-And so if we apply the process until we are left with one element we get 5. This can
-easily be generalised to starting with n lots of ones, and applying the process n - 1
-times to be left with one element, \( f(n) \). Can we find a closed form for \( f(n) \)?
+We define a k-colouring of an undirected graph \( G(V, E) \) as a function \( f: V \to \mathbb{Z}_k = \{ 1 ... k\} \) such that:
+</p>
+
+<p>
+\[
+(u, v) \in E \implies f(u) \ne f(v)
+\]
+</p>
+
+<p>
+Ie no neighbouring vertices have the same colour. Additionally, if \( G \) admits a k-colouring, we say \( G \) is <b>k-colourable</b>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orga6c4027" class="outline-2">
-<h2 id="orga6c4027"><span class="section-number-2">2</span> Recursions</h2>
+<div id="outline-container-orge23eec1" class="outline-2">
+<h2 id="orge23eec1"><span class="section-number-2">2</span> Chromatic Number</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-If we stack each pass of the process on top of one another, we obtain the diagram:
-</p>
-
-\begin{array}{|c|c|c|c|}
-\hline
-  1 & 1 & 1 & 1 \\\hline
-    & 1 & 2 & 3 \\\hline
-    &   & 2 & 5 \\\hline
-    &   &   & 5 \\\hline
-\end{array}
-
-<p>
-Note starting with more 1s in the first row simply extends the diagram to the right
-and does not change the triangle left of the new column. It can be seen from
-our definition above, each element in the diagram (above the first row) is equal to
-the sum of the element above it and the element immediately to the left of it, save
-for the elements we are interested in, which are equal solely to the elements above
-them.
+We define \( \chi(G) \) as the smallest k such that \( G \) is k-colourable. Clearly such a k must always exist as a graph on \( n \) vertices is always n-colourable (assign all the vertices different colours).
 </p>
 
 <p>
-However, we can incorporate these elements into
-the relation by making the following edit to our diagram:
+However determining \( \chi(G) \) for an arbitrary graph is nontrivial and is in fact NP-complete.
 </p>
+</div>
 
-\begin{array}{|c|c|c|c|}
-  \hline
-  1 & 1 & 1 & 1 \\\hline
-  0 & 1 & 2 & 3 \\\hline
-    & 0 & 2 & 5 \\\hline
-    &   & 0 & 5 \\\hline
-\end{array}
-
+<div id="outline-container-org90847b9" class="outline-3">
+<h3 id="org90847b9"><span class="section-number-3">2.1</span> Bounds</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
-Let \( n \) span accross the columns, and \( k \) span accross the rows (like Pascal's triangle), ie so that \( f(3, 1) = 3 \) and consider the diagram again. We obtain:
+Using a greedy algorithm we can deduce that:
 </p>
 
 <p>
-Formally:
-</p>
-
-\begin{align*}
-&f(n, 0)       = 1                          &\forall n     \\
-&f(n, k=n + 1) = 0                          &\forall n > 0 \\
-&f(n, k)       = f(n - 1, k) + f(n, k - 1)  &1 \le k \le n \\
-\end{align*}
-
-<p>
-We can reason from the above recursion that each number in the diagram can be written
-as some sum of the leftmost nonzero elements on each row, added to some sum of
-elements in the first row (\( k = 0 \)), which also happen to be equal to the leftmost
-element of the first row (\( f(0, 0) = 1 \)). These are the numbers we are interested
-in. ie:
+\[
+   \chi(G) \le \max_{v \in V}{(deg(v))} + 1
+   \]
 </p>
 
 <p>
-\[ f(n) = \sum_{r=1}^{n-1} A_r * f(r) \]
+And if \( G \) is connected, simple and is not a complete or odd cycle graph, then <a href="https://en.wikipedia.org/wiki/Brooks'_theorem">Brook's Theorem</a> offers the slight improvement of:
 </p>
 
 <p>
-Where \( A_r \) is some constant to be determined. Now we can consider how each 
-\( f(r) \) contributes to \( f(n) \) via the following diagram:
-</p>
-
-\begin{array}{|c|c|c|c|}
-  \hline
-  f(r) \rightarrow & f(r) + B_1 \rightarrow \downarrow & f(r) + C_1 \rightarrow \downarrow & f(r) + D_1 \rightarrow \downarrow  \\\hline
-  0  & f(r + 1) & f(r) + B_2 \rightarrow & 2f(r) + C_2 \rightarrow \downarrow \\\hline
-  & 0 & f(r + 2) & 2f(r) + B_3 \rightarrow \\\hline
-\end{array}
-
-<p>
-Where \( C, B, D \) are constants consisting of sums of other \( f(s) \). Note we
-do not arrow constributions to \( f(r+1) \) as these are the source of the
-contributions and we need to keep these "atomic". We can observe from this diagram
-that:
+\[
+   \chi(G) \le \max_{v \in V}{(deg(v))}
+   \]
 </p>
 
 <p>
-\[ A_r = f(n - r) \]
+Clearly if \( G \) has <b>k-clique</b> then:
 </p>
 
 <p>
-This also works for the base row, as we can just rewrite 1 = f(1) (thus all 
-constants are 0), and hence:
-</p>
-
-<p>
-\[ f(n) = \sum_{r=1}^{n - 1} f(r)*f(n - r) \]
+\[
+   \chi(G) > k
+   \]
 </p>
 </div>
 </div>
+</div>
 
-<div id="outline-container-org48e6f31" class="outline-2">
-<h2 id="org48e6f31"><span class="section-number-2">3</span> To Closed Form</h2>
+<div id="outline-container-orgb1af7e0" class="outline-2">
+<h2 id="orgb1af7e0"><span class="section-number-2">3</span> Chromatic Polynomial</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-First of all lets let \( f(0) = 0 \) which will make things a little simpler, now
-let's define the generating function:
+Given some simple graph \( G \) we define the <b>Chromatic Function</b> \( P_G: \mathbb{Z}^+ \to \mathbb{Z}^+ \) as the number of ways we can colour \( G \) using \( k \) or fewer colours. Hence if \( k < \chi(G) \) then \( P_G(k) = 0 \).
+</p>
+</div>
+
+<div id="outline-container-org69af0ed" class="outline-3">
+<h3 id="org69af0ed"><span class="section-number-3">3.1</span> Theorem</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<i>The Chromatic Function of a simple graph \( G \) is polynomial</i>.
 </p>
 
 <p>
-\[ F(x) = \sum_{n=0} f(n)x^n \]
+<b>Proof:</b>
 </p>
 
 <p>
-And now sum our recursion over all \( n \) where it's valid (\( n > 2 \)):
+We prove the following statement: If \( e = (v, w) \) is some edge in \( G \) then \( P_G(k) = P_{G - e}(k) - P_{G/e}(k) \), where \( G/e \) is the graph produced by contracting \( e \). Let \( G' = G - e \). Now, the number of k-colourings of \( G' \) in which \( v \) and \( w \) are different colours is equal to \( P_G(k) \) since the vertices are adjacent in \( G \).
 </p>
 
 <p>
-\[ \sum_{n=2} f(n)x^n = \sum_{n=2}\sum_{r=0}^{n} f(r)*f(n - r)x^n \]
+The number of k-colouring of \( G' \) in which \( v \) and \( w \) are the same colour is equal to the number of k-colourings of \( G/e \). Combining these statements gives:
 </p>
 
-<p>
-Simplifying the LHS and using the definition of multiplication in the ring of 
-formal power series on the RHS:
-</p>
+\begin{alignat*}{2}
+P_{G'}(k) = &&P_{G - e}(k) &= P_G(k) + P_{G/e} \\
+\implies    &&P_G(k)       &= P_{G - e}(k) - P_{G/e}(k)
+\end{alignat*}
 
 <p>
-\[ F(x) - x = \sum_{n=0}f(n)x^n \sum_{n=0}f(n)x^n \]
+We can apply this procedure to the two new graphs \( G - e \) and \( G/ e \), and so on until we eventually end up with only <b>null graphs</b> whose chromatic number is \( k^n \) for \( N_n \), a polynomial in \( k \). Hence since polynomials are closed under addition we can conclude that \( P_G(k) \) is also polynomial.
 </p>
-
-<p>
-Simplifying and collecting terms:
-</p>
-
-<p>
-\[ F(x)^2 - F(x) + x = 0 \]
-</p>
-
-<p>
-Quadratic formula (neglecting + sign, this will give us \( f(0) = 1 \) ):
-</p>
-
-<p>
-\[ F(x) = \frac{1 - \sqrt{1 - 4x}}{2} \]
-</p>
-
-<p>
-Attempt to extract \( x \) coefficients using binomial expansion:
-</p>
-
-<p>
-\[ F(x) = \frac{-1}{2}\left( \frac{\frac{1}{2}}{1!}\left(-4x\right) + \frac{\frac{1}{2}\frac{-1}{2}}{2!}\left(-4x\right)^2 + ... \right) \]
-</p>
-
-<p>
-After some arduous simplifications, we find the general \( x \) coefficient is given
-by:
-</p>
-
-<p>
-\[ \frac{(2n - 2)!}{n! * (n - 1)!} \]
-</p>
-
-<p>
-Which is the (n - 1)th Catalan number, ie \( f(n) = C_{n - 1} \).
-</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2020-04-06 Mon 11:53</p>
-<p class="author">Author: Laurence Warne</p>
+<p class="author">Author: LaurenceWarne</p>
 <p class="date">Created: 2020-06-07 Sun 20:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
