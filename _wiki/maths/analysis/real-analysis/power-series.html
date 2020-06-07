@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-21 Thu 18:52 -->
+<!-- 2020-06-07 Sun 20:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Euclid's Algorithm</title>
+<title>Power Series</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -180,12 +180,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/><link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script><script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script><script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -257,151 +252,84 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-Previous: <a href='./equivalence-relations.html'>Equivalence Relations</a>, Next: <a href='./functions.html'>Functions</a><span style='float: right;'>Up: <a href='./set-theory.html'>Set Theory</a></span><hr><h1 class="title">Euclid's Algorithm</h1>
+Previous: <a href='./limit-superior.html'>Limit Superior</a>, Next: <a href='./sequences.html'>Sequences</a><span style='float: right;'>Up: <a href='./real-analysis.html'>Real Analysis</a></span><hr><h1 class="title">Power Series</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2689381">1. Diophantine Equation</a></li>
-<li><a href="#org264dc02">2. Euclid's Algorithm</a>
+<li><a href="#org24cc25b">1. Definition</a>
 <ul>
-<li><a href="#orgb73f70b">2.1. Example</a></li>
+<li><a href="#org3031fdb">1.1. Proof</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2689381" class="outline-2">
-<h2 id="org2689381"><span class="section-number-2">1</span> Diophantine Equation</h2>
+<div id="outline-container-org24cc25b" class="outline-2">
+<h2 id="org24cc25b"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Let \(a, b \) and \( c \) be fixed integers, then consider integer solutions to the equation:
-</p>
-
-\begin{equation}
-ax + by = c
-\end{equation}
-
-<p>
-We show there exist solutions iff \( gcd(a, b) | c \), and further, if this is the case then there are an infinite number of solutions.
-</p>
-
-\begin{mdframed}
-  \textbf{Lemma 1}: if \( gcd(a, b) \not| c \) There exists no solution to (1).
-\end{mdframed}
-<p>
-Proof:
+Let \( (a_n)_n \) be some sequence, then a series of the form:
 </p>
 
 <p>
-Suppose there does exist a solution, and let \( p = gcd(a, b) \)
+\[
+\sum_{n=1}^{\infty} a_n x^n
+\]
 </p>
 
 <p>
-\[ \Rightarrow \exists \lambda, \delta \in \mathbb{Z} \ \ s.t. \ a = \lambda p,\ b = \delta p \]
-Factoring (1):
-\[ \Rightarrow (\lambda x + \delta y)p = c \]
-Which shows \( p \) must divide \( c \) and hence is a contradiction.
-</p>
-
-
-\begin{mdframed}
-  \textbf{Lemma 2}: There exists a solution to (1) if \( c =  gcd(a, b) \)}}
-\end{mdframed}
-<p>
-Proof:
+Is called a power series (in \( x \)), where \( x \in \mathbb{R} \).
 </p>
 
 <p>
-We have
-\[ gcd(a, b) \equiv p \mod b \]
-Then a solution exists to (1) iff there exists some \( x \) s.t.
-</p>
-\begin{equation}
-  ax \equiv p \mod b
-\end{equation}
-<p>
-First, note that \( \lambda \) and \( \delta \) are coprime, proof: consider
-\[ gcd(\lambda p, \ \delta p) \]
-If \( gcd(\lambda, \delta) > 1 \Rightarrow gcd(a, b) \neq p \) and hence is a contradiction. <br />
+We make the statement that one of the following must be true:
 </p>
 
 <p>
-It's commonly known that since \( \lambda \) and \( \delta \) are coprime, there exists an integer \( x \) s.t.
-\[ \lambda x \equiv 1 \mod \delta \]
-And hence this x is a solution to:
-\[ p(\lambda x - 1) \equiv 0 \mod b \]
-Rearranging:
-\[ ax \equiv p \mod b \]
-And therefore
-\[ ax + by = gcd(a, b) \]
-Where y is \( -\lfloor \frac{ax}{b} \rfloor \). <br />
+\[
+S = \sum_{n=1}^{\infty} a_n x^n
+\]
 </p>
 
 <p>
-Hence trivially there also exists a solution for any integer multiple of gcd(a, b).
+Converges:
 </p>
 
-\begin{mdframed}
-  \textbf{Lemma 3}: If there exists one solution to ax + by = c then there exists infinite solutions.
-\end{mdframed}
-
-<p>
-Consider solutions to:
-</p>
-\begin{equation}
-  k_{a}a + k_{b}b = 0
-\end{equation}
-<p>
-Setting \( k_{a} = \frac{lcm(a, b)}{a} \) and \( k_{b} = -\frac{lcm(a, b)}{b} \) gives a solution to (3). 
-Also note that:
-\[ (x + k_{a})a + (y + k_{b})b = c \]
-Is also a solution given \(x, \ y \) are the solutions found above, and furthermore:
-\[ (x + Mk_{a})a + (y + Mk_{b})b = c \]
-Where \( M \) is any integer, is a solution.
-</p>
-</div>
-</div>
-<div id="outline-container-org264dc02" class="outline-2">
-<h2 id="org264dc02"><span class="section-number-2">2</span> Euclid's Algorithm</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-We can express \( gcd(a, b) \) as a linear combination of \( a \) and \( b \) easily using Euclid's algorithm.
-</p>
+<ol class="org-ol">
+<li>\( \forall x \in \mathbb{R} \)</li>
+<li>Only for \( x = 0 \)</li>
+<li>\( \forall |x| \le R \text{, and diverges } \forall |x| > R \ where \( R \) is some real. We this \( R \) <b>The Radius of Convergence</b> of the power series</li>
+</ol>
 </div>
 
-<div id="outline-container-orgb73f70b" class="outline-3">
-<h3 id="orgb73f70b"><span class="section-number-3">2.1</span> Example</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org3031fdb" class="outline-3">
+<h3 id="org3031fdb"><span class="section-number-3">1.1</span> Proof</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-\textbf{Express gcd(1442, 980) as a linear combination of 1442 and 980.} <br />
+Suppose \( S \) converges for some \( x = r \), then we know that the sequence \( (a_n r^n)_n \) is null and hence that \( \exists M \ s.t. \ |a_n r^n| \le M \ \forall n \).
+Now consider some \( |u| < |r| \), and let \( t = \frac{|u|}{|r|} \). So that \( 0 < t < 1 \) and
 </p>
 
 <p>
-First we obtain gcd(1442, 980) using Euclid's algorithm:
+\[
+      \mid a_n u^n \mid \  = \ \mid a_n r^n \mid t^n \le M t^n \ \forall n
+   \]
 </p>
 
-\begin{align}
-1442 &= 1 * 980 + 462 \\
-980  &= 2 * 462 + 56 \\
-462  &= 8 * 56  + 14 \\
-56   &= 4 * 14
-\end{align}
-
 <p>
-Hence gcd(1442, 980) = 14. Now we take the penultimate equation and rearrange to make 14 the subject:
+Summing over infinity:
 </p>
 
-\begin{align}
-14 &= 462 - 8*56 \\
-14 &= (1442 - 980) - 8(980 - 2*462) \\
-14 &= 1*1442 - 9*980 + 16*(1442 - 980) \\
-14 &= 17*1442 - 25*980
-\end{align}
+<p>
+\[
+   \implies 0 \le \sum_{n=1}^{\infty} |a_n u^n| \le M\sum_{n=1}^{\infty} t^n
+   \]
+</p>
 
 <p>
-And thus we arrive at the linear combination.
+Then the series on the right is a convergent geometric series by the predicate on \( t \), and hence we can conclude by the sandwich rule that \( S \) converges absolutely for \( x = u \).
 </p>
 </div>
 </div>
@@ -409,7 +337,7 @@ And thus we arrive at the linear combination.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-05-21 Thu 18:52</p>
+<p class="date">Created: 2020-06-07 Sun 20:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

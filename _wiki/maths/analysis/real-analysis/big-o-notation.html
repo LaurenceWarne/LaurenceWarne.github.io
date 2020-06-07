@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-21 Thu 18:52 -->
+<!-- 2020-06-07 Sun 20:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Equivalence Relations</title>
+<title>Big O notation</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -252,119 +252,102 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-Previous: <a href='./chinese-remainder-theorem.html'>Chinese Remainder Theorem</a>, Next: <a href='./euclids-algorithm.html'>Euclids Algorithm</a><span style='float: right;'>Up: <a href='./set-theory.html'>Set Theory</a></span><hr><h1 class="title">Equivalence Relations</h1>
+Previous: <a href='./analysis.html'>Analysis</a>, Next: <a href='./functions.html'>Functions</a><span style='float: right;'>Up: <a href='./real-analysis.html'>Real Analysis</a></span><hr><h1 class="title">Big O notation</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgafe4311">1. Definition</a></li>
-<li><a href="#org2a435e6">2. Equivalence Relations</a>
-<ul>
-<li><a href="#org5131ef6">2.1. Reflexive</a></li>
-<li><a href="#org403fd22">2.2. Symmetric</a></li>
-<li><a href="#orge80efd5">2.3. transitive</a></li>
-</ul>
-</li>
-<li><a href="#orgf7bb925">3. Equivalence Classes&lt;/h1&gt;</a></li>
+<li><a href="#org4eec0be">1. Definition</a></li>
+<li><a href="#org0aa35c6">2. Extension</a></li>
+<li><a href="#org4ccdba5">3. Little o Notation</a></li>
+<li><a href="#org96b5cab">4. Examples</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgafe4311" class="outline-2">
-<h2 id="orgafe4311"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-org4eec0be" class="outline-2">
+<h2 id="org4eec0be"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-A relation \( R \) on some set \( S \) can be defined as:
+For some functions of the reals \( f(x) \) and \( g(x) \), we say \( f(x) = O(g(x)) \) for some strictly positive \( g(x) \) iff:
 </p>
 
 <p>
-\[ T = \{ (a, b) : a, b \in S, aRb \} \]
-</p>
-
-<p>
-For example, the relation "=" over the reals:
-\[ aRb \iff a - b = 0 \]
+\[
+ \exists c, x_0 \in R \ s.t. \ \forall x \ge x_0,\ |f(x)| \le cg(x)
+\]
 </p>
 </div>
 </div>
 
-
-<div id="outline-container-org2a435e6" class="outline-2">
-<h2 id="org2a435e6"><span class="section-number-2">2</span> Equivalence Relations</h2>
+<div id="outline-container-org0aa35c6" class="outline-2">
+<h2 id="org0aa35c6"><span class="section-number-2">2</span> Extension</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-A relation is said to be an equivalence relation if it is <b>reflexive</b>, <b>symmetric</b> and <b>transitive</b>. 
-</p>
-</div>
-
-<div id="outline-container-org5131ef6" class="outline-3">
-<h3 id="org5131ef6"><span class="section-number-3">2.1</span> Reflexive</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-A relation is reflexive iff:
+Whilst the above describes the behaviour of \( f(x) \) as \( x \to \infty \), we can also use the notation to describe the behaviour of \( f(x) \) locally, ie as \( x \to a \in R \):
 </p>
 
 <p>
-\[ \forall a \in S, \ aRa \]
+\[
+f(x) = O(g(x)) \text{ as } x \to a \iff \exists c, \delta \in R \ s.t. \ \forall x \le |a - \delta|, \ |f(x)| \le cg(x)
+\]
 </p>
 </div>
 </div>
 
-
-<div id="outline-container-org403fd22" class="outline-3">
-<h3 id="org403fd22"><span class="section-number-3">2.2</span> Symmetric</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-A relation is symmetric iff:
-</p>
-
-<p>
-\[ \forall a, b \in S, \ aRb \Rightarrow bRa \]
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-orge80efd5" class="outline-3">
-<h3 id="orge80efd5"><span class="section-number-3">2.3</span> transitive</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-A relation is transitive iff:
-</p>
-
-<p>
-\[ \forall a, b, c \in S, \ (aRb \wedge bRc) \Rightarrow aRc \]
-</p>
-
-
-<p>
-For example the relation \( \leq \) over the reals is reflexive and transitive but not symmetric and the relation \( = \) over the reals is all three and therefore an equivalence relation.
-</p>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgf7bb925" class="outline-2">
-<h2 id="orgf7bb925"><span class="section-number-2">3</span> Equivalence Classes&lt;/h1&gt;</h2>
+<div id="outline-container-org4ccdba5" class="outline-2">
+<h2 id="org4ccdba5"><span class="section-number-2">3</span> Little o Notation</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-For an equivalence relation \( R \) over some set \( S \), the equivalence class of some \( a \in S \) is defined as:
+With \( f(x) \) and \( g(x) \) predicated as above, we say:
 </p>
 
 <p>
-\[ \{ x \in S : aRx \} \]
+\[
+f(x) = o(g(x)) \iff \forall c \in R \ \exists x_0 \in R \ s.t. \ |f(x)| \le cg(x) \ \forall x \ge x_0
+\]
 </p>
 
 <p>
-The set of all equivalence classes forms a <b>partition</b> of \( S \): a collection of disjoint sets whose union is equal to \( S \). The converse is also true, all unique partitions of \( S \) denote a unique equivalence relation on \( S \).
+This is equivalent to:
 </p>
+
+<p>
+\[
+f(x) = o(g(x)) \iff \lim_{x \to \infty}{\frac{f(x)}{g(x)}} = 0
+\]
+</p>
+
+<p>
+Which is a stronger condition to the similar formulation for Big-O:
+</p>
+
+<p>
+\[
+f(x) = O(g(x)) \iff \limsup_{x \to \infty}{\frac{f(x)}{g(x)}} < \infty
+\]
+</p>
+
+<p>
+Intuitively, we say \( f(x) = O(g(x)) \) if \( f(x) \le g(x) \) and \( f(x) = o(g(x)) \) if \( f(x) < g(x) \).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org96b5cab" class="outline-2">
+<h2 id="org96b5cab"><span class="section-number-2">4</span> Examples</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>\( sin(x) = O(1) \)</li>
+<li>\( x^2 = o(x^3) \)</li>
+<li>\(\arctan{x} = o(x) \)</li>
+</ol>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-05-21 Thu 18:52</p>
+<p class="date">Created: 2020-06-07 Sun 20:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

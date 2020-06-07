@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-21 Thu 18:52 -->
+<!-- 2020-06-07 Sun 20:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Relations</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -252,56 +252,159 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
+Previous: <a href='./partial-ordering.html'>Partial Ordering</a><span style='float: right;'>Up: <a href='./logic.html'>Logic</a></span><hr><h1 class="title">Relations</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga9c76d7">1. Similar Congruences</a></li>
+<li><a href="#org4241fdf">1. Definition</a></li>
+<li><a href="#org4c71121">2. Equivalence Relations</a>
+<ul>
+<li><a href="#orgf572c11">2.1. Reflexive</a></li>
+<li><a href="#orge80ad4f">2.2. Symmetric</a></li>
+<li><a href="#orgf42f7c2">2.3. transitive</a></li>
+</ul>
+</li>
+<li><a href="#org5077149">3. Equivalence Classes</a></li>
+<li><a href="#org5e3afd1">4. Total Orders</a>
+<ul>
+<li><a href="#orgbad3893">4.1. Antisymmetric</a></li>
+<li><a href="#orgf5ec116">4.2. Connex</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga9c76d7" class="outline-2">
-<h2 id="orga9c76d7"><span class="section-number-2">1</span> Similar Congruences</h2>
+
+<div id="outline-container-org4241fdf" class="outline-2">
+<h2 id="org4241fdf"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Consider solutions to the simultaneous congruences:
+A binary relation \( R \) on some set \( S \) can be defined as:
 </p>
-
-\begin{align}
-x \equiv a_1 \mod n^{p} \\
-x \equiv a_2 \mod n^{q}
-\end{align}
 
 <p>
-with \( p >= q \). Now from (1):
+\[ T = \{ (a, b) : a, b \in S, aRb \} \]
 </p>
-
-\begin{align*}
-& x - a_1 = \lambda n^{p}               & \text{For some \( \lambda \in Z \).} \\
-& \Rightarrow x \equiv a_1 \mod n^{q}   & \text{using n^{q} | n^{p}} \\
-& \Rightarrow a_1 \equiv a_2 \mod n^{q} & \text{} \\ 
-\end{align*}
 
 <p>
-Hence \( a_1 = a_2 \mod n^{q} \) is a necessary condition for solutions to exist.
-Suppose this is true, ie:
+For example, the relation "=" over the reals:
+\[ aRb \iff a - b = 0 \]
 </p>
-
-\begin{align}
-x \equiv a_1 \mod n^{p} \\
-x \equiv a_1 \mod n^{q}
-\end{align}
 
 <p>
-Then the set of solutions to (3) are a subset of the set of solutions to (4), hence we
-need only consider \( x \equiv a_1 \mod n^{p} \).
+Any reference to a relation will be taken as binary unless stated otherwise.
 </p>
+</div>
+</div>
+
+<div id="outline-container-org4c71121" class="outline-2">
+<h2 id="org4c71121"><span class="section-number-2">2</span> Equivalence Relations</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+A relation is said to be an equivalence relation if it is <b>reflexive</b>, <b>symmetric</b> and <b>transitive</b>. 
+</p>
+</div>
+
+<div id="outline-container-orgf572c11" class="outline-3">
+<h3 id="orgf572c11"><span class="section-number-3">2.1</span> Reflexive</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+A relation is reflexive iff:
+</p>
+
+<p>
+\[ \forall a \in S, \ aRa \]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orge80ad4f" class="outline-3">
+<h3 id="orge80ad4f"><span class="section-number-3">2.2</span> Symmetric</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+A relation is symmetric iff:
+</p>
+
+<p>
+\[ \forall a, b \in S, \ aRb \Rightarrow bRa \]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgf42f7c2" class="outline-3">
+<h3 id="orgf42f7c2"><span class="section-number-3">2.3</span> transitive</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+A relation is transitive iff:
+</p>
+
+<p>
+\[ \forall a, b, c \in S, \ (aRb \wedge bRc) \Rightarrow aRc \]
+</p>
+
+
+<p>
+For example the relation \( \leq \) over the reals is reflexive and transitive but not symmetric and the relation \( = \) over the reals is all three and therefore an equivalence relation.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org5077149" class="outline-2">
+<h2 id="org5077149"><span class="section-number-2">3</span> Equivalence Classes</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+For an equivalence relation \( R \) over some set \( S \), the equivalence class of some \( a \in S \) is defined as:
+</p>
+
+<p>
+\[ \{ x \in S : aRx \} \]
+</p>
+
+<p>
+The set of all equivalence classes forms a <b>partition</b> of \( S \): a collection of disjoint sets whose union is equal to \( S \). The converse is also true, all unique partitions of \( S \) denote a unique equivalence relation on \( S \).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5e3afd1" class="outline-2">
+<h2 id="org5e3afd1"><span class="section-number-2">4</span> Total Orders</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+A <b>total order</b> or <b>full order</b> is a relation, \( \le \) on some set \( S \) which is <b>transitive</b> and also the following hold \( \forall a, b \in S \):
+</p>
+</div>
+
+<div id="outline-container-orgbad3893" class="outline-3">
+<h3 id="orgbad3893"><span class="section-number-3">4.1</span> Antisymmetric</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+\( a \le b \land b \le a \implies a = b \)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf5ec116" class="outline-3">
+<h3 id="orgf5ec116"><span class="section-number-3">4.2</span> Connex</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+\( a \le b \) or \( b \le a \) 
+</p>
+
+<p>
+A set paired with a total order, \( (S, \le) \) is called a <b>totally ordered set</b> or <b>chain</b>. For example \( (\mathbb{R}, \le) \) forms a totally ordered set but \( (\mathbb{R}, <) \) does not (not connex).
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-05-21 Thu 18:52</p>
+<p class="date">Created: 2020-06-07 Sun 20:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

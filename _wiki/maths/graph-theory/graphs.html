@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-21 Thu 18:52 -->
+<!-- 2020-06-07 Sun 20:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Logic</title>
+<title>Graphs</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -180,12 +180,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/><link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script><script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script><script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -257,196 +252,136 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-Previous: <a href='./functions.html'>Functions</a>, Next: <a href='./modular-arithmetic.html'>Modular Arithmetic</a><span style='float: right;'>Up: <a href='./set-theory.html'>Set Theory</a></span><hr><h1 class="title">Logic</h1>
+Previous: <a href='./graph-colouring.html'>Graph Colouring</a><span style='float: right;'>Up: <a href='./graph-theory.html'>Graph Theory</a></span><hr><h1 class="title">Graphs</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge341be7">1. Propositions</a>
+<li><a href="#orge6796eb">1. Introduction</a></li>
+<li><a href="#org1e2f96c">2. Vertex Sequences</a>
 <ul>
-<li><a href="#org54194a3">1.1. Examples</a>
-<ul>
-<li><a href="#org245929d">1.1.1. Predicates</a></li>
-<li><a href="#orgb92ffeb">1.1.2. Quantifiers</a></li>
-<li><a href="#org09a7a3e">1.1.3. Propositions</a></li>
+<li><a href="#orgcb445f9">2.1. <b>Definition</b></a></li>
+<li><a href="#org7722d75">2.2. <b>Definition</b></a></li>
+<li><a href="#org3ace6b1">2.3. <b>Definition</b></a></li>
+<li><a href="#orgb59670b">2.4. <b>Definition</b></a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#org3a0230c">2. Implication</a>
+<li><a href="#orgde11600">3. Adjacency Matrices</a>
 <ul>
-<li><a href="#org8e1e655">2.1. Truth Table</a></li>
+<li><a href="#orgfe8d5ed">3.1. Applications</a></li>
 </ul>
 </li>
-<li><a href="#orga4fd3b9">3. Contrapositive</a></li>
-<li><a href="#org0ec0262">4. Links</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge341be7" class="outline-2">
-<h2 id="orge341be7"><span class="section-number-2">1</span> Propositions</h2>
+<div id="outline-container-orge6796eb" class="outline-2">
+<h2 id="orge6796eb"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-A proposition is a sentence which can be considered either true or false (not both). It
-consists of <b>quantifiers</b> and <b>predicates</b>. A quantifier assigns values to variables
-and predicates are statements in free variables (variables which are not tied to a
-definintion/value).
+We denote a graph as \( G(V, E) \), where \( V = \{ v_1, v_2 ... v_n \} \) is the vertex set of the graph and
+\( E = \{ (v_a, v_b) ... (v_c, v_d) \} \) as the edge set of the graph.
+</p>
+
+<p>
+If \( G \) is a <b>directed graph</b> then the elements of \( E \) will be ordered (ie \( (v_1, v_2) \) is distinct from \( (v_2, v_1) \)), otherwise \( G \) is <b>undirected</b>.
+</p>
+
+<p>
+We also say \( G \) is <b>simple</b> if there is at most on edge connecting any pair of vertices, and no edges connecting a vertex to itself.
 </p>
 </div>
-
-<div id="outline-container-org54194a3" class="outline-3">
-<h3 id="org54194a3"><span class="section-number-3">1.1</span> Examples</h3>
-<div class="outline-text-3" id="text-1-1">
-</div>
-<div id="outline-container-org245929d" class="outline-4">
-<h4 id="org245929d"><span class="section-number-4">1.1.1</span> Predicates</h4>
-<div class="outline-text-4" id="text-1-1-1">
-<ul class="org-ul">
-<li>\( a \) and \( b \) are coprime</li>
-<li>\( x > x^2 \)</li>
-</ul>
-</div>
 </div>
 
-<div id="outline-container-orgb92ffeb" class="outline-4">
-<h4 id="orgb92ffeb"><span class="section-number-4">1.1.2</span> Quantifiers</h4>
-<div class="outline-text-4" id="text-1-1-2">
-<ul class="org-ul">
-<li>Let \( n \) be an integer</li>
-<li>\( \forall x \in \mathbb{R} \)</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org09a7a3e" class="outline-4">
-<h4 id="org09a7a3e"><span class="section-number-4">1.1.3</span> Propositions</h4>
-<div class="outline-text-4" id="text-1-1-3">
-<ul class="org-ul">
-<li>\( e^{i\theta} = cos\theta + isin\theta \)</li>
-<li>\( \forall n \in \mathbb{N} \) and for some constant \( k \), \( k^n = O(n!) \)</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org3a0230c" class="outline-2">
-<h2 id="org3a0230c"><span class="section-number-2">2</span> Implication</h2>
+<div id="outline-container-org1e2f96c" class="outline-2">
+<h2 id="org1e2f96c"><span class="section-number-2">2</span> Vertex Sequences</h2>
 <div class="outline-text-2" id="text-2">
-<p>
-The statement 
-\[
- A \Rightarrow B 
-\] 
-is equivalent to \( \neg A \lor B \). Read \( A \) implies
-\( B \) or \( A \) is sufficient for \( B \). Or if \( A \) then \( B \).
-</p>
-
-<p>
-See <a href="https://math.stackexchange.com/questions/61779/problem-in-understanding-p-implies-q">https://math.stackexchange.com/questions/61779/problem-in-understanding-p-implies-q</a>
-</p>
 </div>
-
-<div id="outline-container-org8e1e655" class="outline-3">
-<h3 id="org8e1e655"><span class="section-number-3">2.1</span> Truth Table</h3>
+<div id="outline-container-orgcb445f9" class="outline-3">
+<h3 id="orgcb445f9"><span class="section-number-3">2.1</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-1">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">\( A \)</th>
-<th scope="col" class="org-left">\( B \)</th>
-<th scope="col" class="org-left">\( A \Rightarrow B \)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">T</td>
-<td class="org-left">T</td>
-<td class="org-left">T</td>
-</tr>
-
-<tr>
-<td class="org-left">T</td>
-<td class="org-left">F</td>
-<td class="org-left">F</td>
-</tr>
-
-<tr>
-<td class="org-left">F</td>
-<td class="org-left">T</td>
-<td class="org-left">T</td>
-</tr>
-
-<tr>
-<td class="org-left">F</td>
-<td class="org-left">F</td>
-<td class="org-left">T</td>
-</tr>
-</tbody>
-</table>
-
-
 <p>
-The third and fourth entries in the above truth table may not seem intuitive at first. However,
-note that the statement \( A \Rightarrow B \) assumes <b>no causal relationship</b> between 
-\( A \) and \( B \). Intuitively, \( A \Rightarrow B \) means \( B \) is no more false than
-\( A \).
+A <b>walk</b> in a graph \( G(V, E) \) is a finite sequence of vertices \( (v_1 ... v_k) \) such that each consecutive pair forms an edge of \( G \).
 </p>
+</div>
+</div>
 
+<div id="outline-container-org7722d75" class="outline-3">
+<h3 id="org7722d75"><span class="section-number-3">2.2</span> <b>Definition</b></h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
-If \( A \) is false, \( A \Rightarrow B \) is said to be "vacuously" true.
+A <b>trail</b> is a walk in which all the edges \( e_i = (v_i, v_{i + 1}) \) are distinct. We can remember this by associating them with <b>Eulerian trails</b> (which much visit every edge exactly once).
 </p>
+</div>
+</div>
 
+<div id="outline-container-org3ace6b1" class="outline-3">
+<h3 id="org3ace6b1"><span class="section-number-3">2.3</span> <b>Definition</b></h3>
+<div class="outline-text-3" id="text-2-3">
 <p>
-<a href="https://www.slideshare.net/nszakir/chapter3-direct-proof-and-proof-by-contrapositive">This</a> link gives a set of slides with some examples and more information.
+A <b>path</b> is a trail in which a vertex occurs occurs only once in the edge sequence.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb59670b" class="outline-3">
+<h3 id="orgb59670b"><span class="section-number-3">2.4</span> <b>Definition</b></h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+A <b>cycle</b> is a trail in which all the vertices are distinct, except for the first and last which are the same.
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga4fd3b9" class="outline-2">
-<h2 id="orga4fd3b9"><span class="section-number-2">3</span> Contrapositive</h2>
+<div id="outline-container-orgde11600" class="outline-2">
+<h2 id="orgde11600"><span class="section-number-2">3</span> Adjacency Matrices</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-If \( A \) is sufficient for \( B \) then it follows that:
+Given a directed or undirected graph \( G(V, E) \) on \( n \) vertices, we define the <b>adjacency matrix</b>, \( A \), of \( G \) as an \( n * n \) matrix with entries given by:
 </p>
-<ol class="org-ol">
-<li>\( B \) is necessary for \( A \)</li>
-<li>\( \neg B \) is sufficient for \( \neg A \) (using \( \neg B \Rightarrow \neg A \))</li>
-<li>\( A \Rightarrow B \equiv \neg B \Rightarrow \neg A \)</li>
-</ol>
-
 
 <p>
-\( \neg B \Rightarrow \neg A \) is the <b>Contrapositive</b> of \( A \Rightarrow B \)
+\[
+A_{i, j} = \begin{cases} 
+   1 & \text{if } (v_i, v_j) \in E \\
+   0 & \text{otherwise}
+  \end{cases}
+\]
+</p>
+
+<p>
+This is always symmetric if \( G \) is undirected, and zeroes always fill the main diagonal if \( G \) is <b>simple</b>.
 </p>
 </div>
-</div>
 
-<div id="outline-container-org0ec0262" class="outline-2">
-<h2 id="org0ec0262"><span class="section-number-2">4</span> Links</h2>
-<div class="outline-text-2" id="text-4">
-<ol class="org-ol">
-<li>More info on the implication statement: <a href="https://www.slideshare.net/nszakir/chapter3-direct-proof-and-proof-by-contrapositive">https://www.slideshare.net/nszakir/chapter3-direct-proof-and-proof-by-contrapositive</a></li>
-</ol>
+<div id="outline-container-orgfe8d5ed" class="outline-3">
+<h3 id="orgfe8d5ed"><span class="section-number-3">3.1</span> Applications</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Note \( (A^k)_{i, j} \) gives the number of paths of length \( k \) starting at \( v_i \) and ending at \( v_j \). Hence using matrix associativiy we can compute this value in \( O(log(k)) \) or \( O(1) \) time. 
+</p>
+
+<p>
+We can extends this to find the number of paths of length \( 1 \le x \le k \) starting at \( v_i \) and ending at \( v_j \), by noting this is equal to:
+</p>
+
+<p>
+\[
+(A + A^2 + ... + A^k)_{i, j} = \left( A(A^k - I_n)(A - I_n)^{-1} \right)_{i, j}
+\]
+</p>
+
+<p>
+Which can be computed in the same time complexity.
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-05-21 Thu 18:52</p>
+<p class="date">Created: 2020-06-07 Sun 20:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

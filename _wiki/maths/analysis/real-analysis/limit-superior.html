@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-21 Thu 18:52 -->
+<!-- 2020-06-07 Sun 20:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Relations</title>
+<title>The Limit Superior</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -180,12 +180,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/><link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script><script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script><script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -257,28 +252,105 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-Previous: <a href='./modular-arithmetic.html'>Modular Arithmetic</a>, Next: <a href='./similar-congruences.html'>Similar Congruences</a><span style='float: right;'>Up: <a href='./set-theory.html'>Set Theory</a></span><hr><h1 class="title">Relations</h1>
+Previous: <a href='./intermediate-value-theorem.html'>Intermediate Value Theorem</a>, Next: <a href='./power-series.html'>Power Series</a><span style='float: right;'>Up: <a href='./real-analysis.html'>Real Analysis</a></span><hr><h1 class="title">The Limit Superior</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3835210">1. Equivalence Class</a></li>
+<li><a href="#org583b0b2">1. Definition</a></li>
+<li><a href="#org95db5f3">2. Interpretation</a></li>
+<li><a href="#orge087457">3. Examples</a></li>
+<li><a href="#org29775ee">4. Questions</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3835210" class="outline-2">
-<h2 id="org3835210"><span class="section-number-2">1</span> Equivalence Class</h2>
+<div id="outline-container-org583b0b2" class="outline-2">
+<h2 id="org583b0b2"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-If \( R \) is an equivalence relation on a set \( A \), and \( a \in A \). Then the <b>Equivalence class</b> of \( A \) is defined as 
+We define the <b>limit superior</b> of a sequence \( a_n \) as follows:
+</p>
+
+<p>
+\[
+\limsup_{n \to \infty}{a_n} = \lim_{n \to \infty}{\left( \sup_{m \geq n}{a_m} \right)}
+\]
+</p>
+
+<p>
+An equivalent but perhaps more intuitive definition is:
+</p>
+
+<p>
+\[
+    \limsup_{n \to \infty}{a_n} = \sup{S}
+\]
+</p>
+
+<p>
+Where \( S \) is the set of limits of all <b>convergent</b> subsequences of \( a_n \).  The <b>limit inferior</b> is defined similarly:
+</p>
+
+<p>
+\[
+\liminf_{n \to \infty}{a_n} = \lim_{n \to \infty}{\left( \inf_{m \geq n}{a_m} \right)}
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org95db5f3" class="outline-2">
+<h2 id="org95db5f3"><span class="section-number-2">2</span> Interpretation</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Consider some sequence \( a_n \) where the limit superior is not infinite. Then the limit superior \( b \) is the smallest real number s.t. \( \forall \epsilon > 0 \), there exist only a finite \( n \) s.t. \( a_n > b + \epsilon \).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge087457" class="outline-2">
+<h2 id="orge087457"><span class="section-number-2">3</span> Examples</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Define \( a_n = \sin{n\pi} \) 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org29775ee" class="outline-2">
+<h2 id="org29775ee"><span class="section-number-2">4</span> Questions</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Show that a sequence \( a_n \) converges iff:
+</p>
+
+<p>
+\[
+ \limsup_{n \to \infty}{a_n} = \liminf_{n \to \infty}{a_n} 
+\]
+</p>
+
+
+<p>
+Show that if the sequences \( a_n \) and \( b_n \) are bounded above then:
+</p>
+
+<p>
+\[ 
+\limsup_{n \to \infty}{\left(a_n + b_n\right)} \le \limsup_{n \to \infty}{a_n} + \limsup_{n \to \infty}{b_n}
+\]
+</p>
+
+<p>
+and find a similar relation for the limit inferior.
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-05-21 Thu 18:52</p>
+<p class="date">Created: 2020-06-07 Sun 20:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

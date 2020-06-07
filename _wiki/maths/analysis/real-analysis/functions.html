@@ -6,11 +6,9 @@
 <!-- 2020-06-07 Sun 20:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>An Accumulated Sequence</title>
+<title>Functions</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Laurence Warne" />
-<meta name="description" content="A question on the all ones sequence"
- />
+<meta name="author" content="LaurenceWarne" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -182,7 +180,12 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/><link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script><script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script><script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -254,208 +257,119 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-Next: <a href='./questions.html'>Questions</a><span style='float: right;'>Up: <a href='./maths.html'>Maths</a></span><hr><h1 class="title">An Accumulated Sequence</h1>
+Previous: <a href='./big-o-notation.html'>Big O Notation</a>, Next: <a href='./intermediate-value-theorem.html'>Intermediate Value Theorem</a><span style='float: right;'>Up: <a href='./real-analysis.html'>Real Analysis</a></span><hr><h1 class="title">Functions</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7903bcd">1. Question</a></li>
-<li><a href="#orga6c4027">2. Recursions</a></li>
-<li><a href="#org48e6f31">3. To Closed Form</a></li>
+<li><a href="#orgea113ca">1. Function Definition</a>
+<ul>
+<li><a href="#orgdb2a69d">1.1. Examples</a></li>
+</ul>
+</li>
+<li><a href="#org00d8ab5">2. Injective Property</a></li>
+<li><a href="#org12a9b24">3. Surjective Property</a></li>
+<li><a href="#orga302580">4. Permutation</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7903bcd" class="outline-2">
-<h2 id="org7903bcd"><span class="section-number-2">1</span> Question</h2>
+<div id="outline-container-orgea113ca" class="outline-2">
+<h2 id="orgea113ca"><span class="section-number-2">1</span> Function Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Define the sequence \( (a_n)_n = 1 \). Now consider taking the first 4 elements of
-the sequence:
-\[ 1 \ \ 1 \ \ 1 \ \ 1 \]
-Now throw away the first element to get:
-\[ 1 \ \ 1 \ \ 1 \]
-Set the new second element to the sum of the first element and old second element,
-and similarly set the new third element to the sum of the old third element and
-new second element and so on to get:
-\[ 1 \ \ 2 \ \ 3 \]
-If we then apply the same process to this new sequence we get:
-\[ 2 \ \ 5 \]
-And so if we apply the process until we are left with one element we get 5. This can
-easily be generalised to starting with n lots of ones, and applying the process n - 1
-times to be left with one element, \( f(n) \). Can we find a closed form for \( f(n) \)?
+A function is a mapping from a domain \( A \) to a codomain \( B \). More specifically, a
+function associates every value in the domain with precisely one value in the codomain.
 </p>
+
+<p>
+\[ f\colon A\to B : x\mapsto f(x) \]
+</p>
+
+<p>
+A function is bijective if it is both injective and surjective.
+</p>
+</div>
+
+<div id="outline-container-orgdb2a69d" class="outline-3">
+<h3 id="orgdb2a69d"><span class="section-number-3">1.1</span> Examples</h3>
+<div class="outline-text-3" id="text-1-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Injective</th>
+<th scope="col" class="org-left">Not Injective</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>Surjective</b></td>
+<td class="org-left">\( f\colon \mathbb{R} \to \mathbb{R} : x\mapsto x \)</td>
+<td class="org-left">\( f\colon \mathbb{R} \to \mathbb{R} : x\mapsto x^3 + x \)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Not Surjective</b></td>
+<td class="org-left">\( f\colon \mathbb{R} \to \mathbb{R} : x\mapsto e^x \)</td>
+<td class="org-left">\( f\colon \mathbb{R} \to \mathbb{R} : x\mapsto x^2 \)</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
-<div id="outline-container-orga6c4027" class="outline-2">
-<h2 id="orga6c4027"><span class="section-number-2">2</span> Recursions</h2>
+<div id="outline-container-org00d8ab5" class="outline-2">
+<h2 id="org00d8ab5"><span class="section-number-2">2</span> Injective Property</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-If we stack each pass of the process on top of one another, we obtain the diagram:
-</p>
-
-\begin{array}{|c|c|c|c|}
-\hline
-  1 & 1 & 1 & 1 \\\hline
-    & 1 & 2 & 3 \\\hline
-    &   & 2 & 5 \\\hline
-    &   &   & 5 \\\hline
-\end{array}
-
-<p>
-Note starting with more 1s in the first row simply extends the diagram to the right
-and does not change the triangle left of the new column. It can be seen from
-our definition above, each element in the diagram (above the first row) is equal to
-the sum of the element above it and the element immediately to the left of it, save
-for the elements we are interested in, which are equal solely to the elements above
-them.
+A function is injective if it describes a one-one mapping between \( A \) and \( B \). In
+other words every element in the image f is associated with precisely one value in the
+domain \( A \). 
 </p>
 
 <p>
-However, we can incorporate these elements into
-the relation by making the following edit to our diagram:
-</p>
-
-\begin{array}{|c|c|c|c|}
-  \hline
-  1 & 1 & 1 & 1 \\\hline
-  0 & 1 & 2 & 3 \\\hline
-    & 0 & 2 & 5 \\\hline
-    &   & 0 & 5 \\\hline
-\end{array}
-
-<p>
-Let \( n \) span accross the columns, and \( k \) span accross the rows (like Pascal's triangle), ie so that \( f(3, 1) = 3 \) and consider the diagram again. We obtain:
-</p>
-
-<p>
-Formally:
-</p>
-
-\begin{align*}
-&f(n, 0)       = 1                          &\forall n     \\
-&f(n, k=n + 1) = 0                          &\forall n > 0 \\
-&f(n, k)       = f(n - 1, k) + f(n, k - 1)  &1 \le k \le n \\
-\end{align*}
-
-<p>
-We can reason from the above recursion that each number in the diagram can be written
-as some sum of the leftmost nonzero elements on each row, added to some sum of
-elements in the first row (\( k = 0 \)), which also happen to be equal to the leftmost
-element of the first row (\( f(0, 0) = 1 \)). These are the numbers we are interested
-in. ie:
-</p>
-
-<p>
-\[ f(n) = \sum_{r=1}^{n-1} A_r * f(r) \]
-</p>
-
-<p>
-Where \( A_r \) is some constant to be determined. Now we can consider how each 
-\( f(r) \) contributes to \( f(n) \) via the following diagram:
-</p>
-
-\begin{array}{|c|c|c|c|}
-  \hline
-  f(r) \rightarrow & f(r) + B_1 \rightarrow \downarrow & f(r) + C_1 \rightarrow \downarrow & f(r) + D_1 \rightarrow \downarrow  \\\hline
-  0  & f(r + 1) & f(r) + B_2 \rightarrow & 2f(r) + C_2 \rightarrow \downarrow \\\hline
-  & 0 & f(r + 2) & 2f(r) + B_3 \rightarrow \\\hline
-\end{array}
-
-<p>
-Where \( C, B, D \) are constants consisting of sums of other \( f(s) \). Note we
-do not arrow constributions to \( f(r+1) \) as these are the source of the
-contributions and we need to keep these "atomic". We can observe from this diagram
-that:
-</p>
-
-<p>
-\[ A_r = f(n - r) \]
-</p>
-
-<p>
-This also works for the base row, as we can just rewrite 1 = f(1) (thus all 
-constants are 0), and hence:
-</p>
-
-<p>
-\[ f(n) = \sum_{r=1}^{n - 1} f(r)*f(n - r) \]
+If \( f \) is injective then \( |A| = |f(A)| \)
 </p>
 </div>
 </div>
 
-<div id="outline-container-org48e6f31" class="outline-2">
-<h2 id="org48e6f31"><span class="section-number-2">3</span> To Closed Form</h2>
+<div id="outline-container-org12a9b24" class="outline-2">
+<h2 id="org12a9b24"><span class="section-number-2">3</span> Surjective Property</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-First of all lets let \( f(0) = 0 \) which will make things a little simpler, now
-let's define the generating function:
+A function is surjective if the image of the function is equal to its codomain. If this is true
+then \( |f(A)| = |B| \).
 </p>
+</div>
+</div>
 
+<div id="outline-container-orga302580" class="outline-2">
+<h2 id="orga302580"><span class="section-number-2">4</span> Permutation</h2>
+<div class="outline-text-2" id="text-4">
 <p>
-\[ F(x) = \sum_{n=0} f(n)x^n \]
-</p>
-
-<p>
-And now sum our recursion over all \( n \) where it's valid (\( n > 2 \)):
-</p>
-
-<p>
-\[ \sum_{n=2} f(n)x^n = \sum_{n=2}\sum_{r=0}^{n} f(r)*f(n - r)x^n \]
-</p>
-
-<p>
-Simplifying the LHS and using the definition of multiplication in the ring of 
-formal power series on the RHS:
-</p>
-
-<p>
-\[ F(x) - x = \sum_{n=0}f(n)x^n \sum_{n=0}f(n)x^n \]
-</p>
-
-<p>
-Simplifying and collecting terms:
-</p>
-
-<p>
-\[ F(x)^2 - F(x) + x = 0 \]
-</p>
-
-<p>
-Quadratic formula (neglecting + sign, this will give us \( f(0) = 1 \) ):
-</p>
-
-<p>
-\[ F(x) = \frac{1 - \sqrt{1 - 4x}}{2} \]
-</p>
-
-<p>
-Attempt to extract \( x \) coefficients using binomial expansion:
-</p>
-
-<p>
-\[ F(x) = \frac{-1}{2}\left( \frac{\frac{1}{2}}{1!}\left(-4x\right) + \frac{\frac{1}{2}\frac{-1}{2}}{2!}\left(-4x\right)^2 + ... \right) \]
-</p>
-
-<p>
-After some arduous simplifications, we find the general \( x \) coefficient is given
-by:
-</p>
-
-<p>
-\[ \frac{(2n - 2)!}{n! * (n - 1)!} \]
-</p>
-
-<p>
-Which is the (n - 1)th Catalan number, ie \( f(n) = C_{n - 1} \).
+Let \( A \) be a set, then a permutation is a bijection from \( A\to A \). Hence \( f\colon 
+A \to A \) is a permutation if it is injective (and therefore surjective).
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2020-04-06 Mon 11:53</p>
-<p class="author">Author: Laurence Warne</p>
+<p class="author">Author: LaurenceWarne</p>
 <p class="date">Created: 2020-06-07 Sun 20:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
