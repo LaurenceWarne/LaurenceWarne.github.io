@@ -12,6 +12,10 @@ permalink: /links/
 
 * <a href="https://crypto.stanford.edu/pbc/notes/numberfield/">Notes on Numbers and Fields</a>
 
+* <a href="http://book.mathreference.com/">Notes on just on about everything</a> by Karl Dahlke
+
+* <a href="https://github.com/rossant/awesome-math">Mathematics entry to the Github "awesome" series</a>
+
 # Question Sources
 
 * <a href="https://mathschallenge.net/archive">MathsChallenge</a>
