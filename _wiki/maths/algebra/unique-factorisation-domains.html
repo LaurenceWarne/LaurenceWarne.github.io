@@ -6,7 +6,7 @@
 <!-- 2020-06-17 Wed 23:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ideals</title>
+<title>Unique Factorisation Domains</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -252,191 +252,96 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-Previous: <a href='./factor-groups.html'>Factor Groups</a>, Next: <a href='./integral-domains.html'>Integral Domains</a><span style='float: right;'>Up: <a href='./algebra.html'>Algebra</a></span><hr><h1 class="title">Ideals</h1>
+<span >Up: <a href='./algebra.html'>Algebra</a></span><hr><h1 class="title">Unique Factorisation Domains</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc4620a8">1. Definition</a></li>
-<li><a href="#org27c5ea6">2. Special Ideals</a>
-<ul>
-<li><a href="#org6ec7fd2">2.1. Maximal Ideals</a>
-<ul>
-<li><a href="#org3b911bc">2.1.1. <b>Definition</b></a></li>
-<li><a href="#org84dfc83">2.1.2. <b>Theorem</b></a></li>
-<li><a href="#org824a849">2.1.3. <b>Proof</b></a></li>
-</ul>
-</li>
-<li><a href="#orgcbb9019">2.2. Prime Ideals</a>
-<ul>
-<li><a href="#orge7f48b9">2.2.1. *Definition</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#org592d11f">1. Introduction</a></li>
+<li><a href="#orgbd5739e">2. UFDs and PIDs</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc4620a8" class="outline-2">
-<h2 id="orgc4620a8"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-org592d11f" class="outline-2">
+<h2 id="org592d11f"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<b>Definition</b> We say a nonzero non-unit element in a <b>integral domain</b> is <b>irreducible</b> if it cannot be written as the product of two non-units.
+</p>
+
+<p>
+<b>Definition</b> We say a nonzero element, \( p \), in a <b>commutative ring</b> \( R \), is <b>prime</b> if \( \forall a, b \in R \):
+</p>
+
+<p>
+\[
+p | ab \implies p | a \text{ or } p | b
+\]
+</p>
+
+<p>
+<b>Theorem</b> <i>All prime elements in an integral domain are irreducible</i>.
+</p>
+
+<p>
+<b>Proof</b> By contradiction, suppose a prime element \( p\in R \) is not irreducible, ie there exist non-units \( x, y \in R \ s.t. \ p= xy \). By the definition of prime elements, we must have:
+</p>
+
+<p>
+\[
+p | x \text{ or } p | y
+\]
+</p>
+
+<p>
+WLOG suppose \( x = p*r \) for some \( r \in R \). So then:
+</p>
+
+\begin{align*}
+&\implies pry = p       &\\
+&\implies p(ry - 1) = 0 &\\
+&\implies ry = 1        & \text{ Since p is nonzero and R is an integral domain}\\
+&\implies y \text{ is invertible }
+\end{align*}
+
+<p>
+A contradiction, hence \( p \) is irreducible.
+</p>
+
+<p>
+The converse however is <b>not true</b> in general, for example in \( Z[\sqrt{-5}] \), 3 is irreducible but \( 9 = (2 + \sqrt{-5})(2 - \sqrt{-5}) \), and 3 does not divide either of these elements. The converse is true if \( R \) is a <b>UFD</b> (or more generally a GCD domain).
+</p>
+
+<p>
+<b>Definition</b> We say an integral domain, \( R \), is a <b>unique factorisation domain</b> if:
+</p>
+
+<ol class="org-ol">
+<li>Every nonzero non-unit is a product of irreducibles.</li>
+<li>The decomposition from 1. is unique up to order and multiplication by units.</li>
+</ol>
+
+<p>
+Equivalently, since uniqueness is hard to verify, an ID is a UFD if every nonzero element can be written as a product of a unit and prime elements of \( R \).
+</p>
+
+<p>
+Intuitively, an integral domain is a UFD if a statement analagous to the <b>fundamental theorem of arithmetic</b> holds.
+</p>
+</div>
 </div>
 
-<div id="outline-container-org27c5ea6" class="outline-2">
-<h2 id="org27c5ea6"><span class="section-number-2">2</span> Special Ideals</h2>
+<div id="outline-container-orgbd5739e" class="outline-2">
+<h2 id="orgbd5739e"><span class="section-number-2">2</span> UFDs and PIDs</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-We specify \( R \) as a commutative ring.
-</p>
-</div>
-
-<div id="outline-container-org6ec7fd2" class="outline-3">
-<h3 id="org6ec7fd2"><span class="section-number-3">2.1</span> Maximal Ideals</h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-org3b911bc" class="outline-4">
-<h4 id="org3b911bc"><span class="section-number-4">2.1.1</span> <b>Definition</b></h4>
-<div class="outline-text-4" id="text-2-1-1">
-<p>
-We say a proper ideal \( I \) of \( R \), is a maximal ideal if for all ideals \( J \) such that \( I \subseteq J \), then either \( J = I \) or \( J = R \).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org84dfc83" class="outline-4">
-<h4 id="org84dfc83"><span class="section-number-4">2.1.2</span> <b>Theorem</b></h4>
-<div class="outline-text-4" id="text-2-1-2">
-<p>
-The factor ring \( R / I \) is a field iff \( I \) is a maximal ideal in \( R \).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org824a849" class="outline-4">
-<h4 id="org824a849"><span class="section-number-4">2.1.3</span> <b>Proof</b></h4>
-<div class="outline-text-4" id="text-2-1-3">
-<p>
-<b>(forward case)</b>: By contrapositive; suppose \( I \) is not maximal in \( R \), ie there exists some ideal \( J \) such that \( I \subset J \subset R \). We show that there is a non-invertible element in \( R/I \). Let:
+<b>Theorem</b> <i>If \( R \) is a PID, then \( R \) is a UFD.</i>
 </p>
 
 <p>
-\[
-   K = J \backslash I
-   \]
+<b>Proof</b> 
 </p>
-
-<p>
-Note \( 1 \notin J \) (else \( J = R \)) and \( K \) is nonempty and contains some nonzero element, say \( b \). Now consider \( b + I \in R / I \). Let:
-</p>
-
-<p>
-\[
-   S = \{ (r + I)(b + I) = (rb) + I : r \in R \}
-   \]
-</p>
-
-<p>
-Now suppose for some \( r \in R \):
-</p>
-
-\begin{align*}
-(rb) + I = 1 + I & \implies b' + I = 1 + I \\
-   	      	 & \implies \exists c \in b' + I \subset J \ s.t. \ c = 1 
-\end{align*}
-
-<p>
-Which is a contradiction as \( J \) is a proper ideal. Hence \( b + I \) has no inverse in \( R/I \), hence \( R/I \) is not a field.
-</p>
-
-<p>
-<b>(backward case)</b>: By contrapositive; note \( R/I \) is a field iff its only ideals are \( \{ 0 + I \} \) and \( R/I \). Now suppose \( R/I \) is not a field, ie there exists some nontrivial proper ideal \( J \) which contains some nonzero element (along with \( 0 + I \)). We show then that it cannot be the case that \( I \) is maximal.
-</p>
-
-\begin{align*}
-J &= \{ b_1 + I, \ b_2 + I, ... \}\\
-  &= \{ \{ b_1 + a : a \in I \}, \ \{b_2 + a : a \in I \}, ... \}
-\end{align*}
-
-<p>
-We claim the following is a proper ideal of \( R \) containing \( I \):
-</p>
-
-<p>
-\[
-J' = \bigcup\limits_{\forall i} (b_i + J)
-\]
-</p>
-
-<p>
-We already know \( J' \) contains all elements of \( I \) (including \( 0 \)) as \( J \) contains \( 0 + I = I \). So we first show \( J' \) is closed under multiplication from \( R \). since \( J \) is an ideal of \( R/I \) we know that for all  \(r \in R, \ b_i + I \in J \):
-</p>
-
-<p>
-\[
-(r + I)*(b_i + I) = b_j + I
-\]
-</p>
-
-<p>
-For some \( b_j + I \in J \). So then:
-</p>
-
-<p>
-\[
-\implies rb_i \in b_j + I \subset J'
-\]
-</p>
-
-<p>
-Hence \( J' \) is closed under multiplication from \( R \). We show \( J' \) is closed under addition. Let \( b_i, b_j \in J \), and consider: 
-</p>
-
-<p>
-\[
-b_i + b_j \in (b_i + I) + (b_j + I)
-\]
-</p>
-
-<p>
-But since \( J \) is an ideal, it is closed under addition and so:
-</p>
-
-<p>
-\[
-(b_i + I) + (b_j + I) = (b_k + I) \subset J' \\
-\implies b_i + b_j \in J'
-\]
-</p>
-
-<p>
-For some \( k \). It remains to show \( J' \) is proper, suppose it's not for a contradiction:
-</p>
-
-\begin{align*}
-J' = R &\implies 1 \in J' \\
-&\implies (1 + I) \in J \\
-&\implies J = R/I
-\end{align*}
-
-<p>
-Which is a contradiction since \( J \) is proper. So we have show \( J' \) is a proper ideal containing \( I \), which is therefore not maximal. This concludes the backward case.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgcbb9019" class="outline-3">
-<h3 id="orgcbb9019"><span class="section-number-3">2.2</span> Prime Ideals</h3>
-<div class="outline-text-3" id="text-2-2">
-</div>
-<div id="outline-container-orge7f48b9" class="outline-4">
-<h4 id="orge7f48b9"><span class="section-number-4">2.2.1</span> *Definition</h4>
-<div class="outline-text-4" id="text-2-2-1">
-<p>
-We say an <b>proper</b> ideal \( I \) of a commutative ring \( R \) is prime if, for any two elements \( a, b \in R \) such that \( ab \in I \) we must have \( a \in I \lor b \in I \).
-</p>
-</div>
-</div>
 </div>
 </div>
 </div>

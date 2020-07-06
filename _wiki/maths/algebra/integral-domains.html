@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-07 Sun 20:28 -->
+<!-- 2020-06-17 Wed 23:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Integral Domains</title>
@@ -275,9 +275,9 @@ Previous: <a href='./ideals.html'>Ideals</a><span style='float: right;'>Up: <a h
 </p>
 
 <ol class="org-ol">
-<li>If \( a \in R, \ b \ne 0 \in R \) then \( \exists q, r \in R \) such that \( a = qb + r \) and either \( r = 0 \) or \( f(r) < f(b) \)</li>
+<li>If \( a \in R, \ b \ne 0 \in R \) then \( \exists q, r \in R \) such that \( a = qb + r \) and either \( r = 0 \) or \( d(r) < d(b) \)</li>
 
-<li>For all \( a, b \in R \ne 0 \) we have \( f(a) \le f(ab) \)</li>
+<li>For all \( a, b \in R \ne 0 \) we have \( d(a) \le d(ab) \)</li>
 </ol>
 
 <p>
@@ -291,7 +291,9 @@ So Euclidean Domains generalise the <b>Division Theorem</b> to (commutative) rin
 <ol class="org-ol">
 <li>The Gaussian integers \( \mathbb{Z}[i] \) are a Euclidean domain. This can be seen by taking \( d(a + bi) = |a + bi| = \sqrt{a^2 + b^2} \).</li>
 
-<li>Any field \( F \) is a Euclidean domain since we can take \( d(0) = 0 \) and \( d(x) = 1 \) for \( x \ne 0 \). To see this satisfies (1), given some \( a, b \in R \) we can choose \( q = ab^{-1} \) or \( q = 0 \) if \( a = 0 \), and have \( a = qb \) as required. (2) is trivially satisfied.</li>
+<li>Any field \( F \) is a Euclidean domain since we can take \( d(0) = 0 \) and \( d(x) = 1 \) for \( x \ne 0 \). To see this satisfies (1), given some \( a, b \in R \) we can choose \( r = 0, \ q = ab^{-1} \) or \( r = a \) and \( q \) arbitrary if \( b = 0 \), and have \( a = qb + r \) in either case as required. (2) is trivially satisfied.</li>
+
+<li>If \( K \) is a field, then the polynomial ring \( K[X] \) is a Euclidean domain, with \( d(P(x)) = deg(P(x)) \).</li>
 </ol>
 </div>
 </div>
@@ -308,12 +310,50 @@ So Euclidean Domains generalise the <b>Division Theorem</b> to (commutative) rin
 <p>
 <b>Theorem</b> All Euclidean domains are <b>Principle Ideal Domains</b>.
 </p>
+
+<p>
+<b>Proof</b> Let \( R \) be a Euclidean domain with Euclidean function \( d \), and let \( I \ne {0} \) be some ideal of \( R \). To prove the Theorem we show this must be principle.
+</p>
+
+<p>
+Let \( b \) be any nonzero element in \( R \) such that \( d(b) \) is minimal (there always exists such a \( b \) since the codomain of \( d \) is the nonnegative integers). We claim:
+</p>
+
+<p>
+\[
+\left< b \right> = I
+\]
+</p>
+
+<p>
+Let \( s \in R \) and suppose for a contradiction that \( s \not \in \left< b \right> \). By (2) we can write:
+</p>
+
+<p>
+\[
+a = bq + r
+\]
+</p>
+
+<p>
+For some \( q, r \in R \) such that \( d(r) < d(b) \). Now rearranging the above equation we get:
+</p>
+
+<p>
+\[
+r = a - bq
+\]
+</p>
+
+<p>
+Which implies \( r \in I \) since ideals are closed under addition. But then since \( d(b) \) is minimal in \( I \) we must have \( d(b) \le d(r) \), a contradiction. Hence we must conclude that \( a \in \left< b \right> \) and thus \( I \) is principle.
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-06-07 Sun 20:28</p>
+<p class="date">Created: 2020-06-17 Wed 23:05</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

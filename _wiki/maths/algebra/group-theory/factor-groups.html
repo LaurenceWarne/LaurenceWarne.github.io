@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-17 Wed 23:05 -->
+<!-- 2020-07-06 Mon 22:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ideals</title>
+<title>Factor Groups</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -252,24 +252,32 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-Previous: <a href='./factor-groups.html'>Factor Groups</a>, Next: <a href='./integral-domains.html'>Integral Domains</a><span style='float: right;'>Up: <a href='./algebra.html'>Algebra</a></span><hr><h1 class="title">Ideals</h1>
+Next: <a href='./group-actions.html'>Group Actions</a><span style='float: right;'>Up: <a href='./group-theory.html'>Group Theory</a></span><hr><h1 class="title">Factor Groups</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc4620a8">1. Definition</a></li>
-<li><a href="#org27c5ea6">2. Special Ideals</a>
+<li><a href="#orgc623751">1. Cosets and Groups</a>
 <ul>
-<li><a href="#org6ec7fd2">2.1. Maximal Ideals</a>
+<li><a href="#org8dd75b0">1.1. Disjointedness</a>
 <ul>
-<li><a href="#org3b911bc">2.1.1. <b>Definition</b></a></li>
-<li><a href="#org84dfc83">2.1.2. <b>Theorem</b></a></li>
-<li><a href="#org824a849">2.1.3. <b>Proof</b></a></li>
+<li><a href="#orgd308b68">1.1.1. Proof</a></li>
 </ul>
 </li>
-<li><a href="#orgcbb9019">2.2. Prime Ideals</a>
+<li><a href="#org81ecff6">1.2. Cosets as Groups</a>
 <ul>
-<li><a href="#orge7f48b9">2.2.1. *Definition</a></li>
+<li><a href="#orgef5d286">1.2.1. example \( S_3 \)</a></li>
+<li><a href="#orgf5cb084">1.2.2. Independent of Choice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org15c87c5">2. Normal Subgroups</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org8d6e6e5">2.0.1. Proposition</a></li>
+<li><a href="#org430a463">2.0.2. Proof</a></li>
 </ul>
 </li>
 </ul>
@@ -278,171 +286,261 @@ Previous: <a href='./factor-groups.html'>Factor Groups</a>, Next: <a href='./int
 </div>
 </div>
 
-<div id="outline-container-orgc4620a8" class="outline-2">
-<h2 id="orgc4620a8"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-orgc623751" class="outline-2">
+<h2 id="orgc623751"><span class="section-number-2">1</span> Cosets and Groups</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \( (G , \ +) \) be a group and consider some subgroup \( H \le G \), we start by defining:
+</p>
+
+<p>
+\[
+g + H = \{ g + h : \forall h \in H \} \text{ for some } g \in G
+\]
+</p>
+
+<p>
+We say \( g + H \) is a left coset of \( H \) in \( G \), right cosets are defined similarly.
+</p>
+
+<p>
+<b>Lemma 1:</b> The function \( f: H \to G, \ h \mapsto g + h \) is injective
+</p>
+
+<p>
+This follows immediately from the cancellation property of groups. From this it is apparent that (in both the finite and infinite cases):
+</p>
+
+<p>
+\[
+\left|H\right| = |g + H| \ \forall g \in G
+\]
+</p>
 </div>
 
-<div id="outline-container-org27c5ea6" class="outline-2">
-<h2 id="org27c5ea6"><span class="section-number-2">2</span> Special Ideals</h2>
+<div id="outline-container-org8dd75b0" class="outline-3">
+<h3 id="org8dd75b0"><span class="section-number-3">1.1</span> Disjointedness</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+We now prove an extremely important property of cosets. If \( g_1, \ g_2 \in G \) then exactly one of the following is true:
+</p>
+
+\begin{align*}
+1) \ &g_1 + H = g_2 + H \\
+2) \ &g_1 + H \cap g_2 + H = \emptyset 
+\end{align*}
+
+<p>
+Ie two cosets are either equal or disjoint. From this we can deduce that the cosets of \( H \) partition \( G \), and thus arrive at <b>Lagrange's Theorem</b> in the finite case.
+</p>
+</div>
+
+<div id="outline-container-orgd308b68" class="outline-4">
+<h4 id="orgd308b68"><span class="section-number-4">1.1.1</span> Proof</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Now suppose that \( g_1 + H \) and \( g_2 + H \) share some common element \( k \), and further suppose for a contradiction that there is some element \( q \in G \ s.t. \ q \in g_1 + H, \ q \not\in g_2 + H \) ie \( q = g_1 + h_3 \) for some \( h_3 \in H \). Then:
+</p>
+
+\begin{align*}
+\exists h_1, h_2 \in H \ s.t. \ k &= g_1 + h_1 \\
+k &= g_2 + h_2 \\
+\end{align*}
+
+<p>
+Equating these gives:
+</p>
+
+\begin{align*}
+&\implies g_1 = g_2 + h_2 + (-h_1) & \\
+&\implies q = g_2 + h_2 +  (-h_1) + h_3 & \\
+&\implies q \in g_2 + H &\text{ since } h_2 + (-h_1) + h_3 \in H
+\end{align*}
+
+
+<p>
+Which is a contradiction, hence there exists no such element \( q \). From this it is apparent that if the two cosets share an element, they must be subsets of one another. This completes the proof.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org81ecff6" class="outline-3">
+<h3 id="org81ecff6"><span class="section-number-3">1.2</span> Cosets as Groups</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Suppose we want to create a group whose elements are the cosets of \( H \), and which operate under the "same" binary operation as \( G \), ie
+</p>
+
+<p>
+\[
+   (a + H) + (b + H) = (a + b) + H
+   \]
+</p>
+
+<p>
+The problem here is that one coset \( g + H \) may have many representations, so the operator may not be well defined, 
+</p>
+</div>
+
+<div id="outline-container-orgef5d286" class="outline-4">
+<h4 id="orgef5d286"><span class="section-number-4">1.2.1</span> example \( S_3 \)</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+Let \( G = S_3 \), \( H = <(1 \ 2)> = \{ (1 \ 2), \ I_3 \} \) then our cosets are as follows:
+</p>
+
+<p>
+\[
+    \{(1 \ 2), \ I_3 \}, \ \{ (1 \ 3), \ (1 \ 2 \ 3) \}, \ \{ (2 \ 3), \ (3 \ 2 \ 1)\}
+    \]
+</p>
+
+<p>
+If we follow our definition of the binary operation, then:
+</p>
+
+<p>
+\[
+    \left( (1 \ 2 \ 3) * H \right) * \left( (3 \ 2 \ 1) * H \right) = I_3 * H
+    \]
+</p>
+
+<p>
+But 
+</p>
+
+<p>
+\[
+    \left( (1 \ 3) * H \right) * \left( (3 \ 2 \ 1) * H \right) = (2 \ 3) * H
+    \]
+</p>
+
+<p>
+Hence in this case the result of the operation on the cosets depends on the element we use to generate it. 
+</p>
+
+<p>
+We now find conditions in which multiplication of cosets is independent of the element we use to generate the coset.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf5cb084" class="outline-4">
+<h4 id="orgf5cb084"><span class="section-number-4">1.2.2</span> Independent of Choice</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+Let \( y \in G \), \( h_1 \in H \), and take any \( x, b \in G \) s.t.
+</p>
+
+<p>
+Suppose \( a, \ b, \ x, \ y \in G \) are such that the following is true:
+</p>
+
+\begin{align*}
+a + H &= b + H \\
+x + H &= y + H
+\end{align*}
+
+<p>
+We want \( (a + H) + (x + H) = (b + H) + (y + H) \) (ie \( (a + x) + H = (b + y) + H \) by our definition of the group operation), so that our choice of generator does not affect the product. We have:
+</p>
+
+\begin{align*}
+a &= b + h_1 \\
+x &= y + h_2
+\end{align*}
+
+<p>
+Recall \( (a + x) + H = (b + y) + H \iff (a + x) \in (b + y) + H \) now rearranging:
+</p>
+
+\begin{align*}
+(a + x) &= b + h_1 + y + h_2 \\
+   &= b + y + (-y) + h_1 + y + h_2 \\
+\end{align*}
+
+
+<p>
+Hence \( (-y) + h_1 + y \in H \implies (a + x) \in (b + y) + H \). Thus we have if \( H \) is closed under <b>conjugation</b> ( a similar, but weaker condition than commutativity) independence of choice holds.
+</p>
+
+<p>
+We show by contrapositive the converse also holds, namely if independence of choice holds, then \( H \) is normal.
+</p>
+
+<p>
+Suppose \( H \) is not closed under conjugation, ie there exists \( y \in G, \ h \in H \) s.t. \( (-y) + h + y \not \in H \).
+</p>
+
+\begin{align*}
+0 + H &= (0 + h_1) + H \\
+y + H &= y + H
+\end{align*}
+
+<p>
+Suppose also that \( (y + 0) + H = (h_1 + y) + H \).
+</p>
+
+<p>
+\[
+\implies y \in (h_1 + y) + H \\
+\implies \exists h_2 \ s.t. \ y + h_2 = h_1 + y \\
+\implies h_2 = (-y) + h1 + y
+\]
+</p>
+
+<p>
+A contradiction. Thus independence of choice holds iff \( H \) is normal in \( G \).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org15c87c5" class="outline-2">
+<h2 id="org15c87c5"><span class="section-number-2">2</span> Normal Subgroups</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-We specify \( R \) as a commutative ring.
+We can now claim if \( H \) is normal, the cosets (we will see that whether they are left or right cosets is not important) form a group under the "same" binary operation of \( H \). 
+</p>
+
+<p>
+Invertability and existence of an identity all follow by virtue of \( G \) (to be more specific, using the coset definition: \( a + H = \{ ah : h \in H \} \) readily proves these claims).
 </p>
 </div>
 
-<div id="outline-container-org6ec7fd2" class="outline-3">
-<h3 id="org6ec7fd2"><span class="section-number-3">2.1</span> Maximal Ideals</h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-org3b911bc" class="outline-4">
-<h4 id="org3b911bc"><span class="section-number-4">2.1.1</span> <b>Definition</b></h4>
-<div class="outline-text-4" id="text-2-1-1">
+<div id="outline-container-org8d6e6e5" class="outline-4">
+<h4 id="org8d6e6e5"><span class="section-number-4">2.0.1</span> Proposition</h4>
+<div class="outline-text-4" id="text-2-0-1">
 <p>
-We say a proper ideal \( I \) of \( R \), is a maximal ideal if for all ideals \( J \) such that \( I \subseteq J \), then either \( J = I \) or \( J = R \).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org84dfc83" class="outline-4">
-<h4 id="org84dfc83"><span class="section-number-4">2.1.2</span> <b>Theorem</b></h4>
-<div class="outline-text-4" id="text-2-1-2">
-<p>
-The factor ring \( R / I \) is a field iff \( I \) is a maximal ideal in \( R \).
+\( N\triangleleft G \) iff \( g + N = N + g \ \ \ \forall g \in G \). Ie the right and left cosets of \( N \) in \( G \) are identical.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org824a849" class="outline-4">
-<h4 id="org824a849"><span class="section-number-4">2.1.3</span> <b>Proof</b></h4>
-<div class="outline-text-4" id="text-2-1-3">
+<div id="outline-container-org430a463" class="outline-4">
+<h4 id="org430a463"><span class="section-number-4">2.0.2</span> Proof</h4>
+<div class="outline-text-4" id="text-2-0-2">
 <p>
-<b>(forward case)</b>: By contrapositive; suppose \( I \) is not maximal in \( R \), ie there exists some ideal \( J \) such that \( I \subset J \subset R \). We show that there is a non-invertible element in \( R/I \). Let:
-</p>
-
-<p>
-\[
-   K = J \backslash I
-   \]
-</p>
-
-<p>
-Note \( 1 \notin J \) (else \( J = R \)) and \( K \) is nonempty and contains some nonzero element, say \( b \). Now consider \( b + I \in R / I \). Let:
-</p>
-
-<p>
-\[
-   S = \{ (r + I)(b + I) = (rb) + I : r \in R \}
-   \]
-</p>
-
-<p>
-Now suppose for some \( r \in R \):
+Suppose \( k \in g + N \) then:
 </p>
 
 \begin{align*}
-(rb) + I = 1 + I & \implies b' + I = 1 + I \\
-   	      	 & \implies \exists c \in b' + I \subset J \ s.t. \ c = 1 
+\exists h \in N \ s.t. \ k = gh \\
+\implies k = (ghg^{-1})g \\
 \end{align*}
 
 <p>
-Which is a contradiction as \( J \) is a proper ideal. Hence \( b + I \) has no inverse in \( R/I \), hence \( R/I \) is not a field.
+But \( g + h + (-g) \in N \) hence \( k \in N + g \). And similarly \( k \in N + g \implies k \in g + N \).
 </p>
-
-<p>
-<b>(backward case)</b>: By contrapositive; note \( R/I \) is a field iff its only ideals are \( \{ 0 + I \} \) and \( R/I \). Now suppose \( R/I \) is not a field, ie there exists some nontrivial proper ideal \( J \) which contains some nonzero element (along with \( 0 + I \)). We show then that it cannot be the case that \( I \) is maximal.
-</p>
-
-\begin{align*}
-J &= \{ b_1 + I, \ b_2 + I, ... \}\\
-  &= \{ \{ b_1 + a : a \in I \}, \ \{b_2 + a : a \in I \}, ... \}
-\end{align*}
-
-<p>
-We claim the following is a proper ideal of \( R \) containing \( I \):
-</p>
-
-<p>
-\[
-J' = \bigcup\limits_{\forall i} (b_i + J)
-\]
-</p>
-
-<p>
-We already know \( J' \) contains all elements of \( I \) (including \( 0 \)) as \( J \) contains \( 0 + I = I \). So we first show \( J' \) is closed under multiplication from \( R \). since \( J \) is an ideal of \( R/I \) we know that for all  \(r \in R, \ b_i + I \in J \):
-</p>
-
-<p>
-\[
-(r + I)*(b_i + I) = b_j + I
-\]
-</p>
-
-<p>
-For some \( b_j + I \in J \). So then:
-</p>
-
-<p>
-\[
-\implies rb_i \in b_j + I \subset J'
-\]
-</p>
-
-<p>
-Hence \( J' \) is closed under multiplication from \( R \). We show \( J' \) is closed under addition. Let \( b_i, b_j \in J \), and consider: 
-</p>
-
-<p>
-\[
-b_i + b_j \in (b_i + I) + (b_j + I)
-\]
-</p>
-
-<p>
-But since \( J \) is an ideal, it is closed under addition and so:
-</p>
-
-<p>
-\[
-(b_i + I) + (b_j + I) = (b_k + I) \subset J' \\
-\implies b_i + b_j \in J'
-\]
-</p>
-
-<p>
-For some \( k \). It remains to show \( J' \) is proper, suppose it's not for a contradiction:
-</p>
-
-\begin{align*}
-J' = R &\implies 1 \in J' \\
-&\implies (1 + I) \in J \\
-&\implies J = R/I
-\end{align*}
-
-<p>
-Which is a contradiction since \( J \) is proper. So we have show \( J' \) is a proper ideal containing \( I \), which is therefore not maximal. This concludes the backward case.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgcbb9019" class="outline-3">
-<h3 id="orgcbb9019"><span class="section-number-3">2.2</span> Prime Ideals</h3>
-<div class="outline-text-3" id="text-2-2">
-</div>
-<div id="outline-container-orge7f48b9" class="outline-4">
-<h4 id="orge7f48b9"><span class="section-number-4">2.2.1</span> *Definition</h4>
-<div class="outline-text-4" id="text-2-2-1">
-<p>
-We say an <b>proper</b> ideal \( I \) of a commutative ring \( R \) is prime if, for any two elements \( a, b \in R \) such that \( ab \in I \) we must have \( a \in I \lor b \in I \).
-</p>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-06-17 Wed 23:05</p>
+<p class="date">Created: 2020-07-06 Mon 22:29</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
