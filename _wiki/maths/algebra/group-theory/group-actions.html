@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-17 Wed 23:05 -->
+<!-- 2020-07-06 Mon 22:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ideals</title>
+<title>Group Actions</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -252,197 +252,171 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-Previous: <a href='./factor-groups.html'>Factor Groups</a>, Next: <a href='./integral-domains.html'>Integral Domains</a><span style='float: right;'>Up: <a href='./algebra.html'>Algebra</a></span><hr><h1 class="title">Ideals</h1>
+Previous: <a href='./factor-groups.html'>Factor Groups</a>, Next: <a href='./sylows-theorems.html'>Sylows Theorems</a><span style='float: right;'>Up: <a href='./group-theory.html'>Group Theory</a></span><hr><h1 class="title">Group Actions</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc4620a8">1. Definition</a></li>
-<li><a href="#org27c5ea6">2. Special Ideals</a>
+<li><a href="#orgde49c49">1. Definition</a></li>
+<li><a href="#orgcd5a14b">2. Examples</a></li>
+<li><a href="#org06d7bbc">3. Orbits and Stablizers</a>
 <ul>
-<li><a href="#org6ec7fd2">2.1. Maximal Ideals</a>
-<ul>
-<li><a href="#org3b911bc">2.1.1. <b>Definition</b></a></li>
-<li><a href="#org84dfc83">2.1.2. <b>Theorem</b></a></li>
-<li><a href="#org824a849">2.1.3. <b>Proof</b></a></li>
-</ul>
-</li>
-<li><a href="#orgcbb9019">2.2. Prime Ideals</a>
-<ul>
-<li><a href="#orge7f48b9">2.2.1. *Definition</a></li>
-</ul>
-</li>
+<li><a href="#org722614a">3.1. Example</a></li>
+<li><a href="#org1d1e4af">3.2. Orbit-Stabilizer Theorem</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc4620a8" class="outline-2">
-<h2 id="orgc4620a8"><span class="section-number-2">1</span> Definition</h2>
-</div>
-
-<div id="outline-container-org27c5ea6" class="outline-2">
-<h2 id="org27c5ea6"><span class="section-number-2">2</span> Special Ideals</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orgde49c49" class="outline-2">
+<h2 id="orgde49c49"><span class="section-number-2">1</span> Definition</h2>
+<div class="outline-text-2" id="text-1">
 <p>
-We specify \( R \) as a commutative ring.
+Let \( G \) be a group and \( X \) a set, then we say a function \( F: G \times X \to X \), \( F(g, x) = g \cdot x \), is an <b>action of \( G \) on \( X \)</b> if it satisfies:
 </p>
-</div>
 
-<div id="outline-container-org6ec7fd2" class="outline-3">
-<h3 id="org6ec7fd2"><span class="section-number-3">2.1</span> Maximal Ideals</h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-org3b911bc" class="outline-4">
-<h4 id="org3b911bc"><span class="section-number-4">2.1.1</span> <b>Definition</b></h4>
-<div class="outline-text-4" id="text-2-1-1">
+<ol class="org-ol">
+<li>\( \forall g_1, g_2 \in G, \ x \in X \) we have that \( g_1 \cdot (g_2 \cdot x) = \left( g_2g_1 \right) \cdot x \)</li>
+<li>\( \forall x \in X, \ 1 \cdot x = x \)</li>
+</ol>
+
 <p>
-We say a proper ideal \( I \) of \( R \), is a maximal ideal if for all ideals \( J \) such that \( I \subseteq J \), then either \( J = I \) or \( J = R \).
+We also say \( X \) is a <b>G-set</b>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org84dfc83" class="outline-4">
-<h4 id="org84dfc83"><span class="section-number-4">2.1.2</span> <b>Theorem</b></h4>
-<div class="outline-text-4" id="text-2-1-2">
-<p>
-The factor ring \( R / I \) is a field iff \( I \) is a maximal ideal in \( R \).
-</p>
-</div>
+<div id="outline-container-orgcd5a14b" class="outline-2">
+<h2 id="orgcd5a14b"><span class="section-number-2">2</span> Examples</h2>
 </div>
 
-<div id="outline-container-org824a849" class="outline-4">
-<h4 id="org824a849"><span class="section-number-4">2.1.3</span> <b>Proof</b></h4>
-<div class="outline-text-4" id="text-2-1-3">
+<div id="outline-container-org06d7bbc" class="outline-2">
+<h2 id="org06d7bbc"><span class="section-number-2">3</span> Orbits and Stablizers</h2>
+<div class="outline-text-2" id="text-3">
 <p>
-<b>(forward case)</b>: By contrapositive; suppose \( I \) is not maximal in \( R \), ie there exists some ideal \( J \) such that \( I \subset J \subset R \). We show that there is a non-invertible element in \( R/I \). Let:
+<b>Definition</b> Let \( G \) be a group that acts on the set \( X \). For \( x \in X \) we define the <b>stabilizer of \( x \) in \( G \)</b>, \( stab_G(x) \) as:
 </p>
 
 <p>
 \[
-   K = J \backslash I
-   \]
+stab_G(x) = \{ g \in G : g \cdot x = x \}
+\]
 </p>
 
 <p>
-Note \( 1 \notin J \) (else \( J = R \)) and \( K \) is nonempty and contains some nonzero element, say \( b \). Now consider \( b + I \in R / I \). Let:
+<b>Definition</b> Let \( G \) be a group that acts on the set \( X \). For \( x \in X \) we define the <b>orbit of \( x \) in \( G \)</b>, \( orb_G(x) \) as:
 </p>
 
 <p>
 \[
-   S = \{ (r + I)(b + I) = (rb) + I : r \in R \}
-   \]
+orb_G(x) = \{ g \cdot x : g \in G \}
+\]
 </p>
+</div>
 
+<div id="outline-container-org722614a" class="outline-3">
+<h3 id="org722614a"><span class="section-number-3">3.1</span> Example</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
-Now suppose for some \( r \in R \):
+Let \( G = \{ (1), \ (1 \ 2), \ (3 \ 4 \ 6), \ (3 \ 6 \ 4), \ (1 \ 2)(3 \ 4 \ 6), \ (1 \ 2)(3 \ 6 \ 4)\} \), so that \( G \) acts on \( \{ 1,2,3,4,5,6 \} \). Since 5 is fixed by all elements of \( G \) we have that:
 </p>
 
 \begin{align*}
-(rb) + I = 1 + I & \implies b' + I = 1 + I \\
-   	      	 & \implies \exists c \in b' + I \subset J \ s.t. \ c = 1 
+stab_G(5) &= G \\
+org_G(5)  &= \{ 5 \}
 \end{align*}
 
 <p>
-Which is a contradiction as \( J \) is a proper ideal. Hence \( b + I \) has no inverse in \( R/I \), hence \( R/I \) is not a field.
-</p>
-
-<p>
-<b>(backward case)</b>: By contrapositive; note \( R/I \) is a field iff its only ideals are \( \{ 0 + I \} \) and \( R/I \). Now suppose \( R/I \) is not a field, ie there exists some nontrivial proper ideal \( J \) which contains some nonzero element (along with \( 0 + I \)). We show then that it cannot be the case that \( I \) is maximal.
+Similarly, we have that:
 </p>
 
 \begin{align*}
-J &= \{ b_1 + I, \ b_2 + I, ... \}\\
-  &= \{ \{ b_1 + a : a \in I \}, \ \{b_2 + a : a \in I \}, ... \}
+stab_G(3) &= \{ (1), \ (1 \ 2) \} \\
+org_G(3)  &= \{ 3, \ 4, \ 6 \}
 \end{align*}
+</div>
+</div>
 
+<div id="outline-container-org1d1e4af" class="outline-3">
+<h3 id="org1d1e4af"><span class="section-number-3">3.2</span> Orbit-Stabilizer Theorem</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
-We claim the following is a proper ideal of \( R \) containing \( I \):
+<i>Supppose \( G \) is a finite group which acts on the set \( X \). Then for all \( x \in X \) we have:</i>
 </p>
 
 <p>
 \[
-J' = \bigcup\limits_{\forall i} (b_i + J)
+\mid G \mid = \mid stab_G(x) \mid * \mid orb_G(x) \mid
 \]
 </p>
 
-<p>
-We already know \( J' \) contains all elements of \( I \) (including \( 0 \)) as \( J \) contains \( 0 + I = I \). So we first show \( J' \) is closed under multiplication from \( R \). since \( J \) is an ideal of \( R/I \) we know that for all  \(r \in R, \ b_i + I \in J \):
-</p>
 
 <p>
-\[
-(r + I)*(b_i + I) = b_j + I
-\]
-</p>
-
-<p>
-For some \( b_j + I \in J \). So then:
-</p>
-
-<p>
-\[
-\implies rb_i \in b_j + I \subset J'
-\]
-</p>
-
-<p>
-Hence \( J' \) is closed under multiplication from \( R \). We show \( J' \) is closed under addition. Let \( b_i, b_j \in J \), and consider: 
-</p>
-
-<p>
-\[
-b_i + b_j \in (b_i + I) + (b_j + I)
-\]
-</p>
-
-<p>
-But since \( J \) is an ideal, it is closed under addition and so:
-</p>
-
-<p>
-\[
-(b_i + I) + (b_j + I) = (b_k + I) \subset J' \\
-\implies b_i + b_j \in J'
-\]
-</p>
-
-<p>
-For some \( k \). It remains to show \( J' \) is proper, suppose it's not for a contradiction:
+<b>Proof</b> Fix \( x \in X \). We first show that \( stab_G(x) \le G \). First we know that \( e \in stab_G(x) \) since \( e \cdot x = x \). Now let \( g, h \in G \). We have:
 </p>
 
 \begin{align*}
-J' = R &\implies 1 \in J' \\
-&\implies (1 + I) \in J \\
-&\implies J = R/I
+g^{-1} \cdot (g \cdot x) = g^{-1} \cdot x &\implies (gg^{-1}) \cdot x = g^{-1} * x \\
+&\implies e \cdot x = g^{-1} \cdot x \\
+&\implies g^{-1} \cdot x = x \\
+&\implies g^{-1} \in stab_G(x)
 \end{align*}
 
 <p>
-Which is a contradiction since \( J \) is proper. So we have show \( J' \) is a proper ideal containing \( I \), which is therefore not maximal. This concludes the backward case.
+Secondly:
 </p>
-</div>
-</div>
-</div>
 
-<div id="outline-container-orgcbb9019" class="outline-3">
-<h3 id="orgcbb9019"><span class="section-number-3">2.2</span> Prime Ideals</h3>
-<div class="outline-text-3" id="text-2-2">
-</div>
-<div id="outline-container-orge7f48b9" class="outline-4">
-<h4 id="orge7f48b9"><span class="section-number-4">2.2.1</span> *Definition</h4>
-<div class="outline-text-4" id="text-2-2-1">
 <p>
-We say an <b>proper</b> ideal \( I \) of a commutative ring \( R \) is prime if, for any two elements \( a, b \in R \) such that \( ab \in I \) we must have \( a \in I \lor b \in I \).
+\[
+(gh) \cdot x = g \cdot (h \cdot x) = g \cdot x = x
+\]
 </p>
-</div>
+
+<p>
+Hence \( gh \in stab_G(x) \) thus \( stab_G(x) \le G \).
+</p>
+
+<p>
+It then follows from Lagrange's Theorem that the number of left cosets of \( stab_G(x) \) in \( G \) is given by \( [G:stab_G(x)] = \mid G \mid / \mid stab_G(x) \mid \). Letting \( x \) be fixed as before, we define:
+</p>
+
+<p>
+\[
+f : G \to X \text{ by } f(g) = g \cdot x
+\]
+</p>
+
+<p>
+Note the image of \( f \) is given by \( orb_G(x) \) by definition. Now suppose two elements map to the same value:
+</p>
+
+<p>
+\[
+f(g) = f(h) \iff g \cdot x = h \cdot x \iff g^{-1}h \cdot x = x \iff g^{-1}h \in stab_G(x)
+\]
+</p>
+
+<p>
+Which is equivalent to \( g \) and \( h \) having the same left coset with respect to \( stab_G(x) \). From this it is apparent that there is a bijection between the left cosets of \( stab_G(x) \) and \( orb_G(x) \). Hence:
+</p>
+
+<p>
+\[
+\mid G \mid / \mid stab_G(x) \mid = \mid orb_G(x) \mid
+\]
+</p>
+
+<p>
+which rearranges to the required equality.
+</p>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-06-17 Wed 23:05</p>
+<p class="date">Created: 2020-07-06 Mon 22:29</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
