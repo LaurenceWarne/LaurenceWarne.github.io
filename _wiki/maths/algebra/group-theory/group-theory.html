@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-30 Sat 12:06 -->
+<!-- 2020-07-07 Tue 17:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Equivalence Relations</title>
+<title>Group Theory</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -227,144 +227,42 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-Previous: <a href='./basic-logic.html'>Basic Logic</a>, Next: <a href='./relations.html'>Relations</a><span style='float: right;'>Up: <a href='./logic.html'>Logic</a></span><hr><h1 class="title">Equivalence Relations</h1>
+<span >Up: <a href='../algebra.html'>Algebra</a></span><hr><h1 class="title">Group Theory</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4a34181">1. Definition</a></li>
-<li><a href="#orgf414b4f">2. Equivalence Relations</a>
+<li><a href="#orgaaa3701">1. Group Theory</a>
 <ul>
-<li><a href="#org067a721">2.1. Reflexive</a></li>
-<li><a href="#org8d9f5ae">2.2. Symmetric</a></li>
-<li><a href="#org49a1a72">2.3. transitive</a></li>
+<li><a href="#org6e4b606">1.1. Factor Groups</a></li>
+<li><a href="#org067dd7f">1.2. Group Actions</a></li>
+<li><a href="#org8daf6f5">1.3. Sylows Theorems</a></li>
 </ul>
 </li>
-<li><a href="#orgd556143">3. Equivalence Classes</a></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org4a34181" class="outline-2">
-<h2 id="org4a34181"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-orgaaa3701" class="outline-2">
+<h2 id="orgaaa3701"><span class="section-number-2">1</span> Group Theory</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-A relation \( R \) on some set \( S \) can be defined as:
-</p>
-
-<p>
-\[ T = \{ (a, b) : a, b \in S, aRb \} \]
-</p>
-
-<p>
-For example, the relation "=" over the reals:
-\[ aRb \iff a - b = 0 \]
-</p>
 </div>
+<div id="outline-container-org6e4b606" class="outline-3">
+<h3 id="org6e4b606"><span class="section-number-3">1.1</span> <a href="./factor-groups.html">Factor Groups</a></h3>
 </div>
-
-
-<div id="outline-container-orgf414b4f" class="outline-2">
-<h2 id="orgf414b4f"><span class="section-number-2">2</span> Equivalence Relations</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-A relation is said to be an equivalence relation if it is <b>reflexive</b>, <b>symmetric</b> and <b>transitive</b>. 
-</p>
+<div id="outline-container-org067dd7f" class="outline-3">
+<h3 id="org067dd7f"><span class="section-number-3">1.2</span> <a href="./group-actions.html">Group Actions</a></h3>
 </div>
-
-<div id="outline-container-org067a721" class="outline-3">
-<h3 id="org067a721"><span class="section-number-3">2.1</span> Reflexive</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-A relation is reflexive iff:
-</p>
-
-<p>
-\[ \forall a \in S, \ aRa \]
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-org8d9f5ae" class="outline-3">
-<h3 id="org8d9f5ae"><span class="section-number-3">2.2</span> Symmetric</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-A relation is symmetric iff:
-</p>
-
-<p>
-\[ \forall a, b \in S, \ aRb \Rightarrow bRa \]
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-org49a1a72" class="outline-3">
-<h3 id="org49a1a72"><span class="section-number-3">2.3</span> transitive</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-A relation is transitive iff:
-</p>
-
-<p>
-\[ \forall a, b, c \in S, \ (aRb \wedge bRc) \Rightarrow aRc \]
-</p>
-
-
-<p>
-For example the relation \( \leq \) over the reals is reflexive and transitive but not symmetric and the relation \( = \) over the reals is all three and therefore an equivalence relation.
-</p>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgd556143" class="outline-2">
-<h2 id="orgd556143"><span class="section-number-2">3</span> Equivalence Classes</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-For an equivalence relation \( R \) over some set \( S \), the equivalence class of some \( a \in S \) is defined as:
-</p>
-
-<p>
-\[ \{ x \in S : aRx \} \]
-</p>
-
-<p>
-The set of all equivalence classes forms a <b>partition</b> of \( S \): a collection of disjoint sets whose union is equal to \( S \). The converse is also true, all unique partitions of \( S \) denote a unique equivalence relation on \( S \).
-</p>
+<div id="outline-container-org8daf6f5" class="outline-3">
+<h3 id="org8daf6f5"><span class="section-number-3">1.3</span> <a href="./sylows-theorems.html">Sylows Theorems</a></h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-05-30 Sat 12:06</p>
+<p class="date">Created: 2020-07-07 Tue 17:07</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
