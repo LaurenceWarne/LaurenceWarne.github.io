@@ -6,7 +6,7 @@
 <!-- 2020-08-05 Wed 20:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Commutative Algebra</title>
+<title>Perron-Frobenius Theorem</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -240,40 +240,68 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<span >Up: <a href='../algebra.html'>Algebra</a></span><hr><h1 class="title">Commutative Algebra</h1>
+Previous: <a href='./eigenvectors.html'>Eigenvectors</a><span style='float: right;'>Up: <a href='./linear-algebra.html'>Linear Algebra</a></span><hr><h1 class="title">Perron-Frobenius Theorem</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org272f2a7">1. Commutative Algebra</a>
-<ul>
-<li><a href="#orgd319b50">1.1. Ideals</a></li>
-<li><a href="#orgcf13b5d">1.2. Integral Domains</a></li>
-<li><a href="#org66e06ce">1.3. Polynomial Rings</a></li>
-<li><a href="#org1f347a8">1.4. Unique Factorisation Domains</a></li>
-</ul>
-</li>
+<li><a href="#orgbf3f3bd">1. Definition</a></li>
+<li><a href="#org6510d9b">2. Perron-Frobenius Theorem</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org272f2a7" class="outline-2">
-<h2 id="org272f2a7"><span class="section-number-2">1</span> Commutative Algebra</h2>
+
+<div id="outline-container-orgbf3f3bd" class="outline-2">
+<h2 id="orgbf3f3bd"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+An \( n \times n \) matrix \( A \) is said to be <b>irreducible</b> if for all pairs \( (i, j) \) there exists some \( k \in \mathbb{Z} \) such that \( M_{i, j}^k > 0 \).
+</p>
+
+<p>
+We say an \( n \times n \) matrix \( A \) is <b>primitive</b> if there exists some \( k \) for which all entries of \( A^k \) are positive. We can see that primitivity is a similar yet stronger condition than irreducibility.
+</p>
 </div>
-<div id="outline-container-orgd319b50" class="outline-3">
-<h3 id="orgd319b50"><span class="section-number-3">1.1</span> <a href="./ideals.html">Ideals</a></h3>
 </div>
-<div id="outline-container-orgcf13b5d" class="outline-3">
-<h3 id="orgcf13b5d"><span class="section-number-3">1.2</span> <a href="./integral-domains.html">Integral Domains</a></h3>
-</div>
-<div id="outline-container-org66e06ce" class="outline-3">
-<h3 id="org66e06ce"><span class="section-number-3">1.3</span> <a href="./polynomial-rings.html">Polynomial Rings</a></h3>
-</div>
-<div id="outline-container-org1f347a8" class="outline-3">
-<h3 id="org1f347a8"><span class="section-number-3">1.4</span> <a href="./unique-factorisation-domains.html">Unique Factorisation Domains</a></h3>
+
+<div id="outline-container-org6510d9b" class="outline-2">
+<h2 id="org6510d9b"><span class="section-number-2">2</span> Perron-Frobenius Theorem</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+If \( A \) is an irreducible matrix then \( A \) has an eigenvalue \( \lambda_0 \) satisfying:
+</p>
+
+<ol class="org-ol">
+<li>All other eigenvalues of \( A \) satisfy \( |\lambda| < \lambda_0 \)</li>
+<li>\( \lambda_0 \) has algebraic and geometric multiplicity equal to one</li>
+<li>\( \lambda_0 \) has an eigenvector with all entries greater than zero</li>
+<li>Further, any non-negative eigenvector of \( A \) is a multiple of this eigenvector</li>
+</ol>
 </div>
 </div>
 </div>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-07 Tue 17:08 -->
+<!-- 2020-07-27 Mon 20:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Partial Ordering</title>
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -186,7 +199,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -258,6 +271,7 @@ Previous: <a href='./basic-logic.html'>Basic Logic</a>, Next: <a href='./relatio
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgb1e4bb1">1. Definition</a></li>
+<li><a href="#orgbd57e75">2. Hasse Diagrams</a></li>
 </ul>
 </div>
 </div>
@@ -266,7 +280,7 @@ Previous: <a href='./basic-logic.html'>Basic Logic</a>, Next: <a href='./relatio
 <h2 id="orgb1e4bb1"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-We say a set \( S \) coupled with a relation \( \le \), \( (S, \le) \) is a <b>partially ordered set</b> if the following hold \( \forall a, b, c \in S \):
+We say a set \( S \) coupled with a relation \( \le \), \( (S, \le) \) is a <b>partially ordered set</b> (poset) if the following hold \( \forall a, b, c \in S \):
 </p>
 
 <ol class="org-ol">
@@ -276,12 +290,29 @@ We say a set \( S \) coupled with a relation \( \le \), \( (S, \le) \) is a <b>p
 
 <li>\( R \) is <b>antisymmetric</b>, ie if \( a \le b \) and \( b \le a \) then \( a = b \)</li>
 </ol>
+
+<p>
+Note <b>total ordering</b> is a special type of partial ordering which also requires \( S \) to be <b>connex</b> (which implies reflexivity).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbd57e75" class="outline-2">
+<h2 id="orgbd57e75"><span class="section-number-2">2</span> Hasse Diagrams</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+We can use <b>Hasse Diagrams</b> to visualise finite posets. A Hasse Diagram is a graph whose vertices consist of the elements of the poset, and an edge exists between two \( x, y \in S \) iff \( x \le y \) and there is no \( k \) s.t. \( x \le k \le y \). In such a case we say \( y \) <b>covers</b> \( x \).
+</p>
+
+<p>
+All relations can be deduced from the cover relations and application of the transitivity property.
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-07-07 Tue 17:08</p>
+<p class="date">Created: 2020-07-27 Mon 20:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
