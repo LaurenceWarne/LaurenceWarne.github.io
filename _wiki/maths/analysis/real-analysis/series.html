@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-07 Tue 17:07 -->
+<!-- 2020-07-27 Mon 20:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Series</title>
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -186,7 +199,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -262,19 +275,19 @@ Previous: <a href='./sequences.html'>Sequences</a><span style='float: right;'>Up
 <ul>
 <li><a href="#org755509f">2.1. Nth Term Test</a>
 <ul>
-<li><a href="#orgafa7c82">2.1.1. Proof</a></li>
+<li><a href="#org8227fa0">2.1.1. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org218da08">2.2. Integral Test</a></li>
 <li><a href="#orgba3e765">2.3. Comparison Test</a>
 <ul>
-<li><a href="#orgfd7d84b">2.3.1. Proof</a></li>
+<li><a href="#orgd1a8a88">2.3.1. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgc69ebe9">2.4. Ratio Test</a></li>
 <li><a href="#orga7e6879">2.5. Root Test</a>
 <ul>
-<li><a href="#orge10e1cf">2.5.1. Proof</a></li>
+<li><a href="#org5c8e043">2.5.1. Proof</a></li>
 </ul>
 </li>
 </ul>
@@ -329,8 +342,8 @@ If a series converges then its corresponding sequence must be null.
 </p>
 </div>
 
-<div id="outline-container-orgafa7c82" class="outline-4">
-<h4 id="orgafa7c82"><span class="section-number-4">2.1.1</span> Proof</h4>
+<div id="outline-container-org8227fa0" class="outline-4">
+<h4 id="org8227fa0"><span class="section-number-4">2.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 Suppose \( S_n \) converges to some \( L \) then by the shifted sequence rule, \( S_{n + 1} \) also converges to the same \( L \). By the algebra of limits theorem:
@@ -413,8 +426,8 @@ And
 </p>
 </div>
 
-<div id="outline-container-orgfd7d84b" class="outline-4">
-<h4 id="orgfd7d84b"><span class="section-number-4">2.3.1</span> Proof</h4>
+<div id="outline-container-orgd1a8a88" class="outline-4">
+<h4 id="orgd1a8a88"><span class="section-number-4">2.3.1</span> Proof</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 Consider the sequence of partial sums: \( S_n = \sum_{k=1}^n a_k, \ R_n = \sum_{k=1}^n b_k \). Given the convergence of \( R_n \) we know that it must have an upper bound \( B \).
@@ -504,8 +517,8 @@ This works as the RoC makes no claims on the convergence at the boundaries, we c
 </p>
 </div>
 
-<div id="outline-container-orge10e1cf" class="outline-4">
-<h4 id="orge10e1cf"><span class="section-number-4">2.5.1</span> Proof</h4>
+<div id="outline-container-org5c8e043" class="outline-4">
+<h4 id="org5c8e043"><span class="section-number-4">2.5.1</span> Proof</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <p>
 Suppose \( L < 1 \), then by the properties of the limit superior:
@@ -566,7 +579,7 @@ Hence if property 1. above is satisfied, \( a_n \) not only converges, but conve
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-07-07 Tue 17:07</p>
+<p class="date">Created: 2020-07-27 Mon 20:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

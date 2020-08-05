@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-07 Tue 17:07 -->
+<!-- 2020-07-27 Mon 20:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Polynomial Rings</title>
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -186,7 +199,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -294,7 +307,7 @@ This indicates the "nicest" a polynomial ring can be is a <b>Euclidean domain</b
 <h2 id="orge2b3471"><span class="section-number-2">2</span> Properties</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
-<li>If \( R \) is a UFD then \( R[X] \) is a UFD (nontrivial).</li>
+<li>If \( R \) is a UFD then \( R[X] \) is a UFD (nontrivial), hence \( \mathbb{R}[X][Y]... \) is a UFD.</li>
 
 <li>If \( R \) is a PID then it does <b>not</b> imply \( R[X] \) is a PID.</li>
 
@@ -305,7 +318,7 @@ This indicates the "nicest" a polynomial ring can be is a <b>Euclidean domain</b
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-07-07 Tue 17:07</p>
+<p class="date">Created: 2020-07-27 Mon 20:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

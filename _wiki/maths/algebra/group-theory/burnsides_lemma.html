@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-05 Wed 20:16 -->
+<!-- 2020-07-14 Tue 14:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Commutative Algebra</title>
+<title>Burnside's Lemma</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -161,19 +161,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -199,7 +186,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -240,46 +227,116 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<span >Up: <a href='../algebra.html'>Algebra</a></span><hr><h1 class="title">Commutative Algebra</h1>
+Previous: <a href='./group-actions.html'>Group Actions</a>, Next: <a href='./sylows-theorems.html'>Sylows Theorems</a><span style='float: right;'>Up: <a href='./group-theory.html'>Group Theory</a></span><hr><h1 class="title">Burnside's Lemma</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org272f2a7">1. Commutative Algebra</a>
-<ul>
-<li><a href="#orgd319b50">1.1. Ideals</a></li>
-<li><a href="#orgcf13b5d">1.2. Integral Domains</a></li>
-<li><a href="#org66e06ce">1.3. Polynomial Rings</a></li>
-<li><a href="#org1f347a8">1.4. Unique Factorisation Domains</a></li>
-</ul>
-</li>
+<li><a href="#org98ca577">1. Theorem</a></li>
+<li><a href="#orgd2b8a4d">2. Applications</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org272f2a7" class="outline-2">
-<h2 id="org272f2a7"><span class="section-number-2">1</span> Commutative Algebra</h2>
+
+<div id="outline-container-org98ca577" class="outline-2">
+<h2 id="org98ca577"><span class="section-number-2">1</span> Theorem</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+Let \( G \) be a finite group that acts on the set \( X \). Then:
+</p>
+
+<p>
+\[
+\mid X / G \mid = \frac{1}{\mid G \mid} \sum_{g \in G} \mid X^g \mid
+\]
+</p>
+
+<p>
+Ie the number of unique orbits in \( X \) is equal to the average number of points fixed by an element in \( g \).
+</p>
 </div>
-<div id="outline-container-orgd319b50" class="outline-3">
-<h3 id="orgd319b50"><span class="section-number-3">1.1</span> <a href="./ideals.html">Ideals</a></h3>
 </div>
-<div id="outline-container-orgcf13b5d" class="outline-3">
-<h3 id="orgcf13b5d"><span class="section-number-3">1.2</span> <a href="./integral-domains.html">Integral Domains</a></h3>
-</div>
-<div id="outline-container-org66e06ce" class="outline-3">
-<h3 id="org66e06ce"><span class="section-number-3">1.3</span> <a href="./polynomial-rings.html">Polynomial Rings</a></h3>
-</div>
-<div id="outline-container-org1f347a8" class="outline-3">
-<h3 id="org1f347a8"><span class="section-number-3">1.4</span> <a href="./unique-factorisation-domains.html">Unique Factorisation Domains</a></h3>
+
+<div id="outline-container-orgd2b8a4d" class="outline-2">
+<h2 id="orgd2b8a4d"><span class="section-number-2">2</span> Applications</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Burnside's lemma turns out to be a useful tool for some counting problems.
+</p>
+
+<p>
+<i>Find the number of distinct bracelets (ie taking into account reflectional and rotational symmetry) which can be made using five red, blue or green beads.</i>
+</p>
+
+<p>
+Without symmetry, there are \( 3^5 =  243 \) total arrangements. If now consider \( X \) as this set of arrangements, and \( G \) as the set of symmetries we can apply Burnside's lemma. It will be useful to visualise each arrangement as a regular pentagon with beads at each vertex, labelled one through five.
+</p>
+
+<p>
+\( G \) has a total of 10 elements, namely rotations 0, 72, 144, &#x2026; 288 degrees and reflections with lines of symmetry defined by the line joining the centre of the regular pentagon and each bead (it can be shown compositions of these are elements of \( G \) also). We call \( G \) the <b>Dihedral group of order 10</b>, \( D_5 \).
+</p>
+
+<p>
+Now, two elements of \( X \) are considered to be identical under the symmetries of \( G \) iff they have the <b>same orbit</b> (the best way to see this is to realise two elements having the same orbit is an <b>equivalence relation</b> - this is easy to show). Hence the total number of bracelets is equal to the total number of distinct orbits ie \( \mid X / G \mid \).
+</p>
+
+<p>
+Therefore, our problem reduces to the problem of finding the set of fixed points in \( X \) for each \( g \in G \).
+</p>
+
+<ol class="org-ol">
+<li>Rotation 0   degrees: \( (1)(2)(3)(4)(5) \implies \mid X^g \mid = 243 \)</li>
+<li>Rotation 72  degrees: \( (12345) \implies \mid X^g \mid = 3 \)</li>
+<li>Rotation 144 degrees: \( (13524) \implies \mid X^g \mid = 3 \)</li>
+<li>Rotation 216 degrees: \( (14253) \implies \mid X^g \mid = 3 \)</li>
+<li>Rotation 288 degrees: \( (15432) \implies \mid X^g \mid = 3 \)</li>
+<li>Reflection from 1: \( (1)(24)(35) \implies \mid X^g \mid = 27 \)</li>
+<li>Reflection from 2: \( (2)(13)(45) \implies \mid X^g \mid = 27 \)</li>
+<li>Reflection from 3: \( (3)(24)(15) \implies \mid X^g \mid = 27 \)</li>
+<li>Reflection from 4: \( (4)(12)(35) \implies \mid X^g \mid = 27 \)</li>
+<li>Reflection from 5: \( (5)(14)(23) \implies \mid X^g \mid = 27 \)</li>
+</ol>
+
+<p>
+Hence the total number of distinct bracelets is given by:
+</p>
+
+<p>
+\[
+\frac{243 + 3*4 + 27*5}{10} = 39
+\]
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2020-08-05 Wed 20:16</p>
+<p class="date">Created: 2020-07-14 Tue 14:45</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
