@@ -6,7 +6,7 @@
 <!-- 2020-08-10 Mon 21:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Commutative Algebra</title>
+<title>Hermitian Matrices</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -240,40 +240,147 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<span >Up: <a href='../algebra.html'>Algebra</a></span><hr><h1 class="title">Commutative Algebra</h1>
+Previous: <a href='./eigenvectors.html'>Eigenvectors</a>, Next: <a href='./inner-product-spaces.html'>Inner Product Spaces</a><span style='float: right;'>Up: <a href='./linear-algebra.html'>Linear Algebra</a></span><hr><h1 class="title">Hermitian Matrices</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org272f2a7">1. Commutative Algebra</a>
+<li><a href="#org06d9fb7">1. Definition</a></li>
+<li><a href="#orgb3b5636">2. The Spectral Theorem</a>
 <ul>
-<li><a href="#orgd319b50">1.1. Ideals</a></li>
-<li><a href="#orgcf13b5d">1.2. Integral Domains</a></li>
-<li><a href="#org66e06ce">1.3. Polynomial Rings</a></li>
-<li><a href="#org1f347a8">1.4. Unique Factorisation Domains</a></li>
+<li><a href="#org5c64365">2.1. All Eigenvalues of \( A \) are Real</a></li>
+<li><a href="#org7a41749">2.2. All Eigenvectors of \( A \) are Orthogonal</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org272f2a7" class="outline-2">
-<h2 id="org272f2a7"><span class="section-number-2">1</span> Commutative Algebra</h2>
+
+<div id="outline-container-org06d9fb7" class="outline-2">
+<h2 id="org06d9fb7"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+We say a complex square matrix \( A \) is <b>Hermitian</b> if it is equal to its own <b>conjugate transpose</b>, ie \( \forall i, j \) we have that:
+</p>
+
+<p>
+\[
+A_{ij} = \overline{A_{ji}}
+\]
+</p>
+
+<p>
+Alternate names for the conjugate transpose of a matrix include the <b>adjoint</b> or <b>transjugate</b>, and may be referred to by any of the following symbols:
+</p>
+
+<p>
+\[
+A^H \equiv A^* \equiv \overline{A^{T}}
+\]
+</p>
+
+<p>
+We can view Hermitian matrices as an extension of real symmetric matrices as they share many of the same properties.
+</p>
 </div>
-<div id="outline-container-orgd319b50" class="outline-3">
-<h3 id="orgd319b50"><span class="section-number-3">1.1</span> <a href="./ideals.html">Ideals</a></h3>
 </div>
-<div id="outline-container-orgcf13b5d" class="outline-3">
-<h3 id="orgcf13b5d"><span class="section-number-3">1.2</span> <a href="./integral-domains.html">Integral Domains</a></h3>
+
+<div id="outline-container-orgb3b5636" class="outline-2">
+<h2 id="orgb3b5636"><span class="section-number-2">2</span> The Spectral Theorem</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+We give the Spectral Theorem in the complex case: <i>If an \( n \times n \) matrix \( A \) is Hermitian, then all eigenvalues of \( A \) are real and there exists a <b>orthonormal</b> basis for \( \mathbb{C}^n \) consisting of the eigenvectors of \( A \).</i>
+</p>
+
+<p>
+Since \( A \) has \( n \) orthogonal (and thus linearly independent) eigenvectors, we arrive at the corollary that \( A \) is <b>unitarily</b> diagonalizable.
+</p>
+
+<p>
+This theorem makes many claims, each of which we will prove in turn. The first two of these claims are straightforward to show, whilst the last is less so.
+</p>
 </div>
-<div id="outline-container-org66e06ce" class="outline-3">
-<h3 id="org66e06ce"><span class="section-number-3">1.3</span> <a href="./polynomial-rings.html">Polynomial Rings</a></h3>
+
+<div id="outline-container-org5c64365" class="outline-3">
+<h3 id="org5c64365"><span class="section-number-3">2.1</span> All Eigenvalues of \( A \) are Real</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let \( \lambda \) be an eigenvalue of \( A \), with corresponding eigenvector \( v \) with entries given by \( a_k + ib_k \). Then starting with \( Av = \lambda v \) :
+</p>
+
+\begin{align*}
+\left(v^*\right)^T Av &= \left(v^*\right)^T \lambda v \\
+                      &= \lambda \left(v^*\right)^T v \\
+                      &= \lambda [a_1^2 + b_1^2 + ... + a_n^2 + b_n^2] \text{ (a 1} \times \text{1 matrix)}
+\end{align*}
+
+<p>
+Now taking the conjugate transpose of both sides, (note the LHS is invariant under this operation) gives:
+</p>
+
+\begin{array}{r l l}
+&(\left(v^*\right)^T Av)^* &= (\lambda [a_1^2 + b_1^2 + ... + a_n^2 + b_n^2])^* \\
+\implies& \left(v^*\right)^T Av &= \lambda^* [a_1^2 + b_1^2 + ... + a_n^2 + b_n^2] \\
+\implies& \lambda [a_1^2 + b_1^2 + ... + a_n^2 + b_n^2] &= \lambda^* [a_1^2 + b_1^2 + ... + a_n^2 + b_n^2] \\
+\implies& \lambda &= \lambda^* \\
+\implies& \lambda \in \mathbb{R}
+\end{array}
 </div>
-<div id="outline-container-org1f347a8" class="outline-3">
-<h3 id="org1f347a8"><span class="section-number-3">1.4</span> <a href="./unique-factorisation-domains.html">Unique Factorisation Domains</a></h3>
+</div>
+
+<div id="outline-container-org7a41749" class="outline-3">
+<h3 id="org7a41749"><span class="section-number-3">2.2</span> All Eigenvectors of \( A \) are Orthogonal</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let \( v_1 \) and \( v_2 \) be eigenvectors of \( A \) corresponding to the distinct eigenvalues \( \lambda_1 \) and \( \lambda_2 \). Consider the product \( (Av_1)^*v_2 \). First of all we have that:
+</p>
+
+\begin{align*}
+(Av_1)^*v_2 &= v_1^*A^*v_2 \\
+            &= v_1^*Av_2 \\
+            &= v_1^*\lambda_2 v_2 \\
+            &= \lambda_2 v_1^* v_2 
+\end{align*}
+
+<p>
+On the other hand, simplifying inside the bracket first gives:
+</p>
+
+\begin{align*}
+(Av_1)^*v_2 &= (\lambda_1 v_1)^*v_2 \\
+            &= \lambda_1^* v_1^*v_2\\
+            &= \lambda_1 v_1^* v_2
+\end{align*}
+
+<p>
+Equating these gives \( (\lambda_1 - \lambda_2)v_1^* v_2 = 0 \) from which we must conclude that \( v_1^* \) and \( v_2 \) are orthogonal since the two eigenvalues are distinct.
+</p>
+</div>
 </div>
 </div>
 </div>

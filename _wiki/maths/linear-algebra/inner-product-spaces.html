@@ -6,7 +6,7 @@
 <!-- 2020-08-10 Mon 21:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Commutative Algebra</title>
+<title>Inner Product Spaces</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -240,40 +240,53 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<span >Up: <a href='../algebra.html'>Algebra</a></span><hr><h1 class="title">Commutative Algebra</h1>
+Previous: <a href='./hermitian-matrices.html'>Hermitian Matrices</a>, Next: <a href='./perron-frobenius-theorem.html'>Perron Frobenius Theorem</a><span style='float: right;'>Up: <a href='./linear-algebra.html'>Linear Algebra</a></span><hr><h1 class="title">Inner Product Spaces</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org272f2a7">1. Commutative Algebra</a>
-<ul>
-<li><a href="#orgd319b50">1.1. Ideals</a></li>
-<li><a href="#orgcf13b5d">1.2. Integral Domains</a></li>
-<li><a href="#org66e06ce">1.3. Polynomial Rings</a></li>
-<li><a href="#org1f347a8">1.4. Unique Factorisation Domains</a></li>
-</ul>
-</li>
+<li><a href="#org442c792">1. Definition</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org272f2a7" class="outline-2">
-<h2 id="org272f2a7"><span class="section-number-2">1</span> Commutative Algebra</h2>
+
+<div id="outline-container-org442c792" class="outline-2">
+<h2 id="org442c792"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-orgd319b50" class="outline-3">
-<h3 id="orgd319b50"><span class="section-number-3">1.1</span> <a href="./ideals.html">Ideals</a></h3>
-</div>
-<div id="outline-container-orgcf13b5d" class="outline-3">
-<h3 id="orgcf13b5d"><span class="section-number-3">1.2</span> <a href="./integral-domains.html">Integral Domains</a></h3>
-</div>
-<div id="outline-container-org66e06ce" class="outline-3">
-<h3 id="org66e06ce"><span class="section-number-3">1.3</span> <a href="./polynomial-rings.html">Polynomial Rings</a></h3>
-</div>
-<div id="outline-container-org1f347a8" class="outline-3">
-<h3 id="org1f347a8"><span class="section-number-3">1.4</span> <a href="./unique-factorisation-domains.html">Unique Factorisation Domains</a></h3>
+<p>
+An <b>inner product space</b> consists of a vector field \( V \) over the field \( F \) endowed with a function \( \langle . , \ . \rangle : V \times V \to  F \) which satisfies the following properties:
+</p>
+
+<ol class="org-ol">
+<li><b>Conjugate Symmetry</b>: \( \langle a, \ b \rangle = \langle b, \ a \rangle \)</li>
+<li><b>Linearity in the First Argument</b>: \(  \langle \alpha a, \ b \rangle = \alpha \langle a, \ b \rangle \) and \( \langle a + c, \ b \rangle = \langle a, \ b \rangle + \langle c, \ b \rangle \)</li>
+<li><b>Positive-Definiteness</b>: \( \langle a, \ a \rangle \ge 0 \), with equality holding iff \( a = \underline{0} \)</li>
+</ol>
 </div>
 </div>
 </div>
