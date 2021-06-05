@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-06-05 Sat 16:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Feeds</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="LaurenceWarne" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<span >Up: <a href='./wiki.html'>Wiki</a></span><hr><h1 class="title">Feeds</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf797e61">1. </a></li>
+<li><a href="#org2cf2c54">2. Weekly Org Entries</a>
+<ul>
+<li><a href="#org5e5e1ef">2.1. Welcome</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf797e61" class="outline-2">
+<h2 id="orgf797e61"><span class="section-number-2">1</span> </h2>
+</div>
+
+<div id="outline-container-org2cf2c54" class="outline-2">
+<h2 id="org2cf2c54"><span class="section-number-2">2</span> Weekly Org Entries</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+(("<a href="https://blog.tecosaur.com/tmio/2021-04-26-Welcome.html">https://blog.tecosaur.com/tmio/2021-04-26-Welcome.html</a>" t "fa5ae1e26362ed702cedbdd3a99259720c50cff9"))
+</p>
+</div>
+<div id="outline-container-org5e5e1ef" class="outline-3">
+<h3 id="org5e5e1ef"><span class="section-number-3">2.1</span> Welcome</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2021-04-27 Tue 00:00]</span></span>
+&lt;![CDATA[&lt;p&gt;
+  Introduction
+  &lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+Org is an absolutely marvellous project. However, a quick glance at
+&lt;a href="<a href="https://orgmode.org">https://orgmode.org</a>"&gt;<a href="https://orgmode.org">https://orgmode.org</a>&lt;/a&gt; can lead one to think "so&#x2026; it's an Emacs version of
+Markdown? What's the big deal?". While it's easy to understand how someone might
+think that at first, that impression misses two crucial points:
+While for simple constructs (&lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, headlines, etc.) the syntax is very
+much analogous[fn1], Org scales to much more powerful forms that are a
+headache to replicate in Markdown
+Org mode was developed in Emacs, for Emacs. The integrations for Org put &lt;i&gt;every
+other plaintext markup editing experience to shame&lt;/i&gt;. &lt;b&gt;This is a bold statement&lt;/b&gt;,
+and I stand by it.
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+This blog exists because of the second point. The world does not stand still,
+while new Markdown editors et al. are &lt;a href="<a href="https://github.com/marktext/marktext">https://github.com/marktext/marktext</a>"&gt;popping&lt;/a&gt; &lt;a href="<a href="https://github.com/ApostropheEditor/Apostrophe">https://github.com/ApostropheEditor/Apostrophe</a>"&gt;up&lt;/a&gt; &lt;a href="<a href="https://remarkableapp.github.io/linux.html">https://remarkableapp.github.io/linux.html</a>"&gt;left&lt;/a&gt;, &lt;a href="<a href="https://github.com/brrd/Abricotine">https://github.com/brrd/Abricotine</a>"&gt;right&lt;/a&gt;, &lt;a href="<a href="https://github.com/DaveJarvis/keenwrite">https://github.com/DaveJarvis/keenwrite</a>"&gt;and&lt;/a&gt; &lt;a href="<a href="https://znote.io/">https://znote.io/</a>"&gt;centre&lt;/a&gt; &#x2014; Org
+has not languished. The &lt;a href="<a href="https://orgmode.org/list/">https://orgmode.org/list/</a>"&gt;mailing list&lt;/a&gt; is active, as is development, and the
+number of things you can do with Org is only increasing.
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+However, if one doesn't want to receive tens to hundreds of emails a week, it
+can be all too easy to miss out on exciting developments[fn3] 😢. So, to help keep
+you abreast of the latest in Org, I'm starting a blog ✨. Like all good things,
+it is &lt;a href="<a href="https://github.com/tecosaur/this-month-in-org/">https://github.com/tecosaur/this-month-in-org/</a>"&gt;written entirely in Org&lt;/a&gt;.
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+Inspired by &lt;a href="<a href="https://pointieststick.com/category/this-week-in-kde/">https://pointieststick.com/category/this-week-in-kde/</a>"&gt;This Week in KDE&lt;/a&gt; I'm thrilled to announce &lt;i&gt;This Month in Org&lt;/i&gt; (we have
+slightly less going on than a Desktop Environment[fn2]). Each month I shall
+endeavour to present the highlights of Org development.
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+Who knows, perhaps you might see something you'd like to help out with or
+suggest improvements too. We'd love you to &lt;a href="<a href="https://orgmode.org/community.html">https://orgmode.org/community.html</a>"&gt;get in touch&lt;/a&gt;.
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+Catching up on lost time &#x2014; a year in review
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+I joined the Org mailing list in May last year, it's almost been a year since
+then and we've seen the release of Org 9.4, and its inclusion in Emacs 27.
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+I'm not going to do 12 months of work for just this one post, but I'd like to
+give you a sample of what's changed over the last year.
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;div id="outline-container-new-discussion-tracker" class="outline-3"&gt;
+&lt;h3 id="new-discussion-tracker"&gt;&lt;span class="section-number-3"&gt;1.1&lt;/span&gt; A new discussion tracker — &lt;a href="<a href="https://updates.orgmode.org/">https://updates.orgmode.org/</a>"&gt;updates.orgmode.org&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+Mid last year Bastien rolled out tracker for
+Upcoming changes
+Help requests
+Bugs
+Patches
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+This should help ensure nothing slips through the cracks of the ML.
+&lt;/p&gt;
+</p>
+
+
+<p>
+&lt;figure id="orgc51e5e9"&gt;
+&lt;img src="<img src="https://blog.tecosaur.com/tmio/figures/screenshot-of-updates-orgmode-org.png" alt="screenshot-of-updates-orgmode-org.png" />" alt="screenshot-of-updates-orgmode-org.png"&gt;
+</p>
+
+<p>
+&lt;figcaption&gt;&lt;span class="figure-number"&gt;Figure 1: &lt;/span&gt;A screenshot of &lt;a href="<a href="https://updates.orgmode.org/">https://updates.orgmode.org/</a>"&gt;updates.orgmode.org&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+</p>
+
+<p>
+&lt;p&gt;
+It?s very slick, and Bastien built a &lt;a href="<a href="https://github.com/bzg/woof">https://github.com/bzg/woof</a>"&gt;mailbox monitor&lt;/a&gt; just for it — so be sure
+to check it out. This should make it easier to see what needs doing. If you feel
+inclined to help out with Org check out the &lt;i&gt;Help requests&lt;/i&gt; section in particular.
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+You can also get RSS feeds for individual sections, or get the information as
+JSON to work into your own projects, for example &lt;a href="<a href="https://tecosaur.github.io/emacs-config/config.html#development">https://tecosaur.github.io/emacs-config/config.html#development</a>"&gt;an elisp function to fetch and
+apply patches&lt;/a&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</p>
+
+<p>
+&lt;div id="outline-container-inline-display-remote" class="outline-3"&gt;
+&lt;h3 id="inline-display-remote"&gt;&lt;span class="section-number-3"&gt;1.2&lt;/span&gt; Inline display of remote images&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;p&gt;
+Ever gazed forlornly at a link like
+&lt;kbd&gt;<img src="https://github.com/larsmagne/meme/raw/master/images/Grandma-Finds-The-Internet.jpg" alt="Grandma-Finds-The-Internet.jpg" />&lt;/kbd&gt;
+wishing you could see the image?
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+Wish no more! Thanks to Jack Kamm you can now look upon remote images in all
+their glory!
+&lt;/p&gt;
+</p>
+
+
+<p>
+&lt;figure id="org4628ce2"&gt;
+&lt;img src="<img src="https://github.com/larsmagne/meme/raw/master/images/Grandma-Finds-The-Internet.jpg" alt="Grandma-Finds-The-Internet.jpg" />" alt="Grandma-Finds-The-Internet.jpg"&gt;
+</p>
+
+<p>
+&lt;figcaption&gt;&lt;span class="figure-number"&gt;Figure 2: &lt;/span&gt;Org mode discovers the internet&lt;/figcaption&gt;
+&lt;/figure&gt;
+</p>
+
+<p>
+&lt;p&gt;
+To get this working, simply set &lt;code class="src src-elisp"&gt;&lt;span class="org-variable-name"&gt;org-display-remote-inline-images&lt;/span&gt;&lt;/code&gt; to
+&lt;code class="src src-elisp"&gt;&lt;span class="org-highlight-quoted-quote"&gt;'&lt;/span&gt;&lt;span class="org-highlight-quoted-symbol"&gt;download&lt;/span&gt;&lt;/code&gt; or &lt;code class="src src-elisp"&gt;&lt;span class="org-highlight-quoted-quote"&gt;'&lt;/span&gt;&lt;span class="org-highlight-quoted-symbol"&gt;cache&lt;/span&gt;&lt;/code&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</p>
+
+<p>
+&lt;div id="outline-container-use-org-edit" class="outline-3"&gt;
+&lt;h3 id="use-org-edit"&gt;&lt;span class="section-number-3"&gt;1.3&lt;/span&gt; Use &lt;code&gt;org-edit-special&lt;/code&gt; (&lt;kbd&gt;C-c '&lt;/kbd&gt;) with LaTeX fragments&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-3"&gt;
+&lt;p&gt;
+It?s great how in Org you can jump into a LaTeX-mode minibuffer for LaTeX
+environments, but why leave inline LaTeX fragments out? We?ll, they?re now in.
+&lt;/p&gt;
+</p>
+
+
+<p>
+&lt;figure id="orgd663b6c"&gt;
+&lt;img src="<img src="https://blog.tecosaur.com/tmio/figures/org-edit-special-latex-fragment.png" alt="org-edit-special-latex-fragment.png" />" alt="org-edit-special-latex-fragment.png"&gt;
+</p>
+
+<p>
+&lt;figcaption&gt;&lt;span class="figure-number"&gt;Figure 3: &lt;/span&gt;Running &lt;code&gt;org-edit-special&lt;/code&gt; on an inline LaTeX fragment&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</p>
+
+<p>
+&lt;div id="outline-container-control-heading-display" class="outline-3"&gt;
+&lt;h3 id="control-heading-display"&gt;&lt;span class="section-number-3"&gt;1.4&lt;/span&gt; Control heading display on startup&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-4"&gt;
+&lt;p&gt;
+&lt;kbd&gt;org-num-mode&lt;/kbd&gt; is great for when you?re keeping an eye on section numbers, but
+it?s not fun to find yourself enabling it every time you open a file where you
+want it. With the new option &lt;kbd&gt;#+startup: num&lt;/kbd&gt; by Bastien, you can set and forget
+at last.
+&lt;/p&gt;
+</p>
+
+
+<p>
+&lt;figure id="org195b0d0"&gt;
+&lt;img src="<img src="https://blog.tecosaur.com/tmio/figures/org-startup-num-and-levels.png" alt="org-startup-num-and-levels.png" />" alt="org-startup-num-and-levels.png"&gt;
+</p>
+
+<p>
+&lt;figcaption&gt;&lt;span class="figure-number"&gt;Figure 4: &lt;/span&gt;Opening a buffer with the new &lt;kbd&gt;num&lt;/kbd&gt; and &lt;kbd&gt;show2levels&lt;/kbd&gt; startup options&lt;/figcaption&gt;
+&lt;/figure&gt;
+</p>
+
+<p>
+&lt;p&gt;
+Should you want to set the number of levels you see on opening a file, there?s
+now an option for that too. Gustav Wikström has added &lt;i&gt;another&lt;/i&gt; new option
+&lt;kbd&gt;#+startup: show&lt;n&gt;levels&lt;/kbd&gt; (where &lt;kbd&gt;&lt;n&gt;&lt;/kbd&gt; is between 2 and 5, inclusive).
+&lt;i&gt;NB: This is part of the upcoming 9.5 release&lt;/i&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</p>
+
+<p>
+&lt;div id="outline-container-set-permissions-tangled" class="outline-3"&gt;
+&lt;h3 id="set-permissions-tangled"&gt;&lt;span class="section-number-3"&gt;1.5&lt;/span&gt; Set permissions of tangled files&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-5"&gt;
+&lt;p&gt;
+Are you particular about your file permissions? If so you?ll likely like John
+Herrlin?s new source block header argument &lt;kbd&gt;:file-mode&lt;/kbd&gt; pertinent. The easiest way
+to set a permission is with an &lt;a href="<a href="https://docs.nersc.gov/filesystems/unix-file-permissions/">https://docs.nersc.gov/filesystems/unix-file-permissions/</a>"&gt;octal value&lt;/a&gt;, like so:
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-org"&gt;&lt;span class="org-org-block-begin-line"&gt;  #+begin<sub>src</sub> shell :results file :file script.sh :file-mode (identity #o755)&lt;/span&gt;
+&lt;span class="org-org-block"&gt;  &lt;/span&gt;&lt;span class="org-org-block"&gt;&lt;span class="org-type"&gt;echo&lt;/span&gt;&lt;/span&gt;&lt;span class="org-org-block"&gt; &lt;/span&gt;&lt;span class="org-org-block"&gt;&lt;span class="org-string"&gt;"#!/bin/bash"&lt;/span&gt;&lt;/span&gt;
+&lt;span class="org-org-block"&gt;  &lt;/span&gt;&lt;span class="org-org-block"&gt;&lt;span class="org-type"&gt;echo&lt;/span&gt;&lt;/span&gt;&lt;span class="org-org-block"&gt; &lt;/span&gt;&lt;span class="org-org-block"&gt;&lt;span class="org-string"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;span class="org-org-block"&gt;&lt;span class="org-type"&gt;&lt;span class="org-string"&gt;echo&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="org-org-block"&gt;&lt;span class="org-string"&gt; Hello World"&lt;/span&gt;&lt;/span&gt;
+&lt;span class="org-org-block-end-line"&gt;  #+end<sub>src</sub>&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</p>
+
+<p>
+&lt;div id="outline-container-collection-improvements-source" class="outline-3"&gt;
+&lt;h3 id="collection-improvements-source"&gt;&lt;span class="section-number-3"&gt;1.6&lt;/span&gt; A collection of improvements to source block header arguments&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-6"&gt;
+&lt;p&gt;
+These?s been a whole set of these, so I?ll just list them off.
+python, improved &lt;kbd&gt;:return&lt;/kbd&gt; Now works with sessions and the &lt;kbd&gt;:epilogue&lt;/kbd&gt;
+argument (Jack Kamm)
+Java, new argument &lt;kbd&gt;:cmdargs&lt;/kbd&gt; Add some command line arguments to be passed to
+&lt;code&gt;java&lt;/code&gt; (Jarmo Hurri)
+C/C++, non-system headers with &lt;kbd&gt;:includes&lt;/kbd&gt; values that don?t start with &lt;kbd&gt;&lt;&lt;/kbd&gt;
+will now be formatted as double-quoted &lt;code class="src src-C"&gt;&lt;span class="org-preprocessor"&gt;#include&lt;/span&gt;&lt;/code&gt; statements (Brandon
+Guttersohn)
+Screen, new argument &lt;kbd&gt;:screenrc&lt;/kbd&gt; For those of you who still haven?t moved to
+&lt;kbd&gt;tmux&lt;/kbd&gt; (Kenneth D. Mankoff)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</p>
+
+<p>
+&lt;div id="outline-container-seven-year-old" class="outline-3"&gt;
+&lt;h3 id="seven-year-old"&gt;&lt;span class="section-number-3"&gt;1.7&lt;/span&gt; A seven year old bug was fixed&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-7"&gt;
+&lt;p&gt;
+In 2013 &lt;a href="<a href="https://lists.gnu.org/archive/html/emacs-orgmode/2013-08/msg00072.html">https://lists.gnu.org/archive/html/emacs-orgmode/2013-08/msg00072.html</a>"&gt;it was reported&lt;/a&gt; that an infinite loop could be triggered in
+&lt;code&gt;org-agenda-show-new-time&lt;/code&gt;. At long last, this has been fixed by Bastien.
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+Footnotes
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+[fn1] Aside from somewhat more &lt;a href="<a href="https://orgmode.org/quickstart.html">https://orgmode.org/quickstart.html</a>"&gt;intuitive syntax&lt;/a&gt; for emphasis and simple
+structures, Org also has the advantage of not having &lt;a href="<a href="https://github.com/commonmark/commonmark-spec/wiki/markdown-flavors">https://github.com/commonmark/commonmark-spec/wiki/markdown-flavors</a>"&gt;40 functionally distinct
+specifications&lt;/a&gt;. There is only one Org. &lt;br&gt;
+NB: If you attempt to be pedantic you may say that there are multiple Orgs
+because, for example, GitHub uses &lt;a href="<a href="https://github.com/wallyqs/org-ruby">https://github.com/wallyqs/org-ruby</a>"&gt;org-ruby&lt;/a&gt;. However, that?s just an incomplete
+implementation — not a &lt;a href="<a href="https://orgmode.org/worg/dev/org-syntax.html">https://orgmode.org/worg/dev/org-syntax.html</a>"&gt;specification&lt;/a&gt;.
+&lt;/p&gt;
+</p>
+
+<p>
+&lt;p&gt;
+[fn2] That said, with &lt;i&gt;interesting&lt;/i&gt; projects like the &lt;a href="<a href="https://github.com/manateelazycat/emacs-application-framework">https://github.com/manateelazycat/emacs-application-framework</a>"&gt;Emacs Application
+Framework&lt;/a&gt; and the &lt;a href="<a href="https://github.com/ch11ng/exwm">https://github.com/ch11ng/exwm</a>"&gt;Emacs X Window Manager&lt;/a&gt;, one could argue that Org is
+(sometimes) a major component of a desktop environment…
+&lt;/p&gt;
+</p>
+
+<p>
+  &lt;p&gt;
+  [fn3] There is &lt;a href="<a href="https://code.orgmode.org/bzg/org-mode/src/master/etc/ORG-NEWS">https://code.orgmode.org/bzg/org-mode/src/master/etc/ORG-NEWS</a>"&gt;ORG-NEWS&lt;/a&gt;, but do you &lt;i&gt;really&lt;/i&gt; check that? Besides, it doesn?t even
+  have pictures.
+  &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;/div&gt;
+  ]]&gt;
+<a href="https://blog.tecosaur.com/tmio/2021-04-26-Welcome.html">https://blog.tecosaur.com/tmio/2021-04-26-Welcome.html</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: LaurenceWarne</p>
+<p class="date">Created: 2021-06-05 Sat 16:45</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
