@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-06-17 Thu 10:35 -->
+<!-- 2021-06-17 Thu 16:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -200,26 +200,50 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -249,12 +273,12 @@ A menagarie of cool python snippets!
 <h2 id="orgabc8071"><span class="section-number-2">1</span> Unpacking</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #D83441;">def</span> <span style="color: #D8B941;">is_palindrome</span><span style="color: #3679D8;">(</span>indexable<span style="color: #3679D8;">)</span>:
-    <span style="color: #D83441;">if</span> <span style="color: #3679D8;">len</span><span style="color: #3679D8;">(</span>indexable<span style="color: #3679D8;">)</span> &gt; 1:
-        first, *<span style="color: #86e7d7;">rest</span>, <span style="color: #86e7d7;">last</span> = indexable
-        <span style="color: #D83441;">return</span> first == last <span style="color: #D83441;">and</span> is_palindrome<span style="color: #3679D8;">(</span>rest<span style="color: #3679D8;">)</span>
-    <span style="color: #D83441;">else</span>:
-        <span style="color: #D83441;">return</span> <span style="color: #8041D8;">True</span>
+<pre class="src src-python">def is_palindrome(indexable):
+    if len(indexable) &gt; 1:
+	first, *rest, last = indexable
+	return first == last and is_palindrome(rest)
+    else:
+	return True
 </pre>
 </div>
 </div>
@@ -267,15 +291,15 @@ Not the most efficient implementation, but we can implement quicksort extremely 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #D83441;">def</span> <span style="color: #D8B941;">quicksort</span><span style="color: #3679D8;">(</span>ls: <span style="color: #3679D8;">list</span><span style="color: #3679D8;">)</span>:
-    <span style="color: #D83441;">if</span> ls:
-        pivot, *<span style="color: #86e7d7;">rest</span> = ls
-        <span style="color: #86e7d7;">smaller</span>, <span style="color: #86e7d7;">greater</span> = <span style="color: #3679D8;">[]</span>, <span style="color: #3679D8;">[]</span>
-        <span style="color: #D83441;">for</span> item <span style="color: #D83441;">in</span> rest:
-            <span style="color: #3679D8;">(</span>smaller <span style="color: #D83441;">if</span> pivot &gt; item <span style="color: #D83441;">else</span> greater<span style="color: #3679D8;">)</span>.append<span style="color: #3679D8;">(</span>item<span style="color: #3679D8;">)</span>
-        <span style="color: #D83441;">return</span> quicksort<span style="color: #3679D8;">(</span>smaller<span style="color: #3679D8;">)</span> + <span style="color: #3679D8;">[</span>pivot<span style="color: #3679D8;">]</span> + quicksort<span style="color: #3679D8;">(</span>greater<span style="color: #3679D8;">)</span>
-    <span style="color: #D83441;">else</span>:
-        <span style="color: #D83441;">return</span> <span style="color: #3679D8;">[]</span>
+<pre class="src src-python">def quicksort(ls: list):
+    if ls:
+	pivot, *rest = ls
+	smaller, greater = [], []
+	for item in rest:
+	    (smaller if pivot &gt; item else greater).append(item)
+	return quicksort(smaller) + [pivot] + quicksort(greater)
+    else:
+	return []
 </pre>
 </div>
 
@@ -290,10 +314,10 @@ Of course <code>sorted(ls)</code> does the job too.
 <h2 id="org93d2681"><span class="section-number-2">2</span> Poor Man's Cache</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #D83441;">def</span> <span style="color: #D8B941;">fib</span><span style="color: #3679D8;">(</span>n: <span style="color: #3679D8;">int</span>, cache=<span style="color: #8041D8;">{</span>0: 1, 1: 1<span style="color: #8041D8;">}</span><span style="color: #3679D8;">)</span>:
-    <span style="color: #D83441;">if</span> n <span style="color: #D83441;">not</span> <span style="color: #D83441;">in</span> cache:
-        <span style="color: #86e7d7;">cache</span><span style="color: #3679D8;">[</span>n<span style="color: #3679D8;">]</span> = fib<span style="color: #3679D8;">(</span>n - 1, cache<span style="color: #3679D8;">)</span> + fib<span style="color: #3679D8;">(</span>n - 2, cache<span style="color: #3679D8;">)</span>
-    <span style="color: #D83441;">return</span> cache<span style="color: #3679D8;">[</span>n<span style="color: #3679D8;">]</span>
+<pre class="src src-python">def fib(n: int, cache={0: 1, 1: 1}):
+    if n not in cache:
+	cache[n] = fib(n - 1, cache) + fib(n - 2, cache)
+    return cache[n]
 </pre>
 </div>
 
@@ -311,8 +335,8 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 <h2 id="orgf82ff9d"><span class="section-number-2">3</span> ♥ Generators ♥</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #D83441;">def</span> <span style="color: #D8B941;">triangle_number</span><span style="color: #3679D8;">(</span>n: <span style="color: #3679D8;">int</span><span style="color: #3679D8;">)</span>:
-    <span style="color: #D83441;">return</span> <span style="color: #3679D8;">sum</span><span style="color: #3679D8;">(</span>k <span style="color: #D83441;">for</span> k <span style="color: #D83441;">in</span> <span style="color: #3679D8;">range</span><span style="color: #8041D8;">(</span>n + 1<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+<pre class="src src-python">def triangle_number(n: int):
+    return sum(k for k in range(n + 1))
 </pre>
 </div>
 
@@ -326,8 +350,8 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 <h2 id="org5e45fd4"><span class="section-number-2">4</span> Poor Man's defaultdict</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #86e7d7;">my_dict</span> = <span style="color: #3679D8;">{</span><span style="color: #79D836;">"a"</span>: 1, <span style="color: #79D836;">"b"</span>: 2<span style="color: #3679D8;">}</span>
-<span style="color: #D83441;">print</span><span style="color: #3679D8;">(</span>my_dict.get<span style="color: #8041D8;">(</span><span style="color: #79D836;">"A"</span>, -1<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+<pre class="src src-python">my_dict = {"a": 1, "b": 2}
+print(my_dict.get("A", -1))
 </pre>
 </div>
 
@@ -346,12 +370,12 @@ If we forego the slice syntax, we can specify a default value to <code>.get</cod
 <h2 id="org2e5d083"><span class="section-number-2">5</span> Zip is it's own Inverse</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #D83441;">import</span> string
+<pre class="src src-python">import string
 
-<span style="color: #86e7d7;">zipped</span> = <span style="color: #3679D8;">list</span><span style="color: #3679D8;">(</span><span style="color: #3679D8;">zip</span><span style="color: #8041D8;">(</span><span style="color: #3679D8;">range</span><span style="color: #79D836;">(</span>10<span style="color: #79D836;">)</span>, string.ascii_lowercase, string.ascii_uppercase<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
-<span style="color: #D83441;">print</span><span style="color: #3679D8;">(</span><span style="color: #79D836;">"Zipped up: "</span> + <span style="color: #3679D8;">str</span><span style="color: #8041D8;">(</span>zipped<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
-<span style="color: #86e7d7;">dezipped</span> = <span style="color: #3679D8;">list</span><span style="color: #3679D8;">(</span><span style="color: #3679D8;">zip</span><span style="color: #8041D8;">(</span>*zipped<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
-<span style="color: #D83441;">print</span><span style="color: #3679D8;">(</span><span style="color: #79D836;">"Dezipped: "</span> + <span style="color: #3679D8;">str</span><span style="color: #8041D8;">(</span>dezipped<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+zipped = list(zip(range(10), string.ascii_lowercase, string.ascii_uppercase))
+print("Zipped up: " + str(zipped))
+dezipped = list(zip(*zipped))
+print("Dezipped: " + str(dezipped))
 </pre>
 </div>
 
@@ -364,8 +388,8 @@ Dezipped: [(0, 1, 2, 3, 4, 5, 6, 7, 8, 9), ('a', 'b', 'c', 'd', 'e', 'f', 'g', '
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2021-06-17 Thu 10:35</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-06-17 Thu 16:13</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
