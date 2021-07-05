@@ -37,3 +37,5 @@ permalink: /links/
 * <a href="https://mathproblems123.wordpress.com/">Beni Bogoşel's Blog</a>
 
 * <a href="http://laurentmazare.github.io/index.html">Laurent Mazare's Blog (inactive)</a>
+
+* <a href="https://nicholas-miklaucic.github.io/">Nicholas Miklaucic's Blog</a>
