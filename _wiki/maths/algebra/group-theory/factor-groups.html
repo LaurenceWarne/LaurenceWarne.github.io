@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-06-17 Thu 16:14 -->
+<!-- 2021-07-08 Thu 12:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Factor Groups</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -200,50 +200,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -279,7 +255,7 @@ Next: <a href='./group-actions.html'>Group Actions</a><span style='float: right;
 <ul>
 <li><a href="#org8dd75b0">1.1. Disjointedness</a>
 <ul>
-<li><a href="#orgb0cfcac">1.1.1. Proof</a></li>
+<li><a href="#org35b7893">1.1.1. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org81ecff6">1.2. Cosets as Groups</a>
@@ -295,7 +271,7 @@ Next: <a href='./group-actions.html'>Group Actions</a><span style='float: right;
 <li>
 <ul>
 <li><a href="#org8d6e6e5">2.0.1. Proposition</a></li>
-<li><a href="#org35b7893">2.0.2. Proof</a></li>
+<li><a href="#org782436e">2.0.2. Proof</a></li>
 </ul>
 </li>
 </ul>
@@ -353,8 +329,8 @@ Ie two cosets are either equal or disjoint. From this we can deduce that the cos
 </p>
 </div>
 
-<div id="outline-container-orgb0cfcac" class="outline-4">
-<h4 id="orgb0cfcac"><span class="section-number-4">1.1.1</span> Proof</h4>
+<div id="outline-container-org35b7893" class="outline-4">
+<h4 id="org35b7893"><span class="section-number-4">1.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 Now suppose that \( g_1 + H \) and \( g_2 + H \) share some common element \( k \), and further suppose for a contradiction that there is some element \( q \in G \ s.t. \ q \in g_1 + H, \ q \not\in g_2 + H \) ie \( q = g_1 + h_3 \) for some \( h_3 \in H \). Then:
@@ -537,8 +513,8 @@ Invertability and existence of an identity all follow by virtue of \( G \) (to b
 </div>
 </div>
 
-<div id="outline-container-org35b7893" class="outline-4">
-<h4 id="org35b7893"><span class="section-number-4">2.0.2</span> Proof</h4>
+<div id="outline-container-org782436e" class="outline-4">
+<h4 id="org782436e"><span class="section-number-4">2.0.2</span> Proof</h4>
 <div class="outline-text-4" id="text-2-0-2">
 <p>
 Suppose \( k \in g + N \) then:
@@ -558,8 +534,8 @@ But \( g + h + (-g) \in N \) hence \( k \in N + g \). And similarly \( k \in N +
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2021-06-17 Thu 16:14</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-07-08 Thu 12:45</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
