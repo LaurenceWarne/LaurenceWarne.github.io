@@ -6,7 +6,7 @@
 <!-- 2021-07-14 Wed 21:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ideals</title>
+<title>Variance</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -246,204 +246,117 @@
 </head>
 <body>
 <div id="content">
-Next: <a href='./integral-domains.html'>Integral Domains</a><span style='float: right;'>Up: <a href='./commutative-algebra.html'>Commutative Algebra</a></span><hr><h1 class="title">Ideals</h1>
+<span >Up: <a href='./types.html'>Types</a></span><hr><h1 class="title">Variance</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5b888e2">1. Definition</a></li>
-<li><a href="#org48dd035">2. Special Ideals</a>
-<ul>
-<li><a href="#org164d762">2.1. Maximal Ideals</a>
-<ul>
-<li><a href="#org4f23c71">2.1.1. <b>Definition</b></a></li>
-<li><a href="#orgdf5a4ef">2.1.2. <b>Theorem</b></a></li>
-<li><a href="#org81b3db9">2.1.3. <b>Proof</b></a></li>
-</ul>
-</li>
-<li><a href="#org8ed420c">2.2. Prime Ideals</a>
-<ul>
-<li><a href="#org2411c2d">2.2.1. <b>Definition</b></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#org86d3d39">1. Covariance</a></li>
+<li><a href="#orgd742128">2. Contravariance</a></li>
+<li><a href="#orgc38ce79">3. Gotchas</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5b888e2" class="outline-2">
-<h2 id="org5b888e2"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-org86d3d39" class="outline-2">
+<h2 id="org86d3d39"><span class="section-number-2">1</span> Covariance</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-We say a subset \( I \subseteq R \) of some commutative ring \( R \) is an ideal if:
+We say some type <code>F</code> which takes a type paramater is covariant if \( S \subset T \Rightarrow F[S] \subset F[T] \).  ie we might reasonably claim a <code>List[Cat]</code> is a subtype of <code>List[Animal]</code>.  However this may cause some problems:
 </p>
 
-<ol class="org-ol">
-<li>\( (I, +) \) is a subgroup of \( (R, +) \)</li>
-<li>\( I \) is closed under multiplication from \( R \), ie \( rx \in R \ \forall r \in I,\ x \in R \)</li>
-</ol>
+<div class="org-src-container">
+<pre class="src src-scala"><span style="color: #D83441;">val</span> <span style="color: #86e7d7;">myCats</span><span style="color: #D83441;">:</span> <span style="color: #3679D8;">List</span><span style="color: #3679D8;">[</span><span style="color: #8041D8;">Cat</span><span style="color: #3679D8;">]</span>       <span style="color: #D83441;">=</span> <span style="color: #8041D8;">List</span><span style="color: #3679D8;">(</span><span style="color: #8041D8;">Cat</span><span style="color: #8041D8;">(</span><span style="color: #79D836;">"Max"</span><span style="color: #8041D8;">)</span>, <span style="color: #8041D8;">Cat</span><span style="color: #8041D8;">(</span><span style="color: #79D836;">"Felix"</span><span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+<span style="color: #D83441;">val</span> <span style="color: #86e7d7;">myAnimals</span><span style="color: #D83441;">:</span> <span style="color: #3679D8;">List</span><span style="color: #3679D8;">[</span><span style="color: #8041D8;">Animal</span><span style="color: #3679D8;">]</span> <span style="color: #D83441;">=</span> myCats
+<span style="color: #D83441;">val</span> <span style="color: #86e7d7;">myDog</span><span style="color: #D83441;">:</span> <span style="color: #3679D8;">Dog</span>              <span style="color: #D83441;">=</span> <span style="color: #8041D8;">Dog</span><span style="color: #3679D8;">(</span><span style="color: #79D836;">"Fiedo"</span><span style="color: #3679D8;">)</span>
+myAnimals.add<span style="color: #3679D8;">(</span>myDog<span style="color: #3679D8;">)</span>
+<span style="color: #767676; font-style: italic;">// </span><span style="color: #767676; font-style: italic;">But now myCats contains a dog!!</span>
+</pre>
+</div>
 
 <p>
-Note by (2) an ideal is a ring iff it is equal to the ring itself.
+However, we can overcome this problem by making <code>List</code> immutable, so that we cannot add any new elements to a list.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org48dd035" class="outline-2">
-<h2 id="org48dd035"><span class="section-number-2">2</span> Special Ideals</h2>
+
+<div id="outline-container-orgd742128" class="outline-2">
+<h2 id="orgd742128"><span class="section-number-2">2</span> Contravariance</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-We specify \( R \) as a commutative ring.
+Sometimes it may also make sense for a particular type \( G \) that if \( S \) is a subtype of \( T \), then \( G[T] \) is a subtype of \( G[S] \) - and we call this <b>contravariance</b>.  An example of this could be a JSON encoder.  For example say if we have:
 </p>
+
+<div class="org-src-container">
+<pre class="src src-scala"><span style="color: #D83441;">trait</span> <span style="color: #3679D8;">Animal</span> <span style="color: #3679D8;">{</span>
+  <span style="color: #D83441;">def</span> <span style="color: #D8B941;">name</span><span style="color: #D83441;">:</span> <span style="color: #3679D8;">String</span>
+<span style="color: #3679D8;">}</span>
+
+<span style="color: #D83441;">case</span> <span style="color: #D83441;">class</span> <span style="color: #3679D8;">Dog</span><span style="color: #3679D8;">(</span>name<span style="color: #D83441;">:</span> <span style="color: #3679D8;">String</span>, age<span style="color: #D83441;">:</span> <span style="color: #3679D8;">Int</span><span style="color: #3679D8;">)</span> <span style="color: #D83441;">extends</span> <span style="color: #3679D8;">Animal</span>
+</pre>
 </div>
 
-<div id="outline-container-org164d762" class="outline-3">
-<h3 id="org164d762"><span class="section-number-3">2.1</span> Maximal Ideals</h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-org4f23c71" class="outline-4">
-<h4 id="org4f23c71"><span class="section-number-4">2.1.1</span> <b>Definition</b></h4>
-<div class="outline-text-4" id="text-2-1-1">
 <p>
-We say a proper ideal \( I \) of \( R \), is a maximal ideal if for all ideals \( J \) such that \( I \subseteq J \), then either \( J = I \) or \( J = R \).
+Then it would make sense that if we had a json encoder for the <code>Animal</code> type, we could use this to encode <code>Dog</code> instances also, albeit without the dog's <code>age</code>:
 </p>
-</div>
-</div>
 
-<div id="outline-container-orgdf5a4ef" class="outline-4">
-<h4 id="orgdf5a4ef"><span class="section-number-4">2.1.2</span> <b>Theorem</b></h4>
-<div class="outline-text-4" id="text-2-1-2">
-<p>
-The factor ring \( R / I \) is a field iff \( I \) is a maximal ideal in \( R \).
-</p>
-</div>
+<div class="org-src-container">
+<pre class="src src-scala"><span style="color: #D83441;">val</span> <span style="color: #86e7d7;">animalEncoder</span><span style="color: #D83441;">:</span> <span style="color: #3679D8;">Encoder</span><span style="color: #3679D8;">[</span><span style="color: #8041D8;">Animal</span><span style="color: #3679D8;">]</span> <span style="color: #D83441;">=</span> getEncoder<span style="color: #3679D8;">()</span>
+<span style="color: #D83441;">val</span> <span style="color: #86e7d7;">dog</span><span style="color: #D83441;">:</span> <span style="color: #3679D8;">Dog</span>                       <span style="color: #D83441;">=</span> <span style="color: #8041D8;">Dog</span><span style="color: #3679D8;">(</span><span style="color: #79D836;">"Fiedo"</span>, <span style="color: #8041D8;">3</span><span style="color: #3679D8;">)</span>
+<span style="color: #D83441;">val</span> <span style="color: #86e7d7;">dogEncoder</span><span style="color: #D83441;">:</span> <span style="color: #3679D8;">Encoder</span><span style="color: #3679D8;">[</span><span style="color: #8041D8;">Dog</span><span style="color: #3679D8;">]</span>       <span style="color: #D83441;">=</span> animalEncoder
+animalEncoder.encode<span style="color: #3679D8;">(</span>dog<span style="color: #3679D8;">)</span>
+<span style="color: #767676; font-style: italic;">// </span><span style="color: #767676; font-style: italic;">{"name": "Fiedo"}</span>
+</pre>
 </div>
 
-<div id="outline-container-org81b3db9" class="outline-4">
-<h4 id="org81b3db9"><span class="section-number-4">2.1.3</span> <b>Proof</b></h4>
-<div class="outline-text-4" id="text-2-1-3">
 <p>
-<b>(forward case)</b>: By contrapositive; suppose \( I \) is not maximal in \( R \), ie there exists some ideal \( J \) such that \( I \subset J \subset R \). We show that there is a non-invertible element in \( R/I \). Let:
-</p>
-
-<p>
-\[
-K = J \backslash I
-\]
-</p>
-
-<p>
-Note \( 1 \notin J \) (else \( J = R \)) and \( K \) is nonempty and contains some nonzero element, say \( b \). Now consider \( b + I \in R / I \). Let:
-</p>
-
-<p>
-\[
-S = \{ (r + I)(b + I) = (rb) + I : r \in R \}
-\]
-</p>
-
-<p>
-Now suppose for some \( r \in R \):
-</p>
-
-\begin{align*}
-(rb) + I = 1 + I & \implies b' + I = 1 + I \\
-                 & \implies \exists c \in b' + I \subset J \ s.t. \ c = 1 
-\end{align*}
-
-<p>
-Which is a contradiction as \( J \) is a proper ideal. Hence \( b + I \) has no inverse in \( R/I \), hence \( R/I \) is not a field.
-</p>
-
-<p>
-<b>(backward case)</b>: By contrapositive; note \( R/I \) is a field iff its only ideals are \( \{ 0 + I \} \) and \( R/I \). Now suppose \( R/I \) is not a field, ie there exists some nontrivial proper ideal \( J \) which contains some nonzero element (along with \( 0 + I \)). We show then that it cannot be the case that \( I \) is maximal.
-</p>
-
-\begin{align*}
-J &= \{ b_1 + I, \ b_2 + I, ... \}\\
-  &= \{ \{ b_1 + a : a \in I \}, \ \{b_2 + a : a \in I \}, ... \}
-\end{align*}
-
-<p>
-We claim the following is a proper ideal of \( R \) containing \( I \):
-</p>
-
-<p>
-\[
-J' = \bigcup\limits_{\forall i} (b_i + J)
-\]
-</p>
-
-<p>
-We already know \( J' \) contains all elements of \( I \) (including \( 0 \)) as \( J \) contains \( 0 + I = I \). So we first show \( J' \) is closed under multiplication from \( R \). since \( J \) is an ideal of \( R/I \) we know that for all  \(r \in R, \ b_i + I \in J \):
-</p>
-
-<p>
-\[
-(r + I)*(b_i + I) = b_j + I
-\]
-</p>
-
-<p>
-For some \( b_j + I \in J \). So then:
-</p>
-
-<p>
-\[
-\implies rb_i \in b_j + I \subset J'
-\]
-</p>
-
-<p>
-Hence \( J' \) is closed under multiplication from \( R \). We show \( J' \) is closed under addition. Let \( b_i, b_j \in J \), and consider: 
-</p>
-
-<p>
-\[
-b_i + b_j \in (b_i + I) + (b_j + I)
-\]
-</p>
-
-<p>
-But since \( J \) is an ideal, it is closed under addition and so:
-</p>
-
-<p>
-\[
-(b_i + I) + (b_j + I) = (b_k + I) \subset J' \\
-\implies b_i + b_j \in J'
-\]
-</p>
-
-<p>
-For some \( k \). It remains to show \( J' \) is proper, suppose it's not for a contradiction:
-</p>
-
-\begin{align*}
-J' = R &\implies 1 \in J' \\
-&\implies (1 + I) \in J \\
-&\implies J = R/I
-\end{align*}
-
-<p>
-Which is a contradiction since \( J \) is proper. So we have show \( J' \) is a proper ideal containing \( I \), which is therefore not maximal. This concludes the backward case.
+Hence an <code>Animal</code> encoder is just one particular type of <code>Dog</code> encoder, hence the <code>Encoder</code> type is <b>contravariant</b>.  Note that the opposite would hold for a JSON decoder (covariant), and in general data sources can be covariant and data sinks can be contravariant.
 </p>
 </div>
 </div>
+
+
+<div id="outline-container-orgc38ce79" class="outline-2">
+<h2 id="orgc38ce79"><span class="section-number-2">3</span> Gotchas</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Suppose we have some covariant type:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scala"><span style="color: #D83441;">class</span> <span style="color: #3679D8;">MyList</span><span style="color: #3679D8;">[</span>+<span style="color: #8041D8;">T</span><span style="color: #3679D8;">]</span> <span style="color: #3679D8;">{</span>
+  <span style="color: #D83441;">def</span> <span style="color: #D8B941;">contains</span><span style="color: #8041D8;">(</span>e<span style="color: #D83441;">:</span> <span style="color: #3679D8;">???</span><span style="color: #8041D8;">)</span><span style="color: #D83441;">:</span> <span style="color: #3679D8;">Boolean</span>
+<span style="color: #3679D8;">}</span>
+</pre>
 </div>
 
-<div id="outline-container-org8ed420c" class="outline-3">
-<h3 id="org8ed420c"><span class="section-number-3">2.2</span> Prime Ideals</h3>
-<div class="outline-text-3" id="text-2-2">
-</div>
-<div id="outline-container-org2411c2d" class="outline-4">
-<h4 id="org2411c2d"><span class="section-number-4">2.2.1</span> <b>Definition</b></h4>
-<div class="outline-text-4" id="text-2-2-1">
 <p>
-We say an <b>proper</b> ideal \( I \) of a commutative ring \( R \) is prime if, for any two elements \( a, b \in R \) such that \( ab \in I \) we must have \( a \in I \lor b \in I \).
+Then what should be the type of <code>e</code>?  We might reason that we should have <code>e: T</code> to match our type parameter, but that gives rise to the following:
 </p>
+
+<div class="org-src-container">
+<pre class="src src-scala"><span style="color: #D83441;">val</span> <span style="color: #86e7d7;">myDogs</span><span style="color: #D83441;">:</span> <span style="color: #3679D8;">List</span><span style="color: #3679D8;">[</span><span style="color: #8041D8;">Dog</span><span style="color: #3679D8;">]</span>    <span style="color: #D83441;">=</span> <span style="color: #8041D8;">List</span><span style="color: #3679D8;">(</span><span style="color: #8041D8;">Dog</span><span style="color: #8041D8;">(</span><span style="color: #79D836;">"Fiedo"</span><span style="color: #8041D8;">)</span>, <span style="color: #8041D8;">Dog</span><span style="color: #8041D8;">(</span><span style="color: #79D836;">"Zeus"</span><span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+<span style="color: #D83441;">val</span> <span style="color: #86e7d7;">myAnimals</span><span style="color: #D83441;">:</span> <span style="color: #3679D8;">List</span><span style="color: #3679D8;">[</span><span style="color: #8041D8;">Dog</span><span style="color: #3679D8;">]</span> <span style="color: #D83441;">=</span> myDogs
+<span style="color: #767676; font-style: italic;">// </span><span style="color: #767676; font-style: italic;">Completely fine by our type signature</span>
+myAnimals.contains<span style="color: #3679D8;">(</span><span style="color: #8041D8;">Cat</span><span style="color: #8041D8;">(</span><span style="color: #79D836;">"Max"</span><span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+<span style="color: #767676; font-style: italic;">// </span><span style="color: #767676; font-style: italic;">Not allowed by our type signature!</span>
+myDogs.contains<span style="color: #3679D8;">(</span><span style="color: #8041D8;">Cat</span><span style="color: #8041D8;">(</span><span style="color: #79D836;">"Max"</span><span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+</pre>
 </div>
+
+<p>
+So the way we get around this is to make the type of <code>e: U &gt;: T</code> so that the method can take any supertype of <code>T</code> (also see <a href="https://stackoverflow.com/questions/9619121/why-is-parameter-in-contravariant-position">here</a> for a great SO link).  This can however lead to some unexpected behaviour:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scala"><span style="color: #767676; font-style: italic;">// </span><span style="color: #767676; font-style: italic;">All of the following is valid in scala</span>
+<span style="color: #D83441;">val</span> <span style="color: #86e7d7;">myInts</span> <span style="color: #D83441;">=</span> <span style="color: #8041D8;">List</span><span style="color: #3679D8;">(</span><span style="color: #8041D8;">1</span>, <span style="color: #8041D8;">2</span>, <span style="color: #8041D8;">3</span><span style="color: #3679D8;">)</span>
+myInts.contains<span style="color: #3679D8;">(</span><span style="color: #79D836;">"not an int"</span><span style="color: #3679D8;">)</span>
+<span style="color: #767676; font-style: italic;">// </span><span style="color: #767676; font-style: italic;">Boolean = false</span>
+<span style="color: #79D836;">"not an int"</span> :: myInts
+<span style="color: #767676; font-style: italic;">// </span><span style="color: #767676; font-style: italic;">List[Any] = List("not an int", 1, 2, 3)</span>
+</pre>
 </div>
 </div>
 </div>

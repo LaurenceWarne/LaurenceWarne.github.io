@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-07-08 Thu 13:23 -->
+<!-- 2021-07-14 Wed 21:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Graphs</title>
@@ -254,17 +254,17 @@ Previous: <a href='./graph-colouring.html'>Graph Colouring</a><span style='float
 <li><a href="#orge6796eb">1. Introduction</a></li>
 <li><a href="#org1e2f96c">2. Vertex Sequences</a>
 <ul>
-<li><a href="#org161eb76">2.1. <b>Definition</b></a></li>
-<li><a href="#orgce642db">2.2. <b>Definition</b></a></li>
-<li><a href="#org067ed40">2.3. <b>Definition</b></a></li>
-<li><a href="#org0fdf01f">2.4. <b>Definition</b></a></li>
+<li><a href="#orgf214355">2.1. <b>Definition</b></a></li>
+<li><a href="#orgf84186a">2.2. <b>Definition</b></a></li>
+<li><a href="#orgc7aa315">2.3. <b>Definition</b></a></li>
+<li><a href="#orge9b4550">2.4. <b>Definition</b></a></li>
 </ul>
 </li>
 <li><a href="#org178945e">3. Subgraphs</a>
 <ul>
-<li><a href="#orgf735950">3.1. <b>Definition</b></a></li>
-<li><a href="#org85efc9e">3.2. <b>Definition</b></a></li>
-<li><a href="#org18bef64">3.3. <b>Definition</b></a></li>
+<li><a href="#org3450b02">3.1. <b>Definition</b></a></li>
+<li><a href="#org587edc1">3.2. <b>Definition</b></a></li>
+<li><a href="#org47e6bac">3.3. <b>Definition</b></a></li>
 </ul>
 </li>
 <li><a href="#orgde11600">4. Adjacency Matrices</a>
@@ -298,8 +298,8 @@ We also say \( G \) is <b>simple</b> if there is at most on edge connecting any 
 <h2 id="org1e2f96c"><span class="section-number-2">2</span> Vertex Sequences</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org161eb76" class="outline-3">
-<h3 id="org161eb76"><span class="section-number-3">2.1</span> <b>Definition</b></h3>
+<div id="outline-container-orgf214355" class="outline-3">
+<h3 id="orgf214355"><span class="section-number-3">2.1</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 A <b>walk</b> in a graph \( G(V, E) \) is a finite sequence of vertices \( (v_1 ... v_k) \) such that each consecutive pair forms an edge of \( G \).
@@ -307,8 +307,8 @@ A <b>walk</b> in a graph \( G(V, E) \) is a finite sequence of vertices \( (v_1 
 </div>
 </div>
 
-<div id="outline-container-orgce642db" class="outline-3">
-<h3 id="orgce642db"><span class="section-number-3">2.2</span> <b>Definition</b></h3>
+<div id="outline-container-orgf84186a" class="outline-3">
+<h3 id="orgf84186a"><span class="section-number-3">2.2</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 A <b>trail</b> (or tour) is a walk in which all the edges \( e_i = (v_i, v_{i + 1}) \) are distinct. We can remember this by associating them with <b>Eulerian trails</b> (which much visit every edge exactly once).
@@ -316,8 +316,8 @@ A <b>trail</b> (or tour) is a walk in which all the edges \( e_i = (v_i, v_{i + 
 </div>
 </div>
 
-<div id="outline-container-org067ed40" class="outline-3">
-<h3 id="org067ed40"><span class="section-number-3">2.3</span> <b>Definition</b></h3>
+<div id="outline-container-orgc7aa315" class="outline-3">
+<h3 id="orgc7aa315"><span class="section-number-3">2.3</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 A <b>path</b> is a trail in which a vertex occurs occurs only once in the edge sequence.
@@ -325,8 +325,8 @@ A <b>path</b> is a trail in which a vertex occurs occurs only once in the edge s
 </div>
 </div>
 
-<div id="outline-container-org0fdf01f" class="outline-3">
-<h3 id="org0fdf01f"><span class="section-number-3">2.4</span> <b>Definition</b></h3>
+<div id="outline-container-orge9b4550" class="outline-3">
+<h3 id="orge9b4550"><span class="section-number-3">2.4</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 A <b>cycle</b> is a trail in which all the vertices are distinct, except for the first and last which are the same.
@@ -339,8 +339,8 @@ A <b>cycle</b> is a trail in which all the vertices are distinct, except for the
 <h2 id="org178945e"><span class="section-number-2">3</span> Subgraphs</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgf735950" class="outline-3">
-<h3 id="orgf735950"><span class="section-number-3">3.1</span> <b>Definition</b></h3>
+<div id="outline-container-org3450b02" class="outline-3">
+<h3 id="org3450b02"><span class="section-number-3">3.1</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 A <b>clique</b> is a set of vertices \( S \subseteq V \) such that the subgraph induced by \( S \) forms a complete graph.
@@ -348,8 +348,8 @@ A <b>clique</b> is a set of vertices \( S \subseteq V \) such that the subgraph 
 </div>
 </div>
 
-<div id="outline-container-org85efc9e" class="outline-3">
-<h3 id="org85efc9e"><span class="section-number-3">3.2</span> <b>Definition</b></h3>
+<div id="outline-container-org587edc1" class="outline-3">
+<h3 id="org587edc1"><span class="section-number-3">3.2</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 An <b>independent set</b>, I, of \( G(V, E) \) is a set \( I \subseteq V \) such that no pair of vertices in \( I \) is joined by an edge in \( E \).
@@ -357,8 +357,8 @@ An <b>independent set</b>, I, of \( G(V, E) \) is a set \( I \subseteq V \) such
 </div>
 </div>
 
-<div id="outline-container-org18bef64" class="outline-3">
-<h3 id="org18bef64"><span class="section-number-3">3.3</span> <b>Definition</b></h3>
+<div id="outline-container-org47e6bac" class="outline-3">
+<h3 id="org47e6bac"><span class="section-number-3">3.3</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Let \( G(V, E) \) be a graph, then the <b>graph complement</b> of \( G \) is a graph \( H(V, E') \) such that \( e \in E' \iff e \not \in E \).
@@ -414,7 +414,7 @@ Which can be computed in the same time complexity.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2021-07-08 Thu 13:23</p>
+<p class="date">Created: 2021-07-14 Wed 21:12</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
