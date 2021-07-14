@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-07-08 Thu 13:23 -->
+<!-- 2021-07-14 Wed 21:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Answers</title>
@@ -294,7 +294,7 @@
 
 <li>For all residues \( a \) modulo \( p \) we have \( a^p - a \equiv 0 \mod p \), hence there are no solutions in \( \mathbb{F}_p \) to \( x^p - x + 1 = 0 \) for example.</li>
 
-<li>It isn't a group because the operation is not associative. It can be shown they form a <a href="https://en.wikipedia.org/wiki/Quasigroup#Loops">commutative loop</a></li>
+<li>They do not form a group since \( -2^{31} \) does not have an inverse.</li>
 </ol>
 </div>
 </div>
@@ -316,7 +316,7 @@
 
 <li>Choose the primorials as the subsequence.</li>
 
-<li>\( \pi(10000) \), since if some \( p | n \), then we need to check if no other primes divide it. Note if \( n = 1 \), we "ask" all primes and get "no" for everything.</li>
+<li>\( \pi(10000) \) + \( \pi(\lfloor \sqrt{10000} \rfloor}) \) , since if some \( p | n \), then we need to check if no other primes divide it, and also that it is not a prime power (ie \( p^2 \not | n \)).  Note if \( n = 1 \), we "ask" all primes and get "no" for everything.</li>
 </ol>
 </div>
 </div>
@@ -346,7 +346,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2021-07-08 Thu 13:23</p>
+<p class="date">Created: 2021-07-14 Wed 21:12</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
