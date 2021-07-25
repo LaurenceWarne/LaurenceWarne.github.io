@@ -6,7 +6,7 @@
 <!-- 2021-07-25 Sun 21:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Polynomial Rings</title>
+<title>Contour Integration</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LaurenceWarne" />
 <style type="text/css">
@@ -246,54 +246,32 @@
 </head>
 <body>
 <div id="content">
-Previous: <a href='./integral-domains.html'>Integral Domains</a>, Next: <a href='./unique-factorisation-domains.html'>Unique Factorisation Domains</a><span style='float: right;'>Up: <a href='./commutative-algebra.html'>Commutative Algebra</a></span><hr><h1 class="title">Polynomial Rings</h1>
+Next: <a href='./integral-theorems.html'>Integral Theorems</a><span style='float: right;'>Up: <a href='./complex-analysis.html'>Complex Analysis</a></span><hr><h1 class="title">Contour Integration</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org465ac2a">1. Introduction</a></li>
-<li><a href="#orge2b3471">2. Properties</a></li>
+<li><a href="#org654c6b2">1. Definition</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org465ac2a" class="outline-2">
-<h2 id="org465ac2a"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org654c6b2" class="outline-2">
+<h2 id="org654c6b2"><span class="section-number-2">1.</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-<b>Theorem</b> Any polynomial ring \( R[X] \) is not a field.
-</p>
-
-<p>
-<b>Proof</b> Take \( P(X) = X \) in \( R[X] \). Suppose this has some inverse \( Q(X) \), then:
+We define:
 </p>
 
 <p>
 \[
-X * Q(X) = 1
+\int_{\gamma} f(z) dz = \int_a^b f\left(\gamma\left(t\right)\right)\gamma'(t)dt
 \]
 </p>
 
 <p>
-But then evaluation at \( X = 0 \) gives \( 1 = 0 \), a contradiction, hence it cannot be the case \( P(X) \) has an inverse, thus \( R[X] \) is not a field.
+Where \( \gamma(t) : [a, b] \to \mathbb{C} \) is a <a href="https://en.wikipedia.org/wiki/Contour_integration#Contours">contour</a>.
 </p>
-
-<p>
-This indicates the "nicest" a polynomial ring can be is a <b>Euclidean domain</b>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orge2b3471" class="outline-2">
-<h2 id="orge2b3471"><span class="section-number-2">2.</span> Properties</h2>
-<div class="outline-text-2" id="text-2">
-<ol class="org-ol">
-<li>If \( R \) is a UFD then \( R[X] \) is a UFD (nontrivial), hence \( \mathbb{R}[X][Y]... \) is a UFD.</li>
-
-<li>If \( R \) is a PID then it does <b>not</b> imply \( R[X] \) is a PID.</li>
-
-<li>If \( R \) is a field, then \( R[X] \) is a Euclidean domain (take the Euclidean function as the degree of the polynomial).</li>
-</ol>
 </div>
 </div>
 </div>

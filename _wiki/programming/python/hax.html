@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-07-14 Wed 21:12 -->
+<!-- 2021-07-25 Sun 21:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
@@ -200,7 +200,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -246,7 +246,7 @@ A menagarie of cool python snippets!
 </p>
 
 <div id="outline-container-orgabc8071" class="outline-2">
-<h2 id="orgabc8071"><span class="section-number-2">1</span> Unpacking</h2>
+<h2 id="orgabc8071"><span class="section-number-2">1.</span> Unpacking</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #D83441;">def</span> <span style="color: #D8B941;">is_palindrome</span><span style="color: #3679D8;">(</span>indexable<span style="color: #3679D8;">)</span>:
@@ -260,7 +260,7 @@ A menagarie of cool python snippets!
 </div>
 
 <div id="outline-container-orgb1fd796" class="outline-3">
-<h3 id="orgb1fd796"><span class="section-number-3">1.1</span> Bonus Hack: Quicksort - EZ Sorting</h3>
+<h3 id="orgb1fd796"><span class="section-number-3">1.1.</span> Bonus Hack: Quicksort - EZ Sorting</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Not the most efficient implementation, but we can implement quicksort extremely succinctly using list unpacking + recursion:
@@ -287,7 +287,7 @@ Of course <code>sorted(ls)</code> does the job too.
 </div>
 
 <div id="outline-container-org93d2681" class="outline-2">
-<h2 id="org93d2681"><span class="section-number-2">2</span> Poor Man's Cache</h2>
+<h2 id="org93d2681"><span class="section-number-2">2.</span> Poor Man's Cache</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #D83441;">def</span> <span style="color: #D8B941;">fib</span><span style="color: #3679D8;">(</span>n: <span style="color: #3679D8;">int</span>, cache=<span style="color: #8041D8;">{</span>0: 1, 1: 1<span style="color: #8041D8;">}</span><span style="color: #3679D8;">)</span>:
@@ -308,7 +308,7 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 
 <div id="outline-container-orgf82ff9d" class="outline-2">
-<h2 id="orgf82ff9d"><span class="section-number-2">3</span> ♥ Generators ♥</h2>
+<h2 id="orgf82ff9d"><span class="section-number-2">3.</span> ♥ Generators ♥</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #D83441;">def</span> <span style="color: #D8B941;">triangle_number</span><span style="color: #3679D8;">(</span>n: <span style="color: #3679D8;">int</span><span style="color: #3679D8;">)</span>:
@@ -323,7 +323,7 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 
 <div id="outline-container-org5e45fd4" class="outline-2">
-<h2 id="org5e45fd4"><span class="section-number-2">4</span> Poor Man's defaultdict</h2>
+<h2 id="org5e45fd4"><span class="section-number-2">4.</span> Poor Man's defaultdict</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #86e7d7;">my_dict</span> = <span style="color: #3679D8;">{</span><span style="color: #79D836;">"a"</span>: 1, <span style="color: #79D836;">"b"</span>: 2<span style="color: #3679D8;">}</span>
@@ -343,7 +343,7 @@ If we forego the slice syntax, we can specify a default value to <code>.get</cod
 </div>
 
 <div id="outline-container-org2e5d083" class="outline-2">
-<h2 id="org2e5d083"><span class="section-number-2">5</span> Zip is it's own Inverse</h2>
+<h2 id="org2e5d083"><span class="section-number-2">5.</span> Zip is it's own Inverse</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #D83441;">import</span> string
@@ -364,7 +364,7 @@ Dezipped: [(0, 1, 2, 3, 4, 5, 6, 7, 8, 9), ('a', 'b', 'c', 'd', 'e', 'f', 'g', '
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2021-07-14 Wed 21:12</p>
+<p class="date">Created: 2021-07-25 Sun 21:17</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
