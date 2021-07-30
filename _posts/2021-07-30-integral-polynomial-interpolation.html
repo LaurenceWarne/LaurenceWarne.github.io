@@ -1,0 +1,65 @@
+---
+date: 2021-07-30 19:48
+author: Laurence Warne
+title: Integral Polynomial Interpolation
+layout: post
+excerpt: A question on polynomial interpolation
+categories: 
+- Maths
+tags: 
+- Question
+---
+
+<div id="outline-container-org506285e" class="outline-2">
+<h2 id="org506285e">Question</h2>
+<div class="outline-text-2" id="text-org506285e">
+<p>
+It's well known that given some sequence points of \( n \) points \( (x_i, y_i) \) with \( x_i \) distinct, that there exists a unique polynomial \( P \) of degree \( d < n \) such that for all \( i \), \( P(x_i) = y_i \), the <b>Lagrange Interpolating Polynomial</b>.
+</p>
+
+<p>
+If all \( x_i, y_i \) are integers, we can glean from the <a href="https://en.wikipedia.org/wiki/Lagrange_polynomial">Lagrange Interpolation Formula</a> that it is guaranteed that \( P(X) \in \mathbb{Q}[X] \).  But does there exist a polynomial \( F(X) \) of higher degree satisfying the same property (\( F(x_i) = y_i \)) such that its coefficients are all integers?
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge5ed3e5" class="outline-2">
+<h2 id="orge5ed3e5">Solution</h2>
+<div class="outline-text-2" id="text-orge5ed3e5">
+<p>
+Strangely enough there exists no such polynomial if \( P \) has some non integer coefficient.  Proof is thanks to <a href="https://mathoverflow.net/questions/169083/lagrange-interpolation-and-integer-polynomials">this</a> mathoverflow answer:
+</p>
+
+<p>
+First define \( D(X) \in \mathbb{Z}[X] \) as \( D(X) =  \prod (X - x_i) \), ie the monic polynomial of degree \( n \) whose roots are the \( x \) coordinates of our points.
+</p>
+
+<p>
+Next, suppose \( F(X) \) has coefficients all integers.  Since \( D(X) \) is monic we can write:
+</p>
+
+<p>
+\[
+F(X) = D(X)Q(X) + R(X)
+\]
+</p>
+
+<p>
+Where \( Q(X), R(X) \in \mathbb{Z}[X] \), and also \( deg(R(X)) < deg(D(X)) \).
+</p>
+
+<p>
+Now we must have \( F(x_i) = R(x_i) \), but this implies that \( R(X) \) is the Lagrange interpolating polynomial since it has degree less than \( n \) and satisfies \( R(x_i) = P(x_i) \) for all \( i \).  Thus we can re-write:
+</p>
+
+<p>
+\[
+P(X) = F(X) - D(X)Q(X)
+\]
+</p>
+
+<p>
+Which implies that \( P(X) \in \mathbb{Z}[X] \) since that latter set is closed under addition and multiplication.
+</p>
+</div>
+</div>
