@@ -16,6 +16,8 @@ permalink: /links/
 
 * <a href="https://github.com/rossant/awesome-math">Mathematics entry to the Github "awesome" series</a>
 
+* The University of Pennsylvania <a href="https://www2.math.upenn.edu/~wilf/">page</a> of the late Herbert Wilf, generatingfunctionology along with some other of his books are provided free of charge here
+
 # Question Sources
 
 * <a href="https://mathschallenge.net/archive">MathsChallenge</a>
