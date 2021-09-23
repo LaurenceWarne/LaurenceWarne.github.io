@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-23 Thu 14:03 -->
+<!-- 2021-09-23 Thu 15:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
@@ -200,7 +200,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -229,15 +229,15 @@ Next: <a href='./modules.html'>Modules</a><span style='float: right;'>Up: <a hre
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org62ae36d">1. Unpacking</a>
+<li><a href="#orgd2f6ed4">1. Unpacking</a>
 <ul>
-<li><a href="#org50457d4">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
+<li><a href="#orgc6dd1ad">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
 </ul>
 </li>
-<li><a href="#org289249d">2. Poor Man's Cache</a></li>
-<li><a href="#orge1368d9">3. ♥ Generators ♥</a></li>
-<li><a href="#org3587212">4. Poor Man's defaultdict</a></li>
-<li><a href="#orgb3068a7">5. Zip is it's own Inverse</a></li>
+<li><a href="#org1515e27">2. Poor Man's Cache</a></li>
+<li><a href="#org7b4eaf0">3. ♥ Generators ♥</a></li>
+<li><a href="#orgf30cd58">4. Poor Man's defaultdict</a></li>
+<li><a href="#org2aa7f0d">5. Zip is it's own Inverse</a></li>
 </ul>
 </div>
 </div>
@@ -245,8 +245,8 @@ Next: <a href='./modules.html'>Modules</a><span style='float: right;'>Up: <a hre
 A menagarie of cool python snippets!
 </p>
 
-<div id="outline-container-org62ae36d" class="outline-2">
-<h2 id="org62ae36d"><span class="section-number-2">1</span> Unpacking</h2>
+<div id="outline-container-orgd2f6ed4" class="outline-2">
+<h2 id="orgd2f6ed4"><span class="section-number-2">1.</span> Unpacking</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">is_palindrome</span>(indexable):
@@ -259,8 +259,8 @@ A menagarie of cool python snippets!
 </div>
 </div>
 
-<div id="outline-container-org50457d4" class="outline-3">
-<h3 id="org50457d4"><span class="section-number-3">1.1</span> Bonus Hack: Quicksort - EZ Sorting</h3>
+<div id="outline-container-orgc6dd1ad" class="outline-3">
+<h3 id="orgc6dd1ad"><span class="section-number-3">1.1.</span> Bonus Hack: Quicksort - EZ Sorting</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Not the most efficient implementation, but we can implement quicksort extremely succinctly using list unpacking + recursion:
@@ -286,8 +286,8 @@ Of course <code>sorted(ls)</code> does the job too.
 </div>
 </div>
 
-<div id="outline-container-org289249d" class="outline-2">
-<h2 id="org289249d"><span class="section-number-2">2</span> Poor Man's Cache</h2>
+<div id="outline-container-org1515e27" class="outline-2">
+<h2 id="org1515e27"><span class="section-number-2">2.</span> Poor Man's Cache</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">fib</span>(n: <span style="font-weight: bold;">int</span>, cache={0: 1, 1: 1}):
@@ -307,8 +307,8 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 </div>
 
-<div id="outline-container-orge1368d9" class="outline-2">
-<h2 id="orge1368d9"><span class="section-number-2">3</span> ♥ Generators ♥</h2>
+<div id="outline-container-org7b4eaf0" class="outline-2">
+<h2 id="org7b4eaf0"><span class="section-number-2">3.</span> ♥ Generators ♥</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">triangle_number</span>(n: <span style="font-weight: bold;">int</span>):
@@ -322,8 +322,8 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 </div>
 
-<div id="outline-container-org3587212" class="outline-2">
-<h2 id="org3587212"><span class="section-number-2">4</span> Poor Man's defaultdict</h2>
+<div id="outline-container-orgf30cd58" class="outline-2">
+<h2 id="orgf30cd58"><span class="section-number-2">4.</span> Poor Man's defaultdict</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">my_dict</span> = {<span style="font-style: italic;">"a"</span>: 1, <span style="font-style: italic;">"b"</span>: 2}
@@ -331,19 +331,14 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </pre>
 </div>
 
-<pre class="example">
--1
-</pre>
-
-
 <p>
 If we forego the slice syntax, we can specify a default value to <code>.get</code> in order to avoid a <code>KeyError</code>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb3068a7" class="outline-2">
-<h2 id="orgb3068a7"><span class="section-number-2">5</span> Zip is it's own Inverse</h2>
+<div id="outline-container-org2aa7f0d" class="outline-2">
+<h2 id="org2aa7f0d"><span class="section-number-2">5.</span> Zip is it's own Inverse</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> string
@@ -354,17 +349,12 @@ If we forego the slice syntax, we can specify a default value to <code>.get</cod
 <span style="font-weight: bold;">print</span>(<span style="font-style: italic;">"Dezipped: "</span> + <span style="font-weight: bold;">str</span>(dezipped))
 </pre>
 </div>
-
-<pre class="example">
-Zipped up: [(0, 'a', 'A'), (1, 'b', 'B'), (2, 'c', 'C'), (3, 'd', 'D'), (4, 'e', 'E'), (5, 'f', 'F'), (6, 'g', 'G'), (7, 'h', 'H'), (8, 'i', 'I'), (9, 'j', 'J')]
-Dezipped: [(0, 1, 2, 3, 4, 5, 6, 7, 8, 9), ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'), ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J')]
-</pre>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2021-09-23 Thu 14:03</p>
+<p class="date">Created: 2021-09-23 Thu 15:44</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
