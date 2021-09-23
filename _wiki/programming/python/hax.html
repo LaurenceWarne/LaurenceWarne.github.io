@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-08-26 Thu 15:36 -->
+<!-- 2021-09-23 Thu 14:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="LaurenceWarne" />
+<meta name="author" content="root" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -200,7 +200,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -229,15 +229,15 @@ Next: <a href='./modules.html'>Modules</a><span style='float: right;'>Up: <a hre
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgabc8071">1. Unpacking</a>
+<li><a href="#org62ae36d">1. Unpacking</a>
 <ul>
-<li><a href="#orgb1fd796">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
+<li><a href="#org50457d4">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
 </ul>
 </li>
-<li><a href="#org93d2681">2. Poor Man's Cache</a></li>
-<li><a href="#orgf82ff9d">3. ♥ Generators ♥</a></li>
-<li><a href="#org5e45fd4">4. Poor Man's defaultdict</a></li>
-<li><a href="#org2e5d083">5. Zip is it's own Inverse</a></li>
+<li><a href="#org289249d">2. Poor Man's Cache</a></li>
+<li><a href="#orge1368d9">3. ♥ Generators ♥</a></li>
+<li><a href="#org3587212">4. Poor Man's defaultdict</a></li>
+<li><a href="#orgb3068a7">5. Zip is it's own Inverse</a></li>
 </ul>
 </div>
 </div>
@@ -245,37 +245,37 @@ Next: <a href='./modules.html'>Modules</a><span style='float: right;'>Up: <a hre
 A menagarie of cool python snippets!
 </p>
 
-<div id="outline-container-orgabc8071" class="outline-2">
-<h2 id="orgabc8071"><span class="section-number-2">1.</span> Unpacking</h2>
+<div id="outline-container-org62ae36d" class="outline-2">
+<h2 id="org62ae36d"><span class="section-number-2">1</span> Unpacking</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #D83441;">def</span> <span style="color: #D8B941;">is_palindrome</span><span style="color: #3679D8;">(</span>indexable<span style="color: #3679D8;">)</span>:
-    <span style="color: #D83441;">if</span> <span style="color: #3679D8;">len</span><span style="color: #3679D8;">(</span>indexable<span style="color: #3679D8;">)</span> &gt; 1:
-        first, *<span style="color: #86e7d7;">rest</span>, <span style="color: #86e7d7;">last</span> = indexable
-        <span style="color: #D83441;">return</span> first == last <span style="color: #D83441;">and</span> is_palindrome<span style="color: #3679D8;">(</span>rest<span style="color: #3679D8;">)</span>
-    <span style="color: #D83441;">else</span>:
-        <span style="color: #D83441;">return</span> <span style="color: #8041D8;">True</span>
+<pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">is_palindrome</span>(indexable):
+    <span style="font-weight: bold;">if</span> <span style="font-weight: bold;">len</span>(indexable) &gt; 1:
+        first, *<span style="font-weight: bold; font-style: italic;">rest</span>, <span style="font-weight: bold; font-style: italic;">last</span> = indexable
+        <span style="font-weight: bold;">return</span> first == last <span style="font-weight: bold;">and</span> is_palindrome(rest)
+    <span style="font-weight: bold;">else</span>:
+        <span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">True</span>
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgb1fd796" class="outline-3">
-<h3 id="orgb1fd796"><span class="section-number-3">1.1.</span> Bonus Hack: Quicksort - EZ Sorting</h3>
+<div id="outline-container-org50457d4" class="outline-3">
+<h3 id="org50457d4"><span class="section-number-3">1.1</span> Bonus Hack: Quicksort - EZ Sorting</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Not the most efficient implementation, but we can implement quicksort extremely succinctly using list unpacking + recursion:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #D83441;">def</span> <span style="color: #D8B941;">quicksort</span><span style="color: #3679D8;">(</span>ls: <span style="color: #3679D8;">list</span><span style="color: #3679D8;">)</span>:
-    <span style="color: #D83441;">if</span> ls:
-        pivot, *<span style="color: #86e7d7;">rest</span> = ls
-        <span style="color: #86e7d7;">smaller</span>, <span style="color: #86e7d7;">greater</span> = <span style="color: #3679D8;">[]</span>, <span style="color: #3679D8;">[]</span>
-        <span style="color: #D83441;">for</span> item <span style="color: #D83441;">in</span> rest:
-            <span style="color: #3679D8;">(</span>smaller <span style="color: #D83441;">if</span> pivot &gt; item <span style="color: #D83441;">else</span> greater<span style="color: #3679D8;">)</span>.append<span style="color: #3679D8;">(</span>item<span style="color: #3679D8;">)</span>
-        <span style="color: #D83441;">return</span> quicksort<span style="color: #3679D8;">(</span>smaller<span style="color: #3679D8;">)</span> + <span style="color: #3679D8;">[</span>pivot<span style="color: #3679D8;">]</span> + quicksort<span style="color: #3679D8;">(</span>greater<span style="color: #3679D8;">)</span>
-    <span style="color: #D83441;">else</span>:
-        <span style="color: #D83441;">return</span> <span style="color: #3679D8;">[]</span>
+<pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">quicksort</span>(ls: <span style="font-weight: bold;">list</span>):
+    <span style="font-weight: bold;">if</span> ls:
+        pivot, *<span style="font-weight: bold; font-style: italic;">rest</span> = ls
+        <span style="font-weight: bold; font-style: italic;">smaller</span>, <span style="font-weight: bold; font-style: italic;">greater</span> = [], []
+        <span style="font-weight: bold;">for</span> item <span style="font-weight: bold;">in</span> rest:
+            (smaller <span style="font-weight: bold;">if</span> pivot &gt; item <span style="font-weight: bold;">else</span> greater).append(item)
+        <span style="font-weight: bold;">return</span> quicksort(smaller) + [pivot] + quicksort(greater)
+    <span style="font-weight: bold;">else</span>:
+        <span style="font-weight: bold;">return</span> []
 </pre>
 </div>
 
@@ -286,14 +286,14 @@ Of course <code>sorted(ls)</code> does the job too.
 </div>
 </div>
 
-<div id="outline-container-org93d2681" class="outline-2">
-<h2 id="org93d2681"><span class="section-number-2">2.</span> Poor Man's Cache</h2>
+<div id="outline-container-org289249d" class="outline-2">
+<h2 id="org289249d"><span class="section-number-2">2</span> Poor Man's Cache</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #D83441;">def</span> <span style="color: #D8B941;">fib</span><span style="color: #3679D8;">(</span>n: <span style="color: #3679D8;">int</span>, cache=<span style="color: #8041D8;">{</span>0: 1, 1: 1<span style="color: #8041D8;">}</span><span style="color: #3679D8;">)</span>:
-    <span style="color: #D83441;">if</span> n <span style="color: #D83441;">not</span> <span style="color: #D83441;">in</span> cache:
-        <span style="color: #86e7d7;">cache</span><span style="color: #3679D8;">[</span>n<span style="color: #3679D8;">]</span> = fib<span style="color: #3679D8;">(</span>n - 1, cache<span style="color: #3679D8;">)</span> + fib<span style="color: #3679D8;">(</span>n - 2, cache<span style="color: #3679D8;">)</span>
-    <span style="color: #D83441;">return</span> cache<span style="color: #3679D8;">[</span>n<span style="color: #3679D8;">]</span>
+<pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">fib</span>(n: <span style="font-weight: bold;">int</span>, cache={0: 1, 1: 1}):
+    <span style="font-weight: bold;">if</span> n <span style="font-weight: bold;">not</span> <span style="font-weight: bold;">in</span> cache:
+        <span style="font-weight: bold; font-style: italic;">cache</span>[n] = fib(n - 1, cache) + fib(n - 2, cache)
+    <span style="font-weight: bold;">return</span> cache[n]
 </pre>
 </div>
 
@@ -307,12 +307,12 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 </div>
 
-<div id="outline-container-orgf82ff9d" class="outline-2">
-<h2 id="orgf82ff9d"><span class="section-number-2">3.</span> ♥ Generators ♥</h2>
+<div id="outline-container-orge1368d9" class="outline-2">
+<h2 id="orge1368d9"><span class="section-number-2">3</span> ♥ Generators ♥</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #D83441;">def</span> <span style="color: #D8B941;">triangle_number</span><span style="color: #3679D8;">(</span>n: <span style="color: #3679D8;">int</span><span style="color: #3679D8;">)</span>:
-    <span style="color: #D83441;">return</span> <span style="color: #3679D8;">sum</span><span style="color: #3679D8;">(</span>k <span style="color: #D83441;">for</span> k <span style="color: #D83441;">in</span> <span style="color: #3679D8;">range</span><span style="color: #8041D8;">(</span>n + 1<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+<pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">triangle_number</span>(n: <span style="font-weight: bold;">int</span>):
+    <span style="font-weight: bold;">return</span> <span style="font-weight: bold;">sum</span>(k <span style="font-weight: bold;">for</span> k <span style="font-weight: bold;">in</span> <span style="font-weight: bold;">range</span>(n + 1))
 </pre>
 </div>
 
@@ -322,12 +322,12 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 </div>
 
-<div id="outline-container-org5e45fd4" class="outline-2">
-<h2 id="org5e45fd4"><span class="section-number-2">4.</span> Poor Man's defaultdict</h2>
+<div id="outline-container-org3587212" class="outline-2">
+<h2 id="org3587212"><span class="section-number-2">4</span> Poor Man's defaultdict</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #86e7d7;">my_dict</span> = <span style="color: #3679D8;">{</span><span style="color: #79D836;">"a"</span>: 1, <span style="color: #79D836;">"b"</span>: 2<span style="color: #3679D8;">}</span>
-<span style="color: #D83441;">print</span><span style="color: #3679D8;">(</span>my_dict.get<span style="color: #8041D8;">(</span><span style="color: #79D836;">"A"</span>, -1<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">my_dict</span> = {<span style="font-style: italic;">"a"</span>: 1, <span style="font-style: italic;">"b"</span>: 2}
+<span style="font-weight: bold;">print</span>(my_dict.get(<span style="font-style: italic;">"A"</span>, -1))
 </pre>
 </div>
 
@@ -342,16 +342,16 @@ If we forego the slice syntax, we can specify a default value to <code>.get</cod
 </div>
 </div>
 
-<div id="outline-container-org2e5d083" class="outline-2">
-<h2 id="org2e5d083"><span class="section-number-2">5.</span> Zip is it's own Inverse</h2>
+<div id="outline-container-orgb3068a7" class="outline-2">
+<h2 id="orgb3068a7"><span class="section-number-2">5</span> Zip is it's own Inverse</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #D83441;">import</span> string
+<pre class="src src-python"><span style="font-weight: bold;">import</span> string
 
-<span style="color: #86e7d7;">zipped</span> = <span style="color: #3679D8;">list</span><span style="color: #3679D8;">(</span><span style="color: #3679D8;">zip</span><span style="color: #8041D8;">(</span><span style="color: #3679D8;">range</span><span style="color: #79D836;">(</span>10<span style="color: #79D836;">)</span>, string.ascii_lowercase, string.ascii_uppercase<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
-<span style="color: #D83441;">print</span><span style="color: #3679D8;">(</span><span style="color: #79D836;">"Zipped up: "</span> + <span style="color: #3679D8;">str</span><span style="color: #8041D8;">(</span>zipped<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
-<span style="color: #86e7d7;">dezipped</span> = <span style="color: #3679D8;">list</span><span style="color: #3679D8;">(</span><span style="color: #3679D8;">zip</span><span style="color: #8041D8;">(</span>*zipped<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
-<span style="color: #D83441;">print</span><span style="color: #3679D8;">(</span><span style="color: #79D836;">"Dezipped: "</span> + <span style="color: #3679D8;">str</span><span style="color: #8041D8;">(</span>dezipped<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+<span style="font-weight: bold; font-style: italic;">zipped</span> = <span style="font-weight: bold;">list</span>(<span style="font-weight: bold;">zip</span>(<span style="font-weight: bold;">range</span>(10), string.ascii_lowercase, string.ascii_uppercase))
+<span style="font-weight: bold;">print</span>(<span style="font-style: italic;">"Zipped up: "</span> + <span style="font-weight: bold;">str</span>(zipped))
+<span style="font-weight: bold; font-style: italic;">dezipped</span> = <span style="font-weight: bold;">list</span>(<span style="font-weight: bold;">zip</span>(*zipped))
+<span style="font-weight: bold;">print</span>(<span style="font-style: italic;">"Dezipped: "</span> + <span style="font-weight: bold;">str</span>(dezipped))
 </pre>
 </div>
 
@@ -363,8 +363,8 @@ Dezipped: [(0, 1, 2, 3, 4, 5, 6, 7, 8, 9), ('a', 'b', 'c', 'd', 'e', 'f', 'g', '
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2021-08-26 Thu 15:36</p>
+<p class="author">Author: root</p>
+<p class="date">Created: 2021-09-23 Thu 14:03</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
