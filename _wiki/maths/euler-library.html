@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-08-26 Thu 16:19 -->
+<!-- 2021-09-23 Thu 14:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Euler Library</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="LaurenceWarne" />
+<meta name="author" content="root" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -199,75 +199,8 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-        <style>
-        /* From: https://endlessparentheses.com/public/css/endless.css */
-        /* See also: https://meta.superuser.com/questions/4788/css-for-the-new-kbd-style */
-        kbd
-        {
-          -moz-border-radius: 6px;
-          -moz-box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-          -webkit-border-radius: 6px;
-          -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-          background-color: #f7f7f7;
-          border: 1px solid #ccc;
-          border-radius: 6px;
-          box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-          color: #333;
-          display: inline-block;
-          font-family: 'Droid Sans Mono', monospace;
-          font-size: 80%;
-          font-weight: normal;
-          line-height: inherit;
-          margin: 0 .1em;
-          padding: .08em .4em;
-          text-shadow: 0 1px 0 #fff;
-          word-spacing: -4px;
-        
-          box-shadow: 2px 2px 2px #222; /* MA: An extra I've added. */
-        }
-        </style>
-        <link rel="stylesheet" type="text/css" href="https://alhassy.github.io/org-special-block-extras/tooltipster/dist/css/tooltipster.bundle.min.css"/>
-        
-        <link rel="stylesheet" type="text/css" href="https://alhassy.github.io/org-special-block-extras/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
-        
-        <script type="text/javascript">
-            if (typeof jQuery == 'undefined') {
-                document.write(unescape('%3Cscript src="https://code.jquery.com/jquery-1.10.0.min.js"%3E%3C/script%3E'));
-            }
-        </script>
-        
-         <script type="text/javascript"            src="https://alhassy.github.io/org-special-block-extras/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
-        
-          <script>
-                 $(document).ready(function() {
-                     $('.tooltip').tooltipster({
-                         theme: 'tooltipster-punk',
-                         contentAsHTML: true,
-                         animation: 'grow',
-                         delay: [100,500],
-                         // trigger: 'click'
-                         trigger: 'custom',
-                         triggerOpen: {
-                             mouseenter: true
-                         },
-                         triggerClose: {
-                             originClick: true,
-                             scroll: true
-                         }
-         });
-                 });
-             </script>
-        
-        <style>
-           abbr {color: red;}
-        
-           .tooltip { border-bottom: 1px dotted #000;
-                      color:red;
-                      text-decoration: none;}
-        </style>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -318,22 +251,23 @@ Next: <a href='./questions.html'>Questions</a><span style='float: right;'>Up: <a
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgec590de">1. Linear Recurrence Closure</a>
+<li><a href="#orgf20cf53">1. Linear Recurrence Closure</a>
 <ul>
-<li><a href="#org269b23c">1.1. Proof (1)</a></li>
+<li><a href="#orgdbddfe3">1.1. Proof (1)</a></li>
 </ul>
 </li>
-<li><a href="#org2bc3497">2. Power Modulo</a>
+<li><a href="#org87990c7">2. Power Modulo</a>
 <ul>
-<li><a href="#org67a1d5a">2.1. Proof (first condition):</a></li>
+<li><a href="#org79e8fcc">2.1. Proof (first condition):</a></li>
 </ul>
 </li>
+<li><a href="#orgd58a041">3. Assorted</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgec590de" class="outline-2">
-<h2 id="orgec590de"><span class="section-number-2">1.</span> Linear Recurrence Closure</h2>
+<div id="outline-container-orgf20cf53" class="outline-2">
+<h2 id="orgf20cf53"><span class="section-number-2">1</span> Linear Recurrence Closure</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 If \( a_n \) and \( b_n \) are linear recurrences, then:
@@ -345,8 +279,8 @@ If \( a_n \) and \( b_n \) are linear recurrences, then:
 </ol>
 </div>
 
-<div id="outline-container-org269b23c" class="outline-3">
-<h3 id="org269b23c"><span class="section-number-3">1.1.</span> Proof (1)</h3>
+<div id="outline-container-orgdbddfe3" class="outline-3">
+<h3 id="orgdbddfe3"><span class="section-number-3">1.1</span> Proof (1)</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Let \( C_a(x) \) and \( C_b(x) \) be the characteristic polynomials of \( a_n \) and \( b_n \) respectively.  Then we claim 
@@ -359,7 +293,7 @@ C_s(x) = \frac{C_a(x)C_b(x)}{hcf\left(C_a(x), C_b(x)\right)}
 </p>
 
 <p>
-We've selected \( C_s(x) \) so that it has the same "root expansion" as \( s_n \) (the solution of \( s_n \) as a sum of exponential powers, minus the constant coefficients).  Now consider:
+We've selected \( C_s(x) \) so that it has the same "solution equation" as \( s_n \) minus the constant coefficients.  Now consider:
 </p>
 
 \begin{align*}
@@ -391,53 +325,63 @@ We've selected \( C_s(x) \) so that it has the same "root expansion" as \( s_n \
 \end{align*}
 
 <p>
-Where \( c_i \) are the components of the IC vector.  Since the matrix in nonsingular, its columnspace is maximal and hence there exists an IC vector which satisfies the above.
+Where \( c_i \) are the components of the IC vector, and \( \lambda_k \) form the solution equation of \( s_n \):
+</p>
+
+<p>
+\[
+s_n = \lambda_1^n + n\lambda_1^n + \cdots + \lambda_n^n
+\]
+</p>
+
+<p>
+Since the matrix in nonsingular, its columnspace is maximal and hence there exists an IC vector which satisfies the above.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #D83441;">import</span> sympy <span style="color: #D83441;">as</span> sp
-<span style="color: #D83441;">from</span> sympy <span style="color: #D83441;">import</span> Matrix, Poly
+<pre class="src src-python"><span style="font-weight: bold;">import</span> sympy <span style="font-weight: bold;">as</span> sp
+<span style="font-weight: bold;">from</span> sympy <span style="font-weight: bold;">import</span> Matrix, Poly
 
-<span style="color: #767676; font-style: italic;"># </span><span style="color: #767676; font-style: italic;">The base cases</span>
-<span style="color: #86e7d7;">ics1</span> = <span style="color: #3679D8;">[</span>1, 1<span style="color: #3679D8;">]</span>
-<span style="color: #86e7d7;">ics2</span> = <span style="color: #3679D8;">[</span>1, 2, 5<span style="color: #3679D8;">]</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">The base cases</span>
+<span style="font-weight: bold; font-style: italic;">ics1</span> = [1, 1]
+<span style="font-weight: bold; font-style: italic;">ics2</span> = [1, 2, 5]
 
-<span style="color: #767676; font-style: italic;"># </span><span style="color: #767676; font-style: italic;">The recurrences we want to add, defined here for clarity</span>
-<span style="color: #D83441;">def</span> <span style="color: #D8B941;">a_n</span><span style="color: #3679D8;">(</span>n, ics=ics1<span style="color: #3679D8;">)</span>:
-    <span style="color: #D83441;">if</span> n &lt;= <span style="color: #3679D8;">len</span><span style="color: #3679D8;">(</span>ics<span style="color: #3679D8;">)</span>:
-        <span style="color: #D83441;">return</span> ics<span style="color: #3679D8;">[</span>n - 1<span style="color: #3679D8;">]</span>
-    <span style="color: #D83441;">else</span>:
-        <span style="color: #D83441;">return</span> a_n<span style="color: #3679D8;">(</span>n - 1<span style="color: #3679D8;">)</span> + 2*a_n<span style="color: #3679D8;">(</span>n - 2<span style="color: #3679D8;">)</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">The recurrences we want to add, defined here for clarity</span>
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">a_n</span>(n, ics=ics1):
+    <span style="font-weight: bold;">if</span> n &lt;= <span style="font-weight: bold;">len</span>(ics):
+        <span style="font-weight: bold;">return</span> ics[n - 1]
+    <span style="font-weight: bold;">else</span>:
+        <span style="font-weight: bold;">return</span> a_n(n - 1) + 2*a_n(n - 2)
 
-<span style="color: #D83441;">def</span> <span style="color: #D8B941;">b_n</span><span style="color: #3679D8;">(</span>n, ics=ics2<span style="color: #3679D8;">)</span>:
-    <span style="color: #D83441;">if</span> n &lt;= <span style="color: #3679D8;">len</span><span style="color: #3679D8;">(</span>ics<span style="color: #3679D8;">)</span>:
-        <span style="color: #D83441;">return</span> ics<span style="color: #3679D8;">[</span>n - 1<span style="color: #3679D8;">]</span>
-    <span style="color: #D83441;">else</span>:
-        <span style="color: #D83441;">return</span> 4*b_n<span style="color: #3679D8;">(</span>n - 1<span style="color: #3679D8;">)</span> - 5*b_n<span style="color: #3679D8;">(</span>n - 2<span style="color: #3679D8;">)</span> + 2*b_n<span style="color: #3679D8;">(</span>n - 3<span style="color: #3679D8;">)</span>
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">b_n</span>(n, ics=ics2):
+    <span style="font-weight: bold;">if</span> n &lt;= <span style="font-weight: bold;">len</span>(ics):
+        <span style="font-weight: bold;">return</span> ics[n - 1]
+    <span style="font-weight: bold;">else</span>:
+        <span style="font-weight: bold;">return</span> 4*b_n(n - 1) - 5*b_n(n - 2) + 2*b_n(n - 3)
 
-<span style="color: #86e7d7;">x</span> = sp.Symbol<span style="color: #3679D8;">(</span><span style="color: #79D836;">"x"</span><span style="color: #3679D8;">)</span>
-<span style="color: #767676; font-style: italic;"># </span><span style="color: #767676; font-style: italic;">x_n = x_{n - 1} + 2*x_{n - 2}</span>
-<span style="color: #86e7d7;">char_poly1</span> = x**2 - x - 2 
-<span style="color: #767676; font-style: italic;"># </span><span style="color: #767676; font-style: italic;">x_n = 4*x_{n - 1} - 5*x{n - 2} + 2*x{n - 3}</span>
-<span style="color: #86e7d7;">char_poly2</span> = x**3 - 4*x**2 + 5*x - 2
+<span style="font-weight: bold; font-style: italic;">x</span> = sp.Symbol(<span style="font-style: italic;">"x"</span>)
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">x_n = x_{n - 1} + 2*x_{n - 2}</span>
+<span style="font-weight: bold; font-style: italic;">char_poly1</span> = x**2 - x - 2 
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">x_n = 4*x_{n - 1} - 5*x{n - 2} + 2*x{n - 3}</span>
+<span style="font-weight: bold; font-style: italic;">char_poly2</span> = x**3 - 4*x**2 + 5*x - 2
 
-<span style="color: #86e7d7;">p</span> = Poly<span style="color: #3679D8;">(</span>
-    sp.simplify<span style="color: #8041D8;">(</span>char_poly1 * char_poly2 / sp.gcd<span style="color: #79D836;">(</span>char_poly1, char_poly2<span style="color: #79D836;">)</span><span style="color: #8041D8;">)</span>
-<span style="color: #3679D8;">)</span>
-<span style="color: #86e7d7;">coeffs</span> = p.all_coeffs<span style="color: #3679D8;">()</span>
-<span style="color: #D83441;">print</span><span style="color: #3679D8;">(</span>p<span style="color: #3679D8;">)</span>
+<span style="font-weight: bold; font-style: italic;">p</span> = Poly(
+    sp.simplify(char_poly1 * char_poly2 / sp.gcd(char_poly1, char_poly2))
+)
+<span style="font-weight: bold; font-style: italic;">coeffs</span> = p.all_coeffs()
+<span style="font-weight: bold;">print</span>(p)
 
-<span style="color: #767676; font-style: italic;"># </span><span style="color: #767676; font-style: italic;">We create the companion matrix of our polynomial</span>
-<span style="color: #86e7d7;">mat</span> = Matrix.diag<span style="color: #3679D8;">(</span><span style="color: #8041D8;">[</span>1<span style="color: #8041D8;">]</span>*<span style="color: #8041D8;">(</span><span style="color: #3679D8;">len</span><span style="color: #79D836;">(</span>coeffs<span style="color: #79D836;">)</span> - 1<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
-mat.row_del<span style="color: #3679D8;">(</span>-1<span style="color: #3679D8;">)</span>
-<span style="color: #86e7d7;">mat</span> = mat.row_insert<span style="color: #3679D8;">(</span>0, Matrix<span style="color: #8041D8;">(</span><span style="color: #79D836;">[</span><span style="color: #D85F00;">[</span>-c <span style="color: #D83441;">for</span> c <span style="color: #D83441;">in</span> coeffs<span style="color: #AB11D8;">[</span>1:<span style="color: #AB11D8;">]</span><span style="color: #D85F00;">]</span><span style="color: #79D836;">]</span><span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
-<span style="color: #D83441;">print</span><span style="color: #3679D8;">(</span>mat<span style="color: #3679D8;">)</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">We create the companion matrix of our polynomial</span>
+<span style="font-weight: bold; font-style: italic;">mat</span> = Matrix.diag([1]*(<span style="font-weight: bold;">len</span>(coeffs) - 1))
+mat.row_del(-1)
+<span style="font-weight: bold; font-style: italic;">mat</span> = mat.row_insert(0, Matrix([[-c <span style="font-weight: bold;">for</span> c <span style="font-weight: bold;">in</span> coeffs[1:]]]))
+<span style="font-weight: bold;">print</span>(mat)
 
-<span style="color: #767676; font-style: italic;"># </span><span style="color: #767676; font-style: italic;">Finally we show n applications of our matrix gives what we expect</span>
-<span style="color: #86e7d7;">ics</span> = Matrix<span style="color: #3679D8;">(</span><span style="color: #8041D8;">[</span><span style="color: #79D836;">[</span>a_n<span style="color: #D85F00;">(</span>n<span style="color: #D85F00;">)</span> + b_n<span style="color: #D85F00;">(</span>n<span style="color: #D85F00;">)</span><span style="color: #79D836;">]</span> <span style="color: #D83441;">for</span> n <span style="color: #D83441;">in</span> <span style="color: #3679D8;">range</span><span style="color: #79D836;">(</span>1, <span style="color: #3679D8;">len</span><span style="color: #D85F00;">(</span>coeffs<span style="color: #D85F00;">)</span><span style="color: #79D836;">)</span><span style="color: #8041D8;">][</span>::-1<span style="color: #8041D8;">]</span><span style="color: #3679D8;">)</span>
-<span style="color: #86e7d7;">arr</span> = <span style="color: #3679D8;">list</span><span style="color: #3679D8;">(</span>ics<span style="color: #3679D8;">)[</span>::-1<span style="color: #3679D8;">]</span> + <span style="color: #3679D8;">[</span><span style="color: #8041D8;">(</span>mat**n * ics<span style="color: #8041D8;">)[</span>0<span style="color: #8041D8;">]</span> <span style="color: #D83441;">for</span> n <span style="color: #D83441;">in</span> <span style="color: #3679D8;">range</span><span style="color: #8041D8;">(</span>1, 10<span style="color: #8041D8;">)</span><span style="color: #3679D8;">]</span>
-<span style="color: #D83441;">print</span><span style="color: #3679D8;">(</span>arr<span style="color: #3679D8;">)</span>
-<span style="color: #D83441;">print</span><span style="color: #3679D8;">(</span><span style="color: #8041D8;">[</span>a_n<span style="color: #79D836;">(</span>n<span style="color: #79D836;">)</span> + b_n<span style="color: #79D836;">(</span>n<span style="color: #79D836;">)</span> <span style="color: #D83441;">for</span> n <span style="color: #D83441;">in</span> <span style="color: #3679D8;">range</span><span style="color: #79D836;">(</span>1, 14<span style="color: #79D836;">)</span><span style="color: #8041D8;">]</span><span style="color: #3679D8;">)</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Finally we show n applications of our matrix gives what we expect</span>
+<span style="font-weight: bold; font-style: italic;">ics</span> = Matrix([[a_n(n) + b_n(n)] <span style="font-weight: bold;">for</span> n <span style="font-weight: bold;">in</span> <span style="font-weight: bold;">range</span>(1, <span style="font-weight: bold;">len</span>(coeffs))][::-1])
+<span style="font-weight: bold; font-style: italic;">arr</span> = <span style="font-weight: bold;">list</span>(ics)[::-1] + [(mat**n * ics)[0] <span style="font-weight: bold;">for</span> n <span style="font-weight: bold;">in</span> <span style="font-weight: bold;">range</span>(1, 10)]
+<span style="font-weight: bold;">print</span>(arr)
+<span style="font-weight: bold;">print</span>([a_n(n) + b_n(n) <span style="font-weight: bold;">for</span> n <span style="font-weight: bold;">in</span> <span style="font-weight: bold;">range</span>(1, 14)])
 </pre>
 </div>
 
@@ -451,8 +395,8 @@ Matrix([[3, -1, -3, 2], [1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0]])
 </div>
 </div>
 
-<div id="outline-container-org2bc3497" class="outline-2">
-<h2 id="org2bc3497"><span class="section-number-2">2.</span> Power Modulo</h2>
+<div id="outline-container-org87990c7" class="outline-2">
+<h2 id="org87990c7"><span class="section-number-2">2</span> Power Modulo</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 If \( a \) and \( p \) are coprime then:
@@ -478,8 +422,8 @@ a^x \pmod p & \text{for } x < \phi(p)\\
 </p>
 </div>
 
-<div id="outline-container-org67a1d5a" class="outline-3">
-<h3 id="org67a1d5a"><span class="section-number-3">2.1.</span> Proof (first condition):</h3>
+<div id="outline-container-org79e8fcc" class="outline-3">
+<h3 id="org79e8fcc"><span class="section-number-3">2.1</span> Proof (first condition):</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Let \( p_1^{e_1}p_2^{e_2}... \) be the prime factorisation of \( p \), and \( e_i' \) be the largest \( e \) s.t. \( p^e | a \).  Consider
@@ -527,10 +471,19 @@ For \( p_i \) with \( e_i' > 0 \), we must have \( m_i = 0 \), and so given \( q
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgd58a041" class="outline-2">
+<h2 id="orgd58a041"><span class="section-number-2">3</span> Assorted</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>\( f_{n + 1} = a_nf_n + \cdots + a_0f_{n - k} \) is totally periodic modulo \( n \) if \( a_0 \) is a unit in \( \mathbb{Z}_n \)</li>
+</ul>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2021-08-26 Thu 16:19</p>
+<p class="author">Author: root</p>
+<p class="date">Created: 2021-09-23 Thu 14:03</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

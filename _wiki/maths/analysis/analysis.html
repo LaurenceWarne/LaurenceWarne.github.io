@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-08-26 Thu 16:19 -->
+<!-- 2021-09-23 Thu 14:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Analysis</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="LaurenceWarne" />
+<meta name="author" content="root" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -199,75 +199,8 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-        <style>
-        /* From: https://endlessparentheses.com/public/css/endless.css */
-        /* See also: https://meta.superuser.com/questions/4788/css-for-the-new-kbd-style */
-        kbd
-        {
-          -moz-border-radius: 6px;
-          -moz-box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-          -webkit-border-radius: 6px;
-          -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-          background-color: #f7f7f7;
-          border: 1px solid #ccc;
-          border-radius: 6px;
-          box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-          color: #333;
-          display: inline-block;
-          font-family: 'Droid Sans Mono', monospace;
-          font-size: 80%;
-          font-weight: normal;
-          line-height: inherit;
-          margin: 0 .1em;
-          padding: .08em .4em;
-          text-shadow: 0 1px 0 #fff;
-          word-spacing: -4px;
-        
-          box-shadow: 2px 2px 2px #222; /* MA: An extra I've added. */
-        }
-        </style>
-        <link rel="stylesheet" type="text/css" href="https://alhassy.github.io/org-special-block-extras/tooltipster/dist/css/tooltipster.bundle.min.css"/>
-        
-        <link rel="stylesheet" type="text/css" href="https://alhassy.github.io/org-special-block-extras/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
-        
-        <script type="text/javascript">
-            if (typeof jQuery == 'undefined') {
-                document.write(unescape('%3Cscript src="https://code.jquery.com/jquery-1.10.0.min.js"%3E%3C/script%3E'));
-            }
-        </script>
-        
-         <script type="text/javascript"            src="https://alhassy.github.io/org-special-block-extras/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
-        
-          <script>
-                 $(document).ready(function() {
-                     $('.tooltip').tooltipster({
-                         theme: 'tooltipster-punk',
-                         contentAsHTML: true,
-                         animation: 'grow',
-                         delay: [100,500],
-                         // trigger: 'click'
-                         trigger: 'custom',
-                         triggerOpen: {
-                             mouseenter: true
-                         },
-                         triggerClose: {
-                             originClick: true,
-                             scroll: true
-                         }
-         });
-                 });
-             </script>
-        
-        <style>
-           abbr {color: red;}
-        
-           .tooltip { border-bottom: 1px dotted #000;
-                      color:red;
-                      text-decoration: none;}
-        </style>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -296,71 +229,75 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5e86632">1. Complex Analysis</a>
+<li><a href="#orgf973945">1. Complex Analysis</a>
 <ul>
-<li><a href="#org84a16b1">1.1. Contour Integration</a></li>
-<li><a href="#orge73c8ef">1.2. Integral Theorems</a></li>
+<li><a href="#orgf0ba584">1.1. Contour Integration</a></li>
+<li><a href="#org404e285">1.2. Holomorphic Functions</a></li>
+<li><a href="#org503ef6d">1.3. Integral Theorems</a></li>
 </ul>
 </li>
-<li><a href="#org7af7935">2. Real Analysis</a>
+<li><a href="#orgc115f1b">2. Real Analysis</a>
 <ul>
-<li><a href="#org555c6fe">2.1. Analysis</a></li>
-<li><a href="#org302d97c">2.2. Big O Notation</a></li>
-<li><a href="#org2fc37b1">2.3. Functions</a></li>
-<li><a href="#org85ef001">2.4. Intermediate Value Theorem</a></li>
-<li><a href="#orgde3ff47">2.5. Limit Superior</a></li>
-<li><a href="#orgc13dcbd">2.6. Power Series</a></li>
-<li><a href="#orge40b060">2.7. Sequences</a></li>
-<li><a href="#orga84359d">2.8. Series</a></li>
+<li><a href="#org498dc73">2.1. Analysis</a></li>
+<li><a href="#org88a27ff">2.2. Big O Notation</a></li>
+<li><a href="#orgbe8475d">2.3. Functions</a></li>
+<li><a href="#org5aa7f0b">2.4. Intermediate Value Theorem</a></li>
+<li><a href="#org6aeaa9a">2.5. Limit Superior</a></li>
+<li><a href="#org13b3bc6">2.6. Power Series</a></li>
+<li><a href="#org30b7d2b">2.7. Sequences</a></li>
+<li><a href="#org8c22dd0">2.8. Series</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5e86632" class="outline-2">
-<h2 id="org5e86632"><span class="section-number-2">1.</span> <a href="./complex-analysis/complex-analysis.html">Complex Analysis</a></h2>
+<div id="outline-container-orgf973945" class="outline-2">
+<h2 id="orgf973945"><span class="section-number-2">1</span> <a href="./complex-analysis/complex-analysis.html">Complex Analysis</a></h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org84a16b1" class="outline-3">
-<h3 id="org84a16b1"><span class="section-number-3">1.1.</span> <a href="./complex-analysis/contour-integration.html">Contour Integration</a></h3>
+<div id="outline-container-orgf0ba584" class="outline-3">
+<h3 id="orgf0ba584"><span class="section-number-3">1.1</span> <a href="./complex-analysis/contour-integration.html">Contour Integration</a></h3>
 </div>
-<div id="outline-container-orge73c8ef" class="outline-3">
-<h3 id="orge73c8ef"><span class="section-number-3">1.2.</span> <a href="./complex-analysis/integral-theorems.html">Integral Theorems</a></h3>
+<div id="outline-container-org404e285" class="outline-3">
+<h3 id="org404e285"><span class="section-number-3">1.2</span> <a href="./complex-analysis/holomorphic-functions.html">Holomorphic Functions</a></h3>
+</div>
+<div id="outline-container-org503ef6d" class="outline-3">
+<h3 id="org503ef6d"><span class="section-number-3">1.3</span> <a href="./complex-analysis/integral-theorems.html">Integral Theorems</a></h3>
 </div>
 </div>
-<div id="outline-container-org7af7935" class="outline-2">
-<h2 id="org7af7935"><span class="section-number-2">2.</span> <a href="./real-analysis/real-analysis.html">Real Analysis</a></h2>
+<div id="outline-container-orgc115f1b" class="outline-2">
+<h2 id="orgc115f1b"><span class="section-number-2">2</span> <a href="./real-analysis/real-analysis.html">Real Analysis</a></h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org555c6fe" class="outline-3">
-<h3 id="org555c6fe"><span class="section-number-3">2.1.</span> <a href="./real-analysis/analysis.html">Analysis</a></h3>
+<div id="outline-container-org498dc73" class="outline-3">
+<h3 id="org498dc73"><span class="section-number-3">2.1</span> <a href="./real-analysis/analysis.html">Analysis</a></h3>
 </div>
-<div id="outline-container-org302d97c" class="outline-3">
-<h3 id="org302d97c"><span class="section-number-3">2.2.</span> <a href="./real-analysis/big-o-notation.html">Big O Notation</a></h3>
+<div id="outline-container-org88a27ff" class="outline-3">
+<h3 id="org88a27ff"><span class="section-number-3">2.2</span> <a href="./real-analysis/big-o-notation.html">Big O Notation</a></h3>
 </div>
-<div id="outline-container-org2fc37b1" class="outline-3">
-<h3 id="org2fc37b1"><span class="section-number-3">2.3.</span> <a href="./real-analysis/functions.html">Functions</a></h3>
+<div id="outline-container-orgbe8475d" class="outline-3">
+<h3 id="orgbe8475d"><span class="section-number-3">2.3</span> <a href="./real-analysis/functions.html">Functions</a></h3>
 </div>
-<div id="outline-container-org85ef001" class="outline-3">
-<h3 id="org85ef001"><span class="section-number-3">2.4.</span> <a href="./real-analysis/intermediate-value-theorem.html">Intermediate Value Theorem</a></h3>
+<div id="outline-container-org5aa7f0b" class="outline-3">
+<h3 id="org5aa7f0b"><span class="section-number-3">2.4</span> <a href="./real-analysis/intermediate-value-theorem.html">Intermediate Value Theorem</a></h3>
 </div>
-<div id="outline-container-orgde3ff47" class="outline-3">
-<h3 id="orgde3ff47"><span class="section-number-3">2.5.</span> <a href="./real-analysis/limit-superior.html">Limit Superior</a></h3>
+<div id="outline-container-org6aeaa9a" class="outline-3">
+<h3 id="org6aeaa9a"><span class="section-number-3">2.5</span> <a href="./real-analysis/limit-superior.html">Limit Superior</a></h3>
 </div>
-<div id="outline-container-orgc13dcbd" class="outline-3">
-<h3 id="orgc13dcbd"><span class="section-number-3">2.6.</span> <a href="./real-analysis/power-series.html">Power Series</a></h3>
+<div id="outline-container-org13b3bc6" class="outline-3">
+<h3 id="org13b3bc6"><span class="section-number-3">2.6</span> <a href="./real-analysis/power-series.html">Power Series</a></h3>
 </div>
-<div id="outline-container-orge40b060" class="outline-3">
-<h3 id="orge40b060"><span class="section-number-3">2.7.</span> <a href="./real-analysis/sequences.html">Sequences</a></h3>
+<div id="outline-container-org30b7d2b" class="outline-3">
+<h3 id="org30b7d2b"><span class="section-number-3">2.7</span> <a href="./real-analysis/sequences.html">Sequences</a></h3>
 </div>
-<div id="outline-container-orga84359d" class="outline-3">
-<h3 id="orga84359d"><span class="section-number-3">2.8.</span> <a href="./real-analysis/series.html">Series</a></h3>
+<div id="outline-container-org8c22dd0" class="outline-3">
+<h3 id="org8c22dd0"><span class="section-number-3">2.8</span> <a href="./real-analysis/series.html">Series</a></h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2021-08-26 Thu 16:19</p>
+<p class="author">Author: root</p>
+<p class="date">Created: 2021-09-23 Thu 14:03</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

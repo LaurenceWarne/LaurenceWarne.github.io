@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-08-26 Thu 16:18 -->
+<!-- 2021-09-23 Thu 14:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linear Algebra</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="LaurenceWarne" />
+<meta name="author" content="root" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -199,75 +199,8 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-        <style>
-        /* From: https://endlessparentheses.com/public/css/endless.css */
-        /* See also: https://meta.superuser.com/questions/4788/css-for-the-new-kbd-style */
-        kbd
-        {
-          -moz-border-radius: 6px;
-          -moz-box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-          -webkit-border-radius: 6px;
-          -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-          background-color: #f7f7f7;
-          border: 1px solid #ccc;
-          border-radius: 6px;
-          box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-          color: #333;
-          display: inline-block;
-          font-family: 'Droid Sans Mono', monospace;
-          font-size: 80%;
-          font-weight: normal;
-          line-height: inherit;
-          margin: 0 .1em;
-          padding: .08em .4em;
-          text-shadow: 0 1px 0 #fff;
-          word-spacing: -4px;
-        
-          box-shadow: 2px 2px 2px #222; /* MA: An extra I've added. */
-        }
-        </style>
-        <link rel="stylesheet" type="text/css" href="https://alhassy.github.io/org-special-block-extras/tooltipster/dist/css/tooltipster.bundle.min.css"/>
-        
-        <link rel="stylesheet" type="text/css" href="https://alhassy.github.io/org-special-block-extras/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
-        
-        <script type="text/javascript">
-            if (typeof jQuery == 'undefined') {
-                document.write(unescape('%3Cscript src="https://code.jquery.com/jquery-1.10.0.min.js"%3E%3C/script%3E'));
-            }
-        </script>
-        
-         <script type="text/javascript"            src="https://alhassy.github.io/org-special-block-extras/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
-        
-          <script>
-                 $(document).ready(function() {
-                     $('.tooltip').tooltipster({
-                         theme: 'tooltipster-punk',
-                         contentAsHTML: true,
-                         animation: 'grow',
-                         delay: [100,500],
-                         // trigger: 'click'
-                         trigger: 'custom',
-                         triggerOpen: {
-                             mouseenter: true
-                         },
-                         triggerClose: {
-                             originClick: true,
-                             scroll: true
-                         }
-         });
-                 });
-             </script>
-        
-        <style>
-           abbr {color: red;}
-        
-           .tooltip { border-bottom: 1px dotted #000;
-                      color:red;
-                      text-decoration: none;}
-        </style>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -296,41 +229,41 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb17a7d4">1. Change Of Basis</a></li>
-<li><a href="#org422c173">2. Determinants</a></li>
-<li><a href="#orgf9a1b4d">3. Eigendecomposition</a></li>
-<li><a href="#org403c113">4. Eigenvectors</a></li>
-<li><a href="#org1fd390b">5. Hermitian Matrices</a></li>
-<li><a href="#org163722c">6. Inner Product Spaces</a></li>
-<li><a href="#orgb356f0e">7. Perron Frobenius Theorem</a></li>
+<li><a href="#orgbba3595">1. Change Of Basis</a></li>
+<li><a href="#org5a17e88">2. Determinants</a></li>
+<li><a href="#org30d6d8d">3. Eigendecomposition</a></li>
+<li><a href="#orged25e3f">4. Eigenvectors</a></li>
+<li><a href="#org8c56004">5. Hermitian Matrices</a></li>
+<li><a href="#org760d27d">6. Inner Product Spaces</a></li>
+<li><a href="#org5335a07">7. Perron Frobenius Theorem</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb17a7d4" class="outline-2">
-<h2 id="orgb17a7d4"><span class="section-number-2">1.</span> <a href="./change-of-basis.html">Change Of Basis</a></h2>
+<div id="outline-container-orgbba3595" class="outline-2">
+<h2 id="orgbba3595"><span class="section-number-2">1</span> <a href="./change-of-basis.html">Change Of Basis</a></h2>
 </div>
-<div id="outline-container-org422c173" class="outline-2">
-<h2 id="org422c173"><span class="section-number-2">2.</span> <a href="./determinants.html">Determinants</a></h2>
+<div id="outline-container-org5a17e88" class="outline-2">
+<h2 id="org5a17e88"><span class="section-number-2">2</span> <a href="./determinants.html">Determinants</a></h2>
 </div>
-<div id="outline-container-orgf9a1b4d" class="outline-2">
-<h2 id="orgf9a1b4d"><span class="section-number-2">3.</span> <a href="./eigendecomposition.html">Eigendecomposition</a></h2>
+<div id="outline-container-org30d6d8d" class="outline-2">
+<h2 id="org30d6d8d"><span class="section-number-2">3</span> <a href="./eigendecomposition.html">Eigendecomposition</a></h2>
 </div>
-<div id="outline-container-org403c113" class="outline-2">
-<h2 id="org403c113"><span class="section-number-2">4.</span> <a href="./eigenvectors.html">Eigenvectors</a></h2>
+<div id="outline-container-orged25e3f" class="outline-2">
+<h2 id="orged25e3f"><span class="section-number-2">4</span> <a href="./eigenvectors.html">Eigenvectors</a></h2>
 </div>
-<div id="outline-container-org1fd390b" class="outline-2">
-<h2 id="org1fd390b"><span class="section-number-2">5.</span> <a href="./hermitian-matrices.html">Hermitian Matrices</a></h2>
+<div id="outline-container-org8c56004" class="outline-2">
+<h2 id="org8c56004"><span class="section-number-2">5</span> <a href="./hermitian-matrices.html">Hermitian Matrices</a></h2>
 </div>
-<div id="outline-container-org163722c" class="outline-2">
-<h2 id="org163722c"><span class="section-number-2">6.</span> <a href="./inner-product-spaces.html">Inner Product Spaces</a></h2>
+<div id="outline-container-org760d27d" class="outline-2">
+<h2 id="org760d27d"><span class="section-number-2">6</span> <a href="./inner-product-spaces.html">Inner Product Spaces</a></h2>
 </div>
-<div id="outline-container-orgb356f0e" class="outline-2">
-<h2 id="orgb356f0e"><span class="section-number-2">7.</span> <a href="./perron-frobenius-theorem.html">Perron Frobenius Theorem</a></h2>
+<div id="outline-container-org5335a07" class="outline-2">
+<h2 id="org5335a07"><span class="section-number-2">7</span> <a href="./perron-frobenius-theorem.html">Perron Frobenius Theorem</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2021-08-26 Thu 16:18</p>
+<p class="author">Author: root</p>
+<p class="date">Created: 2021-09-23 Thu 14:03</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
