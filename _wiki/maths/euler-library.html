@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-23 Thu 14:03 -->
+<!-- 2021-09-23 Thu 15:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Euler Library</title>
@@ -200,7 +200,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -251,23 +251,23 @@ Next: <a href='./questions.html'>Questions</a><span style='float: right;'>Up: <a
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf20cf53">1. Linear Recurrence Closure</a>
+<li><a href="#org4b895ba">1. Linear Recurrence Closure</a>
 <ul>
-<li><a href="#orgdbddfe3">1.1. Proof (1)</a></li>
+<li><a href="#org0f07b08">1.1. Proof (1)</a></li>
 </ul>
 </li>
-<li><a href="#org87990c7">2. Power Modulo</a>
+<li><a href="#org864a452">2. Power Modulo</a>
 <ul>
-<li><a href="#org79e8fcc">2.1. Proof (first condition):</a></li>
+<li><a href="#org1e7afe0">2.1. Proof (first condition):</a></li>
 </ul>
 </li>
-<li><a href="#orgd58a041">3. Assorted</a></li>
+<li><a href="#org96dd726">3. Assorted</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf20cf53" class="outline-2">
-<h2 id="orgf20cf53"><span class="section-number-2">1</span> Linear Recurrence Closure</h2>
+<div id="outline-container-org4b895ba" class="outline-2">
+<h2 id="org4b895ba"><span class="section-number-2">1.</span> Linear Recurrence Closure</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 If \( a_n \) and \( b_n \) are linear recurrences, then:
@@ -279,8 +279,8 @@ If \( a_n \) and \( b_n \) are linear recurrences, then:
 </ol>
 </div>
 
-<div id="outline-container-orgdbddfe3" class="outline-3">
-<h3 id="orgdbddfe3"><span class="section-number-3">1.1</span> Proof (1)</h3>
+<div id="outline-container-org0f07b08" class="outline-3">
+<h3 id="org0f07b08"><span class="section-number-3">1.1.</span> Proof (1)</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Let \( C_a(x) \) and \( C_b(x) \) be the characteristic polynomials of \( a_n \) and \( b_n \) respectively.  Then we claim 
@@ -384,19 +384,12 @@ mat.row_del(-1)
 <span style="font-weight: bold;">print</span>([a_n(n) + b_n(n) <span style="font-weight: bold;">for</span> n <span style="font-weight: bold;">in</span> <span style="font-weight: bold;">range</span>(1, 14)])
 </pre>
 </div>
-
-<pre class="example">
-Poly(x**4 - 3*x**3 + x**2 + 3*x - 2, x, domain='ZZ')
-Matrix([[3, -1, -3, 2], [1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0]])
-[2, 3, 8, 17, 38, 79, 164, 333, 674, 1355, 2720, 5449, 10910]
-[2, 3, 8, 17, 38, 79, 164, 333, 674, 1355, 2720, 5449, 10910]
-</pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org87990c7" class="outline-2">
-<h2 id="org87990c7"><span class="section-number-2">2</span> Power Modulo</h2>
+<div id="outline-container-org864a452" class="outline-2">
+<h2 id="org864a452"><span class="section-number-2">2.</span> Power Modulo</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 If \( a \) and \( p \) are coprime then:
@@ -422,8 +415,8 @@ a^x \pmod p & \text{for } x < \phi(p)\\
 </p>
 </div>
 
-<div id="outline-container-org79e8fcc" class="outline-3">
-<h3 id="org79e8fcc"><span class="section-number-3">2.1</span> Proof (first condition):</h3>
+<div id="outline-container-org1e7afe0" class="outline-3">
+<h3 id="org1e7afe0"><span class="section-number-3">2.1.</span> Proof (first condition):</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Let \( p_1^{e_1}p_2^{e_2}... \) be the prime factorisation of \( p \), and \( e_i' \) be the largest \( e \) s.t. \( p^e | a \).  Consider
@@ -472,8 +465,8 @@ For \( p_i \) with \( e_i' > 0 \), we must have \( m_i = 0 \), and so given \( q
 </div>
 </div>
 
-<div id="outline-container-orgd58a041" class="outline-2">
-<h2 id="orgd58a041"><span class="section-number-2">3</span> Assorted</h2>
+<div id="outline-container-org96dd726" class="outline-2">
+<h2 id="org96dd726"><span class="section-number-2">3.</span> Assorted</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>\( f_{n + 1} = a_nf_n + \cdots + a_0f_{n - k} \) is totally periodic modulo \( n \) if \( a_0 \) is a unit in \( \mathbb{Z}_n \)</li>
@@ -483,7 +476,7 @@ For \( p_i \) with \( e_i' > 0 \), we must have \( m_i = 0 \), and so given \( q
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2021-09-23 Thu 14:03</p>
+<p class="date">Created: 2021-09-23 Thu 15:44</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
