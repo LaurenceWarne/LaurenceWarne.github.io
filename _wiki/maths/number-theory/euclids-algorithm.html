@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-23 Thu 15:51 -->
+<!-- 2021-09-24 Fri 13:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Euclid's Algorithm</title>
@@ -199,6 +199,7 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://pastebin.com/raw/ZmmLYU47" />
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
@@ -251,24 +252,24 @@ Previous: <a href='./chinese-remainder-theorem.html'>Chinese Remainder Theorem</
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga59d26e">1. Diophantine Equations</a>
+<li><a href="#org1897558">1. Diophantine Equations</a>
 <ul>
-<li><a href="#orgec6f058">1.1. Lemma 1</a></li>
-<li><a href="#orgea5db5c">1.2. Lemma 2</a></li>
-<li><a href="#orgaf58014">1.3. Lemma 3</a></li>
+<li><a href="#orgc4f9091">1.1. Lemma 1</a></li>
+<li><a href="#org95e2757">1.2. Lemma 2</a></li>
+<li><a href="#orgb948541">1.3. Lemma 3</a></li>
 </ul>
 </li>
-<li><a href="#org4714227">2. Euclid's Algorithm</a>
+<li><a href="#org294c16a">2. Euclid's Algorithm</a>
 <ul>
-<li><a href="#orgcebab2e">2.1. Example</a></li>
+<li><a href="#org75306f1">2.1. Example</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga59d26e" class="outline-2">
-<h2 id="orga59d26e"><span class="section-number-2">1.</span> Diophantine Equations</h2>
+<div id="outline-container-org1897558" class="outline-2">
+<h2 id="org1897558"><span class="section-number-2">1.</span> Diophantine Equations</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Let \(a, b \) and \( c \) be fixed integers, then consider integer solutions to the equation:
@@ -283,8 +284,8 @@ We show there exist solutions iff \( gcd(a, b) | c \), and further, if this is t
 </p>
 </div>
 
-<div id="outline-container-orgec6f058" class="outline-3">
-<h3 id="orgec6f058"><span class="section-number-3">1.1.</span> Lemma 1</h3>
+<div id="outline-container-orgc4f9091" class="outline-3">
+<h3 id="orgc4f9091"><span class="section-number-3">1.1.</span> Lemma 1</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 if \( gcd(a, b) \not| c \) There exists no solution to (1).
@@ -317,8 +318,8 @@ Which shows \( p \) must divide \( c \) and hence is a contradiction.
 </div>
 
 
-<div id="outline-container-orgea5db5c" class="outline-3">
-<h3 id="orgea5db5c"><span class="section-number-3">1.2.</span> Lemma 2</h3>
+<div id="outline-container-org95e2757" class="outline-3">
+<h3 id="org95e2757"><span class="section-number-3">1.2.</span> Lemma 2</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 There exists a solution to (1) if \( c =  gcd(a, b) \)
@@ -395,8 +396,8 @@ Where y is \( -\lfloor \frac{ax}{b} \rfloor \). Hence trivially there also exist
 </div>
 </div>
 
-<div id="outline-container-orgaf58014" class="outline-3">
-<h3 id="orgaf58014"><span class="section-number-3">1.3.</span> Lemma 3</h3>
+<div id="outline-container-orgb948541" class="outline-3">
+<h3 id="orgb948541"><span class="section-number-3">1.3.</span> Lemma 3</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 If there exists one solution to \( ax + by = c \) then there exists infinite solutions.
@@ -435,16 +436,16 @@ Where \( M \) is any integer, is a solution.
 </div>
 </div>
 
-<div id="outline-container-org4714227" class="outline-2">
-<h2 id="org4714227"><span class="section-number-2">2.</span> Euclid's Algorithm</h2>
+<div id="outline-container-org294c16a" class="outline-2">
+<h2 id="org294c16a"><span class="section-number-2">2.</span> Euclid's Algorithm</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We can express \( gcd(a, b) \) as a linear combination of \( a \) and \( b \) easily using Euclid's algorithm.
 </p>
 </div>
 
-<div id="outline-container-orgcebab2e" class="outline-3">
-<h3 id="orgcebab2e"><span class="section-number-3">2.1.</span> Example</h3>
+<div id="outline-container-org75306f1" class="outline-3">
+<h3 id="org75306f1"><span class="section-number-3">2.1.</span> Example</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 <b>Express gcd(1442, 980) as a linear combination of 1442 and 980.</b>
@@ -481,7 +482,7 @@ And thus we arrive at the linear combination.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2021-09-23 Thu 15:51</p>
+<p class="date">Created: 2021-09-24 Fri 13:47</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
