@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-24 Fri 13:47 -->
+<!-- 2021-09-24 Fri 13:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Graph Colouring</title>
@@ -199,7 +199,7 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://pastebin.com/raw/ZmmLYU47" />
+<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/LaurenceWarne/org-files/master/style-sheets.css" />
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
@@ -252,23 +252,23 @@ Next: <a href='./graphs.html'>Graphs</a><span style='float: right;'>Up: <a href=
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org341d9d2">1. Definition</a></li>
-<li><a href="#orgc245272">2. Chromatic Number</a>
+<li><a href="#org7fdcaf8">1. Definition</a></li>
+<li><a href="#orgba043b5">2. Chromatic Number</a>
 <ul>
-<li><a href="#org502eb01">2.1. Bounds</a></li>
+<li><a href="#orgb13f231">2.1. Bounds</a></li>
 </ul>
 </li>
-<li><a href="#org4871ebb">3. Chromatic Polynomial</a>
+<li><a href="#orgd20fa0f">3. Chromatic Polynomial</a>
 <ul>
-<li><a href="#org9f81970">3.1. Theorem</a></li>
+<li><a href="#orgf9b709a">3.1. Theorem</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org341d9d2" class="outline-2">
-<h2 id="org341d9d2"><span class="section-number-2">1.</span> Definition</h2>
+<div id="outline-container-org7fdcaf8" class="outline-2">
+<h2 id="org7fdcaf8"><span class="section-number-2">1.</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We define a k-colouring of an undirected graph \( G(V, E) \) as a function \( f: V \to \mathbb{Z}_k = \{ 1 ... k\} \) such that:
@@ -286,8 +286,8 @@ Ie no neighbouring vertices have the same colour. Additionally, if \( G \) admit
 </div>
 </div>
 
-<div id="outline-container-orgc245272" class="outline-2">
-<h2 id="orgc245272"><span class="section-number-2">2.</span> Chromatic Number</h2>
+<div id="outline-container-orgba043b5" class="outline-2">
+<h2 id="orgba043b5"><span class="section-number-2">2.</span> Chromatic Number</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We define \( \chi(G) \) as the smallest k such that \( G \) is k-colourable. Clearly such a k must always exist as a graph on \( n \) vertices is always n-colourable (assign all the vertices different colours).
@@ -298,8 +298,8 @@ However determining \( \chi(G) \) for an arbitrary graph is nontrivial and is in
 </p>
 </div>
 
-<div id="outline-container-org502eb01" class="outline-3">
-<h3 id="org502eb01"><span class="section-number-3">2.1.</span> Bounds</h3>
+<div id="outline-container-orgb13f231" class="outline-3">
+<h3 id="orgb13f231"><span class="section-number-3">2.1.</span> Bounds</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Using a greedy algorithm we can deduce that:
@@ -334,16 +334,16 @@ Clearly if \( G \) has <b>k-clique</b> then:
 </div>
 </div>
 
-<div id="outline-container-org4871ebb" class="outline-2">
-<h2 id="org4871ebb"><span class="section-number-2">3.</span> Chromatic Polynomial</h2>
+<div id="outline-container-orgd20fa0f" class="outline-2">
+<h2 id="orgd20fa0f"><span class="section-number-2">3.</span> Chromatic Polynomial</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Given some simple graph \( G \) we define the <b>Chromatic Function</b> \( P_G: \mathbb{Z}^+ \to \mathbb{Z}^+ \) as the number of ways we can colour \( G \) using \( k \) or fewer colours. Hence if \( k < \chi(G) \) then \( P_G(k) = 0 \).
 </p>
 </div>
 
-<div id="outline-container-org9f81970" class="outline-3">
-<h3 id="org9f81970"><span class="section-number-3">3.1.</span> Theorem</h3>
+<div id="outline-container-orgf9b709a" class="outline-3">
+<h3 id="orgf9b709a"><span class="section-number-3">3.1.</span> Theorem</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 <i>The Chromatic Function of a simple graph \( G \) is polynomial</i>.
@@ -375,7 +375,7 @@ We can apply this procedure to the two new graphs \( G - e \) and \( G/ e \), an
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2021-09-24 Fri 13:47</p>
+<p class="date">Created: 2021-09-24 Fri 13:48</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
