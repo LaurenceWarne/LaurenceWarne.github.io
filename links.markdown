@@ -18,6 +18,8 @@ permalink: /links/
 
 * The University of Pennsylvania <a href="https://www2.math.upenn.edu/~wilf/">page</a> of the late Herbert Wilf, generatingfunctionology along with some other of his books are provided free of charge here
 
+* <a href="https://nhigham.com/index-of-what-is-articles/">"What Is"</a> articles by Nick Higham - a lot of stuff on linear algebra and matrix analysis
+
 # Question Sources
 
 * <a href="https://mathschallenge.net/archive">MathsChallenge</a>
