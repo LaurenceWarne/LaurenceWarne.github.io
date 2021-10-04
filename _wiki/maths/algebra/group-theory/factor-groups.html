@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-01 Fri 10:49 -->
+<!-- 2021-10-04 Mon 18:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Factor Groups</title>
@@ -252,27 +252,27 @@ Next: <a href='./group-actions.html'>Group Actions</a><span style='float: right;
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdd36d88">1. Cosets and Groups</a>
+<li><a href="#org7301a1f">1. Cosets and Groups</a>
 <ul>
-<li><a href="#orgf9f3053">1.1. Disjointedness</a>
+<li><a href="#org4fd3e6b">1.1. Disjointedness</a>
 <ul>
-<li><a href="#org7f7ab36">1.1.1. Proof</a></li>
+<li><a href="#org14a4f1c">1.1.1. Proof</a></li>
 </ul>
 </li>
-<li><a href="#orge37ecd4">1.2. Cosets as Groups</a>
+<li><a href="#org0d49357">1.2. Cosets as Groups</a>
 <ul>
-<li><a href="#org879268a">1.2.1. example \( S_3 \)</a></li>
-<li><a href="#org4d7c367">1.2.2. Independent of Choice</a></li>
+<li><a href="#orge14d501">1.2.1. example \( S_3 \)</a></li>
+<li><a href="#org307c766">1.2.2. Independent of Choice</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org439e9b5">2. Normal Subgroups</a>
+<li><a href="#org76b45c1">2. Normal Subgroups</a>
 <ul>
 <li>
 <ul>
-<li><a href="#org4cdfd3d">2.0.1. Proposition</a></li>
-<li><a href="#org17c1358">2.0.2. Proof</a></li>
+<li><a href="#orgdb9a42e">2.0.1. Proposition</a></li>
+<li><a href="#orgd5297c4">2.0.2. Proof</a></li>
 </ul>
 </li>
 </ul>
@@ -281,8 +281,8 @@ Next: <a href='./group-actions.html'>Group Actions</a><span style='float: right;
 </div>
 </div>
 
-<div id="outline-container-orgdd36d88" class="outline-2">
-<h2 id="orgdd36d88"><span class="section-number-2">1.</span> Cosets and Groups</h2>
+<div id="outline-container-org7301a1f" class="outline-2">
+<h2 id="org7301a1f"><span class="section-number-2">1.</span> Cosets and Groups</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Let \( (G , \ +) \) be a group and consider some subgroup \( H \le G \), we start by defining:
@@ -313,8 +313,8 @@ This follows immediately from the cancellation property of groups. From this it 
 </p>
 </div>
 
-<div id="outline-container-orgf9f3053" class="outline-3">
-<h3 id="orgf9f3053"><span class="section-number-3">1.1.</span> Disjointedness</h3>
+<div id="outline-container-org4fd3e6b" class="outline-3">
+<h3 id="org4fd3e6b"><span class="section-number-3">1.1.</span> Disjointedness</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 We now prove an extremely important property of cosets. If \( g_1, \ g_2 \in G \) then exactly one of the following is true:
@@ -330,8 +330,8 @@ Ie two cosets are either equal or disjoint. From this we can deduce that the cos
 </p>
 </div>
 
-<div id="outline-container-org7f7ab36" class="outline-4">
-<h4 id="org7f7ab36"><span class="section-number-4">1.1.1.</span> Proof</h4>
+<div id="outline-container-org14a4f1c" class="outline-4">
+<h4 id="org14a4f1c"><span class="section-number-4">1.1.1.</span> Proof</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 Now suppose that \( g_1 + H \) and \( g_2 + H \) share some common element \( k \), and further suppose for a contradiction that there is some element \( q \in G \ s.t. \ q \in g_1 + H, \ q \not\in g_2 + H \) ie \( q = g_1 + h_3 \) for some \( h_3 \in H \). Then:
@@ -360,8 +360,8 @@ Which is a contradiction, hence there exists no such element \( q \). From this 
 </div>
 </div>
 
-<div id="outline-container-orge37ecd4" class="outline-3">
-<h3 id="orge37ecd4"><span class="section-number-3">1.2.</span> Cosets as Groups</h3>
+<div id="outline-container-org0d49357" class="outline-3">
+<h3 id="org0d49357"><span class="section-number-3">1.2.</span> Cosets as Groups</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Suppose we want to create a group whose elements are the cosets of \( H \), and which operate under the "same" binary operation as \( G \), ie
@@ -378,8 +378,8 @@ The problem here is that one coset \( g + H \) may have many representations, so
 </p>
 </div>
 
-<div id="outline-container-org879268a" class="outline-4">
-<h4 id="org879268a"><span class="section-number-4">1.2.1.</span> example \( S_3 \)</h4>
+<div id="outline-container-orge14d501" class="outline-4">
+<h4 id="orge14d501"><span class="section-number-4">1.2.1.</span> example \( S_3 \)</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 Let \( G = S_3 \), \( H = <(1 \ 2)> = \{ (1 \ 2), \ I_3 \} \) then our cosets are as follows:
@@ -421,8 +421,8 @@ We now find conditions in which multiplication of cosets is independent of the e
 </div>
 </div>
 
-<div id="outline-container-org4d7c367" class="outline-4">
-<h4 id="org4d7c367"><span class="section-number-4">1.2.2.</span> Independent of Choice</h4>
+<div id="outline-container-org307c766" class="outline-4">
+<h4 id="org307c766"><span class="section-number-4">1.2.2.</span> Independent of Choice</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 Let \( y \in G \), \( h_1 \in H \), and take any \( x, b \in G \) s.t.
@@ -493,8 +493,8 @@ A contradiction. Thus independence of choice holds iff \( H \) is normal in \( G
 </div>
 </div>
 
-<div id="outline-container-org439e9b5" class="outline-2">
-<h2 id="org439e9b5"><span class="section-number-2">2.</span> Normal Subgroups</h2>
+<div id="outline-container-org76b45c1" class="outline-2">
+<h2 id="org76b45c1"><span class="section-number-2">2.</span> Normal Subgroups</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We can now claim if \( H \) is normal, the cosets (we will see that whether they are left or right cosets is not important) form a group under the "same" binary operation of \( H \). 
@@ -505,8 +505,8 @@ Invertability and existence of an identity all follow by virtue of \( G \) (to b
 </p>
 </div>
 
-<div id="outline-container-org4cdfd3d" class="outline-4">
-<h4 id="org4cdfd3d"><span class="section-number-4">2.0.1.</span> Proposition</h4>
+<div id="outline-container-orgdb9a42e" class="outline-4">
+<h4 id="orgdb9a42e"><span class="section-number-4">2.0.1.</span> Proposition</h4>
 <div class="outline-text-4" id="text-2-0-1">
 <p>
 \( N\triangleleft G \) iff \( g + N = N + g \ \ \ \forall g \in G \). Ie the right and left cosets of \( N \) in \( G \) are identical.
@@ -514,8 +514,8 @@ Invertability and existence of an identity all follow by virtue of \( G \) (to b
 </div>
 </div>
 
-<div id="outline-container-org17c1358" class="outline-4">
-<h4 id="org17c1358"><span class="section-number-4">2.0.2.</span> Proof</h4>
+<div id="outline-container-orgd5297c4" class="outline-4">
+<h4 id="orgd5297c4"><span class="section-number-4">2.0.2.</span> Proof</h4>
 <div class="outline-text-4" id="text-2-0-2">
 <p>
 Suppose \( k \in g + N \) then:
@@ -535,7 +535,7 @@ But \( g + h + (-g) \in N \) hence \( k \in N + g \). And similarly \( k \in N +
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2021-10-01 Fri 10:49</p>
+<p class="date">Created: 2021-10-04 Mon 18:52</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
