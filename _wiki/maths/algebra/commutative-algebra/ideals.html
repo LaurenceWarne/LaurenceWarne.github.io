@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-04 Mon 18:52 -->
+<!-- 2021-10-07 Thu 19:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ideals</title>
@@ -252,19 +252,19 @@ Next: <a href='./integral-domains.html'>Integral Domains</a><span style='float: 
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb96fa7c">1. Definition</a></li>
-<li><a href="#orga3d4543">2. Special Ideals</a>
+<li><a href="#orgae1be1c">1. Definition</a></li>
+<li><a href="#org6a34091">2. Special Ideals</a>
 <ul>
-<li><a href="#org57a8411">2.1. Maximal Ideals</a>
+<li><a href="#org60a1cfc">2.1. Maximal Ideals</a>
 <ul>
-<li><a href="#org9c1289f">2.1.1. <b>Definition</b></a></li>
-<li><a href="#org94a1aa3">2.1.2. <b>Theorem</b></a></li>
-<li><a href="#org606c046">2.1.3. <b>Proof</b></a></li>
+<li><a href="#orgd8edf54">2.1.1. <b>Definition</b></a></li>
+<li><a href="#orgb2a20e9">2.1.2. <b>Theorem</b></a></li>
+<li><a href="#org9fb5d98">2.1.3. <b>Proof</b></a></li>
 </ul>
 </li>
-<li><a href="#org560ae99">2.2. Prime Ideals</a>
+<li><a href="#org689ba0e">2.2. Prime Ideals</a>
 <ul>
-<li><a href="#orgb6602b7">2.2.1. <b>Definition</b></a></li>
+<li><a href="#orgac2b094">2.2.1. <b>Definition</b></a></li>
 </ul>
 </li>
 </ul>
@@ -273,8 +273,8 @@ Next: <a href='./integral-domains.html'>Integral Domains</a><span style='float: 
 </div>
 </div>
 
-<div id="outline-container-orgb96fa7c" class="outline-2">
-<h2 id="orgb96fa7c"><span class="section-number-2">1.</span> Definition</h2>
+<div id="outline-container-orgae1be1c" class="outline-2">
+<h2 id="orgae1be1c"><span class="section-number-2">1.</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We say a subset \( I \subseteq R \) of some commutative ring \( R \) is an ideal if:
@@ -291,20 +291,20 @@ Note by (2) an ideal is a ring iff it is equal to the ring itself.
 </div>
 </div>
 
-<div id="outline-container-orga3d4543" class="outline-2">
-<h2 id="orga3d4543"><span class="section-number-2">2.</span> Special Ideals</h2>
+<div id="outline-container-org6a34091" class="outline-2">
+<h2 id="org6a34091"><span class="section-number-2">2.</span> Special Ideals</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We specify \( R \) as a commutative ring.
 </p>
 </div>
 
-<div id="outline-container-org57a8411" class="outline-3">
-<h3 id="org57a8411"><span class="section-number-3">2.1.</span> Maximal Ideals</h3>
+<div id="outline-container-org60a1cfc" class="outline-3">
+<h3 id="org60a1cfc"><span class="section-number-3">2.1.</span> Maximal Ideals</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org9c1289f" class="outline-4">
-<h4 id="org9c1289f"><span class="section-number-4">2.1.1.</span> <b>Definition</b></h4>
+<div id="outline-container-orgd8edf54" class="outline-4">
+<h4 id="orgd8edf54"><span class="section-number-4">2.1.1.</span> <b>Definition</b></h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 We say a proper ideal \( I \) of \( R \), is a maximal ideal if for all ideals \( J \) such that \( I \subseteq J \), then either \( J = I \) or \( J = R \).
@@ -312,8 +312,8 @@ We say a proper ideal \( I \) of \( R \), is a maximal ideal if for all ideals \
 </div>
 </div>
 
-<div id="outline-container-org94a1aa3" class="outline-4">
-<h4 id="org94a1aa3"><span class="section-number-4">2.1.2.</span> <b>Theorem</b></h4>
+<div id="outline-container-orgb2a20e9" class="outline-4">
+<h4 id="orgb2a20e9"><span class="section-number-4">2.1.2.</span> <b>Theorem</b></h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 The factor ring \( R / I \) is a field iff \( I \) is a maximal ideal in \( R \).
@@ -321,8 +321,8 @@ The factor ring \( R / I \) is a field iff \( I \) is a maximal ideal in \( R \)
 </div>
 </div>
 
-<div id="outline-container-org606c046" class="outline-4">
-<h4 id="org606c046"><span class="section-number-4">2.1.3.</span> <b>Proof</b></h4>
+<div id="outline-container-org9fb5d98" class="outline-4">
+<h4 id="org9fb5d98"><span class="section-number-4">2.1.3.</span> <b>Proof</b></h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 <b>(forward case)</b>: By contrapositive; suppose \( I \) is not maximal in \( R \), ie there exists some ideal \( J \) such that \( I \subset J \subset R \). We show that there is a non-invertible element in \( R/I \). Let:
@@ -434,12 +434,12 @@ Which is a contradiction since \( J \) is proper. So we have show \( J' \) is a 
 </div>
 </div>
 
-<div id="outline-container-org560ae99" class="outline-3">
-<h3 id="org560ae99"><span class="section-number-3">2.2.</span> Prime Ideals</h3>
+<div id="outline-container-org689ba0e" class="outline-3">
+<h3 id="org689ba0e"><span class="section-number-3">2.2.</span> Prime Ideals</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-orgb6602b7" class="outline-4">
-<h4 id="orgb6602b7"><span class="section-number-4">2.2.1.</span> <b>Definition</b></h4>
+<div id="outline-container-orgac2b094" class="outline-4">
+<h4 id="orgac2b094"><span class="section-number-4">2.2.1.</span> <b>Definition</b></h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 We say an <b>proper</b> ideal \( I \) of a commutative ring \( R \) is prime if, for any two elements \( a, b \in R \) such that \( ab \in I \) we must have \( a \in I \lor b \in I \).
@@ -451,7 +451,7 @@ We say an <b>proper</b> ideal \( I \) of a commutative ring \( R \) is prime if,
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2021-10-04 Mon 18:52</p>
+<p class="date">Created: 2021-10-07 Thu 19:38</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
