@@ -1,0 +1,81 @@
+---
+date: 2021-11-05 14:10
+author: 
+title: Row-Spanning for ImageMagick montage, Sort of...
+layout: post
+excerpt: ImageMagick montage
+categories: 
+- programming
+tags: 
+---
+
+<div id="outline-container-orgfea0df2" class="outline-2">
+<h2 id="orgfea0df2">Montage</h2>
+<div class="outline-text-2" id="text-orgfea0df2">
+<p>
+ImageMagick ships the <code>montage</code> as a way of creating <b>composite</b> images.  For example (Stolen from their site):
+</p>
+
+
+<div id="org929ed41" class="figure">
+<p><img src="https://imagemagick.org/image/frame.jpg" alt="frame.jpg" />
+</p>
+</div>
+
+<p>
+For <a href="https://github.com/LaurenceWarne/libro-finito/blob/master/bin/montage.py">libro-finito</a>, I'm interested in stitching several images together on a grid to try and replicate something like the image  Goodreads' year in books:
+</p>
+
+
+<div id="orga053b4f" class="figure">
+<p><img src="https://inti-revista.org/img/10cc471f86b043291bdecc2996dc2254.jpg" alt="10cc471f86b043291bdecc2996dc2254.jpg" />
+</p>
+</div>
+
+<p>
+So books tiled together with some appearing larger according to some heuristic (rating would be a good choice!).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org400e464" class="outline-2">
+<h2 id="org400e464">Let's Start 🔨</h2>
+<div class="outline-text-2" id="text-org400e464">
+<p>
+Given some images, if we want three images per row, something like:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">montage -geometry +0+0 starship-troopers.jpeg a-spell-for-a-chameleon-l.jpeg the-caves-of-steel.jpeg the-count-of-monte-cristo.jpeg a-wizard-of-earthsea.jpeg tmp.jpeg
+</pre>
+</div>
+
+<p>
+Gives us:
+</p>
+
+
+<div id="org598a6f5" class="figure">
+<p><img src="https://user-images.githubusercontent.com/17688577/140427293-5f587a19-5afb-47e6-aabe-d13e098249bc.jpeg" alt="140427293-5f587a19-5afb-47e6-aabe-d13e098249bc.jpeg" />
+</p>
+</div>
+
+<p>
+ImageMagick has done its best to set the distance between images as zero, but this appears to have lead to inconsitency of column sizes.  Generally different sized images aren't going to work too nicely with one another.
+</p>
+
+<p>
+In the example above the larger images are 4x the size of the smaller ones (ie 2x width and 2x height).  A "nice" tiling is possible if we make all of the images the same size&#x2026; by splitting up the larger images into quarters.  I've offloaded the tiling specification of our "split" images to a <a href="https://github.com/LaurenceWarne/libro-finito/blob/master/bin/montage.py">script</a>.
+</p>
+
+<p>
+But does this work?  Yes!
+</p>
+
+
+<div id="org23f0627" class="figure">
+<p><img src="https://raw.githubusercontent.com/LaurenceWarne/libro-finito/26e0044595fa933ecade67fce2add7cf1ec9c374/bin/montage.png" alt="montage.png" />
+</p>
+</div>
+</div>
+</div>
