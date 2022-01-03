@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-07 Thu 19:38 -->
+<!-- 2022-01-03 Mon 22:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Answers</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="author" content="LaurenceWarne" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -191,7 +192,6 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -199,29 +199,6 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/LaurenceWarne/org-files/master/code.css" />
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -242,36 +219,35 @@
              }
 });
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <span >Up: <a href='./maths.html'>Maths</a></span><hr><h1 class="title">Answers</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org454cb3d">1. Questions</a>
+<li><a href="#org6b63975">1. Questions</a>
 <ul>
-<li><a href="#org7d63aa2">1.1. Analysis</a></li>
-<li><a href="#org9d70aca">1.2. Algebra</a></li>
-<li><a href="#orgfb6c8d3">1.3. Linear Algebra</a></li>
-<li><a href="#orga89afa6">1.4. Number Theory</a></li>
-<li><a href="#org13faf95">1.5. Graph Theory</a></li>
-<li><a href="#orgd9c1e7f">1.6. Computation</a></li>
+<li><a href="#org8b3f6de">1.1. Analysis</a></li>
+<li><a href="#org81fcc64">1.2. Algebra</a></li>
+<li><a href="#org430e60f">1.3. Linear Algebra</a></li>
+<li><a href="#org765c17f">1.4. Number Theory</a></li>
+<li><a href="#org252bdef">1.5. Graph Theory</a></li>
+<li><a href="#org4dca37c">1.6. Computation</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org454cb3d" class="outline-2">
-<h2 id="org454cb3d"><span class="section-number-2">1.</span> Questions</h2>
+<div id="outline-container-org6b63975" class="outline-2">
+<h2 id="org6b63975"><span class="section-number-2">1.</span> Questions</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org7d63aa2" class="outline-3">
-<h3 id="org7d63aa2"><span class="section-number-3">1.1.</span> Analysis</h3>
+<div id="outline-container-org8b3f6de" class="outline-3">
+<h3 id="org8b3f6de"><span class="section-number-3">1.1.</span> Analysis</h3>
 <div class="outline-text-3" id="text-1-1">
 <ol class="org-ol">
 <li>Add \( z^6 \) to both sides, and the LHS is a binomial expansion. Then take 6th roots taking care to respect roots of unity.</li>
@@ -283,8 +259,8 @@
 </div>
 </div>
 
-<div id="outline-container-org9d70aca" class="outline-3">
-<h3 id="org9d70aca"><span class="section-number-3">1.2.</span> Algebra</h3>
+<div id="outline-container-org81fcc64" class="outline-3">
+<h3 id="org81fcc64"><span class="section-number-3">1.2.</span> Algebra</h3>
 <div class="outline-text-3" id="text-1-2">
 <ol class="org-ol">
 <li>?</li>
@@ -300,17 +276,21 @@
 </div>
 </div>
 
-<div id="outline-container-orgfb6c8d3" class="outline-3">
-<h3 id="orgfb6c8d3"><span class="section-number-3">1.3.</span> Linear Algebra</h3>
+<div id="outline-container-org430e60f" class="outline-3">
+<h3 id="org430e60f"><span class="section-number-3">1.3.</span> Linear Algebra</h3>
 <div class="outline-text-3" id="text-1-3">
 <ol class="org-ol">
 <li>?</li>
+<li>Note the determinant (and thus its reciprocal) of \( M \) is necessarily in \( K \) by the leibniz formula, which is a sum of products of the entries of \( M \) (ie ops which are closed in \( M \)).  Note the non-negative integer powers of \( M \) also have entries all in \( K \), again by closure of \(  \)\( K \) under +/*.  The result then follows from the Cayley-Hamilton theorem:
+\[
+   A^{-1} = \frac{1}{det(A)} \sum_{s=0}^{n-1}A^s
+   \]</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-orga89afa6" class="outline-3">
-<h3 id="orga89afa6"><span class="section-number-3">1.4.</span> Number Theory</h3>
+<div id="outline-container-org765c17f" class="outline-3">
+<h3 id="org765c17f"><span class="section-number-3">1.4.</span> Number Theory</h3>
 <div class="outline-text-3" id="text-1-4">
 <ol class="org-ol">
 <li>If \( a \) and \( b \) are odd, then \( a^2 + b^2 \equiv 2 \mod 4 \), but all even squares are congruent to \( 0 \mod 4\).</li>
@@ -324,17 +304,17 @@
 </div>
 </div>
 
-<div id="outline-container-org13faf95" class="outline-3">
-<h3 id="org13faf95"><span class="section-number-3">1.5.</span> Graph Theory</h3>
+<div id="outline-container-org252bdef" class="outline-3">
+<h3 id="org252bdef"><span class="section-number-3">1.5.</span> Graph Theory</h3>
 <div class="outline-text-3" id="text-1-5">
 <ol class="org-ol">
-<li>Proceed by infinite descent or induction.</li>
+<li>Proceed by induction.</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-orgd9c1e7f" class="outline-3">
-<h3 id="orgd9c1e7f"><span class="section-number-3">1.6.</span> Computation</h3>
+<div id="outline-container-org4dca37c" class="outline-3">
+<h3 id="org4dca37c"><span class="section-number-3">1.6.</span> Computation</h3>
 <div class="outline-text-3" id="text-1-6">
 <ol class="org-ol">
 <li>Binary search</li>
@@ -348,8 +328,8 @@
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: root</p>
-<p class="date">Created: 2021-10-07 Thu 19:38</p>
+<p class="author">Author: LaurenceWarne</p>
+<p class="date">Created: 2022-01-03 Mon 22:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

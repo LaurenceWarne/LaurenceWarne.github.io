@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-07 Thu 19:38 -->
+<!-- 2022-01-03 Mon 22:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sequences</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="author" content="LaurenceWarne" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -191,7 +192,6 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -199,29 +199,6 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/LaurenceWarne/org-files/master/code.css" />
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -242,31 +219,30 @@
              }
 });
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./power-series.html'>Power Series</a>, Next: <a href='./series.html'>Series</a><span style='float: right;'>Up: <a href='./real-analysis.html'>Real Analysis</a></span><hr><h1 class="title">Sequences</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0db8d28">1. Definition</a></li>
-<li><a href="#org3bb6508">2. Convergence</a></li>
-<li><a href="#org88a20e7">3. Algebra of Limits</a></li>
-<li><a href="#org9328347">4. Sandwich Theorem</a></li>
-<li><a href="#org0c62f7f">5. Monotone Convergence Theorem</a>
+<li><a href="#org64788b6">1. Definition</a></li>
+<li><a href="#orgacafb15">2. Convergence</a></li>
+<li><a href="#org6ff40ce">3. Algebra of Limits</a></li>
+<li><a href="#org1c54962">4. Sandwich Theorem</a></li>
+<li><a href="#orgfc7b642">5. Monotone Convergence Theorem</a>
 <ul>
-<li><a href="#org2c6f990">5.1. Proof</a></li>
+<li><a href="#org66d56c4">5.1. Proof</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0db8d28" class="outline-2">
-<h2 id="org0db8d28"><span class="section-number-2">1.</span> Definition</h2>
+<div id="outline-container-org64788b6" class="outline-2">
+<h2 id="org64788b6"><span class="section-number-2">1.</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Formally we can define a sequence \( (a_n)_n \) as a mapping from the natural numbers to the reals or more generally the complex numbers. Informally a sequence is an ordered collection of numbers.
@@ -288,8 +264,8 @@ The domain of the function \( a_n \) is almost always the natural numbers which 
 </div>
 </div>
 
-<div id="outline-container-org3bb6508" class="outline-2">
-<h2 id="org3bb6508"><span class="section-number-2">2.</span> Convergence</h2>
+<div id="outline-container-orgacafb15" class="outline-2">
+<h2 id="orgacafb15"><span class="section-number-2">2.</span> Convergence</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We say a sequence \( (a_n)_n \) <b>converges</b> to a limit \( L \) iff:
@@ -303,8 +279,8 @@ We say a sequence \( (a_n)_n \) <b>converges</b> to a limit \( L \) iff:
 </div>
 </div>
 
-<div id="outline-container-org88a20e7" class="outline-2">
-<h2 id="org88a20e7"><span class="section-number-2">3.</span> Algebra of Limits</h2>
+<div id="outline-container-org6ff40ce" class="outline-2">
+<h2 id="org6ff40ce"><span class="section-number-2">3.</span> Algebra of Limits</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Suppose \( (a_n)_n \) and \( (b_n)_n \) are convergent sequences with limit \( a \) and \( b \) respectively, then:
@@ -321,8 +297,8 @@ Suppose \( (a_n)_n \) and \( (b_n)_n \) are convergent sequences with limit \( a
 </div>
 </div>
 
-<div id="outline-container-org9328347" class="outline-2">
-<h2 id="org9328347"><span class="section-number-2">4.</span> Sandwich Theorem</h2>
+<div id="outline-container-org1c54962" class="outline-2">
+<h2 id="org1c54962"><span class="section-number-2">4.</span> Sandwich Theorem</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Suppose \( (a_n)_n \) and \( (b_n)_n \) are convergent sequences with the same limit \( L \). The sandwich theorem states that:
@@ -336,16 +312,16 @@ Suppose \( (a_n)_n \) and \( (b_n)_n \) are convergent sequences with the same l
 </div>
 </div>
 
-<div id="outline-container-org0c62f7f" class="outline-2">
-<h2 id="org0c62f7f"><span class="section-number-2">5.</span> Monotone Convergence Theorem</h2>
+<div id="outline-container-orgfc7b642" class="outline-2">
+<h2 id="orgfc7b642"><span class="section-number-2">5.</span> Monotone Convergence Theorem</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The <b>MCT</b> states that if a sequence \( a_n \) is bounded above and monotonically increasing (\( a_{n + 1} \ge a_n \ \forall n \)), then it is convergent. It can be shown that the limit is the supremum of the sequence.
 </p>
 </div>
 
-<div id="outline-container-org2c6f990" class="outline-3">
-<h3 id="org2c6f990"><span class="section-number-3">5.1.</span> Proof</h3>
+<div id="outline-container-org66d56c4" class="outline-3">
+<h3 id="org66d56c4"><span class="section-number-3">5.1.</span> Proof</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 Suppose \( a_n \) is monotone increasing and bounded with supremum \( L \). Since \( L \) is the supremum:
@@ -385,8 +361,8 @@ Which is the definition of convergence.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: root</p>
-<p class="date">Created: 2021-10-07 Thu 19:38</p>
+<p class="author">Author: LaurenceWarne</p>
+<p class="date">Created: 2022-01-03 Mon 22:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-07 Thu 19:38 -->
+<!-- 2022-01-03 Mon 22:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Intermediate Value Theorem</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="author" content="LaurenceWarne" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -191,7 +192,6 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -199,29 +199,6 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/LaurenceWarne/org-files/master/code.css" />
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -242,30 +219,29 @@
              }
 });
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./functions.html'>Functions</a>, Next: <a href='./limit-superior.html'>Limit Superior</a><span style='float: right;'>Up: <a href='./real-analysis.html'>Real Analysis</a></span><hr><h1 class="title">Intermediate Value Theorem</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5eff9c9">1. Definition</a></li>
-<li><a href="#org738b0d3">2. Proof</a>
+<li><a href="#orgcdec442">1. Definition</a></li>
+<li><a href="#orgc2d1d5c">2. Proof</a>
 <ul>
-<li><a href="#org57ae00e">2.1. Case 1</a></li>
-<li><a href="#org0569a36">2.2. Case 2</a></li>
-<li><a href="#org04cf868">2.3. Synthesis</a></li>
+<li><a href="#orga821e14">2.1. Case 1</a></li>
+<li><a href="#org8a3c6d2">2.2. Case 2</a></li>
+<li><a href="#orgd233d16">2.3. Synthesis</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5eff9c9" class="outline-2">
-<h2 id="org5eff9c9"><span class="section-number-2">1.</span> Definition</h2>
+<div id="outline-container-orgcdec442" class="outline-2">
+<h2 id="orgcdec442"><span class="section-number-2">1.</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The Intermediate Value Theorem (IVT) states the following:
@@ -296,16 +272,16 @@ c = \sup\{S\}
 </div>
 </div>
 
-<div id="outline-container-org738b0d3" class="outline-2">
-<h2 id="org738b0d3"><span class="section-number-2">2.</span> Proof</h2>
+<div id="outline-container-orgc2d1d5c" class="outline-2">
+<h2 id="orgc2d1d5c"><span class="section-number-2">2.</span> Proof</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Suppose WLOG that \( f(a) < f(b) \). Note since \( S \) is bounded above by \( b \) and nonempty, it must have a supremum by the completeness property of the reals, hence \( c \) is defined.
 </p>
 </div>
 
-<div id="outline-container-org57ae00e" class="outline-3">
-<h3 id="org57ae00e"><span class="section-number-3">2.1.</span> Case 1</h3>
+<div id="outline-container-orga821e14" class="outline-3">
+<h3 id="orga821e14"><span class="section-number-3">2.1.</span> Case 1</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Now suppose \( f(c) < C \implies C - f(c) = \epsilon > 0 \). Now since \( f \) is continuous on \( [a, b] \):
@@ -343,8 +319,8 @@ So we can conclude that our assumption: \( f(c) < C \) is false.
 </div>
 </div>
 
-<div id="outline-container-org0569a36" class="outline-3">
-<h3 id="org0569a36"><span class="section-number-3">2.2.</span> Case 2</h3>
+<div id="outline-container-org8a3c6d2" class="outline-3">
+<h3 id="org8a3c6d2"><span class="section-number-3">2.2.</span> Case 2</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Alternatively, suppose \( f(c) > C \implies f(c) - C = \epsilon > 0 \). By continuity:
@@ -392,8 +368,8 @@ Which again arrives us at a contradiction, hence the statement \( f(c) > C \) is
 </div>
 </div>
 
-<div id="outline-container-org04cf868" class="outline-3">
-<h3 id="org04cf868"><span class="section-number-3">2.3.</span> Synthesis</h3>
+<div id="outline-container-orgd233d16" class="outline-3">
+<h3 id="orgd233d16"><span class="section-number-3">2.3.</span> Synthesis</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Given that the statements \( f(c) > C \) and \( f(c) < C \) are both false, we deduce that \( f(c) = C \) which proves the theorem.
@@ -403,8 +379,8 @@ Given that the statements \( f(c) > C \) and \( f(c) < C \) are both false, we d
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: root</p>
-<p class="date">Created: 2021-10-07 Thu 19:38</p>
+<p class="author">Author: LaurenceWarne</p>
+<p class="date">Created: 2022-01-03 Mon 22:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

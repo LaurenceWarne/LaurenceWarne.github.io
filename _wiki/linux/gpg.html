@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-07 Thu 19:38 -->
+<!-- 2022-01-03 Mon 22:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>GPG</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="author" content="LaurenceWarne" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -191,7 +192,6 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -199,56 +199,33 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/LaurenceWarne/org-files/master/code.css" />
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Next: <a href='./run-levels.html'>Run Levels</a><span style='float: right;'>Up: <a href='./linux.html'>Linux</a></span><hr><h1 class="title">GPG</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd39219e">1. Introduction</a></li>
-<li><a href="#orgc735608">2. CLI</a>
+<li><a href="#org5fa39f9">1. Introduction</a></li>
+<li><a href="#org174cc47">2. CLI</a>
 <ul>
-<li><a href="#org68ab748">2.1. Fingerprints</a></li>
-<li><a href="#orga958caf">2.2. Subkeys</a>
+<li><a href="#org18910bd">2.1. Fingerprints</a></li>
+<li><a href="#org07859c6">2.2. Subkeys</a>
 <ul>
-<li><a href="#orgc03b96f">2.2.1. Key roles:</a></li>
+<li><a href="#org538ace8">2.2.1. Key roles:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org0b63dc2">3. Editing Keys</a></li>
-<li><a href="#org8920a61">4. Digital Signatures</a></li>
+<li><a href="#orga6bb5ce">3. Editing Keys</a></li>
+<li><a href="#orgbbf4342">4. Digital Signatures</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd39219e" class="outline-2">
-<h2 id="orgd39219e"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org5fa39f9" class="outline-2">
+<h2 id="org5fa39f9"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://www.gnupg.org/">GnuPG</a> is an implementation of the <b>OpenPGP standard</b>. It enables the encryption of data and
@@ -264,8 +241,8 @@ the public key with a real person.
 </div>
 </div>
 
-<div id="outline-container-orgc735608" class="outline-2">
-<h2 id="orgc735608"><span class="section-number-2">2.</span> CLI</h2>
+<div id="outline-container-org174cc47" class="outline-2">
+<h2 id="org174cc47"><span class="section-number-2">2.</span> CLI</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We can generate a new key pair with:
@@ -273,7 +250,7 @@ We can generate a new key pair with:
 
 <div class="org-src-container">
 <pre class="src src-bash">gpg --gen-key
-gpg --full-generate-key  <span class="org-comment-delimiter"># </span><span class="org-comment">Allows choice of key size, expiration, etc</span>
+gpg --full-generate-key  <span style="color: #767676; font-style: italic;"># </span><span style="color: #767676; font-style: italic;">Allows choice of key size, expiration, etc</span>
 </pre>
 </div>
 
@@ -282,7 +259,7 @@ Now if we call:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">gpg -k                   <span class="org-comment-delimiter"># </span><span class="org-comment">Equivalent to the following commands</span>
+<pre class="src src-bash">gpg -k                   <span style="color: #767676; font-style: italic;"># </span><span style="color: #767676; font-style: italic;">Equivalent to the following commands</span>
 gpg --list-keys
 gpg --list-public-keys
 </pre>
@@ -296,15 +273,15 @@ your <b>public keyring</b>:
 <div class="org-src-container">
 <pre class="src src-bash">/home/laurencewarne/.gnupg/pubring.gpg
 --------------------------------------
-pub   rsa3072 2019-02-13 [SC] [expires: 2021-02-12]
+pub   rsa3072 2019-02-13 <span style="color: #3679D8;">[</span>SC<span style="color: #3679D8;">]</span> <span style="color: #3679D8;">[</span>expires: 2021-02-12<span style="color: #3679D8;">]</span>
       A3500FD11FFBF3E0D2B1E2FB43ECFD79C3A76493
-uid           [ultimate] Laurence Warne <a href="mailto:laurencewarne%40gmail.com">&lt;laurencewarne@gmail.com&gt;</a>
-sub   rsa3072 2019-02-13 [E] [expires: 2021-02-12]
+uid           <span style="color: #3679D8;">[</span>ultimate<span style="color: #3679D8;">]</span> Laurence Warne <a href="mailto:laurencewarne%40gmail.com">&lt;laurencewarne@gmail.com&gt;</a>
+sub   rsa3072 2019-02-13 <span style="color: #3679D8;">[</span>E<span style="color: #3679D8;">]</span> <span style="color: #3679D8;">[</span>expires: 2021-02-12<span style="color: #3679D8;">]</span>
 
-pub   rsa2048 2018-11-09 [SC]
+pub   rsa2048 2018-11-09 <span style="color: #3679D8;">[</span>SC<span style="color: #3679D8;">]</span>
       9129AB98125EAC18C65DBF2964D3012D80EE3190
-uid           [ unknown] John Smith <a href="mailto:ragnarok89%40yahoo.com">&lt;ragnarok89@yahoo.com&gt;</a>
-sub   rsa2048 2018-11-09 [E]
+uid           <span style="color: #3679D8;">[</span> unknown<span style="color: #3679D8;">]</span> John Smith <a href="mailto:ragnarok89%40yahoo.com">&lt;ragnarok89@yahoo.com&gt;</a>
+sub   rsa2048 2018-11-09 <span style="color: #3679D8;">[</span>E<span style="color: #3679D8;">]</span>
 </pre>
 </div>
 
@@ -313,8 +290,8 @@ Note only public keys are listed here. The first column here denotes the type of
 </p>
 </div>
 
-<div id="outline-container-org68ab748" class="outline-3">
-<h3 id="org68ab748"><span class="section-number-3">2.1.</span> Fingerprints</h3>
+<div id="outline-container-org18910bd" class="outline-3">
+<h3 id="org18910bd"><span class="section-number-3">2.1.</span> Fingerprints</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The long strings are the <b>key fingerprints</b>. A fingerprint is calculated from a
@@ -334,8 +311,8 @@ Closely related (but not shown), is the ID of a key (pair), which just denotes t
 </div>
 </div>
 
-<div id="outline-container-orga958caf" class="outline-3">
-<h3 id="orga958caf"><span class="section-number-3">2.2.</span> Subkeys</h3>
+<div id="outline-container-org07859c6" class="outline-3">
+<h3 id="org07859c6"><span class="section-number-3">2.2.</span> Subkeys</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 In the first column of the cmd output, 'sub' indicates the described key is a <b>subkey</b>, of the 
@@ -354,8 +331,8 @@ encryption subkey to do so, in place of your master signing key. The characters 
 brackets shown in the output correspond to the following:
 </p>
 </div>
-<div id="outline-container-orgc03b96f" class="outline-4">
-<h4 id="orgc03b96f"><span class="section-number-4">2.2.1.</span> Key roles:</h4>
+<div id="outline-container-org538ace8" class="outline-4">
+<h4 id="org538ace8"><span class="section-number-4">2.2.1.</span> Key roles:</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -408,8 +385,8 @@ brackets shown in the output correspond to the following:
 
 
 
-<div id="outline-container-org0b63dc2" class="outline-2">
-<h2 id="org0b63dc2"><span class="section-number-2">3.</span> Editing Keys</h2>
+<div id="outline-container-orga6bb5ce" class="outline-2">
+<h2 id="orga6bb5ce"><span class="section-number-2">3.</span> Editing Keys</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 We can interact with the keys on our keyring using:
@@ -427,15 +404,15 @@ then be prompted to describe what the subkey will be used for):
 
 <div class="org-src-container">
 <pre class="src src-bash">gpg&gt; addkey
-State how much we <span class="org-string">'trust'</span> a key:
+State how much we <span style="color: #79D836;">'trust'</span> a key:
 gpg&gt; trust
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org8920a61" class="outline-2">
-<h2 id="org8920a61"><span class="section-number-2">4.</span> Digital Signatures</h2>
+<div id="outline-container-orgbbf4342" class="outline-2">
+<h2 id="orgbbf4342"><span class="section-number-2">4.</span> Digital Signatures</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 A <b>digital signature</b> serves the same purpose as a hand-written signature.
@@ -444,8 +421,8 @@ A <b>digital signature</b> serves the same purpose as a hand-written signature.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: root</p>
-<p class="date">Created: 2021-10-07 Thu 19:38</p>
+<p class="author">Author: LaurenceWarne</p>
+<p class="date">Created: 2022-01-03 Mon 22:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
