@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-07 Thu 19:38 -->
+<!-- 2022-01-03 Mon 22:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Questions</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="author" content="LaurenceWarne" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -191,7 +192,6 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -199,29 +199,6 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/LaurenceWarne/org-files/master/code.css" />
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -242,36 +219,35 @@
              }
 });
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./euler-library.html'>Euler Library</a><span style='float: right;'>Up: <a href='./maths.html'>Maths</a></span><hr><h1 class="title">Questions</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5e0019d">1. Questions</a>
+<li><a href="#org749dfcb">1. Questions</a>
 <ul>
-<li><a href="#org15a729c">1.1. Analysis</a></li>
-<li><a href="#orgdecf7cc">1.2. Algebra</a></li>
-<li><a href="#org7a6c11d">1.3. Linear Algebra</a></li>
-<li><a href="#orga0847f8">1.4. Number Theory</a></li>
-<li><a href="#org68988c0">1.5. Graph Theory</a></li>
-<li><a href="#orgcd54215">1.6. Computation</a></li>
+<li><a href="#org46820ba">1.1. Analysis</a></li>
+<li><a href="#org22bfc98">1.2. Algebra</a></li>
+<li><a href="#org2b13833">1.3. Linear Algebra</a></li>
+<li><a href="#orgebd559c">1.4. Number Theory</a></li>
+<li><a href="#org70c4a00">1.5. Graph Theory</a></li>
+<li><a href="#org4402d5b">1.6. Computation</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5e0019d" class="outline-2">
-<h2 id="org5e0019d"><span class="section-number-2">1.</span> Questions</h2>
+<div id="outline-container-org749dfcb" class="outline-2">
+<h2 id="org749dfcb"><span class="section-number-2">1.</span> Questions</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org15a729c" class="outline-3">
-<h3 id="org15a729c"><span class="section-number-3">1.1.</span> Analysis</h3>
+<div id="outline-container-org46820ba" class="outline-3">
+<h3 id="org46820ba"><span class="section-number-3">1.1.</span> Analysis</h3>
 <div class="outline-text-3" id="text-1-1">
 <ol class="org-ol">
 <li>Find all (complex) solutions to the equation \( 6z^5 + 15z^4 + 20z^3 + 15z^2 + 6z + 1= 0 \).</li>
@@ -297,8 +273,8 @@ We claim this implies there is a injection from the powerset of naturals to the 
 </div>
 </div>
 
-<div id="outline-container-orgdecf7cc" class="outline-3">
-<h3 id="orgdecf7cc"><span class="section-number-3">1.2.</span> Algebra</h3>
+<div id="outline-container-org22bfc98" class="outline-3">
+<h3 id="org22bfc98"><span class="section-number-3">1.2.</span> Algebra</h3>
 <div class="outline-text-3" id="text-1-2">
 <ol class="org-ol">
 <li>Show that the Fundamental Theorem of Algebra and the statement that a polynomial of degree \( n \) has exactly \( n \) complex roots (including multiplicity), are equivalent.</li>
@@ -310,21 +286,25 @@ We claim this implies there is a injection from the powerset of naturals to the 
 <li>Given any prime \( p \), show that \( \mathbb{F}_{p} \) is not algebraically closed.</li>
 
 <li>Do the 32 bit integers under two's complement form a group under addition? If not what structure do they form?</li>
+
+<li>Show the algebraic numbers form a subring of \( \mathbb{C} \).  Do they form a field?</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-org7a6c11d" class="outline-3">
-<h3 id="org7a6c11d"><span class="section-number-3">1.3.</span> Linear Algebra</h3>
+<div id="outline-container-org2b13833" class="outline-3">
+<h3 id="org2b13833"><span class="section-number-3">1.3.</span> Linear Algebra</h3>
 <div class="outline-text-3" id="text-1-3">
 <ol class="org-ol">
 <li>Show that a matrix is singular iff it has 0 as an eigenvalue.</li>
+
+<li>Show that if \( M \) is an invertible matrix in some field \( K \), and has entries all in some subfield \( J \subseteq K \), then \( M^{-1} \) also has all of its entries in \( J \).</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-orga0847f8" class="outline-3">
-<h3 id="orga0847f8"><span class="section-number-3">1.4.</span> Number Theory</h3>
+<div id="outline-container-orgebd559c" class="outline-3">
+<h3 id="orgebd559c"><span class="section-number-3">1.4.</span> Number Theory</h3>
 <div class="outline-text-3" id="text-1-4">
 <ol class="org-ol">
 <li>Show that there are no solutions to the diophantine equation \( a^2 + b^2 = c^2 \) if both \( a \) and \( b \) are odd.</li>
@@ -333,13 +313,13 @@ We claim this implies there is a injection from the powerset of naturals to the 
 
 <li>I choose a positive integer \( n \le 10000 \), your task is to determine whether or not this number is prime by "asking" a number \( k \), to which I will say "yes" if \( k \) is a divisor of \( n \), or "no" if it is not. What is the fewest number of "asks" needed so that you are guarenteed to know whether or not \( n \) is prime?</li>
 
-<li>The powers of two \( \{ 2^0, 2^1, 2^2 \hdots \} \) are a very special sequence, any positive integer can be written as a sum of unique powers of two in exactly one way.  Prove the powers of two are the only strictly increasing positive integer sequence with this property.</li>
+<li>The powers of two \( \{ 2^0, 2^1, 2^2... \} \) are a very special sequence, any positive integer can be written as a sum of unique powers of two in exactly one way.  Prove the powers of two are the only strictly increasing positive integer sequence with this property.</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-org68988c0" class="outline-3">
-<h3 id="org68988c0"><span class="section-number-3">1.5.</span> Graph Theory</h3>
+<div id="outline-container-org70c4a00" class="outline-3">
+<h3 id="org70c4a00"><span class="section-number-3">1.5.</span> Graph Theory</h3>
 <div class="outline-text-3" id="text-1-5">
 <ol class="org-ol">
 <li>Show that \( \chi(C_{2n + 1}) = 3 \ \forall n \in \mathbb{Z}^+ \).</li>
@@ -349,8 +329,8 @@ We claim this implies there is a injection from the powerset of naturals to the 
 </div>
 </div>
 
-<div id="outline-container-orgcd54215" class="outline-3">
-<h3 id="orgcd54215"><span class="section-number-3">1.6.</span> Computation</h3>
+<div id="outline-container-org4402d5b" class="outline-3">
+<h3 id="org4402d5b"><span class="section-number-3">1.6.</span> Computation</h3>
 <div class="outline-text-3" id="text-1-6">
 <ol class="org-ol">
 <li>Find the smallest integer \( n \) such that \( n\ln{n} + n > 3^{197} \)</li>
@@ -371,8 +351,8 @@ We define a "miracle" as an event which has a one in a million chance of happeni
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: root</p>
-<p class="date">Created: 2021-10-07 Thu 19:38</p>
+<p class="author">Author: LaurenceWarne</p>
+<p class="date">Created: 2022-01-03 Mon 22:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

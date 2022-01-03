@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-07 Thu 19:38 -->
+<!-- 2022-01-03 Mon 22:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Gradient</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="author" content="LaurenceWarne" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -191,7 +192,6 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -199,29 +199,6 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/LaurenceWarne/org-files/master/code.css" />
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -242,30 +219,29 @@
              }
 });
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./double-integrals.html'>Double Integrals</a>, Next: <a href='./limits.html'>Limits</a><span style='float: right;'>Up: <a href='./calculus.html'>Calculus</a></span><hr><h1 class="title">Gradient</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgbd613f2">1. Introduction</a></li>
-<li><a href="#orga6d7814">2. Nabla</a></li>
-<li><a href="#org4a0d23d">3. Proof</a>
+<li><a href="#org5bb07d8">1. Introduction</a></li>
+<li><a href="#orgc0ade02">2. Nabla</a></li>
+<li><a href="#org28e5bb1">3. Proof</a>
 <ul>
-<li><a href="#orgb910872">3.1. Proof 1: subsitution</a></li>
-<li><a href="#org19899df">3.2. Proof 2: Taylor series</a></li>
+<li><a href="#org2fd507e">3.1. Proof 1: subsitution</a></li>
+<li><a href="#org19ba7a2">3.2. Proof 2: Taylor series</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgbd613f2" class="outline-2">
-<h2 id="orgbd613f2"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org5bb07d8" class="outline-2">
+<h2 id="org5bb07d8"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The <b>gradient</b> is a <a href="./vector-function.html">vector valued function</a> \( \nabla f\colon \mathbb{R}^n \to \mathbb{R}^n \) defined as the <b>unique</b> vector field whose <b>dot product</b> with any unit vector \( \vec{v} \) at each \( x, y \) is the <b>directional derivative</b> of \( f \) along \( \vec{v} \). In \( \mathbb{R}^2 \) it can be shown the gradient of a scalar function of two variables is given by:
@@ -281,8 +257,8 @@ With the obvious extension to multiple dimensions.
 </div>
 </div>
 
-<div id="outline-container-orga6d7814" class="outline-2">
-<h2 id="orga6d7814"><span class="section-number-2">2.</span> Nabla</h2>
+<div id="outline-container-orgc0ade02" class="outline-2">
+<h2 id="orgc0ade02"><span class="section-number-2">2.</span> Nabla</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 As you can see above, The nabla symbol: \( \nabla \) is used in the gradient function notation. The nabla or del operator is a <b>vector</b> whose components are <b>operators</b>
@@ -310,8 +286,8 @@ See: <a href="https://math.stackexchange.com/questions/2710328/what-does-the-sym
 </div>
 </div>
 
-<div id="outline-container-org4a0d23d" class="outline-2">
-<h2 id="org4a0d23d"><span class="section-number-2">3.</span> Proof</h2>
+<div id="outline-container-org28e5bb1" class="outline-2">
+<h2 id="org28e5bb1"><span class="section-number-2">3.</span> Proof</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The <b>directional derivative</b> at a point \( P = (x, y, f(x, y)) \) in the direction of the unit vector \( \vec{u} = ai + bj \) is defined as:
@@ -326,8 +302,8 @@ Intuitively it is the slope of the surface at \( P \) in the direction \( \vec{u
 </p>
 </div>
 
-<div id="outline-container-orgb910872" class="outline-3">
-<h3 id="orgb910872"><span class="section-number-3">3.1.</span> Proof 1: subsitution</h3>
+<div id="outline-container-org2fd507e" class="outline-3">
+<h3 id="org2fd507e"><span class="section-number-3">3.1.</span> Proof 1: subsitution</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 A proof can be found at <a href="http://tutorial.math.lamar.edu/Classes/CalcIII/DirectionalDeriv.aspx">http://tutorial.math.lamar.edu/Classes/CalcIII/DirectionalDeriv.aspx</a>
@@ -335,8 +311,8 @@ A proof can be found at <a href="http://tutorial.math.lamar.edu/Classes/CalcIII/
 </div>
 </div>
 
-<div id="outline-container-org19899df" class="outline-3">
-<h3 id="org19899df"><span class="section-number-3">3.2.</span> Proof 2: Taylor series</h3>
+<div id="outline-container-org19ba7a2" class="outline-3">
+<h3 id="org19ba7a2"><span class="section-number-3">3.2.</span> Proof 2: Taylor series</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 A direct proof can be obtained using the Taylor series of \( f(x, y) \).
@@ -346,8 +322,8 @@ A direct proof can be obtained using the Taylor series of \( f(x, y) \).
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: root</p>
-<p class="date">Created: 2021-10-07 Thu 19:38</p>
+<p class="author">Author: LaurenceWarne</p>
+<p class="date">Created: 2022-01-03 Mon 22:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

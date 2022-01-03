@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-07 Thu 19:38 -->
+<!-- 2022-01-03 Mon 22:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Graphs</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="author" content="LaurenceWarne" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -191,7 +192,6 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -199,29 +199,6 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/LaurenceWarne/org-files/master/code.css" />
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -242,43 +219,42 @@
              }
 });
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./graph-colouring.html'>Graph Colouring</a><span style='float: right;'>Up: <a href='./graph-theory.html'>Graph Theory</a></span><hr><h1 class="title">Graphs</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6be26a1">1. Introduction</a></li>
-<li><a href="#org2fb7155">2. Vertex Sequences</a>
+<li><a href="#orge6796eb">1. Introduction</a></li>
+<li><a href="#org1e2f96c">2. Vertex Sequences</a>
 <ul>
-<li><a href="#orgbad4fae">2.1. <b>Definition</b></a></li>
-<li><a href="#org7065462">2.2. <b>Definition</b></a></li>
-<li><a href="#orgb756c36">2.3. <b>Definition</b></a></li>
-<li><a href="#orgcdf93ee">2.4. <b>Definition</b></a></li>
+<li><a href="#org50eca4c">2.1. <b>Definition</b></a></li>
+<li><a href="#org01d9be1">2.2. <b>Definition</b></a></li>
+<li><a href="#org6c119e5">2.3. <b>Definition</b></a></li>
+<li><a href="#org30099ca">2.4. <b>Definition</b></a></li>
 </ul>
 </li>
-<li><a href="#org001619b">3. Subgraphs</a>
+<li><a href="#org178945e">3. Subgraphs</a>
 <ul>
-<li><a href="#org9d80624">3.1. <b>Definition</b></a></li>
-<li><a href="#org8ba2204">3.2. <b>Definition</b></a></li>
-<li><a href="#org8f91a19">3.3. <b>Definition</b></a></li>
+<li><a href="#org6671838">3.1. <b>Definition</b></a></li>
+<li><a href="#org48edc30">3.2. <b>Definition</b></a></li>
+<li><a href="#org6b63311">3.3. <b>Definition</b></a></li>
 </ul>
 </li>
-<li><a href="#orge43f241">4. Adjacency Matrices</a>
+<li><a href="#orgde11600">4. Adjacency Matrices</a>
 <ul>
-<li><a href="#org8fe9fb8">4.1. Applications</a></li>
+<li><a href="#orgfe8d5ed">4.1. Applications</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6be26a1" class="outline-2">
-<h2 id="org6be26a1"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orge6796eb" class="outline-2">
+<h2 id="orge6796eb"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We denote a graph as \( G(V, E) \), where \( V = \{ v_1, v_2 ... v_n \} \) is the vertex set of the graph and
@@ -295,12 +271,12 @@ We also say \( G \) is <b>simple</b> if there is at most on edge connecting any 
 </div>
 </div>
 
-<div id="outline-container-org2fb7155" class="outline-2">
-<h2 id="org2fb7155"><span class="section-number-2">2.</span> Vertex Sequences</h2>
+<div id="outline-container-org1e2f96c" class="outline-2">
+<h2 id="org1e2f96c"><span class="section-number-2">2.</span> Vertex Sequences</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgbad4fae" class="outline-3">
-<h3 id="orgbad4fae"><span class="section-number-3">2.1.</span> <b>Definition</b></h3>
+<div id="outline-container-org50eca4c" class="outline-3">
+<h3 id="org50eca4c"><span class="section-number-3">2.1.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 A <b>walk</b> in a graph \( G(V, E) \) is a finite sequence of vertices \( (v_1 ... v_k) \) such that each consecutive pair forms an edge of \( G \).
@@ -308,8 +284,8 @@ A <b>walk</b> in a graph \( G(V, E) \) is a finite sequence of vertices \( (v_1 
 </div>
 </div>
 
-<div id="outline-container-org7065462" class="outline-3">
-<h3 id="org7065462"><span class="section-number-3">2.2.</span> <b>Definition</b></h3>
+<div id="outline-container-org01d9be1" class="outline-3">
+<h3 id="org01d9be1"><span class="section-number-3">2.2.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 A <b>trail</b> (or tour) is a walk in which all the edges \( e_i = (v_i, v_{i + 1}) \) are distinct. We can remember this by associating them with <b>Eulerian trails</b> (which much visit every edge exactly once).
@@ -317,8 +293,8 @@ A <b>trail</b> (or tour) is a walk in which all the edges \( e_i = (v_i, v_{i + 
 </div>
 </div>
 
-<div id="outline-container-orgb756c36" class="outline-3">
-<h3 id="orgb756c36"><span class="section-number-3">2.3.</span> <b>Definition</b></h3>
+<div id="outline-container-org6c119e5" class="outline-3">
+<h3 id="org6c119e5"><span class="section-number-3">2.3.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 A <b>path</b> is a trail in which a vertex occurs occurs only once in the edge sequence.
@@ -326,8 +302,8 @@ A <b>path</b> is a trail in which a vertex occurs occurs only once in the edge s
 </div>
 </div>
 
-<div id="outline-container-orgcdf93ee" class="outline-3">
-<h3 id="orgcdf93ee"><span class="section-number-3">2.4.</span> <b>Definition</b></h3>
+<div id="outline-container-org30099ca" class="outline-3">
+<h3 id="org30099ca"><span class="section-number-3">2.4.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 A <b>cycle</b> is a trail in which all the vertices are distinct, except for the first and last which are the same.
@@ -336,12 +312,12 @@ A <b>cycle</b> is a trail in which all the vertices are distinct, except for the
 </div>
 </div>
 
-<div id="outline-container-org001619b" class="outline-2">
-<h2 id="org001619b"><span class="section-number-2">3.</span> Subgraphs</h2>
+<div id="outline-container-org178945e" class="outline-2">
+<h2 id="org178945e"><span class="section-number-2">3.</span> Subgraphs</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org9d80624" class="outline-3">
-<h3 id="org9d80624"><span class="section-number-3">3.1.</span> <b>Definition</b></h3>
+<div id="outline-container-org6671838" class="outline-3">
+<h3 id="org6671838"><span class="section-number-3">3.1.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 A <b>clique</b> is a set of vertices \( S \subseteq V \) such that the subgraph induced by \( S \) forms a complete graph.
@@ -349,8 +325,8 @@ A <b>clique</b> is a set of vertices \( S \subseteq V \) such that the subgraph 
 </div>
 </div>
 
-<div id="outline-container-org8ba2204" class="outline-3">
-<h3 id="org8ba2204"><span class="section-number-3">3.2.</span> <b>Definition</b></h3>
+<div id="outline-container-org48edc30" class="outline-3">
+<h3 id="org48edc30"><span class="section-number-3">3.2.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 An <b>independent set</b>, I, of \( G(V, E) \) is a set \( I \subseteq V \) such that no pair of vertices in \( I \) is joined by an edge in \( E \).
@@ -358,8 +334,8 @@ An <b>independent set</b>, I, of \( G(V, E) \) is a set \( I \subseteq V \) such
 </div>
 </div>
 
-<div id="outline-container-org8f91a19" class="outline-3">
-<h3 id="org8f91a19"><span class="section-number-3">3.3.</span> <b>Definition</b></h3>
+<div id="outline-container-org6b63311" class="outline-3">
+<h3 id="org6b63311"><span class="section-number-3">3.3.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Let \( G(V, E) \) be a graph, then the <b>graph complement</b> of \( G \) is a graph \( H(V, E') \) such that \( e \in E' \iff e \not \in E \).
@@ -368,8 +344,8 @@ Let \( G(V, E) \) be a graph, then the <b>graph complement</b> of \( G \) is a g
 </div>
 </div>
 
-<div id="outline-container-orge43f241" class="outline-2">
-<h2 id="orge43f241"><span class="section-number-2">4.</span> Adjacency Matrices</h2>
+<div id="outline-container-orgde11600" class="outline-2">
+<h2 id="orgde11600"><span class="section-number-2">4.</span> Adjacency Matrices</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Given a directed or undirected graph \( G(V, E) \) on \( n \) vertices, we define the <b>adjacency matrix</b>, \( A \), of \( G \) as an \( n * n \) matrix with entries given by:
@@ -389,8 +365,8 @@ This is always symmetric if \( G \) is undirected, and zeroes always fill the ma
 </p>
 </div>
 
-<div id="outline-container-org8fe9fb8" class="outline-3">
-<h3 id="org8fe9fb8"><span class="section-number-3">4.1.</span> Applications</h3>
+<div id="outline-container-orgfe8d5ed" class="outline-3">
+<h3 id="orgfe8d5ed"><span class="section-number-3">4.1.</span> Applications</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Note \( (A^k)_{i, j} \) gives the number of paths of length \( k \) starting at \( v_i \) and ending at \( v_j \). Hence using matrix associativiy we can compute this value in \( O(log(k)) \) or \( O(1) \) time. 
@@ -414,8 +390,8 @@ Which can be computed in the same time complexity.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: root</p>
-<p class="date">Created: 2021-10-07 Thu 19:38</p>
+<p class="author">Author: LaurenceWarne</p>
+<p class="date">Created: 2022-01-03 Mon 22:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
