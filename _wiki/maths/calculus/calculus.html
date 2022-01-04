@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-03 Mon 22:04 -->
+<!-- 2022-01-04 Tue 08:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Calculus</title>
-<meta name="author" content="LaurenceWarne" />
-<meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
+<meta name="generator" content="Org mode" />
+<meta name="author" content="root" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,9 +31,8 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -42,21 +41,21 @@
   pre.src {
     position: relative;
     overflow: auto;
+    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    top: -8px;
-    right: 12px;
+    background-color: white;
+    top: -10px;
+    right: 10px;
     padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
+    border: 1px solid black;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -192,6 +191,7 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
+  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -199,70 +199,92 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
 </head>
 <body>
-<div id="content" class="content">
+<div id="content">
 <span >Up: <a href='../maths.html'>Maths</a></span><hr><h1 class="title">Calculus</h1>
-<div id="table-of-contents" role="doc-toc">
+<div id="table-of-contents">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
+<div id="text-table-of-contents">
 <ul>
-<li><a href="#orge0daf9e">1. Calculus</a>
+<li><a href="#org90ecada">1. Calculus</a>
 <ul>
-<li><a href="#orgda12392">1.1. Differentiation</a></li>
-<li><a href="#orga70348b">1.2. Double Integrals</a></li>
-<li><a href="#orge912ddd">1.3. Gradient</a></li>
-<li><a href="#orgbb09e16">1.4. Limits</a></li>
-<li><a href="#org4c725a1">1.5. Maximal Number Partition</a></li>
-<li><a href="#orgcfdbee2">1.6. Partial Differentiation</a></li>
-<li><a href="#org1a1ec5a">1.7. Scalar Line Integral</a></li>
-<li><a href="#orgda174ff">1.8. Total Differential</a></li>
-<li><a href="#org583f57e">1.9. Vector Functions</a></li>
-<li><a href="#org1c3ae1e">1.10. Vector Line Integral</a></li>
+<li><a href="#org07dd823">1.1. Differentiation</a></li>
+<li><a href="#org37595ea">1.2. Double Integrals</a></li>
+<li><a href="#org58f443a">1.3. Gradient</a></li>
+<li><a href="#orgc41f5a1">1.4. Limits</a></li>
+<li><a href="#org87ff32b">1.5. Maximal Number Partition</a></li>
+<li><a href="#orgc11da60">1.6. Partial Differentiation</a></li>
+<li><a href="#org7f66d24">1.7. Scalar Line Integral</a></li>
+<li><a href="#org1215b14">1.8. Total Differential</a></li>
+<li><a href="#org731e9ef">1.9. Vector Functions</a></li>
+<li><a href="#org5a38e04">1.10. Vector Line Integral</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge0daf9e" class="outline-2">
-<h2 id="orge0daf9e"><span class="section-number-2">1.</span> Calculus</h2>
+<div id="outline-container-org90ecada" class="outline-2">
+<h2 id="org90ecada"><span class="section-number-2">1</span> Calculus</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgda12392" class="outline-3">
-<h3 id="orgda12392"><span class="section-number-3">1.1.</span> <a href="./differentiation.html">Differentiation</a></h3>
+<div id="outline-container-org07dd823" class="outline-3">
+<h3 id="org07dd823"><span class="section-number-3">1.1</span> <a href="./differentiation.html">Differentiation</a></h3>
 </div>
-<div id="outline-container-orga70348b" class="outline-3">
-<h3 id="orga70348b"><span class="section-number-3">1.2.</span> <a href="./double-integrals.html">Double Integrals</a></h3>
+<div id="outline-container-org37595ea" class="outline-3">
+<h3 id="org37595ea"><span class="section-number-3">1.2</span> <a href="./double-integrals.html">Double Integrals</a></h3>
 </div>
-<div id="outline-container-orge912ddd" class="outline-3">
-<h3 id="orge912ddd"><span class="section-number-3">1.3.</span> <a href="./gradient.html">Gradient</a></h3>
+<div id="outline-container-org58f443a" class="outline-3">
+<h3 id="org58f443a"><span class="section-number-3">1.3</span> <a href="./gradient.html">Gradient</a></h3>
 </div>
-<div id="outline-container-orgbb09e16" class="outline-3">
-<h3 id="orgbb09e16"><span class="section-number-3">1.4.</span> <a href="./limits.html">Limits</a></h3>
+<div id="outline-container-orgc41f5a1" class="outline-3">
+<h3 id="orgc41f5a1"><span class="section-number-3">1.4</span> <a href="./limits.html">Limits</a></h3>
 </div>
-<div id="outline-container-org4c725a1" class="outline-3">
-<h3 id="org4c725a1"><span class="section-number-3">1.5.</span> <a href="./maximal-number-partition.html">Maximal Number Partition</a></h3>
+<div id="outline-container-org87ff32b" class="outline-3">
+<h3 id="org87ff32b"><span class="section-number-3">1.5</span> <a href="./maximal-number-partition.html">Maximal Number Partition</a></h3>
 </div>
-<div id="outline-container-orgcfdbee2" class="outline-3">
-<h3 id="orgcfdbee2"><span class="section-number-3">1.6.</span> <a href="./partial-differentiation.html">Partial Differentiation</a></h3>
+<div id="outline-container-orgc11da60" class="outline-3">
+<h3 id="orgc11da60"><span class="section-number-3">1.6</span> <a href="./partial-differentiation.html">Partial Differentiation</a></h3>
 </div>
-<div id="outline-container-org1a1ec5a" class="outline-3">
-<h3 id="org1a1ec5a"><span class="section-number-3">1.7.</span> <a href="./scalar-line-integral.html">Scalar Line Integral</a></h3>
+<div id="outline-container-org7f66d24" class="outline-3">
+<h3 id="org7f66d24"><span class="section-number-3">1.7</span> <a href="./scalar-line-integral.html">Scalar Line Integral</a></h3>
 </div>
-<div id="outline-container-orgda174ff" class="outline-3">
-<h3 id="orgda174ff"><span class="section-number-3">1.8.</span> <a href="./total-differential.html">Total Differential</a></h3>
+<div id="outline-container-org1215b14" class="outline-3">
+<h3 id="org1215b14"><span class="section-number-3">1.8</span> <a href="./total-differential.html">Total Differential</a></h3>
 </div>
-<div id="outline-container-org583f57e" class="outline-3">
-<h3 id="org583f57e"><span class="section-number-3">1.9.</span> <a href="./vector-functions.html">Vector Functions</a></h3>
+<div id="outline-container-org731e9ef" class="outline-3">
+<h3 id="org731e9ef"><span class="section-number-3">1.9</span> <a href="./vector-functions.html">Vector Functions</a></h3>
 </div>
-<div id="outline-container-org1c3ae1e" class="outline-3">
-<h3 id="org1c3ae1e"><span class="section-number-3">1.10.</span> <a href="./vector-line-integral.html">Vector Line Integral</a></h3>
+<div id="outline-container-org5a38e04" class="outline-3">
+<h3 id="org5a38e04"><span class="section-number-3">1.10</span> <a href="./vector-line-integral.html">Vector Line Integral</a></h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2022-01-03 Mon 22:04</p>
+<p class="author">Author: root</p>
+<p class="date">Created: 2022-01-04 Tue 08:38</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
