@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-03 Mon 22:04 -->
+<!-- 2022-01-04 Tue 08:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ideals</title>
-<meta name="author" content="LaurenceWarne" />
-<meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
+<meta name="generator" content="Org mode" />
+<meta name="author" content="root" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,9 +31,8 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -42,21 +41,21 @@
   pre.src {
     position: relative;
     overflow: auto;
+    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    top: -8px;
-    right: 12px;
+    background-color: white;
+    top: -10px;
+    right: 10px;
     padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
+    border: 1px solid black;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -192,6 +191,7 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
+  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -199,6 +199,28 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -219,28 +241,29 @@
              }
 });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content" class="content">
+<div id="content">
 Next: <a href='./integral-domains.html'>Integral Domains</a><span style='float: right;'>Up: <a href='./commutative-algebra.html'>Commutative Algebra</a></span><hr><h1 class="title">Ideals</h1>
-<div id="table-of-contents" role="doc-toc">
+<div id="table-of-contents">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
+<div id="text-table-of-contents">
 <ul>
-<li><a href="#org5b888e2">1. Definition</a></li>
-<li><a href="#org48dd035">2. Special Ideals</a>
+<li><a href="#org5ea360c">1. Definition</a></li>
+<li><a href="#org51049af">2. Special Ideals</a>
 <ul>
-<li><a href="#org164d762">2.1. Maximal Ideals</a>
+<li><a href="#org1b96bd7">2.1. Maximal Ideals</a>
 <ul>
-<li><a href="#orgd1b3a2b">2.1.1. <b>Definition</b></a></li>
-<li><a href="#orgdf5a4ef">2.1.2. <b>Theorem</b></a></li>
-<li><a href="#org81b3db9">2.1.3. <b>Proof</b></a></li>
+<li><a href="#org5fcaee6">2.1.1. <b>Definition</b></a></li>
+<li><a href="#org4d8f000">2.1.2. <b>Theorem</b></a></li>
+<li><a href="#org60d1476">2.1.3. <b>Proof</b></a></li>
 </ul>
 </li>
-<li><a href="#org8ed420c">2.2. Prime Ideals</a>
+<li><a href="#org9469f66">2.2. Prime Ideals</a>
 <ul>
-<li><a href="#orgac1e961">2.2.1. <b>Definition</b></a></li>
+<li><a href="#orgdb47df6">2.2.1. <b>Definition</b></a></li>
 </ul>
 </li>
 </ul>
@@ -249,8 +272,8 @@ Next: <a href='./integral-domains.html'>Integral Domains</a><span style='float: 
 </div>
 </div>
 
-<div id="outline-container-org5b888e2" class="outline-2">
-<h2 id="org5b888e2"><span class="section-number-2">1.</span> Definition</h2>
+<div id="outline-container-org5ea360c" class="outline-2">
+<h2 id="org5ea360c"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We say a subset \( I \subseteq R \) of some commutative ring \( R \) is an ideal if:
@@ -267,20 +290,20 @@ Note by (2) an ideal is a ring iff it is equal to the ring itself.
 </div>
 </div>
 
-<div id="outline-container-org48dd035" class="outline-2">
-<h2 id="org48dd035"><span class="section-number-2">2.</span> Special Ideals</h2>
+<div id="outline-container-org51049af" class="outline-2">
+<h2 id="org51049af"><span class="section-number-2">2</span> Special Ideals</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We specify \( R \) as a commutative ring.
 </p>
 </div>
 
-<div id="outline-container-org164d762" class="outline-3">
-<h3 id="org164d762"><span class="section-number-3">2.1.</span> Maximal Ideals</h3>
+<div id="outline-container-org1b96bd7" class="outline-3">
+<h3 id="org1b96bd7"><span class="section-number-3">2.1</span> Maximal Ideals</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-orgd1b3a2b" class="outline-4">
-<h4 id="orgd1b3a2b"><span class="section-number-4">2.1.1.</span> <b>Definition</b></h4>
+<div id="outline-container-org5fcaee6" class="outline-4">
+<h4 id="org5fcaee6"><span class="section-number-4">2.1.1</span> <b>Definition</b></h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 We say a proper ideal \( I \) of \( R \), is a maximal ideal if for all ideals \( J \) such that \( I \subseteq J \), then either \( J = I \) or \( J = R \).
@@ -288,8 +311,8 @@ We say a proper ideal \( I \) of \( R \), is a maximal ideal if for all ideals \
 </div>
 </div>
 
-<div id="outline-container-orgdf5a4ef" class="outline-4">
-<h4 id="orgdf5a4ef"><span class="section-number-4">2.1.2.</span> <b>Theorem</b></h4>
+<div id="outline-container-org4d8f000" class="outline-4">
+<h4 id="org4d8f000"><span class="section-number-4">2.1.2</span> <b>Theorem</b></h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 The factor ring \( R / I \) is a field iff \( I \) is a maximal ideal in \( R \).
@@ -297,8 +320,8 @@ The factor ring \( R / I \) is a field iff \( I \) is a maximal ideal in \( R \)
 </div>
 </div>
 
-<div id="outline-container-org81b3db9" class="outline-4">
-<h4 id="org81b3db9"><span class="section-number-4">2.1.3.</span> <b>Proof</b></h4>
+<div id="outline-container-org60d1476" class="outline-4">
+<h4 id="org60d1476"><span class="section-number-4">2.1.3</span> <b>Proof</b></h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 <b>(forward case)</b>: By contrapositive; suppose \( I \) is not maximal in \( R \), ie there exists some ideal \( J \) such that \( I \subset J \subset R \). We show that there is a non-invertible element in \( R/I \). Let:
@@ -410,12 +433,12 @@ Which is a contradiction since \( J \) is proper. So we have show \( J' \) is a 
 </div>
 </div>
 
-<div id="outline-container-org8ed420c" class="outline-3">
-<h3 id="org8ed420c"><span class="section-number-3">2.2.</span> Prime Ideals</h3>
+<div id="outline-container-org9469f66" class="outline-3">
+<h3 id="org9469f66"><span class="section-number-3">2.2</span> Prime Ideals</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-orgac1e961" class="outline-4">
-<h4 id="orgac1e961"><span class="section-number-4">2.2.1.</span> <b>Definition</b></h4>
+<div id="outline-container-orgdb47df6" class="outline-4">
+<h4 id="orgdb47df6"><span class="section-number-4">2.2.1</span> <b>Definition</b></h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 We say an <b>proper</b> ideal \( I \) of a commutative ring \( R \) is prime if, for any two elements \( a, b \in R \) such that \( ab \in I \) we must have \( a \in I \lor b \in I \).
@@ -426,8 +449,8 @@ We say an <b>proper</b> ideal \( I \) of a commutative ring \( R \) is prime if,
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2022-01-03 Mon 22:04</p>
+<p class="author">Author: root</p>
+<p class="date">Created: 2022-01-04 Tue 08:38</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

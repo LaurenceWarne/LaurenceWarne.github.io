@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-03 Mon 22:04 -->
+<!-- 2022-01-04 Tue 08:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Basic Logic</title>
-<meta name="author" content="LaurenceWarne" />
-<meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
+<meta name="generator" content="Org mode" />
+<meta name="author" content="root" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,9 +31,8 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -42,21 +41,21 @@
   pre.src {
     position: relative;
     overflow: auto;
+    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    top: -8px;
-    right: 12px;
+    background-color: white;
+    top: -10px;
+    right: 10px;
     padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
+    border: 1px solid black;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -192,13 +191,36 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
+  /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -219,39 +241,40 @@
              }
 });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content" class="content">
+<div id="content">
 Next: <a href='./partial-ordering.html'>Partial Ordering</a><span style='float: right;'>Up: <a href='./logic.html'>Logic</a></span><hr><h1 class="title">Basic Logic</h1>
-<div id="table-of-contents" role="doc-toc">
+<div id="table-of-contents">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
+<div id="text-table-of-contents">
 <ul>
-<li><a href="#org1a28dcd">1. Propositions</a>
+<li><a href="#orgd7912fd">1. Propositions</a>
 <ul>
-<li><a href="#org4009dbe">1.1. Examples</a>
+<li><a href="#org27e0e09">1.1. Examples</a>
 <ul>
-<li><a href="#org778d6fb">1.1.1. Predicates</a></li>
-<li><a href="#org8f80ca8">1.1.2. Quantifiers</a></li>
-<li><a href="#orgc28ebda">1.1.3. Propositions</a></li>
+<li><a href="#orgb12702c">1.1.1. Predicates</a></li>
+<li><a href="#orgfd53a6f">1.1.2. Quantifiers</a></li>
+<li><a href="#org665c4a0">1.1.3. Propositions</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org4ef8b8f">2. Implication</a>
+<li><a href="#orgd47c76a">2. Implication</a>
 <ul>
-<li><a href="#orgf752483">2.1. Truth Table</a></li>
+<li><a href="#orga92b502">2.1. Truth Table</a></li>
 </ul>
 </li>
-<li><a href="#org8f58fa7">3. Contrapositive</a></li>
-<li><a href="#org2922f1a">4. Links</a></li>
+<li><a href="#org3ce0926">3. Contrapositive</a></li>
+<li><a href="#org653c60d">4. Links</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1a28dcd" class="outline-2">
-<h2 id="org1a28dcd"><span class="section-number-2">1.</span> Propositions</h2>
+<div id="outline-container-orgd7912fd" class="outline-2">
+<h2 id="orgd7912fd"><span class="section-number-2">1</span> Propositions</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A proposition is a sentence which can be considered either true or false (not both). It
@@ -261,12 +284,12 @@ definintion/value).
 </p>
 </div>
 
-<div id="outline-container-org4009dbe" class="outline-3">
-<h3 id="org4009dbe"><span class="section-number-3">1.1.</span> Examples</h3>
+<div id="outline-container-org27e0e09" class="outline-3">
+<h3 id="org27e0e09"><span class="section-number-3">1.1</span> Examples</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org778d6fb" class="outline-4">
-<h4 id="org778d6fb"><span class="section-number-4">1.1.1.</span> Predicates</h4>
+<div id="outline-container-orgb12702c" class="outline-4">
+<h4 id="orgb12702c"><span class="section-number-4">1.1.1</span> Predicates</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
 <li>\( a \) and \( b \) are coprime</li>
@@ -275,8 +298,8 @@ definintion/value).
 </div>
 </div>
 
-<div id="outline-container-org8f80ca8" class="outline-4">
-<h4 id="org8f80ca8"><span class="section-number-4">1.1.2.</span> Quantifiers</h4>
+<div id="outline-container-orgfd53a6f" class="outline-4">
+<h4 id="orgfd53a6f"><span class="section-number-4">1.1.2</span> Quantifiers</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
 <li>Let \( n \) be an integer</li>
@@ -285,8 +308,8 @@ definintion/value).
 </div>
 </div>
 
-<div id="outline-container-orgc28ebda" class="outline-4">
-<h4 id="orgc28ebda"><span class="section-number-4">1.1.3.</span> Propositions</h4>
+<div id="outline-container-org665c4a0" class="outline-4">
+<h4 id="org665c4a0"><span class="section-number-4">1.1.3</span> Propositions</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <ul class="org-ul">
 <li>\( e^{i\theta} = cos\theta + isin\theta \)</li>
@@ -297,8 +320,8 @@ definintion/value).
 </div>
 </div>
 
-<div id="outline-container-org4ef8b8f" class="outline-2">
-<h2 id="org4ef8b8f"><span class="section-number-2">2.</span> Implication</h2>
+<div id="outline-container-orgd47c76a" class="outline-2">
+<h2 id="orgd47c76a"><span class="section-number-2">2</span> Implication</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The statement 
@@ -314,8 +337,8 @@ See <a href="https://math.stackexchange.com/questions/61779/problem-in-understan
 </p>
 </div>
 
-<div id="outline-container-orgf752483" class="outline-3">
-<h3 id="orgf752483"><span class="section-number-3">2.1.</span> Truth Table</h3>
+<div id="outline-container-orga92b502" class="outline-3">
+<h3 id="orga92b502"><span class="section-number-3">2.1</span> Truth Table</h3>
 <div class="outline-text-3" id="text-2-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -382,8 +405,8 @@ If \( A \) is false, \( A \Rightarrow B \) is said to be "vacuously" true.
 </div>
 </div>
 
-<div id="outline-container-org8f58fa7" class="outline-2">
-<h2 id="org8f58fa7"><span class="section-number-2">3.</span> Contrapositive</h2>
+<div id="outline-container-org3ce0926" class="outline-2">
+<h2 id="org3ce0926"><span class="section-number-2">3</span> Contrapositive</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 If \( A \) is sufficient for \( B \) then it follows that:
@@ -401,8 +424,8 @@ If \( A \) is sufficient for \( B \) then it follows that:
 </div>
 </div>
 
-<div id="outline-container-org2922f1a" class="outline-2">
-<h2 id="org2922f1a"><span class="section-number-2">4.</span> Links</h2>
+<div id="outline-container-org653c60d" class="outline-2">
+<h2 id="org653c60d"><span class="section-number-2">4</span> Links</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li>More info on the implication statement: <a href="https://www.slideshare.net/nszakir/chapter3-direct-proof-and-proof-by-contrapositive">https://www.slideshare.net/nszakir/chapter3-direct-proof-and-proof-by-contrapositive</a></li>
@@ -411,8 +434,8 @@ If \( A \) is sufficient for \( B \) then it follows that:
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: LaurenceWarne</p>
-<p class="date">Created: 2022-01-03 Mon 22:04</p>
+<p class="author">Author: root</p>
+<p class="date">Created: 2022-01-04 Tue 08:38</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
