@@ -20,6 +20,8 @@ permalink: /links/
 
 * <a href="https://nhigham.com/index-of-what-is-articles/">"What Is"</a> articles by Nick Higham - a lot of stuff on linear algebra and matrix analysis
 
+* Scala 2 <a href="https://underscore.io/blog/posts/2016/12/05/type-lambdas.html">Kind Projector plugin</a>: motivation and usage
+
 # Question Sources
 
 * <a href="https://mathschallenge.net/archive">MathsChallenge</a>
