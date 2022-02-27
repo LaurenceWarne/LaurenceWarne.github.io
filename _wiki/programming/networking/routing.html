@@ -6,7 +6,7 @@
 <!-- 2022-02-27 Sun 20:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Commutative Algebra</title>
+<title>Routing</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -224,29 +224,48 @@
 </head>
 <body>
 <div id="content">
-<span >Up: <a href='../algebra.html'>Algebra</a></span><hr><h1 class="title">Commutative Algebra</h1>
+<span >Up: <a href='./networking.html'>Networking</a></span><hr><h1 class="title">Routing</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf98cb0f">1. Ideals</a></li>
-<li><a href="#org32a0dc5">2. Integral Domains</a></li>
-<li><a href="#org10e10fc">3. Polynomial Rings</a></li>
-<li><a href="#org6e35142">4. Unique Factorisation Domains</a></li>
+<li><a href="#org3e256ca">1. Locally</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf98cb0f" class="outline-2">
-<h2 id="orgf98cb0f"><span class="section-number-2">1</span> <a href="./ideals.html">Ideals</a></h2>
+
+<div id="outline-container-org3e256ca" class="outline-2">
+<h2 id="org3e256ca"><span class="section-number-2">1</span> Locally</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+You can find the route table of your machine using the command:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">$ route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.0.1     0.0.0.0         UG    600    0        0 wlo1
+169.254.0.0     0.0.0.0         255.255.0.0     U     1000   0        0 wlo1
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
+192.168.0.0     0.0.0.0         255.255.255.0   U     600    0        0 wlo1
+</pre>
 </div>
-<div id="outline-container-org32a0dc5" class="outline-2">
-<h2 id="org32a0dc5"><span class="section-number-2">2</span> <a href="./integral-domains.html">Integral Domains</a></h2>
+
+<ul class="org-ul">
+<li>We see the ip <code>0.0.0.0</code> used in both the <code>Destination</code> and <code>Gateway</code> columns.  When used in the <code>Destination</code> column it means 'Any IPv4 address at all', so any packet not addressed to a host on the local network or another gateway on the route table is sent here.</li>
+
+<li><code>0.0.0.0</code> in gateway terms means <b>there is none</b>, ie no hops are needed to get to the host.</li>
+
+<li><code>169.254.0.0</code> is a special address space (the <b>link local</b> block): if a DHCP client attempts to get an address, but fails to find a DHCP server after the timeout and retries period it will randomly assume an address from this network. This allows communication with hosts that have failed to obtain a DHCP address.</li>
+
+<li><b>Genmask</b> is the subnet mask: the 32 bit integer which when <code>AND</code> ed with an IP address gives the network address.  When deciding where to send a packet, all the rows for which <code>(destIp &amp; netmask) == destination</code> are noted, and the most specific one is chosen (ie the one with the most ones in the netmask).  For example the destination ip <code>192.168.0.5</code> matches both the first and last entries, but the last one will be selected since that route has 24 leading ones in its bitmask compared to the default route which has only one.</li>
+
+<li>Iface is the outbound NIC.</li>
+
+<li>The local loopback interface <code>lo</code> is omitted in the output (but can be seen through <code>ip addr show lo</code>).  It has address range <code>127.0.0.1/8</code>.  It can be useful to bind servers to sockets with ips in this range in order that the server only serves clients on the same host (alternatively for example binding to <code>0.0.0.0</code> would result in the server listening on every available network interface).</li>
+</ul>
 </div>
-<div id="outline-container-org10e10fc" class="outline-2">
-<h2 id="org10e10fc"><span class="section-number-2">3</span> <a href="./polynomial-rings.html">Polynomial Rings</a></h2>
-</div>
-<div id="outline-container-org6e35142" class="outline-2">
-<h2 id="org6e35142"><span class="section-number-2">4</span> <a href="./unique-factorisation-domains.html">Unique Factorisation Domains</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
