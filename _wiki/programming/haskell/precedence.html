@@ -6,7 +6,7 @@
 <!-- 2022-03-09 Wed 20:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Inner Product Spaces</title>
+<title>Precedence</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -221,68 +221,45 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-Previous: <a href='./hermitian-matrices.html'>Hermitian Matrices</a>, Next: <a href='./perron-frobenius-theorem.html'>Perron Frobenius Theorem</a><span style='float: right;'>Up: <a href='./linear-algebra.html'>Linear Algebra</a></span><hr><h1 class="title">Inner Product Spaces</h1>
+<span >Up: <a href='./haskell.html'>Haskell</a></span><hr><h1 class="title">Precedence</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org99f2c51">1. Definition</a></li>
-<li><a href="#orga49bc54">2. Examples</a></li>
+<li><a href="#orgfd3f40a">1. Operator Precedence</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org99f2c51" class="outline-2">
-<h2 id="org99f2c51"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-orgfd3f40a" class="outline-2">
+<h2 id="orgfd3f40a"><span class="section-number-2">1</span> Operator Precedence</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-  An <b>inner product space</b> consists of a vector field \( V \) over the field \( F \) endowed with a function \( \langle . \ , \ . \rangle : V \times V \to  F \) which satisfies the following properties:
-.
+Consider the following:
 </p>
-<ol class="org-ol">
-<li><b>Conjugate Symmetry</b>: \( \langle a, \ b \rangle = \overline{\langle b, \ a \rangle} \)</li>
-<li><b>Linearity in the First Argument</b>: \(  \langle \alpha a, \ b \rangle = \alpha \langle a, \ b \rangle \) and \( \langle a + c, \ b \rangle = \langle a, \ b \rangle + \langle c, \ b \rangle \)</li>
-<li><b>Positive-Definiteness</b>: \( \langle a, \ a \rangle \ge 0 \), with equality holding iff \( a = \underline{0} \)</li>
-</ol>
+
+<div class="org-src-container">
+<pre class="src src-haskell">strSum :: [Int] -&gt; String
+strSum xs = show $ sum xs
+-- equivalent to
+-- strSum xs = ($) show (sum xs)
+</pre>
+</div>
 
 <p>
-These properties imply many important properties such as the <b>Triangle Inequality</b> and the <b>Cauchy Schwarz Inequality</b>. The mapping is also an example of a <b>sesquilinear form</b>.
+This seems strange but it's exactly the same as:
 </p>
-</div>
-</div>
 
-<div id="outline-container-orga49bc54" class="outline-2">
-<h2 id="orga49bc54"><span class="section-number-2">2</span> Examples</h2>
-<div class="outline-text-2" id="text-2">
-<ol class="org-ol">
-<li>In \( \mathbb{R}^n \) we have \( \langle v_1, \ v_2 \rangle = a_1b_1 + a_2b_2 + ... + a_nb_n \)</li>
-<li>For \( \mathbb{C}^n \) in order to preserve positive definiteness we take \( \langle v_1, \ v_2 \rangle = a_1\overline{b_1} + a_2\overline{b_2} + ... + a_n\overline{b_n} \)</li>
-</ol>
+<div class="org-src-container">
+<pre class="src src-haskell">minMax :: [Int] -&gt; Int
+minMax xs = minimum xs + maximum xs
+-- equivalent to
+-- minMax xs = (+) (min xs) (max xs)
+</pre>
+</div>
 </div>
 </div>
 </div>
