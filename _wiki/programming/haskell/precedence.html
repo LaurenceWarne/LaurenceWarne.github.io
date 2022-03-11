@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-09 Wed 20:31 -->
+<!-- 2022-03-11 Fri 15:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Precedence</title>
@@ -224,18 +224,18 @@
 </head>
 <body>
 <div id="content">
-<span >Up: <a href='./haskell.html'>Haskell</a></span><hr><h1 class="title">Precedence</h1>
+Previous: <a href='./links.html'>Links</a><span style='float: right;'>Up: <a href='./haskell.html'>Haskell</a></span><hr><h1 class="title">Precedence</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfd3f40a">1. Operator Precedence</a></li>
+<li><a href="#org467ba0d">1. Operator Precedence</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgfd3f40a" class="outline-2">
-<h2 id="orgfd3f40a"><span class="section-number-2">1</span> Operator Precedence</h2>
+<div id="outline-container-org467ba0d" class="outline-2">
+<h2 id="org467ba0d"><span class="section-number-2">1</span> Operator Precedence</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Consider the following:
@@ -245,7 +245,7 @@ Consider the following:
 <pre class="src src-haskell">strSum :: [Int] -&gt; String
 strSum xs = show $ sum xs
 -- equivalent to
--- strSum xs = ($) show (sum xs)
+strSum xs = ($) show (sum xs)
 </pre>
 </div>
 
@@ -257,7 +257,7 @@ This seems strange but it's exactly the same as:
 <pre class="src src-haskell">minMax :: [Int] -&gt; Int
 minMax xs = minimum xs + maximum xs
 -- equivalent to
--- minMax xs = (+) (min xs) (max xs)
+minMax xs = (+) (min xs) (max xs)
 </pre>
 </div>
 </div>
@@ -265,7 +265,7 @@ minMax xs = minimum xs + maximum xs
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-03-09 Wed 20:31</p>
+<p class="date">Created: 2022-03-11 Fri 15:39</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
