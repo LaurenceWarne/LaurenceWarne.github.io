@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-11 Wed 21:10 -->
+<!-- 2022-06-01 Wed 13:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Xorg</title>
@@ -229,20 +229,20 @@ Previous: <a href='./short-notes.html'>Short Notes</a><span style='float: right;
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc2182a8">1. Introduction</a></li>
-<li><a href="#orgec847d0">2. Nomenclature</a></li>
-<li><a href="#org2a846b0">3. X Client Server Architecture</a></li>
-<li><a href="#org540fd59">4. Starting an X Session</a>
+<li><a href="#org55fca1c">1. Introduction</a></li>
+<li><a href="#org5c003cc">2. Nomenclature</a></li>
+<li><a href="#org5e16899">3. X Client Server Architecture</a></li>
+<li><a href="#orgcc81939">4. Starting an X Session</a>
 <ul>
-<li><a href="#orgbd41fa1">4.1. Summary</a></li>
+<li><a href="#orgadcac23">4.1. Summary</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc2182a8" class="outline-2">
-<h2 id="orgc2182a8"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org55fca1c" class="outline-2">
+<h2 id="org55fca1c"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Xorg is an open source implementation of the X Window System (frequenty abbreviated to X or
@@ -255,8 +255,8 @@ Xorg provides an interface between hardware and the graphical software which you
 </div>
 </div>
 
-<div id="outline-container-orgec847d0" class="outline-2">
-<h2 id="orgec847d0"><span class="section-number-2">2</span> Nomenclature</h2>
+<div id="outline-container-org5c003cc" class="outline-2">
+<h2 id="org5c003cc"><span class="section-number-2">2</span> Nomenclature</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><b>X session</b> The combination of an X server and connecting X clients.</li>
@@ -265,8 +265,8 @@ Xorg provides an interface between hardware and the graphical software which you
 </div>
 </div>
 
-<div id="outline-container-org2a846b0" class="outline-2">
-<h2 id="org2a846b0"><span class="section-number-2">3</span> X Client Server Architecture</h2>
+<div id="outline-container-org5e16899" class="outline-2">
+<h2 id="org5e16899"><span class="section-number-2">3</span> X Client Server Architecture</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 X uses a client server model. A given X server runs on one user's <b>local</b> machine, whilst
@@ -285,8 +285,8 @@ configured correctly).
 </div>
 </div>
 
-<div id="outline-container-org540fd59" class="outline-2">
-<h2 id="org540fd59"><span class="section-number-2">4</span> Starting an X Session</h2>
+<div id="outline-container-orgcc81939" class="outline-2">
+<h2 id="orgcc81939"><span class="section-number-2">4</span> Starting an X Session</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 An X session is usually started by either the <b>startx</b> command or a daemon X display manager
@@ -306,8 +306,8 @@ See <a href="https://unix.stackexchange.com/questions/281858/difference-between-
 </p>
 </div>
 
-<div id="outline-container-orgbd41fa1" class="outline-3">
-<h3 id="orgbd41fa1"><span class="section-number-3">4.1</span> Summary</h3>
+<div id="outline-container-orgadcac23" class="outline-3">
+<h3 id="orgadcac23"><span class="section-number-3">4.1</span> Summary</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 tl;dr: .xinitrc is run from xinit (and thus its wrapper startx), .xsession is run when
@@ -320,7 +320,7 @@ and .xsessionrc is always run.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-05-11 Wed 21:10</p>
+<p class="date">Created: 2022-06-01 Wed 13:18</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
