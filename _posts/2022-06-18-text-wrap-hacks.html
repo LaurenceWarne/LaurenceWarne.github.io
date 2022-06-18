@@ -1,0 +1,153 @@
+---
+date: 2022-06-18 20:29
+author: 
+title: Text Wrap Hacks for Markdown
+layout: post
+excerpt: textwrap for markdown
+categories: 
+- programming,
+- python
+tags: 
+---
+
+<div id="outline-container-org2ae7b5f" class="outline-2">
+<h2 id="org2ae7b5f">The <code>textwrap</code> Module</h2>
+<div class="outline-text-2" id="text-org2ae7b5f">
+<p>
+The Python standard library ships a neat little modulo for line wrapping text:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #D83441;">import</span> textwrap
+&gt;&gt;&gt; textwrap.wrap<span style="color: #3679D8;">(</span><span style="color: #79D836;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</span><span style="color: #3679D8;">)</span>
+<span style="color: #3679D8;">[</span><span style="color: #79D836;">'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do'</span>,
+ <span style="color: #79D836;">'eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad'</span>,
+ <span style="color: #79D836;">'minim veniam, quis nostrud exercitation ullamco laboris nisi ut'</span>,
+ <span style="color: #79D836;">'aliquip ex ea commodo consequat. Duis aute irure dolor in'</span>,
+ <span style="color: #79D836;">'reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla'</span>,
+ <span style="color: #79D836;">'pariatur. Excepteur sint occaecat cupidatat non proident, sunt in'</span>,
+ <span style="color: #79D836;">'culpa qui officia deserunt mollit anim id est laborum.'</span><span style="color: #3679D8;">]</span>
+</pre>
+</div>
+
+<p>
+And it's pretty extensible too, you can subclass <code>textwrap.TextWrapper</code> to control how words are split amongs <a href="https://docs.python.org/3/library/textwrap.html">other things</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgafeb395" class="outline-2">
+<h2 id="orgafeb395">Hacking: Markdown</h2>
+<div class="outline-text-2" id="text-orgafeb395">
+<p>
+This is nice and all, but what if I was wrapping some kind of markdown, specifically <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Github Markdown</a>?  The biggest problem here would be wrapping links, whose character length far exceeds the length of the link description (which would be rendered):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #D83441;">import</span> textwrap
+&gt;&gt;&gt; textwrap.wrap<span style="color: #3679D8;">(</span><span style="color: #79D836;">"`avy` is a GNU Emacs package for jumping to visible text using a char-based decision tree.  See also [ace-jump-mode](https://github.com/winterTTr/ace-jump-mode) and [vim-easymotion](https://github.com/Lokaltog/vim-easymotion) - `avy` uses the same idea."</span><span style="color: #3679D8;">)</span>
+<span style="color: #3679D8;">[</span><span style="color: #79D836;">'`avy` is a GNU Emacs package for jumping to visible text using a'</span>,
+ <span style="color: #79D836;">'char-based decision tree.  See also'</span>,
+ <span style="color: #79D836;">'[ace-jump-mode](https://github.com/winterTTr/ace-jump-mode) and'</span>,
+ <span style="color: #79D836;">'[vim-easymotion](https://github.com/Lokaltog/vim-easymotion) - `avy`'</span>,
+ <span style="color: #79D836;">'uses the same idea.'</span><span style="color: #3679D8;">]</span>
+</pre>
+</div>
+
+<p>
+But if we were to use this, it would be rendered as:
+</p>
+
+<pre class="example">
+`avy` is a GNU Emacs package for jumping to visible text using a
+char-based decision tree.  See also,
+ace-jump-mode and,
+vim-easymotion - `avy`',
+'uses the same idea.'
+</pre>
+
+<p>
+Essentially, we want the length of Github links to be taken from the length of their descriptions alone.  It isn't immediately clear how this can be achieved looking at <code>textwrap.TextWrapper</code>, but digging a little deeper in the <code>textwrap</code> module source code we see:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #D83441;">while</span> <span style="color: #86e7d7;">chunks</span>:
+    l = <span style="color: #3679D8;">len</span><span style="color: #3679D8;">(</span>chunks<span style="color: #8041D8;">[</span>-1<span style="color: #8041D8;">]</span><span style="color: #3679D8;">)</span>
+
+    <span style="color: #767676; font-style: italic;"># </span><span style="color: #767676; font-style: italic;">Can at least squeeze this chunk onto the current line.</span>
+    <span style="color: #D83441;">if</span> cur_len + l &lt;= <span style="color: #86e7d7;">width</span>:
+        cur_line.append<span style="color: #3679D8;">(</span>chunks.pop<span style="color: #8041D8;">()</span><span style="color: #3679D8;">)</span>
+        cur_len += l
+
+    <span style="color: #767676; font-style: italic;"># </span><span style="color: #767676; font-style: italic;">Nope, this line is full.</span>
+    <span style="color: #D83441;">else</span>:
+        <span style="color: #D83441;">break</span>
+</pre>
+</div>
+
+<p>
+And further, <code>chunks</code> is set from a <code>TextWrapper._split_chunks</code> call.  This suggests if we create our own <code>TextWrapper</code> subclass and identify links in our <code>_split_chunks</code> method, we can set the length by somehow jumbling link strings so they return the length of their description rather than their true length on a <code>len</code> call.  We can do this by subclasing <code>str</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #D83441;">import</span> re
+<span style="color: #D83441;">from</span> textwrap <span style="color: #D83441;">import</span> TextWrapper
+
+
+<span style="color: #D83441;">class</span> <span style="color: #3679D8;">MarkdownLink</span><span style="color: #3679D8;">(</span><span style="color: #3679D8;">str</span><span style="color: #3679D8;">)</span>:
+    <span style="color: #D83441;">def</span> <span style="color: #D8B941;">__new__</span><span style="color: #3679D8;">(</span>cls, url, description<span style="color: #3679D8;">)</span>:
+        <span style="color: #86e7d7;">obj</span> = <span style="color: #3679D8;">str</span>.__new__<span style="color: #3679D8;">(</span>cls, f<span style="color: #79D836;">"[</span>{description}<span style="color: #79D836;">](</span>{url}<span style="color: #79D836;">)"</span><span style="color: #3679D8;">)</span>
+        obj.<span style="color: #86e7d7;">url</span> = url
+        obj.<span style="color: #86e7d7;">description</span> = description
+        <span style="color: #D83441;">return</span> obj
+
+    <span style="color: #D83441;">def</span> <span style="color: #D8B941;">__len__</span><span style="color: #3679D8;">(</span><span style="color: #D83441;">self</span><span style="color: #3679D8;">)</span> -&gt; <span style="color: #3679D8;">int</span>:
+        <span style="color: #D83441;">return</span> <span style="color: #3679D8;">len</span><span style="color: #3679D8;">(</span><span style="color: #D83441;">self</span>.description<span style="color: #3679D8;">)</span>
+
+
+<span style="color: #D83441;">class</span> <span style="color: #3679D8;">MarkdownTextWrapper</span><span style="color: #3679D8;">(</span>TextWrapper<span style="color: #3679D8;">)</span>:
+    <span style="color: #9ae168; font-style: italic;">"""A TextWrapper which handles markdown links."""</span>
+
+    LINK_REGEX = re.<span style="color: #3679D8;">compile</span><span style="color: #3679D8;">(</span>r<span style="color: #79D836;">"(\[.*?\]\(\S+\))"</span><span style="color: #3679D8;">)</span>
+    <span style="color: #86e7d7;">LINK_PARTS_REGEX</span> = re.<span style="color: #3679D8;">compile</span><span style="color: #3679D8;">(</span>r<span style="color: #79D836;">"^\[(.*?)\]\((\S+)\)$"</span><span style="color: #3679D8;">)</span>
+
+    <span style="color: #D83441;">def</span> <span style="color: #D8B941;">_split</span><span style="color: #3679D8;">(</span><span style="color: #D83441;">self</span>, text<span style="color: #3679D8;">)</span>:
+        <span style="color: #86e7d7;">split</span> = re.split<span style="color: #3679D8;">(</span><span style="color: #D83441;">self</span>.LINK_REGEX, text<span style="color: #3679D8;">)</span>
+        <span style="color: #86e7d7;">chunks</span>: List<span style="color: #3679D8;">[</span><span style="color: #3679D8;">str</span><span style="color: #3679D8;">]</span> = <span style="color: #3679D8;">[]</span>
+        <span style="color: #D83441;">for</span> item <span style="color: #D83441;">in</span> <span style="color: #86e7d7;">split</span>:
+            match = re.match<span style="color: #3679D8;">(</span><span style="color: #D83441;">self</span>.LINK_PARTS_REGEX, item<span style="color: #3679D8;">)</span>
+            <span style="color: #D83441;">if</span> match:
+                chunks.append<span style="color: #3679D8;">(</span>MarkdownLink<span style="color: #8041D8;">(</span>match.group<span style="color: #79D836;">(</span>2<span style="color: #79D836;">)</span>, match.group<span style="color: #79D836;">(</span>1<span style="color: #79D836;">)</span><span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+            <span style="color: #D83441;">else</span>:
+                chunks.extend<span style="color: #3679D8;">(</span><span style="color: #3679D8;">super</span><span style="color: #8041D8;">()</span>._split<span style="color: #8041D8;">(</span>item<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+        <span style="color: #D83441;">return</span> chunks
+</pre>
+</div>
+
+<p>
+Lets use it:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #D83441;">import</span> textwrap
+&gt;&gt;&gt; textwrap.wrap<span style="color: #3679D8;">(</span><span style="color: #79D836;">"`avy` is a GNU Emacs package for jumping to visible text using a char-based decision tree.  See also [ace-jump-mode](https://github.com/winterTTr/ace-jump-mode) and [vim-easymotion](https://github.com/Lokaltog/vim-easymotion) - `avy` uses the same idea."</span><span style="color: #3679D8;">)</span>
+<span style="color: #3679D8;">[</span><span style="color: #79D836;">'`avy` is a GNU Emacs package for jumping to visible text using a char-based'</span>, <span style="color: #79D836;">'decision tree.  See also [ace-jump-mode](https://github.com/winterTTr/ace-jump-mode) and [vim-easymotion](https://github.com/Lokaltog/vim-easymotion) - `avy` uses the same'</span>,
+<span style="color: #79D836;">'idea.'</span><span style="color: #3679D8;">]</span>
+</pre>
+</div>
+
+<p>
+Which renders as:
+</p>
+
+<pre class="example">
+`avy` is a GNU Emacs package for jumping to visible text using a char-based
+decision tree.  See also ace-jump-mode and vim-easymotion - `avy` uses the same
+idea
+</pre>
+
+<p>
+Nice! ☺
+</p>
+</div>
+</div>
