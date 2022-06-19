@@ -1,5 +1,5 @@
 ---
-date: 2022-06-18 20:29
+date: 2022-06-18 00:00
 author: Laurence Warne
 title: Text Wrap Hacks for Markdown
 layout: post
@@ -14,7 +14,7 @@ tags:
 <h2 id="org2ae7b5f">The <code>textwrap</code> Module</h2>
 <div class="outline-text-2" id="text-org2ae7b5f">
 <p>
-The Python standard library ships a neat little modulo for line wrapping text:
+The Python standard library ships a neat little module for line wrapping text:
 </p>
 
 <div class="org-src-container">
@@ -31,7 +31,7 @@ The Python standard library ships a neat little modulo for line wrapping text:
 </div>
 
 <p>
-And it's pretty extensible too, you can subclass <code>textwrap.TextWrapper</code> to control how words are split amongs <a href="https://docs.python.org/3/library/textwrap.html">other things</a>.
+And it's pretty extensible too, you can subclass <code>textwrap.TextWrapper</code> to control how words are split amongst <a href="https://docs.python.org/3/library/textwrap.html">other things</a>.
 </p>
 </div>
 </div>
@@ -60,10 +60,10 @@ But if we were to use this, it would be rendered as:
 
 <pre class="example">
 `avy` is a GNU Emacs package for jumping to visible text using a
-char-based decision tree.  See also,
-ace-jump-mode and,
-vim-easymotion - `avy`',
-'uses the same idea.'
+char-based decision tree.  See also
+ace-jump-mode and
+vim-easymotion - `avy`
+uses the same idea.
 </pre>
 
 <p>
@@ -86,7 +86,7 @@ Essentially, we want the length of Github links to be taken from the length of t
 </div>
 
 <p>
-And further, <code>chunks</code> is set from a <code>TextWrapper._split_chunks</code> call.  This suggests if we create our own <code>TextWrapper</code> subclass and identify links in our <code>_split_chunks</code> method, we can set the length by somehow jumbling link strings so they return the length of their description rather than their true length on a <code>len</code> call.  We can do this by subclasing <code>str</code>:
+And further, <code>chunks</code> is set from a <code>TextWrapper._split</code> call.  This suggests if we create our own <code>TextWrapper</code> subclass and identify links in our <code>_split</code> method, we can set the length by somehow jumbling link strings so they return the length of their description rather than their true length on a <code>len</code> call.  We can do this by subclassing <code>str</code>:
 </p>
 
 <div class="org-src-container">
@@ -101,14 +101,14 @@ And further, <code>chunks</code> is set from a <code>TextWrapper._split_chunks</
         obj.<span style="color: #86e7d7;">description</span> = description
         <span style="color: #D83441;">return</span> obj
 
-    <span style="color: #D83441;">def</span> <span style="color: #D8B941;">__len__</span><span style="color: #3679D8;">(</span><span style="color: #D83441;">self</span><span style="color: #3679D8;">)</span> -&gt; <span style="color: #3679D8;">int</span>:
+    <span style="color: #D83441;">def</span> <span style="color: #D8B941;">__len__</span><span style="color: #3679D8;">(</span><span style="color: #D83441;">self</span><span style="color: #3679D8;">)</span>:
         <span style="color: #D83441;">return</span> <span style="color: #3679D8;">len</span><span style="color: #3679D8;">(</span><span style="color: #D83441;">self</span>.description<span style="color: #3679D8;">)</span>
 
 
 <span style="color: #D83441;">class</span> <span style="color: #3679D8;">MarkdownTextWrapper</span><span style="color: #3679D8;">(</span>TextWrapper<span style="color: #3679D8;">)</span>:
     <span style="color: #9ae168; font-style: italic;">"""A TextWrapper which handles markdown links."""</span>
 
-    LINK_REGEX = re.<span style="color: #3679D8;">compile</span><span style="color: #3679D8;">(</span>r<span style="color: #79D836;">"(\[.*?\]\(\S+\))"</span><span style="color: #3679D8;">)</span>
+    <span style="color: #86e7d7;">LINK_REGEX</span> = re.<span style="color: #3679D8;">compile</span><span style="color: #3679D8;">(</span>r<span style="color: #79D836;">"(\[.*?\]\(\S+\))"</span><span style="color: #3679D8;">)</span>
     <span style="color: #86e7d7;">LINK_PARTS_REGEX</span> = re.<span style="color: #3679D8;">compile</span><span style="color: #3679D8;">(</span>r<span style="color: #79D836;">"^\[(.*?)\]\((\S+)\)$"</span><span style="color: #3679D8;">)</span>
 
     <span style="color: #D83441;">def</span> <span style="color: #D8B941;">_split</span><span style="color: #3679D8;">(</span><span style="color: #D83441;">self</span>, text<span style="color: #3679D8;">)</span>:
@@ -131,7 +131,8 @@ Lets use it:
 <div class="org-src-container">
 <pre class="src src-python">&gt;&gt;&gt; <span style="color: #D83441;">import</span> textwrap
 &gt;&gt;&gt; textwrap.wrap<span style="color: #3679D8;">(</span><span style="color: #79D836;">"`avy` is a GNU Emacs package for jumping to visible text using a char-based decision tree.  See also [ace-jump-mode](https://github.com/winterTTr/ace-jump-mode) and [vim-easymotion](https://github.com/Lokaltog/vim-easymotion) - `avy` uses the same idea."</span><span style="color: #3679D8;">)</span>
-<span style="color: #3679D8;">[</span><span style="color: #79D836;">'`avy` is a GNU Emacs package for jumping to visible text using a char-based'</span>, <span style="color: #79D836;">'decision tree.  See also [ace-jump-mode](https://github.com/winterTTr/ace-jump-mode) and [vim-easymotion](https://github.com/Lokaltog/vim-easymotion) - `avy` uses the same'</span>,
+<span style="color: #3679D8;">[</span><span style="color: #79D836;">'`avy` is a GNU Emacs package for jumping to visible text using a char-based'</span>,
+ <span style="color: #79D836;">'decision tree.  See also [ace-jump-mode](https://github.com/winterTTr/ace-jump-mode) and [vim-easymotion](https://github.com/Lokaltog/vim-easymotion) - `avy` uses the same'</span>,
 <span style="color: #79D836;">'idea.'</span><span style="color: #3679D8;">]</span>
 </pre>
 </div>
@@ -147,7 +148,7 @@ idea
 </pre>
 
 <p>
-Nice! ☺
+Nice! 👌
 </p>
 </div>
 </div>
