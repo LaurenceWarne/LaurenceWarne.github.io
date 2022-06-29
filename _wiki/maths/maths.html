@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-06-01 Wed 13:18 -->
+<!-- 2022-06-29 Wed 18:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Maths</title>
@@ -199,6 +199,35 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script defer>
+window.onload = function(){
+let tags = document.getElementsByClassName('tag');
+for (let i = 0; i < tags.length; i++ ) {
+    var element = tags[i];
+    var parent = element.parentNode;
+    if (parent.tagName.startsWith('H')) {
+	var target = parent.parentNode
+	parent.style = 'display: inline';
+	var details = document.createElement('details');
+	var summary = document.createElement('summary');
+	details.style = 'display: inline';
+	//details.appendChild(target);
+	target.insertBefore(summary, parent);
+	//target.insertBefore(document.createElement('br'), parent.nextSibling);
+        target.insertBefore(document.createElement('br'), parent.nextSibling);
+	summary.appendChild(parent);
+	while (target.childNodes.length > 0) {
+	    details.appendChild(target.childNodes[0]);
+	}
+	target.appendChild(details);
+        target.appendChild(document.createElement('br'));
+        target.appendChild(document.createElement('br'));
+    }
+}
+while (tags.length > 0) {
+    tags[0].remove();
+}
+}</script>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -229,300 +258,300 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9a2d5b3">1. Algebra</a>
+<li><a href="#org935af15">1. Algebra</a>
 <ul>
-<li><a href="#orgcba2123">1.1. Commutative Algebra</a>
+<li><a href="#orgfb103d3">1.1. Commutative Algebra</a>
 <ul>
-<li><a href="#orgdf5a355">1.1.1. Ideals</a></li>
-<li><a href="#org1f775a4">1.1.2. Integral Domains</a></li>
-<li><a href="#org5ef6577">1.1.3. Polynomial Rings</a></li>
-<li><a href="#org9c8cb33">1.1.4. Unique Factorisation Domains</a></li>
+<li><a href="#orge12897d">1.1.1. Ideals</a></li>
+<li><a href="#org329bc43">1.1.2. Integral Domains</a></li>
+<li><a href="#org0579d19">1.1.3. Polynomial Rings</a></li>
+<li><a href="#org9f15c3b">1.1.4. Unique Factorisation Domains</a></li>
 </ul>
 </li>
-<li><a href="#orgf6afbf0">1.2. Group Theory</a>
+<li><a href="#org78afb33">1.2. Group Theory</a>
 <ul>
-<li><a href="#orgcc5b778">1.2.1. Factor Groups</a></li>
-<li><a href="#orgf9cd71a">1.2.2. Group Actions</a></li>
-<li><a href="#orgb1ac701">1.2.3. Burnsides Lemma</a></li>
-<li><a href="#org83ecc39">1.2.4. Sylows Theorems</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgddd0ab7">2. Analysis</a>
-<ul>
-<li><a href="#org4c54e2a">2.1. Complex Analysis</a>
-<ul>
-<li><a href="#orgbd36572">2.1.1. Contour Integration</a></li>
-<li><a href="#org8ae3309">2.1.2. Holomorphic Functions</a></li>
-<li><a href="#org502420d">2.1.3. Integral Theorems</a></li>
-</ul>
-</li>
-<li><a href="#org028686e">2.2. Real Analysis</a>
-<ul>
-<li><a href="#orge174a74">2.2.1. Analysis</a></li>
-<li><a href="#orgee59a97">2.2.2. Big O Notation</a></li>
-<li><a href="#orgddf872e">2.2.3. Functions</a></li>
-<li><a href="#orgb5ed295">2.2.4. Intermediate Value Theorem</a></li>
-<li><a href="#org6f8c0ad">2.2.5. Limit Superior</a></li>
-<li><a href="#orgb5bd4c5">2.2.6. Power Series</a></li>
-<li><a href="#orgf71d095">2.2.7. Sequences</a></li>
-<li><a href="#org8530c58">2.2.8. Series</a></li>
+<li><a href="#orge358a72">1.2.1. Factor Groups</a></li>
+<li><a href="#orgc3bcbf5">1.2.2. Group Actions</a></li>
+<li><a href="#org830c5e1">1.2.3. Burnsides Lemma</a></li>
+<li><a href="#org84f2b61">1.2.4. Sylows Theorems</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org2510563">3. Calculus</a>
+<li><a href="#org167d94e">2. Analysis</a>
 <ul>
-<li><a href="#org7234faf">3.1. Differentiation</a></li>
-<li><a href="#orgce4174b">3.2. Double Integrals</a></li>
-<li><a href="#org1d3dedb">3.3. Gradient</a></li>
-<li><a href="#org2ccdaaf">3.4. Limits</a></li>
-<li><a href="#orga4a1991">3.5. Maximal Number Partition</a></li>
-<li><a href="#org2079d6e">3.6. Partial Differentiation</a></li>
-<li><a href="#orgd30defa">3.7. Scalar Line Integral</a></li>
-<li><a href="#org90242b5">3.8. Total Differential</a></li>
-<li><a href="#org76451a5">3.9. Vector Functions</a></li>
-<li><a href="#org6e69052">3.10. Vector Line Integral</a></li>
+<li><a href="#org9fef5e7">2.1. Complex Analysis</a>
+<ul>
+<li><a href="#org4293ea5">2.1.1. Contour Integration</a></li>
+<li><a href="#orgcfd57de">2.1.2. Holomorphic Functions</a></li>
+<li><a href="#org0178d83">2.1.3. Integral Theorems</a></li>
 </ul>
 </li>
-<li><a href="#org4336140">4. Euler Library</a></li>
-<li><a href="#org5cbe77f">5. Graph Theory</a>
+<li><a href="#org092f50a">2.2. Real Analysis</a>
 <ul>
-<li><a href="#org2a0246d">5.1. Graph Colouring</a></li>
-<li><a href="#orgfd66fb9">5.2. Graphs</a></li>
+<li><a href="#org6d2d8ae">2.2.1. Analysis</a></li>
+<li><a href="#org09705a4">2.2.2. Big O Notation</a></li>
+<li><a href="#org352e424">2.2.3. Functions</a></li>
+<li><a href="#orgec77ed5">2.2.4. Intermediate Value Theorem</a></li>
+<li><a href="#orge0dc16a">2.2.5. Limit Superior</a></li>
+<li><a href="#org4b4cb45">2.2.6. Power Series</a></li>
+<li><a href="#orgd25dfdb">2.2.7. Sequences</a></li>
+<li><a href="#org51e156f">2.2.8. Series</a></li>
 </ul>
 </li>
-<li><a href="#orgeadfd60">6. Linear Algebra</a>
-<ul>
-<li><a href="#orgb5b9bad">6.1. Change Of Basis</a></li>
-<li><a href="#org0620370">6.2. Determinants</a></li>
-<li><a href="#orgdc481ac">6.3. Eigendecomposition</a></li>
-<li><a href="#org9eaa913">6.4. Eigenvectors</a></li>
-<li><a href="#org38727aa">6.5. Hermitian Matrices</a></li>
-<li><a href="#orgb004870">6.6. Inner Product Spaces</a></li>
-<li><a href="#org36742a3">6.7. Perron Frobenius Theorem</a></li>
 </ul>
 </li>
-<li><a href="#orgee7f4dc">7. Logic</a>
+<li><a href="#orga33acd1">3. Calculus</a>
 <ul>
-<li><a href="#org07ea83f">7.1. Basic Logic</a></li>
-<li><a href="#orga517307">7.2. Partial Ordering</a></li>
-<li><a href="#org6afc591">7.3. Relations</a></li>
+<li><a href="#orgf8abff5">3.1. Differentiation</a></li>
+<li><a href="#orgc4ab80d">3.2. Double Integrals</a></li>
+<li><a href="#orge136a2b">3.3. Gradient</a></li>
+<li><a href="#org6924c05">3.4. Limits</a></li>
+<li><a href="#org2448311">3.5. Maximal Number Partition</a></li>
+<li><a href="#org9198dbe">3.6. Partial Differentiation</a></li>
+<li><a href="#orgb7d13ea">3.7. Scalar Line Integral</a></li>
+<li><a href="#orgbdbaea9">3.8. Total Differential</a></li>
+<li><a href="#org8a37edf">3.9. Vector Functions</a></li>
+<li><a href="#org035375a">3.10. Vector Line Integral</a></li>
 </ul>
 </li>
-<li><a href="#org0271106">8. Number Theory</a>
+<li><a href="#orgf8b2281">4. Euler Library</a></li>
+<li><a href="#org8d02d8c">5. Graph Theory</a>
 <ul>
-<li><a href="#org9ec4ec6">8.1. Chinese Remainder Theorem</a></li>
-<li><a href="#org370385b">8.2. Euclids Algorithm</a></li>
-<li><a href="#org37cfc62">8.3. Modular Arithmetic</a></li>
-<li><a href="#orgb3ce59e">8.4. Similar Congruences</a></li>
+<li><a href="#org7ccadd2">5.1. Graph Colouring</a></li>
+<li><a href="#org84f52c6">5.2. Graphs</a></li>
 </ul>
 </li>
-<li><a href="#org7c1b045">9. Questions</a></li>
+<li><a href="#org814ab37">6. Linear Algebra</a>
+<ul>
+<li><a href="#org8b53fd0">6.1. Change Of Basis</a></li>
+<li><a href="#org3b5e556">6.2. Determinants</a></li>
+<li><a href="#orgef40f88">6.3. Eigendecomposition</a></li>
+<li><a href="#orgcb49295">6.4. Eigenvectors</a></li>
+<li><a href="#orgf447585">6.5. Hermitian Matrices</a></li>
+<li><a href="#org42f36ed">6.6. Inner Product Spaces</a></li>
+<li><a href="#org25adf16">6.7. Perron Frobenius Theorem</a></li>
+</ul>
+</li>
+<li><a href="#org1b65af7">7. Logic</a>
+<ul>
+<li><a href="#orgf6df502">7.1. Basic Logic</a></li>
+<li><a href="#org4963e10">7.2. Partial Ordering</a></li>
+<li><a href="#org77e6be2">7.3. Relations</a></li>
+</ul>
+</li>
+<li><a href="#orgfa53188">8. Number Theory</a>
+<ul>
+<li><a href="#orgd730469">8.1. Chinese Remainder Theorem</a></li>
+<li><a href="#org9798f57">8.2. Euclids Algorithm</a></li>
+<li><a href="#org989f238">8.3. Modular Arithmetic</a></li>
+<li><a href="#orge03bf2b">8.4. Similar Congruences</a></li>
+</ul>
+</li>
+<li><a href="#orgb2bb095">9. Questions</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9a2d5b3" class="outline-2">
-<h2 id="org9a2d5b3"><span class="section-number-2">1</span> <a href="./algebra/algebra.html">Algebra</a></h2>
+<div id="outline-container-org935af15" class="outline-2">
+<h2 id="org935af15"><span class="section-number-2">1</span> <a href="./algebra/algebra.html">Algebra</a></h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgcba2123" class="outline-3">
-<h3 id="orgcba2123"><span class="section-number-3">1.1</span> <a href="./algebra/commutative-algebra/commutative-algebra.html">Commutative Algebra</a></h3>
+<div id="outline-container-orgfb103d3" class="outline-3">
+<h3 id="orgfb103d3"><span class="section-number-3">1.1</span> <a href="./algebra/commutative-algebra/commutative-algebra.html">Commutative Algebra</a></h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgdf5a355" class="outline-4">
-<h4 id="orgdf5a355"><span class="section-number-4">1.1.1</span> <a href="./algebra/commutative-algebra/ideals.html">Ideals</a></h4>
+<div id="outline-container-orge12897d" class="outline-4">
+<h4 id="orge12897d"><span class="section-number-4">1.1.1</span> <a href="./algebra/commutative-algebra/ideals.html">Ideals</a></h4>
 </div>
-<div id="outline-container-org1f775a4" class="outline-4">
-<h4 id="org1f775a4"><span class="section-number-4">1.1.2</span> <a href="./algebra/commutative-algebra/integral-domains.html">Integral Domains</a></h4>
+<div id="outline-container-org329bc43" class="outline-4">
+<h4 id="org329bc43"><span class="section-number-4">1.1.2</span> <a href="./algebra/commutative-algebra/integral-domains.html">Integral Domains</a></h4>
 </div>
-<div id="outline-container-org5ef6577" class="outline-4">
-<h4 id="org5ef6577"><span class="section-number-4">1.1.3</span> <a href="./algebra/commutative-algebra/polynomial-rings.html">Polynomial Rings</a></h4>
+<div id="outline-container-org0579d19" class="outline-4">
+<h4 id="org0579d19"><span class="section-number-4">1.1.3</span> <a href="./algebra/commutative-algebra/polynomial-rings.html">Polynomial Rings</a></h4>
 </div>
-<div id="outline-container-org9c8cb33" class="outline-4">
-<h4 id="org9c8cb33"><span class="section-number-4">1.1.4</span> <a href="./algebra/commutative-algebra/unique-factorisation-domains.html">Unique Factorisation Domains</a></h4>
+<div id="outline-container-org9f15c3b" class="outline-4">
+<h4 id="org9f15c3b"><span class="section-number-4">1.1.4</span> <a href="./algebra/commutative-algebra/unique-factorisation-domains.html">Unique Factorisation Domains</a></h4>
 </div>
 </div>
-<div id="outline-container-orgf6afbf0" class="outline-3">
-<h3 id="orgf6afbf0"><span class="section-number-3">1.2</span> <a href="./algebra/group-theory/group-theory.html">Group Theory</a></h3>
+<div id="outline-container-org78afb33" class="outline-3">
+<h3 id="org78afb33"><span class="section-number-3">1.2</span> <a href="./algebra/group-theory/group-theory.html">Group Theory</a></h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-orgcc5b778" class="outline-4">
-<h4 id="orgcc5b778"><span class="section-number-4">1.2.1</span> <a href="./algebra/group-theory/factor-groups.html">Factor Groups</a></h4>
+<div id="outline-container-orge358a72" class="outline-4">
+<h4 id="orge358a72"><span class="section-number-4">1.2.1</span> <a href="./algebra/group-theory/factor-groups.html">Factor Groups</a></h4>
 </div>
-<div id="outline-container-orgf9cd71a" class="outline-4">
-<h4 id="orgf9cd71a"><span class="section-number-4">1.2.2</span> <a href="./algebra/group-theory/group-actions.html">Group Actions</a></h4>
+<div id="outline-container-orgc3bcbf5" class="outline-4">
+<h4 id="orgc3bcbf5"><span class="section-number-4">1.2.2</span> <a href="./algebra/group-theory/group-actions.html">Group Actions</a></h4>
 </div>
-<div id="outline-container-orgb1ac701" class="outline-4">
-<h4 id="orgb1ac701"><span class="section-number-4">1.2.3</span> <a href="./algebra/group-theory/burnsides-lemma.html">Burnsides Lemma</a></h4>
+<div id="outline-container-org830c5e1" class="outline-4">
+<h4 id="org830c5e1"><span class="section-number-4">1.2.3</span> <a href="./algebra/group-theory/burnsides-lemma.html">Burnsides Lemma</a></h4>
 </div>
-<div id="outline-container-org83ecc39" class="outline-4">
-<h4 id="org83ecc39"><span class="section-number-4">1.2.4</span> <a href="./algebra/group-theory/sylows-theorems.html">Sylows Theorems</a></h4>
+<div id="outline-container-org84f2b61" class="outline-4">
+<h4 id="org84f2b61"><span class="section-number-4">1.2.4</span> <a href="./algebra/group-theory/sylows-theorems.html">Sylows Theorems</a></h4>
 </div>
 </div>
 </div>
-<div id="outline-container-orgddd0ab7" class="outline-2">
-<h2 id="orgddd0ab7"><span class="section-number-2">2</span> <a href="./analysis/analysis.html">Analysis</a></h2>
+<div id="outline-container-org167d94e" class="outline-2">
+<h2 id="org167d94e"><span class="section-number-2">2</span> <a href="./analysis/analysis.html">Analysis</a></h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org4c54e2a" class="outline-3">
-<h3 id="org4c54e2a"><span class="section-number-3">2.1</span> <a href="./analysis/complex-analysis/complex-analysis.html">Complex Analysis</a></h3>
+<div id="outline-container-org9fef5e7" class="outline-3">
+<h3 id="org9fef5e7"><span class="section-number-3">2.1</span> <a href="./analysis/complex-analysis/complex-analysis.html">Complex Analysis</a></h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-orgbd36572" class="outline-4">
-<h4 id="orgbd36572"><span class="section-number-4">2.1.1</span> <a href="./analysis/complex-analysis/contour-integration.html">Contour Integration</a></h4>
+<div id="outline-container-org4293ea5" class="outline-4">
+<h4 id="org4293ea5"><span class="section-number-4">2.1.1</span> <a href="./analysis/complex-analysis/contour-integration.html">Contour Integration</a></h4>
 </div>
-<div id="outline-container-org8ae3309" class="outline-4">
-<h4 id="org8ae3309"><span class="section-number-4">2.1.2</span> <a href="./analysis/complex-analysis/holomorphic-functions.html">Holomorphic Functions</a></h4>
+<div id="outline-container-orgcfd57de" class="outline-4">
+<h4 id="orgcfd57de"><span class="section-number-4">2.1.2</span> <a href="./analysis/complex-analysis/holomorphic-functions.html">Holomorphic Functions</a></h4>
 </div>
-<div id="outline-container-org502420d" class="outline-4">
-<h4 id="org502420d"><span class="section-number-4">2.1.3</span> <a href="./analysis/complex-analysis/integral-theorems.html">Integral Theorems</a></h4>
+<div id="outline-container-org0178d83" class="outline-4">
+<h4 id="org0178d83"><span class="section-number-4">2.1.3</span> <a href="./analysis/complex-analysis/integral-theorems.html">Integral Theorems</a></h4>
 </div>
 </div>
-<div id="outline-container-org028686e" class="outline-3">
-<h3 id="org028686e"><span class="section-number-3">2.2</span> <a href="./analysis/real-analysis/real-analysis.html">Real Analysis</a></h3>
+<div id="outline-container-org092f50a" class="outline-3">
+<h3 id="org092f50a"><span class="section-number-3">2.2</span> <a href="./analysis/real-analysis/real-analysis.html">Real Analysis</a></h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-orge174a74" class="outline-4">
-<h4 id="orge174a74"><span class="section-number-4">2.2.1</span> <a href="./analysis/real-analysis/analysis.html">Analysis</a></h4>
+<div id="outline-container-org6d2d8ae" class="outline-4">
+<h4 id="org6d2d8ae"><span class="section-number-4">2.2.1</span> <a href="./analysis/real-analysis/analysis.html">Analysis</a></h4>
 </div>
-<div id="outline-container-orgee59a97" class="outline-4">
-<h4 id="orgee59a97"><span class="section-number-4">2.2.2</span> <a href="./analysis/real-analysis/big-o-notation.html">Big O Notation</a></h4>
+<div id="outline-container-org09705a4" class="outline-4">
+<h4 id="org09705a4"><span class="section-number-4">2.2.2</span> <a href="./analysis/real-analysis/big-o-notation.html">Big O Notation</a></h4>
 </div>
-<div id="outline-container-orgddf872e" class="outline-4">
-<h4 id="orgddf872e"><span class="section-number-4">2.2.3</span> <a href="./analysis/real-analysis/functions.html">Functions</a></h4>
+<div id="outline-container-org352e424" class="outline-4">
+<h4 id="org352e424"><span class="section-number-4">2.2.3</span> <a href="./analysis/real-analysis/functions.html">Functions</a></h4>
 </div>
-<div id="outline-container-orgb5ed295" class="outline-4">
-<h4 id="orgb5ed295"><span class="section-number-4">2.2.4</span> <a href="./analysis/real-analysis/intermediate-value-theorem.html">Intermediate Value Theorem</a></h4>
+<div id="outline-container-orgec77ed5" class="outline-4">
+<h4 id="orgec77ed5"><span class="section-number-4">2.2.4</span> <a href="./analysis/real-analysis/intermediate-value-theorem.html">Intermediate Value Theorem</a></h4>
 </div>
-<div id="outline-container-org6f8c0ad" class="outline-4">
-<h4 id="org6f8c0ad"><span class="section-number-4">2.2.5</span> <a href="./analysis/real-analysis/limit-superior.html">Limit Superior</a></h4>
+<div id="outline-container-orge0dc16a" class="outline-4">
+<h4 id="orge0dc16a"><span class="section-number-4">2.2.5</span> <a href="./analysis/real-analysis/limit-superior.html">Limit Superior</a></h4>
 </div>
-<div id="outline-container-orgb5bd4c5" class="outline-4">
-<h4 id="orgb5bd4c5"><span class="section-number-4">2.2.6</span> <a href="./analysis/real-analysis/power-series.html">Power Series</a></h4>
+<div id="outline-container-org4b4cb45" class="outline-4">
+<h4 id="org4b4cb45"><span class="section-number-4">2.2.6</span> <a href="./analysis/real-analysis/power-series.html">Power Series</a></h4>
 </div>
-<div id="outline-container-orgf71d095" class="outline-4">
-<h4 id="orgf71d095"><span class="section-number-4">2.2.7</span> <a href="./analysis/real-analysis/sequences.html">Sequences</a></h4>
+<div id="outline-container-orgd25dfdb" class="outline-4">
+<h4 id="orgd25dfdb"><span class="section-number-4">2.2.7</span> <a href="./analysis/real-analysis/sequences.html">Sequences</a></h4>
 </div>
-<div id="outline-container-org8530c58" class="outline-4">
-<h4 id="org8530c58"><span class="section-number-4">2.2.8</span> <a href="./analysis/real-analysis/series.html">Series</a></h4>
+<div id="outline-container-org51e156f" class="outline-4">
+<h4 id="org51e156f"><span class="section-number-4">2.2.8</span> <a href="./analysis/real-analysis/series.html">Series</a></h4>
 </div>
 </div>
 </div>
-<div id="outline-container-org2510563" class="outline-2">
-<h2 id="org2510563"><span class="section-number-2">3</span> <a href="./calculus/calculus.html">Calculus</a></h2>
+<div id="outline-container-orga33acd1" class="outline-2">
+<h2 id="orga33acd1"><span class="section-number-2">3</span> <a href="./calculus/calculus.html">Calculus</a></h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org7234faf" class="outline-3">
-<h3 id="org7234faf"><span class="section-number-3">3.1</span> <a href="./calculus/differentiation.html">Differentiation</a></h3>
+<div id="outline-container-orgf8abff5" class="outline-3">
+<h3 id="orgf8abff5"><span class="section-number-3">3.1</span> <a href="./calculus/differentiation.html">Differentiation</a></h3>
 </div>
-<div id="outline-container-orgce4174b" class="outline-3">
-<h3 id="orgce4174b"><span class="section-number-3">3.2</span> <a href="./calculus/double-integrals.html">Double Integrals</a></h3>
+<div id="outline-container-orgc4ab80d" class="outline-3">
+<h3 id="orgc4ab80d"><span class="section-number-3">3.2</span> <a href="./calculus/double-integrals.html">Double Integrals</a></h3>
 </div>
-<div id="outline-container-org1d3dedb" class="outline-3">
-<h3 id="org1d3dedb"><span class="section-number-3">3.3</span> <a href="./calculus/gradient.html">Gradient</a></h3>
+<div id="outline-container-orge136a2b" class="outline-3">
+<h3 id="orge136a2b"><span class="section-number-3">3.3</span> <a href="./calculus/gradient.html">Gradient</a></h3>
 </div>
-<div id="outline-container-org2ccdaaf" class="outline-3">
-<h3 id="org2ccdaaf"><span class="section-number-3">3.4</span> <a href="./calculus/limits.html">Limits</a></h3>
+<div id="outline-container-org6924c05" class="outline-3">
+<h3 id="org6924c05"><span class="section-number-3">3.4</span> <a href="./calculus/limits.html">Limits</a></h3>
 </div>
-<div id="outline-container-orga4a1991" class="outline-3">
-<h3 id="orga4a1991"><span class="section-number-3">3.5</span> <a href="./calculus/maximal-number-partition.html">Maximal Number Partition</a></h3>
+<div id="outline-container-org2448311" class="outline-3">
+<h3 id="org2448311"><span class="section-number-3">3.5</span> <a href="./calculus/maximal-number-partition.html">Maximal Number Partition</a></h3>
 </div>
-<div id="outline-container-org2079d6e" class="outline-3">
-<h3 id="org2079d6e"><span class="section-number-3">3.6</span> <a href="./calculus/partial-differentiation.html">Partial Differentiation</a></h3>
+<div id="outline-container-org9198dbe" class="outline-3">
+<h3 id="org9198dbe"><span class="section-number-3">3.6</span> <a href="./calculus/partial-differentiation.html">Partial Differentiation</a></h3>
 </div>
-<div id="outline-container-orgd30defa" class="outline-3">
-<h3 id="orgd30defa"><span class="section-number-3">3.7</span> <a href="./calculus/scalar-line-integral.html">Scalar Line Integral</a></h3>
+<div id="outline-container-orgb7d13ea" class="outline-3">
+<h3 id="orgb7d13ea"><span class="section-number-3">3.7</span> <a href="./calculus/scalar-line-integral.html">Scalar Line Integral</a></h3>
 </div>
-<div id="outline-container-org90242b5" class="outline-3">
-<h3 id="org90242b5"><span class="section-number-3">3.8</span> <a href="./calculus/total-differential.html">Total Differential</a></h3>
+<div id="outline-container-orgbdbaea9" class="outline-3">
+<h3 id="orgbdbaea9"><span class="section-number-3">3.8</span> <a href="./calculus/total-differential.html">Total Differential</a></h3>
 </div>
-<div id="outline-container-org76451a5" class="outline-3">
-<h3 id="org76451a5"><span class="section-number-3">3.9</span> <a href="./calculus/vector-functions.html">Vector Functions</a></h3>
+<div id="outline-container-org8a37edf" class="outline-3">
+<h3 id="org8a37edf"><span class="section-number-3">3.9</span> <a href="./calculus/vector-functions.html">Vector Functions</a></h3>
 </div>
-<div id="outline-container-org6e69052" class="outline-3">
-<h3 id="org6e69052"><span class="section-number-3">3.10</span> <a href="./calculus/vector-line-integral.html">Vector Line Integral</a></h3>
+<div id="outline-container-org035375a" class="outline-3">
+<h3 id="org035375a"><span class="section-number-3">3.10</span> <a href="./calculus/vector-line-integral.html">Vector Line Integral</a></h3>
 </div>
 </div>
-<div id="outline-container-org4336140" class="outline-2">
-<h2 id="org4336140"><span class="section-number-2">4</span> <a href="./euler-library.html">Euler Library</a></h2>
+<div id="outline-container-orgf8b2281" class="outline-2">
+<h2 id="orgf8b2281"><span class="section-number-2">4</span> <a href="./euler-library.html">Euler Library</a></h2>
 </div>
-<div id="outline-container-org5cbe77f" class="outline-2">
-<h2 id="org5cbe77f"><span class="section-number-2">5</span> <a href="./graph-theory/graph-theory.html">Graph Theory</a></h2>
+<div id="outline-container-org8d02d8c" class="outline-2">
+<h2 id="org8d02d8c"><span class="section-number-2">5</span> <a href="./graph-theory/graph-theory.html">Graph Theory</a></h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org2a0246d" class="outline-3">
-<h3 id="org2a0246d"><span class="section-number-3">5.1</span> <a href="./graph-theory/graph-colouring.html">Graph Colouring</a></h3>
+<div id="outline-container-org7ccadd2" class="outline-3">
+<h3 id="org7ccadd2"><span class="section-number-3">5.1</span> <a href="./graph-theory/graph-colouring.html">Graph Colouring</a></h3>
 </div>
-<div id="outline-container-orgfd66fb9" class="outline-3">
-<h3 id="orgfd66fb9"><span class="section-number-3">5.2</span> <a href="./graph-theory/graphs.html">Graphs</a></h3>
+<div id="outline-container-org84f52c6" class="outline-3">
+<h3 id="org84f52c6"><span class="section-number-3">5.2</span> <a href="./graph-theory/graphs.html">Graphs</a></h3>
 </div>
 </div>
-<div id="outline-container-orgeadfd60" class="outline-2">
-<h2 id="orgeadfd60"><span class="section-number-2">6</span> <a href="./linear-algebra/linear-algebra.html">Linear Algebra</a></h2>
+<div id="outline-container-org814ab37" class="outline-2">
+<h2 id="org814ab37"><span class="section-number-2">6</span> <a href="./linear-algebra/linear-algebra.html">Linear Algebra</a></h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orgb5b9bad" class="outline-3">
-<h3 id="orgb5b9bad"><span class="section-number-3">6.1</span> <a href="./linear-algebra/change-of-basis.html">Change Of Basis</a></h3>
+<div id="outline-container-org8b53fd0" class="outline-3">
+<h3 id="org8b53fd0"><span class="section-number-3">6.1</span> <a href="./linear-algebra/change-of-basis.html">Change Of Basis</a></h3>
 </div>
-<div id="outline-container-org0620370" class="outline-3">
-<h3 id="org0620370"><span class="section-number-3">6.2</span> <a href="./linear-algebra/determinants.html">Determinants</a></h3>
+<div id="outline-container-org3b5e556" class="outline-3">
+<h3 id="org3b5e556"><span class="section-number-3">6.2</span> <a href="./linear-algebra/determinants.html">Determinants</a></h3>
 </div>
-<div id="outline-container-orgdc481ac" class="outline-3">
-<h3 id="orgdc481ac"><span class="section-number-3">6.3</span> <a href="./linear-algebra/eigendecomposition.html">Eigendecomposition</a></h3>
+<div id="outline-container-orgef40f88" class="outline-3">
+<h3 id="orgef40f88"><span class="section-number-3">6.3</span> <a href="./linear-algebra/eigendecomposition.html">Eigendecomposition</a></h3>
 </div>
-<div id="outline-container-org9eaa913" class="outline-3">
-<h3 id="org9eaa913"><span class="section-number-3">6.4</span> <a href="./linear-algebra/eigenvectors.html">Eigenvectors</a></h3>
+<div id="outline-container-orgcb49295" class="outline-3">
+<h3 id="orgcb49295"><span class="section-number-3">6.4</span> <a href="./linear-algebra/eigenvectors.html">Eigenvectors</a></h3>
 </div>
-<div id="outline-container-org38727aa" class="outline-3">
-<h3 id="org38727aa"><span class="section-number-3">6.5</span> <a href="./linear-algebra/hermitian-matrices.html">Hermitian Matrices</a></h3>
+<div id="outline-container-orgf447585" class="outline-3">
+<h3 id="orgf447585"><span class="section-number-3">6.5</span> <a href="./linear-algebra/hermitian-matrices.html">Hermitian Matrices</a></h3>
 </div>
-<div id="outline-container-orgb004870" class="outline-3">
-<h3 id="orgb004870"><span class="section-number-3">6.6</span> <a href="./linear-algebra/inner-product-spaces.html">Inner Product Spaces</a></h3>
+<div id="outline-container-org42f36ed" class="outline-3">
+<h3 id="org42f36ed"><span class="section-number-3">6.6</span> <a href="./linear-algebra/inner-product-spaces.html">Inner Product Spaces</a></h3>
 </div>
-<div id="outline-container-org36742a3" class="outline-3">
-<h3 id="org36742a3"><span class="section-number-3">6.7</span> <a href="./linear-algebra/perron-frobenius-theorem.html">Perron Frobenius Theorem</a></h3>
+<div id="outline-container-org25adf16" class="outline-3">
+<h3 id="org25adf16"><span class="section-number-3">6.7</span> <a href="./linear-algebra/perron-frobenius-theorem.html">Perron Frobenius Theorem</a></h3>
 </div>
 </div>
-<div id="outline-container-orgee7f4dc" class="outline-2">
-<h2 id="orgee7f4dc"><span class="section-number-2">7</span> <a href="./logic/logic.html">Logic</a></h2>
+<div id="outline-container-org1b65af7" class="outline-2">
+<h2 id="org1b65af7"><span class="section-number-2">7</span> <a href="./logic/logic.html">Logic</a></h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org07ea83f" class="outline-3">
-<h3 id="org07ea83f"><span class="section-number-3">7.1</span> <a href="./logic/basic-logic.html">Basic Logic</a></h3>
+<div id="outline-container-orgf6df502" class="outline-3">
+<h3 id="orgf6df502"><span class="section-number-3">7.1</span> <a href="./logic/basic-logic.html">Basic Logic</a></h3>
 </div>
-<div id="outline-container-orga517307" class="outline-3">
-<h3 id="orga517307"><span class="section-number-3">7.2</span> <a href="./logic/partial-ordering.html">Partial Ordering</a></h3>
+<div id="outline-container-org4963e10" class="outline-3">
+<h3 id="org4963e10"><span class="section-number-3">7.2</span> <a href="./logic/partial-ordering.html">Partial Ordering</a></h3>
 </div>
-<div id="outline-container-org6afc591" class="outline-3">
-<h3 id="org6afc591"><span class="section-number-3">7.3</span> <a href="./logic/relations.html">Relations</a></h3>
+<div id="outline-container-org77e6be2" class="outline-3">
+<h3 id="org77e6be2"><span class="section-number-3">7.3</span> <a href="./logic/relations.html">Relations</a></h3>
 </div>
 </div>
-<div id="outline-container-org0271106" class="outline-2">
-<h2 id="org0271106"><span class="section-number-2">8</span> <a href="./number-theory/number-theory.html">Number Theory</a></h2>
+<div id="outline-container-orgfa53188" class="outline-2">
+<h2 id="orgfa53188"><span class="section-number-2">8</span> <a href="./number-theory/number-theory.html">Number Theory</a></h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org9ec4ec6" class="outline-3">
-<h3 id="org9ec4ec6"><span class="section-number-3">8.1</span> <a href="./number-theory/chinese-remainder-theorem.html">Chinese Remainder Theorem</a></h3>
+<div id="outline-container-orgd730469" class="outline-3">
+<h3 id="orgd730469"><span class="section-number-3">8.1</span> <a href="./number-theory/chinese-remainder-theorem.html">Chinese Remainder Theorem</a></h3>
 </div>
-<div id="outline-container-org370385b" class="outline-3">
-<h3 id="org370385b"><span class="section-number-3">8.2</span> <a href="./number-theory/euclids-algorithm.html">Euclids Algorithm</a></h3>
+<div id="outline-container-org9798f57" class="outline-3">
+<h3 id="org9798f57"><span class="section-number-3">8.2</span> <a href="./number-theory/euclids-algorithm.html">Euclids Algorithm</a></h3>
 </div>
-<div id="outline-container-org37cfc62" class="outline-3">
-<h3 id="org37cfc62"><span class="section-number-3">8.3</span> <a href="./number-theory/modular-arithmetic.html">Modular Arithmetic</a></h3>
+<div id="outline-container-org989f238" class="outline-3">
+<h3 id="org989f238"><span class="section-number-3">8.3</span> <a href="./number-theory/modular-arithmetic.html">Modular Arithmetic</a></h3>
 </div>
-<div id="outline-container-orgb3ce59e" class="outline-3">
-<h3 id="orgb3ce59e"><span class="section-number-3">8.4</span> <a href="./number-theory/similar-congruences.html">Similar Congruences</a></h3>
+<div id="outline-container-orge03bf2b" class="outline-3">
+<h3 id="orge03bf2b"><span class="section-number-3">8.4</span> <a href="./number-theory/similar-congruences.html">Similar Congruences</a></h3>
 </div>
 </div>
-<div id="outline-container-org7c1b045" class="outline-2">
-<h2 id="org7c1b045"><span class="section-number-2">9</span> <a href="./questions.html">Questions</a></h2>
+<div id="outline-container-orgb2bb095" class="outline-2">
+<h2 id="orgb2bb095"><span class="section-number-2">9</span> <a href="./questions.html">Questions</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-06-01 Wed 13:18</p>
+<p class="date">Created: 2022-06-29 Wed 18:11</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

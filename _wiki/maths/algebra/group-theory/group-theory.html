@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-06-01 Wed 13:18 -->
+<!-- 2022-06-29 Wed 18:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Group Theory</title>
@@ -199,6 +199,35 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script defer>
+window.onload = function(){
+let tags = document.getElementsByClassName('tag');
+for (let i = 0; i < tags.length; i++ ) {
+    var element = tags[i];
+    var parent = element.parentNode;
+    if (parent.tagName.startsWith('H')) {
+	var target = parent.parentNode
+	parent.style = 'display: inline';
+	var details = document.createElement('details');
+	var summary = document.createElement('summary');
+	details.style = 'display: inline';
+	//details.appendChild(target);
+	target.insertBefore(summary, parent);
+	//target.insertBefore(document.createElement('br'), parent.nextSibling);
+        target.insertBefore(document.createElement('br'), parent.nextSibling);
+	summary.appendChild(parent);
+	while (target.childNodes.length > 0) {
+	    details.appendChild(target.childNodes[0]);
+	}
+	target.appendChild(details);
+        target.appendChild(document.createElement('br'));
+        target.appendChild(document.createElement('br'));
+    }
+}
+while (tags.length > 0) {
+    tags[0].remove();
+}
+}</script>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -229,38 +258,38 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2ea3f4b">1. Group Theory</a>
+<li><a href="#orgd52ad1e">1. Group Theory</a>
 <ul>
-<li><a href="#orgb8d9600">1.1. Factor Groups</a></li>
-<li><a href="#org7b6add3">1.2. Group Actions</a></li>
-<li><a href="#org96115ff">1.3. Burnsides Lemma</a></li>
-<li><a href="#orgd1bf70a">1.4. Sylows Theorems</a></li>
+<li><a href="#org3b4168c">1.1. Factor Groups</a></li>
+<li><a href="#org834ef2c">1.2. Group Actions</a></li>
+<li><a href="#orgc945812">1.3. Burnsides Lemma</a></li>
+<li><a href="#org370ca89">1.4. Sylows Theorems</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2ea3f4b" class="outline-2">
-<h2 id="org2ea3f4b"><span class="section-number-2">1</span> Group Theory</h2>
+<div id="outline-container-orgd52ad1e" class="outline-2">
+<h2 id="orgd52ad1e"><span class="section-number-2">1</span> Group Theory</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgb8d9600" class="outline-3">
-<h3 id="orgb8d9600"><span class="section-number-3">1.1</span> <a href="./factor-groups.html">Factor Groups</a></h3>
+<div id="outline-container-org3b4168c" class="outline-3">
+<h3 id="org3b4168c"><span class="section-number-3">1.1</span> <a href="./factor-groups.html">Factor Groups</a></h3>
 </div>
-<div id="outline-container-org7b6add3" class="outline-3">
-<h3 id="org7b6add3"><span class="section-number-3">1.2</span> <a href="./group-actions.html">Group Actions</a></h3>
+<div id="outline-container-org834ef2c" class="outline-3">
+<h3 id="org834ef2c"><span class="section-number-3">1.2</span> <a href="./group-actions.html">Group Actions</a></h3>
 </div>
-<div id="outline-container-org96115ff" class="outline-3">
-<h3 id="org96115ff"><span class="section-number-3">1.3</span> <a href="./burnsides-lemma.html">Burnsides Lemma</a></h3>
+<div id="outline-container-orgc945812" class="outline-3">
+<h3 id="orgc945812"><span class="section-number-3">1.3</span> <a href="./burnsides-lemma.html">Burnsides Lemma</a></h3>
 </div>
-<div id="outline-container-orgd1bf70a" class="outline-3">
-<h3 id="orgd1bf70a"><span class="section-number-3">1.4</span> <a href="./sylows-theorems.html">Sylows Theorems</a></h3>
+<div id="outline-container-org370ca89" class="outline-3">
+<h3 id="org370ca89"><span class="section-number-3">1.4</span> <a href="./sylows-theorems.html">Sylows Theorems</a></h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-06-01 Wed 13:18</p>
+<p class="date">Created: 2022-06-29 Wed 18:11</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
