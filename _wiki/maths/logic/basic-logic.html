@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-06-01 Wed 13:18 -->
+<!-- 2022-06-29 Wed 18:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Basic Logic</title>
@@ -199,6 +199,35 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script defer>
+window.onload = function(){
+let tags = document.getElementsByClassName('tag');
+for (let i = 0; i < tags.length; i++ ) {
+    var element = tags[i];
+    var parent = element.parentNode;
+    if (parent.tagName.startsWith('H')) {
+	var target = parent.parentNode
+	parent.style = 'display: inline';
+	var details = document.createElement('details');
+	var summary = document.createElement('summary');
+	details.style = 'display: inline';
+	//details.appendChild(target);
+	target.insertBefore(summary, parent);
+	//target.insertBefore(document.createElement('br'), parent.nextSibling);
+        target.insertBefore(document.createElement('br'), parent.nextSibling);
+	summary.appendChild(parent);
+	while (target.childNodes.length > 0) {
+	    details.appendChild(target.childNodes[0]);
+	}
+	target.appendChild(details);
+        target.appendChild(document.createElement('br'));
+        target.appendChild(document.createElement('br'));
+    }
+}
+while (tags.length > 0) {
+    tags[0].remove();
+}
+}</script>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -251,30 +280,30 @@ Next: <a href='./partial-ordering.html'>Partial Ordering</a><span style='float: 
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf6fe74e">1. Propositions</a>
+<li><a href="#org9307be2">1. Propositions</a>
 <ul>
-<li><a href="#orgf1f748f">1.1. Examples</a>
+<li><a href="#org74e4840">1.1. Examples</a>
 <ul>
-<li><a href="#org407869a">1.1.1. Predicates</a></li>
-<li><a href="#org44c3e69">1.1.2. Quantifiers</a></li>
-<li><a href="#orgfdde6c3">1.1.3. Propositions</a></li>
+<li><a href="#org09fa34e">1.1.1. Predicates</a></li>
+<li><a href="#org34151d1">1.1.2. Quantifiers</a></li>
+<li><a href="#org49b914c">1.1.3. Propositions</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org11d3c9a">2. Implication</a>
+<li><a href="#org61b1a66">2. Implication</a>
 <ul>
-<li><a href="#org187d4ae">2.1. Truth Table</a></li>
+<li><a href="#org33e8dcd">2.1. Truth Table</a></li>
 </ul>
 </li>
-<li><a href="#org65dfa5c">3. Contrapositive</a></li>
-<li><a href="#orgedfb7d6">4. Links</a></li>
+<li><a href="#orgb67dc23">3. Contrapositive</a></li>
+<li><a href="#org0af93d0">4. Links</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf6fe74e" class="outline-2">
-<h2 id="orgf6fe74e"><span class="section-number-2">1</span> Propositions</h2>
+<div id="outline-container-org9307be2" class="outline-2">
+<h2 id="org9307be2"><span class="section-number-2">1</span> Propositions</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A proposition is a sentence which can be considered either true or false (not both). It
@@ -284,12 +313,12 @@ definintion/value).
 </p>
 </div>
 
-<div id="outline-container-orgf1f748f" class="outline-3">
-<h3 id="orgf1f748f"><span class="section-number-3">1.1</span> Examples</h3>
+<div id="outline-container-org74e4840" class="outline-3">
+<h3 id="org74e4840"><span class="section-number-3">1.1</span> Examples</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org407869a" class="outline-4">
-<h4 id="org407869a"><span class="section-number-4">1.1.1</span> Predicates</h4>
+<div id="outline-container-org09fa34e" class="outline-4">
+<h4 id="org09fa34e"><span class="section-number-4">1.1.1</span> Predicates</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
 <li>\( a \) and \( b \) are coprime</li>
@@ -298,8 +327,8 @@ definintion/value).
 </div>
 </div>
 
-<div id="outline-container-org44c3e69" class="outline-4">
-<h4 id="org44c3e69"><span class="section-number-4">1.1.2</span> Quantifiers</h4>
+<div id="outline-container-org34151d1" class="outline-4">
+<h4 id="org34151d1"><span class="section-number-4">1.1.2</span> Quantifiers</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
 <li>Let \( n \) be an integer</li>
@@ -308,8 +337,8 @@ definintion/value).
 </div>
 </div>
 
-<div id="outline-container-orgfdde6c3" class="outline-4">
-<h4 id="orgfdde6c3"><span class="section-number-4">1.1.3</span> Propositions</h4>
+<div id="outline-container-org49b914c" class="outline-4">
+<h4 id="org49b914c"><span class="section-number-4">1.1.3</span> Propositions</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <ul class="org-ul">
 <li>\( e^{i\theta} = cos\theta + isin\theta \)</li>
@@ -320,8 +349,8 @@ definintion/value).
 </div>
 </div>
 
-<div id="outline-container-org11d3c9a" class="outline-2">
-<h2 id="org11d3c9a"><span class="section-number-2">2</span> Implication</h2>
+<div id="outline-container-org61b1a66" class="outline-2">
+<h2 id="org61b1a66"><span class="section-number-2">2</span> Implication</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The statement 
@@ -337,8 +366,8 @@ See <a href="https://math.stackexchange.com/questions/61779/problem-in-understan
 </p>
 </div>
 
-<div id="outline-container-org187d4ae" class="outline-3">
-<h3 id="org187d4ae"><span class="section-number-3">2.1</span> Truth Table</h3>
+<div id="outline-container-org33e8dcd" class="outline-3">
+<h3 id="org33e8dcd"><span class="section-number-3">2.1</span> Truth Table</h3>
 <div class="outline-text-3" id="text-2-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -405,8 +434,8 @@ If \( A \) is false, \( A \Rightarrow B \) is said to be "vacuously" true.
 </div>
 </div>
 
-<div id="outline-container-org65dfa5c" class="outline-2">
-<h2 id="org65dfa5c"><span class="section-number-2">3</span> Contrapositive</h2>
+<div id="outline-container-orgb67dc23" class="outline-2">
+<h2 id="orgb67dc23"><span class="section-number-2">3</span> Contrapositive</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 If \( A \) is sufficient for \( B \) then it follows that:
@@ -424,8 +453,8 @@ If \( A \) is sufficient for \( B \) then it follows that:
 </div>
 </div>
 
-<div id="outline-container-orgedfb7d6" class="outline-2">
-<h2 id="orgedfb7d6"><span class="section-number-2">4</span> Links</h2>
+<div id="outline-container-org0af93d0" class="outline-2">
+<h2 id="org0af93d0"><span class="section-number-2">4</span> Links</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li>More info on the implication statement: <a href="https://www.slideshare.net/nszakir/chapter3-direct-proof-and-proof-by-contrapositive">https://www.slideshare.net/nszakir/chapter3-direct-proof-and-proof-by-contrapositive</a></li>
@@ -435,7 +464,7 @@ If \( A \) is sufficient for \( B \) then it follows that:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-06-01 Wed 13:18</p>
+<p class="date">Created: 2022-06-29 Wed 18:11</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

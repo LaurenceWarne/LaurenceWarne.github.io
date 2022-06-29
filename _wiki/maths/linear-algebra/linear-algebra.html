@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-06-01 Wed 13:18 -->
+<!-- 2022-06-29 Wed 18:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linear Algebra</title>
@@ -199,6 +199,35 @@
 <script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script defer>
+window.onload = function(){
+let tags = document.getElementsByClassName('tag');
+for (let i = 0; i < tags.length; i++ ) {
+    var element = tags[i];
+    var parent = element.parentNode;
+    if (parent.tagName.startsWith('H')) {
+	var target = parent.parentNode
+	parent.style = 'display: inline';
+	var details = document.createElement('details');
+	var summary = document.createElement('summary');
+	details.style = 'display: inline';
+	//details.appendChild(target);
+	target.insertBefore(summary, parent);
+	//target.insertBefore(document.createElement('br'), parent.nextSibling);
+        target.insertBefore(document.createElement('br'), parent.nextSibling);
+	summary.appendChild(parent);
+	while (target.childNodes.length > 0) {
+	    details.appendChild(target.childNodes[0]);
+	}
+	target.appendChild(details);
+        target.appendChild(document.createElement('br'));
+        target.appendChild(document.createElement('br'));
+    }
+}
+while (tags.length > 0) {
+    tags[0].remove();
+}
+}</script>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -229,41 +258,41 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org759dfaa">1. Change Of Basis</a></li>
-<li><a href="#orge216106">2. Determinants</a></li>
-<li><a href="#org2293d7e">3. Eigendecomposition</a></li>
-<li><a href="#orge55c52c">4. Eigenvectors</a></li>
-<li><a href="#org425eb85">5. Hermitian Matrices</a></li>
-<li><a href="#orge4c5e03">6. Inner Product Spaces</a></li>
-<li><a href="#org913aeca">7. Perron Frobenius Theorem</a></li>
+<li><a href="#org315d892">1. Change Of Basis</a></li>
+<li><a href="#org7d0f71a">2. Determinants</a></li>
+<li><a href="#org87bc377">3. Eigendecomposition</a></li>
+<li><a href="#orga537fd7">4. Eigenvectors</a></li>
+<li><a href="#org16778e9">5. Hermitian Matrices</a></li>
+<li><a href="#org3c03348">6. Inner Product Spaces</a></li>
+<li><a href="#org2cf6369">7. Perron Frobenius Theorem</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org759dfaa" class="outline-2">
-<h2 id="org759dfaa"><span class="section-number-2">1</span> <a href="./change-of-basis.html">Change Of Basis</a></h2>
+<div id="outline-container-org315d892" class="outline-2">
+<h2 id="org315d892"><span class="section-number-2">1</span> <a href="./change-of-basis.html">Change Of Basis</a></h2>
 </div>
-<div id="outline-container-orge216106" class="outline-2">
-<h2 id="orge216106"><span class="section-number-2">2</span> <a href="./determinants.html">Determinants</a></h2>
+<div id="outline-container-org7d0f71a" class="outline-2">
+<h2 id="org7d0f71a"><span class="section-number-2">2</span> <a href="./determinants.html">Determinants</a></h2>
 </div>
-<div id="outline-container-org2293d7e" class="outline-2">
-<h2 id="org2293d7e"><span class="section-number-2">3</span> <a href="./eigendecomposition.html">Eigendecomposition</a></h2>
+<div id="outline-container-org87bc377" class="outline-2">
+<h2 id="org87bc377"><span class="section-number-2">3</span> <a href="./eigendecomposition.html">Eigendecomposition</a></h2>
 </div>
-<div id="outline-container-orge55c52c" class="outline-2">
-<h2 id="orge55c52c"><span class="section-number-2">4</span> <a href="./eigenvectors.html">Eigenvectors</a></h2>
+<div id="outline-container-orga537fd7" class="outline-2">
+<h2 id="orga537fd7"><span class="section-number-2">4</span> <a href="./eigenvectors.html">Eigenvectors</a></h2>
 </div>
-<div id="outline-container-org425eb85" class="outline-2">
-<h2 id="org425eb85"><span class="section-number-2">5</span> <a href="./hermitian-matrices.html">Hermitian Matrices</a></h2>
+<div id="outline-container-org16778e9" class="outline-2">
+<h2 id="org16778e9"><span class="section-number-2">5</span> <a href="./hermitian-matrices.html">Hermitian Matrices</a></h2>
 </div>
-<div id="outline-container-orge4c5e03" class="outline-2">
-<h2 id="orge4c5e03"><span class="section-number-2">6</span> <a href="./inner-product-spaces.html">Inner Product Spaces</a></h2>
+<div id="outline-container-org3c03348" class="outline-2">
+<h2 id="org3c03348"><span class="section-number-2">6</span> <a href="./inner-product-spaces.html">Inner Product Spaces</a></h2>
 </div>
-<div id="outline-container-org913aeca" class="outline-2">
-<h2 id="org913aeca"><span class="section-number-2">7</span> <a href="./perron-frobenius-theorem.html">Perron Frobenius Theorem</a></h2>
+<div id="outline-container-org2cf6369" class="outline-2">
+<h2 id="org2cf6369"><span class="section-number-2">7</span> <a href="./perron-frobenius-theorem.html">Perron Frobenius Theorem</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-06-01 Wed 13:18</p>
+<p class="date">Created: 2022-06-29 Wed 18:11</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
