@@ -22,6 +22,8 @@ permalink: /links/
 
 * Scala 2 <a href="https://underscore.io/blog/posts/2016/12/05/type-lambdas.html">Kind Projector plugin</a>: motivation and usage
 
+* <a href="https://www.fosskers.ca/en/blog/contributing-to-emacs">Blog post on Contributing to Emacs</a>
+
 # Question Sources
 
 * <a href="https://mathschallenge.net/archive">MathsChallenge</a>
