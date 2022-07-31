@@ -4,7 +4,7 @@ title: Links
 permalink: /links/
 ---
 
-# Miscellaneous Content
+# Maths
 
 * <a href="https://groupprops.subwiki.org/wiki/Main_Page">Everything Group Theory related</a>
 
@@ -20,11 +20,19 @@ permalink: /links/
 
 * <a href="https://nhigham.com/index-of-what-is-articles/">"What Is"</a> articles by Nick Higham - a lot of stuff on linear algebra and matrix analysis
 
+# Programming
+
 * Scala 2 <a href="https://underscore.io/blog/posts/2016/12/05/type-lambdas.html">Kind Projector plugin</a>: motivation and usage
 
-* <a href="https://www.fosskers.ca/en/blog/contributing-to-emacs">Blog post on Contributing to Emacs</a>
+* <a href="https://www.fosskers.ca/en/blog/contributing-to-emacs">Blog post on Contributing to Emacs</a> / <a href="https://archive.casouri.cat/note/2020/contributing-to-emacs/#org2f80ace">And Another</a>
+
+* <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">Character Sets</a> by Joel Spolsky
+
+* <a href="https://debbugs.gnu.org/cgi/pkgreport.cgi?bug-rev=on;package=emacs">Emacs Bug Tracker</a> 
 
 # Question Sources
+
+* <a href="https://projecteuler.net/">Project Euler</a>
 
 * <a href="https://mathschallenge.net/archive">MathsChallenge</a>
 
