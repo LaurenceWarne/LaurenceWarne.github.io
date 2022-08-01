@@ -6,7 +6,7 @@
 <!-- 2022-08-01 Mon 15:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chinese Remainder Theorem</title>
+<title>Files</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -250,228 +250,75 @@ while (tags.length > 0) {
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-Next: <a href='./euclids-algorithm.html'>Euclids Algorithm</a><span style='float: right;'>Up: <a href='./number-theory.html'>Number Theory</a></span><hr><h1 class="title">Chinese Remainder Theorem</h1>
+Next: <a href='./hax.html'>Hax</a><span style='float: right;'>Up: <a href='./python.html'>Python</a></span><hr><h1 class="title">Files</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8784b23">1. Theorem Statement</a></li>
-<li><a href="#org10fadbb">2. Applications</a></li>
-<li><a href="#org14ca42c">3. Extension</a></li>
+<li><a href="#org867b6d8">1. Working with Files</a>
+<ul>
+<li><a href="#orge913bfe">1.1. Asyncio</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8784b23" class="outline-2">
-<h2 id="org8784b23"><span class="section-number-2">1</span> Theorem Statement</h2>
+<div id="outline-container-org867b6d8" class="outline-2">
+<h2 id="org867b6d8"><span class="section-number-2">1</span> Working with Files</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Given a system with \( a_i, n_i \in Z \):
-</p>
-\begin{align*}
-&x \equiv a_1 \pmod{n_1} \\
-&x \equiv a_2 \pmod{n_2} \\
-&... \\
-&x \equiv a_k \pmod{n_j}
-\end{align*}
-<p>
-If \( n_j \) are pairwise coprime, then the <b>Chinese Remainder Theorem</b> asserts that
-the system has a unique solution modulo \( N = n_1 * n_2 * ... * n_j \).
+The builtin <a href="https://docs.python.org/3/library/functions.html#open">open</a> function returns either a text stream or bytes stream depending on the <code>mode</code> argument.  These are analogous to structures in the <code>IO</code> module:
 </p>
 
-<p>
-A proof can be found <a href="https://brilliant.org/wiki/chinese-remainder-theorem/#theorem-and-proof">here</a>.
-</p>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> io
 
-<p>
-They can also be solved in <a href="https://docs.sympy.org/0.7.5/modules/ntheory.html#sympy.ntheory.modular.crt">sympy</a>.
-</p>
-</div>
+<span class="org-variable-name">f_str</span> = io.StringIO(<span class="org-string">"some initial text data"</span>)
+<span class="org-variable-name">f_byt</span> = io.BytesIO(b<span class="org-string">"some initial binary data: \x00\x01"</span>)
+</pre>
 </div>
 
-<div id="outline-container-org10fadbb" class="outline-2">
-<h2 id="org10fadbb"><span class="section-number-2">2</span> Applications</h2>
-<div class="outline-text-2" id="text-2">
 <p>
-Note if we are given \( a \equiv b \pmod{n} \), and \( \{q_1 ... q_k \} \) is some pairwise coprime set whose product is \( n \) then the Chinese Remainder Theorem asserts that:
+These objects support methods like <code>readline()</code>, <code>read(n)</code> which reads <code>n</code> characters (or bytes) from the stream and perhaps most importantly, they implement <code>__next__</code> (ie they are iterators) which emits the stream contents line by line:
 </p>
 
-<p>
-\[
-a \equiv b \pmod{n} \iff a \equiv b \pmod{q_i} \ \forall i = 1...k
-\]
-</p>
-
-<p>
-ie \( x \equiv 7 \pmod{30} \iff x \equiv 7 \pmod{3}, \ x \equiv 7 \pmod{5}, \ x \equiv 7 \pmod{2} \)
-</p>
-
-<p>
-<i>There exist an arbitrarily large number of consecutive integers, none of which is squarefree.</i>
-</p>
-
-<p>
-Let \( \{p_1 \ ... \ p_n\} \) be the set of the first \( n \) primes. Then the statement true if a solution exists for the set of simultaneous congruences:
-</p>
-
-\begin{align*}
-x &\equiv 0 \pmod{p_1^2} \\
-x + 1 &\equiv 0 \pmod{p_2^2}\\
-... \\
-x + (n - 1) &\equiv 0 \pmod{p_n^2}
-\end{align*}
-
-<p>
-ie
-</p>
-
-\begin{align*}
-x &\equiv 0 \pmod{p_1^2} \\
-x &\equiv -1 \pmod{p_2^2}\\
-... \\
-x &\equiv -n + 1 \pmod{p_n^2}
-\end{align*}
-
-<p>
-Of which a unique solution is guarenteed by the Chinese Remainder Theorem.
-</p>
-</div>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">for</span> line <span class="org-keyword">in</span> f_str:
+    <span class="org-keyword">print</span>(line)
+</pre>
 </div>
 
-<div id="outline-container-org14ca42c" class="outline-2">
-<h2 id="org14ca42c"><span class="section-number-2">3</span> Extension</h2>
-<div class="outline-text-2" id="text-3">
 <p>
-If \( n_i \) are not pairwise coprime, it is still possible to apply CRT. Suppose that:
+Unlike <code>readlines()</code> this does not pour the whole file contents into main memory, so we can feel a little bit more secure reading larger files.
 </p>
 
 <p>
-\[
-x \equiv a \pmod n
-\]
+Most streams (those for which <code>seekable()</code> returns <code>True</code>) support random access via <code>seek(offset)</code> (<a href="https://docs.python.org/3/library/io.html#io.IOBase.seek">link</a>- changing the stream position may be from the start of stream, current position or end of stream, so note offset can also be negative), and we can get the current stream position using <code>tell()</code>.
 </p>
+</div>
+
+<div id="outline-container-orge913bfe" class="outline-3">
+<h3 id="orge913bfe"><span class="section-number-3">1.1</span> Asyncio</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Local file IO is blocking, but we can use <a href="https://github.com/Tinche/aiofiles">aiofiles</a> in asyncio applications which uses a dedicated thread pool to avoid blocking IO:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">async with</span> aiofiles.<span class="org-builtin">open</span>(<span class="org-string">"filename"</span>, mode=<span class="org-string">"r"</span>) <span class="org-keyword">as</span> f:
+    <span class="org-keyword">async for</span> line <span class="org-keyword">in</span> f:
+        <span class="org-keyword">print</span>(f)
+</pre>
+</div>
 
 <p>
-Now we prove:
+The file object returned supports many of the methods available on standard streams.  Note aiofiles also supports some async alternatives to functions in the stdlib <code>os</code> module.
 </p>
-
-<p>
-\[
-(1)\ x \equiv a \pmod n \iff \forall k \in U, x \equiv a \pmod k
-\]
-</p>
-
-<p>
-where
-</p>
-
-<p>
-\[
-U = \{ N^p : N \text{ prime },\ N | n,\ N^{p + 1} \not{|} n \}
-\]
-</p>
-
-<p>
-ie \( U \) is the prime number decomposition of \( n \).
-</p>
-
-<p>
-The forward case is trivial:
-</p>
-
-
-\begin{align}
-&x \equiv a \pmod n \nonumber \\
-\Rightarrow& \exists \lambda \in Z \ s.t. \ x - a = \lambda n \nonumber
-\end{align}
-
-<p>
-Now applying modulo \( k \), since \( k | n \):
-</p>
-
-<p>
-\[
-\Rightarrow& x - a \equiv 0 \pmod{k}
-\]
-</p>
-
-<p>
-For the backward case, note that the distinct elements of \( U \) form the prime
-decomposition of \( n \), hence their product is \( n \). All of the distinct elements
-are also coprime.
-Consider the system \( S \):
-</p>
-\begin{align*}
-&x \equiv a \pmod{k_1}\\
-&x \equiv a \pmod{k_2}\\
-&...\\
-&x \equiv a \pmod{k_i}
-\end{align*}
-<p>
-where \( k_1, k_2, ... k_i \) are the distinct elements of \( U \). Then by standard
-CRT there exists a unique solution modulo \( k_1*k_2*...*k_i = n \). From inspection,
-we can identify the trivial solution \( x = a \), and thus by CRT this is the unique 
-solution modulo \( n \). Hence the solution set of \( S \) is identical to the
-solution set of:
-</p>
-
-<p>
-\[
-x \equiv a \pmod n
-\]
-</p>
-
-<p>
-Hence (1) is proved. Suppose we have some system of linear congruences which satisfy the
-predicates required by CRT except there is some pair of congruences whose moduli are
-not coprime:
-</p>
-
-<p>
-\[ x \equiv a_1 \pmod{k_1} \]
-\[ x \equiv a_2 \pmod{k_2} \]
-</p>
-
-<p>
-Then by (1), we can reduce these two congruences into more congruences, whose moduli are
-either pairwise coprime or of the form:
-</p>
-
-<p>
-\[ x \equiv a \pmod{a^{p_1}} \]
-\[ x \equiv b \pmod{a^{p_2}} \]
-</p>
-
-<p>
-Which has solutions \( \iff a = b \), in which case we can ignore the congruence with
-the smaller power. With these two reductions, we now have a system of congruences
-which we can apply CRT to.
-</p>
+</div>
 </div>
 </div>
 </div>
