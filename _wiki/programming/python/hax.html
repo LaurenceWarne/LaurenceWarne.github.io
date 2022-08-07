@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-08-07 Sun 12:57 -->
+<!-- 2022-08-07 Sun 15:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
@@ -258,15 +258,15 @@ Previous: <a href='./files.html'>Files</a>, Next: <a href='./modules.html'>Modul
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga39ce53">1. Unpacking</a>
+<li><a href="#org435b3fa">1. Unpacking</a>
 <ul>
-<li><a href="#orgd940c8b">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
+<li><a href="#orgade2e90">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
 </ul>
 </li>
-<li><a href="#org2196d20">2. Poor Man's Cache</a></li>
-<li><a href="#org0a0ce45">3. ♥ Generators ♥</a></li>
-<li><a href="#orgb3ce3bb">4. Poor Man's defaultdict</a></li>
-<li><a href="#orgeaffd78">5. Zip is it's own Inverse</a></li>
+<li><a href="#orgcb999aa">2. Poor Man's Cache</a></li>
+<li><a href="#org12d9e83">3. ♥ Generators ♥</a></li>
+<li><a href="#org8bb0096">4. Poor Man's defaultdict</a></li>
+<li><a href="#orgf0baa9f">5. Zip is it's own Inverse</a></li>
 </ul>
 </div>
 </div>
@@ -274,8 +274,8 @@ Previous: <a href='./files.html'>Files</a>, Next: <a href='./modules.html'>Modul
 A menagarie of cool python snippets!
 </p>
 
-<div id="outline-container-orga39ce53" class="outline-2">
-<h2 id="orga39ce53"><span class="section-number-2">1</span> Unpacking</h2>
+<div id="outline-container-org435b3fa" class="outline-2">
+<h2 id="org435b3fa"><span class="section-number-2">1</span> Unpacking</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">is_palindrome</span>(indexable):
@@ -288,8 +288,8 @@ A menagarie of cool python snippets!
 </div>
 </div>
 
-<div id="outline-container-orgd940c8b" class="outline-3">
-<h3 id="orgd940c8b"><span class="section-number-3">1.1</span> Bonus Hack: Quicksort - EZ Sorting</h3>
+<div id="outline-container-orgade2e90" class="outline-3">
+<h3 id="orgade2e90"><span class="section-number-3">1.1</span> Bonus Hack: Quicksort - EZ Sorting</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Not the most efficient implementation, but we can implement quicksort extremely succinctly using list unpacking + recursion:
@@ -315,8 +315,8 @@ Of course <code>sorted(ls)</code> does the job too.
 </div>
 </div>
 
-<div id="outline-container-org2196d20" class="outline-2">
-<h2 id="org2196d20"><span class="section-number-2">2</span> Poor Man's Cache</h2>
+<div id="outline-container-orgcb999aa" class="outline-2">
+<h2 id="orgcb999aa"><span class="section-number-2">2</span> Poor Man's Cache</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">fib</span>(n: <span class="org-builtin">int</span>, cache={0: 1, 1: 1}):
@@ -336,8 +336,8 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 </div>
 
-<div id="outline-container-org0a0ce45" class="outline-2">
-<h2 id="org0a0ce45"><span class="section-number-2">3</span> ♥ Generators ♥</h2>
+<div id="outline-container-org12d9e83" class="outline-2">
+<h2 id="org12d9e83"><span class="section-number-2">3</span> ♥ Generators ♥</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">triangle_number</span>(n: <span class="org-builtin">int</span>):
@@ -351,8 +351,8 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 </div>
 
-<div id="outline-container-orgb3ce3bb" class="outline-2">
-<h2 id="orgb3ce3bb"><span class="section-number-2">4</span> Poor Man's defaultdict</h2>
+<div id="outline-container-org8bb0096" class="outline-2">
+<h2 id="org8bb0096"><span class="section-number-2">4</span> Poor Man's defaultdict</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-variable-name">my_dict</span> = {<span class="org-string">"a"</span>: 1, <span class="org-string">"b"</span>: 2}
@@ -366,8 +366,8 @@ If we forego the slice syntax, we can specify a default value to <code>.get</cod
 </div>
 </div>
 
-<div id="outline-container-orgeaffd78" class="outline-2">
-<h2 id="orgeaffd78"><span class="section-number-2">5</span> Zip is it's own Inverse</h2>
+<div id="outline-container-orgf0baa9f" class="outline-2">
+<h2 id="orgf0baa9f"><span class="section-number-2">5</span> Zip is it's own Inverse</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">import</span> string
@@ -383,7 +383,7 @@ If we forego the slice syntax, we can specify a default value to <code>.get</cod
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-08-07 Sun 12:57</p>
+<p class="date">Created: 2022-08-07 Sun 15:51</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
