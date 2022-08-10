@@ -6,7 +6,7 @@
 <!-- 2022-08-10 Wed 17:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Precedence</title>
+<title>Deployments</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -253,46 +253,55 @@ while (tags.length > 0) {
 </head>
 <body>
 <div id="content">
-Previous: <a href='./links.html'>Links</a><span style='float: right;'>Up: <a href='./haskell.html'>Haskell</a></span><hr><h1 class="title">Precedence</h1>
+Next: <a href='./iam.html'>Iam</a><span style='float: right;'>Up: <a href='./cloud.html'>Cloud</a></span><hr><h1 class="title">Deployments</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf5776c9">1. Operator Precedence</a></li>
+<li><a href="#orgb9c8d91">1. AWS CLI</a></li>
+<li><a href="#org3929e9a">2. Updating Stacks</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf5776c9" class="outline-2">
-<h2 id="orgf5776c9"><span class="section-number-2">1</span> Operator Precedence</h2>
+<div id="outline-container-orgb9c8d91" class="outline-2">
+<h2 id="orgb9c8d91"><span class="section-number-2">1</span> AWS CLI</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Consider the following:
+To deploy a <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">stack</a> defined in Cloudformation we can use the <code>aws deploy</code> command:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">strSum <span class="org-haskell-tng-keyword">::</span><span class="org-haskell-tng-type"> </span><span class="org-haskell-tng-keyword">[</span><span class="org-haskell-tng-type">Int</span><span class="org-haskell-tng-keyword">]</span><span class="org-haskell-tng-type"> </span><span class="org-haskell-tng-keyword">-&gt;</span><span class="org-haskell-tng-type"> String</span>
-strSum xs <span class="org-haskell-tng-keyword">=</span> show $ sum xs
-<span class="org-comment-delimiter">-- </span><span class="org-comment">equivalent to</span>
-strSum xs <span class="org-haskell-tng-keyword">=</span> <span class="org-haskell-tng-keyword">(</span>$<span class="org-haskell-tng-keyword">)</span> show <span class="org-haskell-tng-keyword">(</span>sum xs<span class="org-haskell-tng-keyword">)</span>
+<pre class="src src-bash">aws cloudformation deploy --stack-name my-cool-stack --template-file my-cool-stack.yaml --capabilities CAPABILITY_IAM --parameters-overrides <span class="org-string">"MyParameter=value"</span> <span class="org-string">"MyOtherParameter=value"</span>
 </pre>
 </div>
 
 <p>
-This seems strange but it's exactly the same as:
+The <code>--capabilities</code> flag is required if your template includes resources that affect permissions on your account, e.g. one of your resources is a <code>AWS::IAM::Role</code>.
 </p>
-
-<div class="org-src-container">
-<pre class="src src-haskell">minMax <span class="org-haskell-tng-keyword">::</span><span class="org-haskell-tng-type"> </span><span class="org-haskell-tng-keyword">[</span><span class="org-haskell-tng-type">Int</span><span class="org-haskell-tng-keyword">]</span><span class="org-haskell-tng-type"> </span><span class="org-haskell-tng-keyword">-&gt;</span><span class="org-haskell-tng-type"> Int</span>
-minMax xs <span class="org-haskell-tng-keyword">=</span> minimum xs + maximum xs
-<span class="org-comment-delimiter">-- </span><span class="org-comment">equivalent to</span>
-minMax xs <span class="org-haskell-tng-keyword">=</span> <span class="org-haskell-tng-keyword">(</span>+<span class="org-haskell-tng-keyword">)</span> <span class="org-haskell-tng-keyword">(</span>min xs<span class="org-haskell-tng-keyword">)</span> <span class="org-haskell-tng-keyword">(</span>max xs<span class="org-haskell-tng-keyword">)</span>
-</pre>
-</div>
 
 <p>
-This because function application has higher precedence than any operator, so <code>f a `op` g b</code> is always equivalent to <code>(f a) `op` (g b)</code>.
+Another flag omitted above is the <code>--no-execute-changeset</code> which allows you view and confirm your changes before executing the change set.
 </p>
+
+<p>
+<code>deploy</code> is a wrapper around <code>CreateChangeSet</code>, <code>CreateStack</code>, and <code>UpdateStack</code>; we can use <code>deploy</code> whether the stack already exists or not.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3929e9a" class="outline-2">
+<h2 id="org3929e9a"><span class="section-number-2">2</span> Updating Stacks</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Updating a Cloudformation resource will either result in:
+</p>
+
+<ul class="org-ul">
+<li><b>Update with No Interruption:</b> the update occurs with no disruption to existing resources.  The resource's physical ID (e.g. EC2 instance ID or an S3 bucket name) is not changed.</li>
+<li><b>Updates with Some Interruption:</b> There may be some interruption updating the resource</li>
+<li><b>Replacement:</b> The resource is recreated during the update and thus its physical ID is also changed.</li>
+</ul>
 </div>
 </div>
 </div>
