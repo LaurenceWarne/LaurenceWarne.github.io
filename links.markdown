@@ -48,6 +48,8 @@ permalink: /links/
 
 * <a href="http://www.research.ibm.com/haifa/ponderthis/index.shtml">IBM monthly puzzles</a> (Ponder This)
 
+* <a href="https://www.jaapsch.net/puzzles/">Jaap's Puzzle Page</a> 
+
 # Blogs
 
 * <a href="https://mathproblems123.wordpress.com/">Beni Bogoşel's Blog</a>
