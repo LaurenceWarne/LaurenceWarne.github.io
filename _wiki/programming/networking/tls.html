@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-08-13 Sat 14:43 -->
+<!-- 2022-08-13 Sat 16:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TLS</title>
@@ -258,7 +258,7 @@ Previous: <a href='./routing.html'>Routing</a><span style='float: right;'>Up: <a
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org713407d">1. The Protocol</a></li>
+<li><a href="#org6f8286b">1. Digital Certificates</a></li>
 </ul>
 </div>
 </div>
@@ -266,8 +266,8 @@ Previous: <a href='./routing.html'>Routing</a><span style='float: right;'>Up: <a
 TLS superseeds SSL, it's used to encrypt communication between two parties, often over the transport layer (e.g. TCP).
 </p>
 
-<div id="outline-container-org713407d" class="outline-2">
-<h2 id="org713407d"><span class="section-number-2">1</span> The Protocol</h2>
+<div id="outline-container-org6f8286b" class="outline-2">
+<h2 id="org6f8286b"><span class="section-number-2">1</span> Digital Certificates</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Communication starts with the client and server agreeing to use a certain <a href="https://en.wikipedia.org/wiki/Cipher_suite">cipher suite</a>.  The server will then provide its <a href="https://en.wikipedia.org/wiki/Public_key_certificate">Digital Certificate</a>:
@@ -297,22 +297,36 @@ First of all we obtain information about the issuer:
 <ul class="org-ul">
 <li><code>C=US</code> tells us that the issuer is located in the US</li>
 <li><code>O=Let's Encrypt</code> is the organisation distributing the certificate (<a href="https://letsencrypt.org/">Let's Encrypt</a>)</li>
-<li><code>CN=R3</code> indicates that this is an intermediate certificate (<code>CN</code> stands for "Common Name")</li>
+<li><p>
+<code>CN=R3</code> <a href="https://letsencrypt.org/certificates/">R3</a> is an intermediate certificate (<code>CN</code> stands for "Common Name"), we will need to follow the certificate chain to fully verify this certificate:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">$ openssl s_client -showcerts -servername www.gnu.org -connect www.gnu.org:443 &lt;/dev/null          
+<span class="org-function-name">CONNECTED</span>(00000003)
+<span class="org-variable-name">depth</span>=2 C = US, O = Internet Security Research Group, CN = ISRG Root X1
+verify return:1
+<span class="org-variable-name">depth</span>=1 C = US, O = Let<span class="org-string">'s Encrypt, CN = R3</span>
+<span class="org-string">verify return:1</span>
+<span class="org-string">depth=0 CN = wildebeest1p.gnu.org</span>
+<span class="org-string">verify return:1</span>
+<span class="org-string"># More output omitted</span>
+</pre>
+</div></li>
 </ul>
 
 <p>
-We could obtain similar information using the <code>openssl</code> cli tool:
+Next we obtain information about the subject:
 </p>
-<div class="org-src-container">
-<pre class="src src-bash">openssl s_client -showcerts -servername www.gnu.org -connect www.gnu.org:443 &lt;/dev/null
-</pre>
-</div>
+<ul class="org-ul">
+<li><code>CN=wildebeest1p.gnu.org</code> this is the entity to whom the certificate is assigned</li>
+</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-08-13 Sat 14:43</p>
+<p class="date">Created: 2022-08-13 Sat 16:27</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
