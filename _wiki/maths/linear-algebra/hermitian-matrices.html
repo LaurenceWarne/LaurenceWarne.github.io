@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-08-13 Sat 14:43 -->
+<!-- 2022-08-13 Sat 16:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hermitian Matrices</title>
@@ -280,19 +280,19 @@ Previous: <a href='./eigenvectors.html'>Eigenvectors</a>, Next: <a href='./inner
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2d37e93">1. Definition</a></li>
-<li><a href="#org3e53a95">2. The Spectral Theorem</a>
+<li><a href="#org7dd20f3">1. Definition</a></li>
+<li><a href="#org7e74a7f">2. The Spectral Theorem</a>
 <ul>
-<li><a href="#org5c4faa6">2.1. All Eigenvalues of \( A \) are Real</a></li>
-<li><a href="#org7fe40ca">2.2. All Eigenvectors of \( A \) are Orthogonal</a></li>
+<li><a href="#org693f779">2.1. All Eigenvalues of \( A \) are Real</a></li>
+<li><a href="#orgb2884a9">2.2. All Eigenvectors of \( A \) are Orthogonal</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2d37e93" class="outline-2">
-<h2 id="org2d37e93"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-org7dd20f3" class="outline-2">
+<h2 id="org7dd20f3"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We say a complex square matrix \( A \) is <b>Hermitian</b> if it is equal to its own <b>conjugate transpose</b>, ie \( \forall i, j \) we have that:
@@ -320,8 +320,8 @@ We can view Hermitian matrices as an extension of real symmetric matrices as the
 </div>
 </div>
 
-<div id="outline-container-org3e53a95" class="outline-2">
-<h2 id="org3e53a95"><span class="section-number-2">2</span> The Spectral Theorem</h2>
+<div id="outline-container-org7e74a7f" class="outline-2">
+<h2 id="org7e74a7f"><span class="section-number-2">2</span> The Spectral Theorem</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We give the Spectral Theorem in the complex case: <i>If an \( n \times n \) matrix \( A \) is Hermitian, then all eigenvalues of \( A \) are real and there exists a <b>orthonormal</b> basis for \( \mathbb{C}^n \) consisting of the eigenvectors of \( A \).</i>
@@ -336,8 +336,8 @@ This theorem makes many claims, each of which we will prove in turn. The first t
 </p>
 </div>
 
-<div id="outline-container-org5c4faa6" class="outline-3">
-<h3 id="org5c4faa6"><span class="section-number-3">2.1</span> All Eigenvalues of \( A \) are Real</h3>
+<div id="outline-container-org693f779" class="outline-3">
+<h3 id="org693f779"><span class="section-number-3">2.1</span> All Eigenvalues of \( A \) are Real</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Let \( \lambda \) be an eigenvalue of \( A \), with corresponding eigenvector \( v \) with entries given by \( a_k + ib_k \). Then starting with \( Av = \lambda v \) :
@@ -363,8 +363,8 @@ Now taking the conjugate transpose of both sides, (note the LHS is invariant und
 </div>
 </div>
 
-<div id="outline-container-org7fe40ca" class="outline-3">
-<h3 id="org7fe40ca"><span class="section-number-3">2.2</span> All Eigenvectors of \( A \) are Orthogonal</h3>
+<div id="outline-container-orgb2884a9" class="outline-3">
+<h3 id="orgb2884a9"><span class="section-number-3">2.2</span> All Eigenvectors of \( A \) are Orthogonal</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Let \( v_1 \) and \( v_2 \) be eigenvectors of \( A \) corresponding to the distinct eigenvalues \( \lambda_1 \) and \( \lambda_2 \). Consider the product \( (Av_1)^*v_2 \). First of all we have that:
@@ -396,7 +396,7 @@ Equating these gives \( (\lambda_1 - \lambda_2)v_1^* v_2 = 0 \) from which we mu
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-08-13 Sat 14:43</p>
+<p class="date">Created: 2022-08-13 Sat 16:27</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
