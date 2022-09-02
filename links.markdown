@@ -30,6 +30,10 @@ permalink: /links/
 
 * <a href="https://debbugs.gnu.org/cgi/pkgreport.cgi?bug-rev=on;package=emacs">Emacs Bug Tracker</a> 
 
+* <a href="https://pavelfatin.com/scala-collections-tips-and-tricks/">Scala collections tips and tricks</a> by Pavel Fatin
+
+* <a href="https://martin.kleppmann.com/2014/11/25/hermitage-testing-the-i-in-acid.html">Isolation in DBs</a> by Martin Kleppmann
+
 # Question Sources
 
 * <a href="https://projecteuler.net/">Project Euler</a>
