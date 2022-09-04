@@ -6,7 +6,7 @@
 <!-- 2022-09-04 Sun 12:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Graphs</title>
+<title>Lambda</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -250,194 +250,74 @@ while (tags.length > 0) {
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-Previous: <a href='./graph-colouring.html'>Graph Colouring</a><span style='float: right;'>Up: <a href='./graph-theory.html'>Graph Theory</a></span><hr><h1 class="title">Graphs</h1>
+Previous: <a href='./iam.html'>Iam</a><span style='float: right;'>Up: <a href='./cloud.html'>Cloud</a></span><hr><h1 class="title">Lambda</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge70e5b1">1. Introduction</a></li>
-<li><a href="#org2a097c9">2. Vertex Sequences</a>
-<ul>
-<li><a href="#org39aac43">2.1. <b>Definition</b></a></li>
-<li><a href="#org4eda2a4">2.2. <b>Definition</b></a></li>
-<li><a href="#org971616d">2.3. <b>Definition</b></a></li>
-<li><a href="#orga82b016">2.4. <b>Definition</b></a></li>
-</ul>
-</li>
-<li><a href="#org917137b">3. Subgraphs</a>
-<ul>
-<li><a href="#org6ee7e20">3.1. <b>Definition</b></a></li>
-<li><a href="#org6441271">3.2. <b>Definition</b></a></li>
-<li><a href="#org051bf2e">3.3. <b>Definition</b></a></li>
-</ul>
-</li>
-<li><a href="#orgc3e401c">4. Adjacency Matrices</a>
-<ul>
-<li><a href="#org6e19d6b">4.1. Applications</a></li>
-</ul>
-</li>
+<li><a href="#org58624ac">1. Links</a></li>
+<li><a href="#orge9ccfca">2. Intro</a></li>
+<li><a href="#org53985bd">3. Runtimes</a></li>
+<li><a href="#org92750b9">4. Lifecycle</a></li>
+<li><a href="#org031e71c">5. Layers</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge70e5b1" class="outline-2">
-<h2 id="orge70e5b1"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org58624ac" class="outline-2">
+<h2 id="org58624ac"><span class="section-number-2">1</span> Links</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-We denote a graph as \( G(V, E) \), where \( V = \{ v_1, v_2 ... v_n \} \) is the vertex set of the graph and
-\( E = \{ (v_a, v_b) ... (v_c, v_d) \} \) as the edge set of the graph.
-</p>
-
-<p>
-If \( G \) is a <b>directed graph</b> then the elements of \( E \) will be ordered (ie \( (v_1, v_2) \) is distinct from \( (v_2, v_1) \)), otherwise \( G \) is <b>undirected</b>.
-</p>
-
-<p>
-We also say \( G \) is <b>simple</b> if there is at most on edge connecting any pair of vertices, and no edges connecting a vertex to itself.
-</p>
+<ul class="org-ul">
+<li>AWS developer guide: <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">https://docs.aws.amazon.com/lambda/latest/dg/welcome.html</a></li>
+<li>AWS Lambda Cloudformation docs: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html</a></li>
+<li>AWS Lambda Terraform docs: <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function">https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function</a></li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-org2a097c9" class="outline-2">
-<h2 id="org2a097c9"><span class="section-number-2">2</span> Vertex Sequences</h2>
+<div id="outline-container-orge9ccfca" class="outline-2">
+<h2 id="orge9ccfca"><span class="section-number-2">2</span> Intro</h2>
 <div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org39aac43" class="outline-3">
-<h3 id="org39aac43"><span class="section-number-3">2.1</span> <b>Definition</b></h3>
-<div class="outline-text-3" id="text-2-1">
 <p>
-A <b>walk</b> in a graph \( G(V, E) \) is a finite sequence of vertices \( (v_1 ... v_k) \) such that each consecutive pair forms an edge of \( G \).
+The main method of triggering Lambdas is to use an <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html">event source mapping</a> which typically reads an item from a stream or queue and then uses this item to invoke a Lambda using the appropriate event type.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org4eda2a4" class="outline-3">
-<h3 id="org4eda2a4"><span class="section-number-3">2.2</span> <b>Definition</b></h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-A <b>trail</b> (or tour) is a walk in which all the edges \( e_i = (v_i, v_{i + 1}) \) are distinct. We can remember this by associating them with <b>Eulerian trails</b> (which much visit every edge exactly once).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org971616d" class="outline-3">
-<h3 id="org971616d"><span class="section-number-3">2.3</span> <b>Definition</b></h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-A <b>path</b> is a trail in which a vertex occurs occurs only once in the edge sequence.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orga82b016" class="outline-3">
-<h3 id="orga82b016"><span class="section-number-3">2.4</span> <b>Definition</b></h3>
-<div class="outline-text-3" id="text-2-4">
-<p>
-A <b>cycle</b> is a trail in which all the vertices are distinct, except for the first and last which are the same.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org917137b" class="outline-2">
-<h2 id="org917137b"><span class="section-number-2">3</span> Subgraphs</h2>
+<div id="outline-container-org53985bd" class="outline-2">
+<h2 id="org53985bd"><span class="section-number-2">3</span> Runtimes</h2>
 <div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-org6ee7e20" class="outline-3">
-<h3 id="org6ee7e20"><span class="section-number-3">3.1</span> <b>Definition</b></h3>
-<div class="outline-text-3" id="text-3-1">
 <p>
-A <b>clique</b> is a set of vertices \( S \subseteq V \) such that the subgraph induced by \( S \) forms a complete graph.
+Lambdas run in <b>execution environments</b> which provide an isolated environment for Lambda functions to run.  <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">Runtimes</a> provide support for a specific language within an execution environment.  If the frequency of events is more than a single instance can handle, AWS Lambda will scale by starting more instances, and will stop instances that are no longer active.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org6441271" class="outline-3">
-<h3 id="org6441271"><span class="section-number-3">3.2</span> <b>Definition</b></h3>
-<div class="outline-text-3" id="text-3-2">
-<p>
-An <b>independent set</b>, I, of \( G(V, E) \) is a set \( I \subseteq V \) such that no pair of vertices in \( I \) is joined by an edge in \( E \).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org051bf2e" class="outline-3">
-<h3 id="org051bf2e"><span class="section-number-3">3.3</span> <b>Definition</b></h3>
-<div class="outline-text-3" id="text-3-3">
-<p>
-Let \( G(V, E) \) be a graph, then the <b>graph complement</b> of \( G \) is a graph \( H(V, E') \) such that \( e \in E' \iff e \not \in E \).
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgc3e401c" class="outline-2">
-<h2 id="orgc3e401c"><span class="section-number-2">4</span> Adjacency Matrices</h2>
+<div id="outline-container-org92750b9" class="outline-2">
+<h2 id="org92750b9"><span class="section-number-2">4</span> Lifecycle</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-Given a directed or undirected graph \( G(V, E) \) on \( n \) vertices, we define the <b>adjacency matrix</b>, \( A \), of \( G \) as an \( n * n \) matrix with entries given by:
-</p>
-
-<p>
-\[
-A_{i, j} = \begin{cases} 
-   1 & \text{if } (v_i, v_j) \in E \\
-   0 & \text{otherwise}
-  \end{cases}
-\]
-</p>
-
-<p>
-This is always symmetric if \( G \) is undirected, and zeroes always fill the main diagonal if \( G \) is <b>simple</b>.
+When using a provisioned runtime (e.g. you've created a class using an AWS SDK), AWS Lambda will instantiate the class and re-use it for multiple events so resources (e.g. an S3 client) can be re used on subsequent invocations.
 </p>
 </div>
-
-<div id="outline-container-org6e19d6b" class="outline-3">
-<h3 id="org6e19d6b"><span class="section-number-3">4.1</span> Applications</h3>
-<div class="outline-text-3" id="text-4-1">
-<p>
-Note \( (A^k)_{i, j} \) gives the number of paths of length \( k \) starting at \( v_i \) and ending at \( v_j \). Hence using matrix associativiy we can compute this value in \( O(log(k)) \) or \( O(1) \) time. 
-</p>
-
-<p>
-We can extends this to find the number of paths of length \( 1 \le x \le k \) starting at \( v_i \) and ending at \( v_j \), by noting this is equal to:
-</p>
-
-<p>
-\[
-(A + A^2 + ... + A^k)_{i, j} = \left( A(A^k - I_n)(A - I_n)^{-1} \right)_{i, j}
-\]
-</p>
-
-<p>
-Which can be computed in the same time complexity.
-</p>
 </div>
+
+<div id="outline-container-org031e71c" class="outline-2">
+<h2 id="org031e71c"><span class="section-number-2">5</span> Layers</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+You can use Lambda <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Layers</a> to re-use particular parts of your environment.  A layer basically consists of a zip file containing files grouped into one or more directories who themselves have special meaning.  For example, if you are using the java runtime, then <code>CLASSPATH</code> is always set to <code>java/lib</code> and so you can add to the classpath if you use a layer like:
+</p>
+<pre class="example">
+my-layer.zip
+└ java/lib/my-dep.jar
+</pre>
+<p>
+Similarly, all runtimes have <code>bin/</code> in their <code>PATH</code> and so executables can be added to a Lambda runtime this way.
+</p>
 </div>
 </div>
 </div>
