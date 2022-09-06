@@ -34,6 +34,8 @@ permalink: /links/
 
 * <a href="https://martin.kleppmann.com/2014/11/25/hermitage-testing-the-i-in-acid.html">Isolation in DBs</a> by Martin Kleppmann
 
+* <a href="https://www.chris-kipp.io/blog/an-intro-to-the-scala-presentation-compiler">Introduction to the Scala Presentation Compiler</a> by Chris Kipp
+
 # Question Sources
 
 * <a href="https://projecteuler.net/">Project Euler</a>
