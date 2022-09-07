@@ -6,7 +6,7 @@
 <!-- 2022-09-07 Wed 07:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Complex Analysis</title>
+<title>Hax</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -253,25 +253,52 @@ while (tags.length > 0) {
 </head>
 <body>
 <div id="content">
-<span >Up: <a href='../analysis.html'>Analysis</a></span><hr><h1 class="title">Complex Analysis</h1>
+<span >Up: <a href='./scala.html'>Scala</a></span><hr><h1 class="title">Hax</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org59b37c0">1. Contour Integration</a></li>
-<li><a href="#org548397d">2. Holomorphic Functions</a></li>
-<li><a href="#org3cdc191">3. Integral Theorems</a></li>
+<li><a href="#org09fe36e">1. Unapplying a String Interpolator</a></li>
+<li><a href="#orgab65f82">2. null to Option</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org59b37c0" class="outline-2">
-<h2 id="org59b37c0"><span class="section-number-2">1</span> <a href="./contour-integration.html">Contour Integration</a></h2>
+<p>
+Scala LyfHax.
+</p>
+
+<div id="outline-container-org09fe36e" class="outline-2">
+<h2 id="org09fe36e"><span class="section-number-2">1</span> Unapplying a String Interpolator</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Since 2.13 you can use <code>unapply</code> with string interpolators:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scala"><span class="org-string">"0 13 * * * echo 'Every day at 1pm'"</span> <span class="org-keyword">match</span> {
+  <span class="org-keyword">case</span> <span class="org-variable-name">s</span><span class="org-string">"</span><span class="org-variable-name">$min</span><span class="org-string"> </span><span class="org-variable-name">$hour</span><span class="org-string"> </span><span class="org-variable-name">$dayOfMonth</span><span class="org-string"> </span><span class="org-variable-name">$month</span><span class="org-string"> </span><span class="org-variable-name">$dayOfWeek</span><span class="org-string"> </span><span class="org-variable-name">$cmd</span><span class="org-string">"</span> <span class="org-keyword">=&gt;</span> <span class="org-constant">Some</span>(cmd)
+  <span class="org-keyword">case</span> <span class="org-keyword">_</span>                                                <span class="org-keyword">=&gt;</span> <span class="org-constant">None</span>
+}
+<span class="org-comment-delimiter">// </span><span class="org-comment">Option[String] = Some("echo 'Every day at 1pm'")</span>
+</pre>
 </div>
-<div id="outline-container-org548397d" class="outline-2">
-<h2 id="org548397d"><span class="section-number-2">2</span> <a href="./holomorphic-functions.html">Holomorphic Functions</a></h2>
 </div>
-<div id="outline-container-org3cdc191" class="outline-2">
-<h2 id="org3cdc191"><span class="section-number-2">3</span> <a href="./integral-theorems.html">Integral Theorems</a></h2>
+</div>
+
+<div id="outline-container-orgab65f82" class="outline-2">
+<h2 id="orgab65f82"><span class="section-number-2">2</span> null to Option</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+We can easily turn possible <code>null</code> values into an <code>Option</code> via <code>apply</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scala"><span class="org-keyword">val</span> <span class="org-variable-name">myString</span><span class="org-keyword">:</span> <span class="org-type">String</span> <span class="org-keyword">=</span> <span class="org-constant">null</span>
+<span class="org-constant">Option</span>(myString)
+<span class="org-comment-delimiter">// </span><span class="org-comment">Option[String] = None</span>
+</pre>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
