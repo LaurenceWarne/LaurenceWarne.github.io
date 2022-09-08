@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-07 Wed 07:31 -->
+<!-- 2022-09-08 Thu 13:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
@@ -258,8 +258,8 @@ while (tags.length > 0) {
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org09fe36e">1. Unapplying a String Interpolator</a></li>
-<li><a href="#orgab65f82">2. null to Option</a></li>
+<li><a href="#orgb27c675">1. Unapplying a String Interpolator</a></li>
+<li><a href="#org380dac1">2. null to Option</a></li>
 </ul>
 </div>
 </div>
@@ -267,8 +267,8 @@ while (tags.length > 0) {
 Scala LyfHax.
 </p>
 
-<div id="outline-container-org09fe36e" class="outline-2">
-<h2 id="org09fe36e"><span class="section-number-2">1</span> Unapplying a String Interpolator</h2>
+<div id="outline-container-orgb27c675" class="outline-2">
+<h2 id="orgb27c675"><span class="section-number-2">1</span> Unapplying a String Interpolator</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Since 2.13 you can use <code>unapply</code> with string interpolators:
@@ -285,8 +285,8 @@ Since 2.13 you can use <code>unapply</code> with string interpolators:
 </div>
 </div>
 
-<div id="outline-container-orgab65f82" class="outline-2">
-<h2 id="orgab65f82"><span class="section-number-2">2</span> null to Option</h2>
+<div id="outline-container-org380dac1" class="outline-2">
+<h2 id="org380dac1"><span class="section-number-2">2</span> null to Option</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We can easily turn possible <code>null</code> values into an <code>Option</code> via <code>apply</code>:
@@ -298,12 +298,16 @@ We can easily turn possible <code>null</code> values into an <code>Option</code>
 <span class="org-comment-delimiter">// </span><span class="org-comment">Option[String] = None</span>
 </pre>
 </div>
+
+<p>
+Note without the type hint here the <code>Option</code> will have type <code>Option[Null]</code>.
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-09-07 Wed 07:31</p>
+<p class="date">Created: 2022-09-08 Thu 13:24</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
