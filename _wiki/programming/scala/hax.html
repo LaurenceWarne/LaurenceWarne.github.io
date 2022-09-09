@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-08 Thu 13:38 -->
+<!-- 2022-09-09 Fri 10:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
@@ -258,8 +258,14 @@ while (tags.length > 0) {
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0528724">1. Unapplying a String Interpolator</a></li>
-<li><a href="#org4463bf3">2. null to Option</a></li>
+<li><a href="#orge89a0a3">1. Unapplying a String Interpolator</a></li>
+<li><a href="#org2e1c4ff">2. null to Option</a></li>
+<li><a href="#orgcda6bdf">3. Apply on Different Data Structures</a>
+<ul>
+<li><a href="#org4b76920">3.1. Lists</a></li>
+<li><a href="#orge8e76a2">3.2. Sets</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -267,8 +273,8 @@ while (tags.length > 0) {
 Scala LyfHax.
 </p>
 
-<div id="outline-container-org0528724" class="outline-2">
-<h2 id="org0528724"><span class="section-number-2">1</span> Unapplying a String Interpolator</h2>
+<div id="outline-container-orge89a0a3" class="outline-2">
+<h2 id="orge89a0a3"><span class="section-number-2">1</span> Unapplying a String Interpolator</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Since 2.13 you can use <code>unapply</code> with string interpolators:
@@ -285,8 +291,8 @@ Since 2.13 you can use <code>unapply</code> with string interpolators:
 </div>
 </div>
 
-<div id="outline-container-org4463bf3" class="outline-2">
-<h2 id="org4463bf3"><span class="section-number-2">2</span> null to Option</h2>
+<div id="outline-container-org2e1c4ff" class="outline-2">
+<h2 id="org2e1c4ff"><span class="section-number-2">2</span> null to Option</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We can easily turn possible <code>null</code> values into an <code>Option</code> via <code>apply</code>:
@@ -304,10 +310,58 @@ Note without the type hint here the <code>Option</code> will have type <code>Opt
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgcda6bdf" class="outline-2">
+<h2 id="orgcda6bdf"><span class="section-number-2">3</span> Apply on Different Data Structures</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org4b76920" class="outline-3">
+<h3 id="org4b76920"><span class="section-number-3">3.1</span> Lists</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+We can use the <code>apply</code> method on List objects to obtain the value at an index, but beware this is not safe, <code>lift</code> is usually a better option.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scala"><span class="org-keyword">val</span> <span class="org-variable-name">myList</span> <span class="org-keyword">=</span> <span class="org-constant">List</span>(<span class="org-constant">1</span>, <span class="org-constant">2</span>, <span class="org-constant">3</span>)
+myList(<span class="org-constant">1</span>)
+<span class="org-comment-delimiter">// </span><span class="org-comment">2</span>
+myList(<span class="org-constant">3</span>)
+<span class="org-comment-delimiter">// </span><span class="org-comment">java.lang.IndexOutOfBoundsException: 3</span>
+<span class="org-comment-delimiter">//   </span><span class="org-comment">scala.collection.LinearSeqOps.apply(LinearSeq.scala:117)</span>
+<span class="org-comment-delimiter">//   </span><span class="org-comment">scala.collection.LinearSeqOps.apply$(LinearSeq.scala:114)</span>
+<span class="org-comment-delimiter">//   </span><span class="org-comment">scala.collection.immutable.List.apply(List.scala:79)</span>
+</pre>
+</div>
+
+<p>
+<code>apply</code> on Maps, Strings, Arrays, Ranges, Vectors and Seqs behave similarly.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge8e76a2" class="outline-3">
+<h3 id="orge8e76a2"><span class="section-number-3">3.2</span> Sets</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+<code>apply</code> on Sets can be used to test membership:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scala"><span class="org-keyword">val</span> <span class="org-variable-name">bellsLt1k</span> <span class="org-keyword">=</span> <span class="org-constant">Set</span>(<span class="org-constant">1</span>, <span class="org-constant">2</span>, <span class="org-constant">5</span>, <span class="org-constant">15</span>, <span class="org-constant">52</span>, <span class="org-constant">203</span>, <span class="org-constant">877</span>)
+bellsLt1k(<span class="org-constant">203</span>)
+<span class="org-comment-delimiter">// </span><span class="org-comment">true</span>
+bellsLt1k(<span class="org-constant">10</span>)
+<span class="org-comment-delimiter">// </span><span class="org-comment">false</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-09-08 Thu 13:38</p>
+<p class="date">Created: 2022-09-09 Fri 10:45</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
