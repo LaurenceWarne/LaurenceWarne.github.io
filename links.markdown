@@ -36,6 +36,8 @@ permalink: /links/
 
 * <a href="https://www.chris-kipp.io/blog/an-intro-to-the-scala-presentation-compiler">Introduction to the Scala Presentation Compiler</a> by Chris Kipp
 
+* <a href="https://docs.scala-lang.org/overviews/collections/performance-characteristics.html">Time complexity of Scala collection operations</a>
+
 # Question Sources
 
 * <a href="https://projecteuler.net/">Project Euler</a>
