@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-09 Fri 10:45 -->
+<!-- 2022-09-17 Sat 11:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
@@ -258,15 +258,16 @@ Previous: <a href='./files.html'>Files</a>, Next: <a href='./modules.html'>Modul
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd2e1f07">1. Unpacking</a>
+<li><a href="#orgfc58f77">1. Unpacking</a>
 <ul>
-<li><a href="#org0b38333">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
+<li><a href="#org092a0b6">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
 </ul>
 </li>
-<li><a href="#org8ec834b">2. Poor Man's Cache</a></li>
-<li><a href="#org2147249">3. ♥ Generators ♥</a></li>
-<li><a href="#org57740d6">4. Poor Man's defaultdict</a></li>
-<li><a href="#orgda28a6a">5. Zip is it's own Inverse</a></li>
+<li><a href="#orgdd3e150">2. Poor Man's Cache</a></li>
+<li><a href="#org7b64c89">3. ♥ Generators ♥</a></li>
+<li><a href="#org906454a">4. Poor Man's defaultdict</a></li>
+<li><a href="#orgc87aaf6">5. Zip is it's own Inverse</a></li>
+<li><a href="#org8cf0fcb">6. <code>=</code> in Format Strings</a></li>
 </ul>
 </div>
 </div>
@@ -274,8 +275,8 @@ Previous: <a href='./files.html'>Files</a>, Next: <a href='./modules.html'>Modul
 A menagarie of cool python snippets!
 </p>
 
-<div id="outline-container-orgd2e1f07" class="outline-2">
-<h2 id="orgd2e1f07"><span class="section-number-2">1</span> Unpacking</h2>
+<div id="outline-container-orgfc58f77" class="outline-2">
+<h2 id="orgfc58f77"><span class="section-number-2">1</span> Unpacking</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">is_palindrome</span>(indexable):
@@ -288,8 +289,8 @@ A menagarie of cool python snippets!
 </div>
 </div>
 
-<div id="outline-container-org0b38333" class="outline-3">
-<h3 id="org0b38333"><span class="section-number-3">1.1</span> Bonus Hack: Quicksort - EZ Sorting</h3>
+<div id="outline-container-org092a0b6" class="outline-3">
+<h3 id="org092a0b6"><span class="section-number-3">1.1</span> Bonus Hack: Quicksort - EZ Sorting</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Not the most efficient implementation, but we can implement quicksort extremely succinctly using list unpacking + recursion:
@@ -315,8 +316,8 @@ Of course <code>sorted(ls)</code> does the job too.
 </div>
 </div>
 
-<div id="outline-container-org8ec834b" class="outline-2">
-<h2 id="org8ec834b"><span class="section-number-2">2</span> Poor Man's Cache</h2>
+<div id="outline-container-orgdd3e150" class="outline-2">
+<h2 id="orgdd3e150"><span class="section-number-2">2</span> Poor Man's Cache</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">fib</span>(n: <span class="org-builtin">int</span>, cache={0: 1, 1: 1}):
@@ -336,8 +337,8 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 </div>
 
-<div id="outline-container-org2147249" class="outline-2">
-<h2 id="org2147249"><span class="section-number-2">3</span> ♥ Generators ♥</h2>
+<div id="outline-container-org7b64c89" class="outline-2">
+<h2 id="org7b64c89"><span class="section-number-2">3</span> ♥ Generators ♥</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">triangle_number</span>(n: <span class="org-builtin">int</span>):
@@ -351,8 +352,8 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 </div>
 
-<div id="outline-container-org57740d6" class="outline-2">
-<h2 id="org57740d6"><span class="section-number-2">4</span> Poor Man's defaultdict</h2>
+<div id="outline-container-org906454a" class="outline-2">
+<h2 id="org906454a"><span class="section-number-2">4</span> Poor Man's defaultdict</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-variable-name">my_dict</span> = {<span class="org-string">"a"</span>: 1, <span class="org-string">"b"</span>: 2}
@@ -366,8 +367,8 @@ If we forego the slice syntax, we can specify a default value to <code>.get</cod
 </div>
 </div>
 
-<div id="outline-container-orgda28a6a" class="outline-2">
-<h2 id="orgda28a6a"><span class="section-number-2">5</span> Zip is it's own Inverse</h2>
+<div id="outline-container-orgc87aaf6" class="outline-2">
+<h2 id="orgc87aaf6"><span class="section-number-2">5</span> Zip is it's own Inverse</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">import</span> string
@@ -380,10 +381,28 @@ If we forego the slice syntax, we can specify a default value to <code>.get</cod
 </div>
 </div>
 </div>
+
+
+<div id="outline-container-org8cf0fcb" class="outline-2">
+<h2 id="org8cf0fcb"><span class="section-number-2">6</span> <code>=</code> in Format Strings</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Since 3.8 you can prepend the expression text to the evaluated expression if you append an <code>=</code> to the format expression.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">name</span> = <span class="org-string">"Bob"</span>
+<span class="org-variable-name">age</span> = <span class="org-string">"37"</span>
+
+<span class="org-keyword">print</span>(f<span class="org-string">"Person({name=}, {age=})"</span>)
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-09-09 Fri 10:45</p>
+<p class="date">Created: 2022-09-17 Sat 11:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

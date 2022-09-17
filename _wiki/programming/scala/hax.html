@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-09 Fri 10:45 -->
+<!-- 2022-09-17 Sat 11:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
@@ -258,14 +258,16 @@ while (tags.length > 0) {
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge89a0a3">1. Unapplying a String Interpolator</a></li>
-<li><a href="#org2e1c4ff">2. null to Option</a></li>
-<li><a href="#orgcda6bdf">3. Apply on Different Data Structures</a>
+<li><a href="#org5475f3a">1. Unapplying a String Interpolator</a></li>
+<li><a href="#org0c54e05">2. null to Option</a></li>
+<li><a href="#org8b8750f">3. Apply on Different Data Structures</a>
 <ul>
-<li><a href="#org4b76920">3.1. Lists</a></li>
-<li><a href="#orge8e76a2">3.2. Sets</a></li>
+<li><a href="#orgf2e2f58">3.1. Lists</a></li>
+<li><a href="#org99abe38">3.2. Sets</a></li>
 </ul>
 </li>
+<li><a href="#orgc74b28a">4. For Comprehension One-liner</a></li>
+<li><a href="#org885b5c0">5. Tuple to Case Class</a></li>
 </ul>
 </div>
 </div>
@@ -273,8 +275,8 @@ while (tags.length > 0) {
 Scala LyfHax.
 </p>
 
-<div id="outline-container-orge89a0a3" class="outline-2">
-<h2 id="orge89a0a3"><span class="section-number-2">1</span> Unapplying a String Interpolator</h2>
+<div id="outline-container-org5475f3a" class="outline-2">
+<h2 id="org5475f3a"><span class="section-number-2">1</span> Unapplying a String Interpolator</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Since 2.13 you can use <code>unapply</code> with string interpolators:
@@ -291,8 +293,8 @@ Since 2.13 you can use <code>unapply</code> with string interpolators:
 </div>
 </div>
 
-<div id="outline-container-org2e1c4ff" class="outline-2">
-<h2 id="org2e1c4ff"><span class="section-number-2">2</span> null to Option</h2>
+<div id="outline-container-org0c54e05" class="outline-2">
+<h2 id="org0c54e05"><span class="section-number-2">2</span> null to Option</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We can easily turn possible <code>null</code> values into an <code>Option</code> via <code>apply</code>:
@@ -311,12 +313,12 @@ Note without the type hint here the <code>Option</code> will have type <code>Opt
 </div>
 </div>
 
-<div id="outline-container-orgcda6bdf" class="outline-2">
-<h2 id="orgcda6bdf"><span class="section-number-2">3</span> Apply on Different Data Structures</h2>
+<div id="outline-container-org8b8750f" class="outline-2">
+<h2 id="org8b8750f"><span class="section-number-2">3</span> Apply on Different Data Structures</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org4b76920" class="outline-3">
-<h3 id="org4b76920"><span class="section-number-3">3.1</span> Lists</h3>
+<div id="outline-container-orgf2e2f58" class="outline-3">
+<h3 id="orgf2e2f58"><span class="section-number-3">3.1</span> Lists</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 We can use the <code>apply</code> method on List objects to obtain the value at an index, but beware this is not safe, <code>lift</code> is usually a better option.
@@ -335,13 +337,13 @@ myList(<span class="org-constant">3</span>)
 </div>
 
 <p>
-<code>apply</code> on Maps, Strings, Arrays, Ranges, Vectors and Seqs behave similarly.
+<code>apply</code> on Maps, Strings, Arrays, Ranges, Vectors and Seqs behaves similarly.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orge8e76a2" class="outline-3">
-<h3 id="orge8e76a2"><span class="section-number-3">3.2</span> Sets</h3>
+<div id="outline-container-org99abe38" class="outline-3">
+<h3 id="org99abe38"><span class="section-number-3">3.2</span> Sets</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 <code>apply</code> on Sets can be used to test membership:
@@ -358,10 +360,40 @@ bellsLt1k(<span class="org-constant">10</span>)
 </div>
 </div>
 </div>
+<div id="outline-container-orgc74b28a" class="outline-2">
+<h2 id="orgc74b28a"><span class="section-number-2">4</span> For Comprehension One-liner</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-scala"><span class="org-keyword">val</span> <span class="org-variable-name">rollOfTwoDie</span> <span class="org-keyword">=</span> (<span class="org-keyword">for</span> (x <span class="org-keyword">&lt;-</span> (<span class="org-constant">1</span> to <span class="org-constant">6</span>); y <span class="org-keyword">&lt;-</span> (<span class="org-constant">1</span> to <span class="org-constant">6</span>)) <span class="org-keyword">yield</span> x + y).sorted
+<span class="org-comment-delimiter">// </span><span class="org-comment">Vector(2, 3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 11, 11, 12)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org885b5c0" class="outline-2">
+<h2 id="org885b5c0"><span class="section-number-2">5</span> Tuple to Case Class</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+We can use the <code>.tupled</code> method of <a href="https://www.scala-lang.org/api/current/scala/Function2.html">FunctionN</a> to nicely obtain a case class instance from a tuple:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scala"><span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">Book</span>(title<span class="org-keyword">:</span> <span class="org-type">String</span>, author<span class="org-keyword">:</span> <span class="org-type">String</span>)
+
+<span class="org-keyword">val</span> <span class="org-variable-name">bookData</span> <span class="org-keyword">=</span> (<span class="org-string">"Old Man's War"</span>, <span class="org-string">"John Scalzi"</span>)
+<span class="org-comment-delimiter">// </span><span class="org-comment">Pre Scala 2.11.8</span>
+<span class="org-keyword">val</span> <span class="org-variable-name">book</span> <span class="org-keyword">=</span> (<span class="org-constant">Book</span>.apply <span class="org-keyword">_</span>).tupled(bookData)
+<span class="org-comment-delimiter">// </span><span class="org-comment">The companion object of case class extends FunctionN so we can do this is 2.11.8+</span>
+<span class="org-keyword">val</span> <span class="org-variable-name">book</span> <span class="org-keyword">=</span> <span class="org-constant">Book</span>.tupled(bookData)
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-09-09 Fri 10:45</p>
+<p class="date">Created: 2022-09-17 Sat 11:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
