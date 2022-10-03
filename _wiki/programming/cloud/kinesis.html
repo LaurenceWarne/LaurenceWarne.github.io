@@ -6,7 +6,7 @@
 <!-- 2022-10-03 Mon 09:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Group Actions</title>
+<title>Kinesis</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -250,218 +250,45 @@ while (tags.length > 0) {
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-Previous: <a href='./factor-groups.html'>Factor Groups</a>, Next: <a href='./burnsides-lemma.html'>Burnsides Lemma</a><span style='float: right;'>Up: <a href='./group-theory.html'>Group Theory</a></span><hr><h1 class="title">Group Actions</h1>
+Previous: <a href='./iam.html'>Iam</a>, Next: <a href='./lambda.html'>Lambda</a><span style='float: right;'>Up: <a href='./cloud.html'>Cloud</a></span><hr><h1 class="title">Kinesis</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org309f030">1. Definition</a></li>
-<li><a href="#org5290923">2. Examples</a></li>
-<li><a href="#org9657fc0">3. Orbits and Stablizers</a>
-<ul>
-<li><a href="#org9433e89">3.1. Example</a></li>
-<li><a href="#orgf2be468">3.2. Orbit-Stabilizer Theorem</a></li>
-</ul>
-</li>
+<li><a href="#org496fc75">1. Links</a></li>
+<li><a href="#orgd535c44">2. Shards</a></li>
+<li><a href="#orgcd43213">3. Consumers</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org309f030" class="outline-2">
-<h2 id="org309f030"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-org496fc75" class="outline-2">
+<h2 id="org496fc75"><span class="section-number-2">1</span> Links</h2>
 <div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><b>Using Kinesis With Lambdas</b>: <a href="https://aws.amazon.com/blogs/big-data/best-practices-for-consuming-amazon-kinesis-data-streams-using-aws-lambda/">https://aws.amazon.com/blogs/big-data/best-practices-for-consuming-amazon-kinesis-data-streams-using-aws-lambda/</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd535c44" class="outline-2">
+<h2 id="orgd535c44"><span class="section-number-2">2</span> Shards</h2>
+<div class="outline-text-2" id="text-2">
 <p>
-Let \( G \) be a group and \( X \) a set, then we say a function \( F: G \times X \to X \), \( F(g, x) = g \cdot x \), is an <b>action of \( G \) on \( X \)</b> if it satisfies:
-</p>
-
-<ol class="org-ol">
-<li>\( \forall g_1, g_2 \in G, \ x \in X \) we have that \( g_1 \cdot (g_2 \cdot x) = \left( g_2g_1 \right) \cdot x \)</li>
-<li>\( \forall x \in X, \ 1 \cdot x = x \)</li>
-</ol>
-
-<p>
-We also say \( X \) is a <b>G-set</b>.
+A shard is a sequence of records in a stream.  It supports 1 MB/s and 1000 records/s  for writes and 2 MB/s for reads.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5290923" class="outline-2">
-<h2 id="org5290923"><span class="section-number-2">2</span> Examples</h2>
-</div>
-
-<div id="outline-container-org9657fc0" class="outline-2">
-<h2 id="org9657fc0"><span class="section-number-2">3</span> Orbits and Stablizers</h2>
+<div id="outline-container-orgcd43213" class="outline-2">
+<h2 id="orgcd43213"><span class="section-number-2">3</span> Consumers</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-<b>Definition</b> Let \( G \) be a group that acts on the set \( X \). For \( x \in X \) we define the <b>stabilizer of \( x \) in \( G \)</b>, \( stab_G(x) \) as:
+You can use Enhanced Fan-Out Consumers to create independent consumers for a given stream.
 </p>
-
-<p>
-\[
-stab_G(x) = \{ g \in G : g \cdot x = x \}
-\]
-</p>
-
-<p>
-<b>Definition</b> Let \( G \) be a group that acts on the set \( X \). For \( x \in X \) we define the <b>orbit of \( x \) in \( G \)</b>, \( orb_G(x) \) as:
-</p>
-
-<p>
-\[
-orb_G(x) = \{ g \cdot x : g \in G \}
-\]
-</p>
-
-<p>
-The following definitions will also be useful in the next section, they are the flipside of the previous two definitions:
-</p>
-
-<p>
-<b>Definition</b> Let \( G \) be a group that acts on the set \( X \). Let \( g \in G \), then we define \( X^g \) as:
-</p>
-
-<p>
-\[
-X^G = \{ x : g \cdot x = x \}
-\]
-</p>
-
-<p>
-ie the set of all fixed points of \( X \) with respect to \( g \).
-</p>
-
-<p>
-<b>Definition</b> Let \( G \) be a group that acts on the set \( X \). We define the set of orbits of \( G \), \( X / G \) as:
-</p>
-
-<p>
-\[
-X / G = \{ orb_G(x) : g \in G \}
-\]
-</p>
-</div>
-
-<div id="outline-container-org9433e89" class="outline-3">
-<h3 id="org9433e89"><span class="section-number-3">3.1</span> Example</h3>
-<div class="outline-text-3" id="text-3-1">
-<p>
-Let \( G = \{ (1), \ (1 \ 2), \ (3 \ 4 \ 6), \ (3 \ 6 \ 4), \ (1 \ 2)(3 \ 4 \ 6), \ (1 \ 2)(3 \ 6 \ 4)\} \), so that \( G \) acts on \( \{ 1,2,3,4,5,6 \} \). Since 5 is fixed by all elements of \( G \) we have that:
-</p>
-
-\begin{align*}
-stab_G(5) &= G \\
-org_G(5)  &= \{ 5 \}
-\end{align*}
-
-<p>
-Similarly, we have that:
-</p>
-
-\begin{align*}
-stab_G(3) &= \{ (1), \ (1 \ 2) \} \\
-org_G(3)  &= \{ 3, \ 4, \ 6 \}
-\end{align*}
-</div>
-</div>
-
-<div id="outline-container-orgf2be468" class="outline-3">
-<h3 id="orgf2be468"><span class="section-number-3">3.2</span> Orbit-Stabilizer Theorem</h3>
-<div class="outline-text-3" id="text-3-2">
-<p>
-<i>Supppose \( G \) is a finite group which acts on the set \( X \). Then for all \( x \in X \) we have:</i>
-</p>
-
-<p>
-\[
-\mid G \mid = \mid stab_G(x) \mid * \mid orb_G(x) \mid
-\]
-</p>
-
-
-<p>
-<b>Proof</b> Fix \( x \in X \). We first show that \( stab_G(x) \le G \). First we know that \( e \in stab_G(x) \) since \( e \cdot x = x \). Now let \( g, h \in G \). We have:
-</p>
-
-\begin{align*}
-g^{-1} \cdot (g \cdot x) = g^{-1} \cdot x &\implies (gg^{-1}) \cdot x = g^{-1} * x \\
-&\implies e \cdot x = g^{-1} \cdot x \\
-&\implies g^{-1} \cdot x = x \\
-&\implies g^{-1} \in stab_G(x)
-\end{align*}
-
-<p>
-Secondly:
-</p>
-
-<p>
-\[
-(gh) \cdot x = g \cdot (h \cdot x) = g \cdot x = x
-\]
-</p>
-
-<p>
-Hence \( gh \in stab_G(x) \) thus \( stab_G(x) \le G \).
-</p>
-
-<p>
-It then follows from Lagrange's Theorem that the number of left cosets of \( stab_G(x) \) in \( G \) is given by \( [G:stab_G(x)] = \mid G \mid / \mid stab_G(x) \mid \). Letting \( x \) be fixed as before, we define:
-</p>
-
-<p>
-\[
-f : G \to X \text{ by } f(g) = g \cdot x
-\]
-</p>
-
-<p>
-Note the image of \( f \) is given by \( orb_G(x) \) by definition. Now suppose two elements map to the same value:
-</p>
-
-<p>
-\[
-f(g) = f(h) \iff g \cdot x = h \cdot x \iff g^{-1}h \cdot x = x \iff g^{-1}h \in stab_G(x)
-\]
-</p>
-
-<p>
-Which is equivalent to \( g \) and \( h \) having the same left coset with respect to \( stab_G(x) \). From this it is apparent that there is a bijection between the left cosets of \( stab_G(x) \) and \( orb_G(x) \). Hence:
-</p>
-
-<p>
-\[
-\mid G \mid / \mid stab_G(x) \mid = \mid orb_G(x) \mid
-\]
-</p>
-
-<p>
-which rearranges to the required equality.
-</p>
-</div>
 </div>
 </div>
 </div>
