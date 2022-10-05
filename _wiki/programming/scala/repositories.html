@@ -6,7 +6,7 @@
 <!-- 2022-10-05 Wed 10:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hax</title>
+<title>Repositories</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -253,150 +253,62 @@ while (tags.length > 0) {
 </head>
 <body>
 <div id="content">
-Previous: <a href='./files.html'>Files</a>, Next: <a href='./modules.html'>Modules</a><span style='float: right;'>Up: <a href='./python.html'>Python</a></span><hr><h1 class="title">Hax</h1>
+Previous: <a href='./hax.html'>Hax</a><span style='float: right;'>Up: <a href='./scala.html'>Scala</a></span><hr><h1 class="title">Repositories</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org183a50d">1. Unpacking</a>
-<ul>
-<li><a href="#org7f7edc6">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
-</ul>
-</li>
-<li><a href="#org9c429b7">2. Poor Man's Cache</a></li>
-<li><a href="#orgaa0c53b">3. ♥ Generators ♥</a></li>
-<li><a href="#orgc07a2fe">4. Poor Man's defaultdict</a></li>
-<li><a href="#org38fda0f">5. Zip is it's own Inverse</a></li>
-<li><a href="#orgf2d5aa2">6. <code>=</code> in Format Strings</a></li>
+<li><a href="#org8d8baba">1. Maven</a></li>
+<li><a href="#org1c0a5b6">2. Ivy</a></li>
+<li><a href="#org093e5c3">3. Coursier</a></li>
 </ul>
 </div>
 </div>
-<p>
-A menagarie of cool python snippets!
-</p>
 
-<div id="outline-container-org183a50d" class="outline-2">
-<h2 id="org183a50d"><span class="section-number-2">1</span> Unpacking</h2>
+<div id="outline-container-org8d8baba" class="outline-2">
+<h2 id="org8d8baba"><span class="section-number-2">1</span> Maven</h2>
 <div class="outline-text-2" id="text-1">
-<div class="org-src-container">
-<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">is_palindrome</span>(indexable):
-    <span class="org-keyword">if</span> <span class="org-builtin">len</span>(indexable) &gt; 1:
-        first, *<span class="org-variable-name">rest</span>, <span class="org-variable-name">last</span> = indexable
-        <span class="org-keyword">return</span> first == last <span class="org-keyword">and</span> is_palindrome(rest)
-    <span class="org-keyword">else</span>:
-        <span class="org-keyword">return</span> <span class="org-constant">True</span>
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org7f7edc6" class="outline-3">
-<h3 id="org7f7edc6"><span class="section-number-3">1.1</span> Bonus Hack: Quicksort - EZ Sorting</h3>
-<div class="outline-text-3" id="text-1-1">
 <p>
-Not the most efficient implementation, but we can implement quicksort extremely succinctly using list unpacking + recursion:
+<a href="https://maven.apache.org/guides/introduction/introduction-to-repositories.html">Maven repositories</a> are responsible for holding artefacts and dependencies, they can either be local (on a user's local machine, typically <code>~/.m2</code>) or remote like maven central <a href="https://repo.maven.apache.org/maven2/">https://repo.maven.apache.org/maven2/</a>.
 </p>
 
+<p>
+You can add a maven repository to a mill module like so:
+</p>
 <div class="org-src-container">
-<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">quicksort</span>(ls: <span class="org-builtin">list</span>):
-    <span class="org-keyword">if</span> ls:
-        pivot, *<span class="org-variable-name">rest</span> = ls
-        <span class="org-variable-name">smaller</span>, <span class="org-variable-name">greater</span> = [], []
-        <span class="org-keyword">for</span> item <span class="org-keyword">in</span> rest:
-            (smaller <span class="org-keyword">if</span> pivot &gt; item <span class="org-keyword">else</span> greater).append(item)
-        <span class="org-keyword">return</span> quicksort(smaller) + [pivot] + quicksort(greater)
-    <span class="org-keyword">else</span>:
-        <span class="org-keyword">return</span> []
+<pre class="src src-scala"><span class="org-keyword">import</span> coursier.maven.<span class="org-constant">MavenRepository</span>
+
+<span class="org-keyword">def</span> <span class="org-function-name">repositories</span> <span class="org-keyword">=</span> <span class="org-keyword">super</span>.repositories ++ <span class="org-constant">Seq</span>(
+  <span class="org-constant">MavenRepository</span>(<span class="org-string">"https://oss.sonatype.org/content/repositories/releases"</span>)
+)
 </pre>
 </div>
 
 <p>
-Of course <code>sorted(ls)</code> does the job too.
+Or sbt:
 </p>
+<div class="org-src-container">
+<pre class="src src-scala">resolvers += <span class="org-string">"Sonatype OSS Snapshots"</span> at <span class="org-string">"https://oss.sonatype.org/content/repositories/releases"</span>
+</pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org9c429b7" class="outline-2">
-<h2 id="org9c429b7"><span class="section-number-2">2</span> Poor Man's Cache</h2>
+<div id="outline-container-org1c0a5b6" class="outline-2">
+<h2 id="org1c0a5b6"><span class="section-number-2">2</span> Ivy</h2>
 <div class="outline-text-2" id="text-2">
-<div class="org-src-container">
-<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">fib</span>(n: <span class="org-builtin">int</span>, cache={0: 1, 1: 1}):
-    <span class="org-keyword">if</span> n <span class="org-keyword">not</span> <span class="org-keyword">in</span> cache:
-        <span class="org-variable-name">cache</span>[n] = fib(n - 1, cache) + fib(n - 2, cache)
-    <span class="org-keyword">return</span> cache[n]
-</pre>
-</div>
-
 <p>
-The cache object is created when the function is defined, not every time it is called. You can reset the cache (and change the base cases!) by passing in a new cache object.
-</p>
-
-<p>
-Bonus points for fixing up this one so it doesn't blow up the stack.
+You can find your local ivy cache at <code>~/.ivy2/cache</code> and your local repository at <code>~/.ivy2/local</code>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgaa0c53b" class="outline-2">
-<h2 id="orgaa0c53b"><span class="section-number-2">3</span> ♥ Generators ♥</h2>
+<div id="outline-container-org093e5c3" class="outline-2">
+<h2 id="org093e5c3"><span class="section-number-2">3</span> Coursier</h2>
 <div class="outline-text-2" id="text-3">
-<div class="org-src-container">
-<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">triangle_number</span>(n: <span class="org-builtin">int</span>):
-    <span class="org-keyword">return</span> <span class="org-builtin">sum</span>(k <span class="org-keyword">for</span> k <span class="org-keyword">in</span> <span class="org-builtin">range</span>(n + 1))
-</pre>
-</div>
-
 <p>
-<code>sum(k for k in range(n + 1))</code> is desugared to <code>sum((k for k in range(n + 1)))</code>, so we're just taking the sum of a generator comprehension. Note this is not equivalent to <code>sum([k for k in range(n + 1)])</code> as the list comprehension does not use constant memory!
+Both sbt and mill use <a href="https://get-coursier.io/docs/overview">coursier</a> for artefact fetching, and as a result most artefacts consumed by them are found in the coursier cache, located at <code>~/.cache/coursier/v1</code>.  From here the path artefacts lie in is generally split into repositories and then the artefacts themselves (see <a href="https://get-coursier.io/docs/cache">here</a> for more information).
 </p>
-</div>
-</div>
-
-<div id="outline-container-orgc07a2fe" class="outline-2">
-<h2 id="orgc07a2fe"><span class="section-number-2">4</span> Poor Man's defaultdict</h2>
-<div class="outline-text-2" id="text-4">
-<div class="org-src-container">
-<pre class="src src-python"><span class="org-variable-name">my_dict</span> = {<span class="org-string">"a"</span>: 1, <span class="org-string">"b"</span>: 2}
-<span class="org-keyword">print</span>(my_dict.get(<span class="org-string">"A"</span>, -1))
-</pre>
-</div>
-
-<p>
-If we forego the slice syntax, we can specify a default value to <code>.get</code> in order to avoid a <code>KeyError</code>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org38fda0f" class="outline-2">
-<h2 id="org38fda0f"><span class="section-number-2">5</span> Zip is it's own Inverse</h2>
-<div class="outline-text-2" id="text-5">
-<div class="org-src-container">
-<pre class="src src-python"><span class="org-keyword">import</span> string
-
-<span class="org-variable-name">zipped</span> = <span class="org-builtin">list</span>(<span class="org-builtin">zip</span>(<span class="org-builtin">range</span>(10), string.ascii_lowercase, string.ascii_uppercase))
-<span class="org-keyword">print</span>(<span class="org-string">"Zipped up: "</span> + <span class="org-builtin">str</span>(zipped))
-<span class="org-variable-name">dezipped</span> = <span class="org-builtin">list</span>(<span class="org-builtin">zip</span>(*zipped))
-<span class="org-keyword">print</span>(<span class="org-string">"Dezipped: "</span> + <span class="org-builtin">str</span>(dezipped))
-</pre>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgf2d5aa2" class="outline-2">
-<h2 id="orgf2d5aa2"><span class="section-number-2">6</span> <code>=</code> in Format Strings</h2>
-<div class="outline-text-2" id="text-6">
-<p>
-Since 3.8 you can prepend the expression text to the evaluated expression if you append an <code>=</code> to the format expression.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python"><span class="org-variable-name">name</span> = <span class="org-string">"Bob"</span>
-<span class="org-variable-name">age</span> = <span class="org-string">"37"</span>
-
-<span class="org-keyword">print</span>(f<span class="org-string">"Person({name=}, {age=})"</span>)
-</pre>
-</div>
 </div>
 </div>
 </div>
