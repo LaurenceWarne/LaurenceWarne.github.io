@@ -38,6 +38,8 @@ permalink: /links/
 
 * <a href="https://docs.scala-lang.org/overviews/collections/performance-characteristics.html">Time complexity of Scala collection operations</a>
 
+* <a href="https://docs.scala-lang.org/overviews/core/binary-compatibility-for-library-authors.html">Scala Binary Compatibility</a>
+
 # Question Sources
 
 * <a href="https://projecteuler.net/">Project Euler</a>
