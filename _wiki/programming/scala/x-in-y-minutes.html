@@ -6,7 +6,7 @@
 <!-- 2022-10-16 Sun 08:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Change of Basis</title>
+<title>X In Y Minutes</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -250,128 +250,23 @@ while (tags.length > 0) {
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-Next: <a href='./determinants.html'>Determinants</a><span style='float: right;'>Up: <a href='./linear-algebra.html'>Linear Algebra</a></span><hr><h1 class="title">Change of Basis</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org2ce47d9">1. Introduction</a></li>
-<li><a href="#org9f7652e">2. Proof</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org2ce47d9" class="outline-2">
-<h2 id="org2ce47d9"><span class="section-number-2">1</span> Introduction</h2>
-<div class="outline-text-2" id="text-1">
+Previous: <a href='./repositories.html'>Repositories</a><span style='float: right;'>Up: <a href='./scala.html'>Scala</a></span><hr><h1 class="title">X In Y Minutes</h1>
 <p>
-Suppose for some finite dimensional K-space \( V \) we are given two bases:
+My take on the x in y minutes saga for Scala 2.
 </p>
 
-<p>
-\[ B = \{v_1, ..., v_n \} \]
-\[ C = \{u_1, ..., u_n \} \]
-</p>
+<div class="org-src-container">
+<pre class="src src-scala"><span class="org-comment-delimiter">// </span><span class="org-comment">The following are implicitly imported in every scala file:</span>
 
-<p>
-And we have some \( w \in V \) whose column vector WRT \( B \) is:
-</p>
+<span class="org-comment-delimiter">// </span><span class="org-comment">import java.lang._</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">import scala._</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">import scala.Predef._</span>
 
-<p>
-\[ [w]_B = c_1 \]
-</p>
 
-<p>
-Then there is an easy way to obtain \( [w]_C \) from \( [w]_B \), define the following matrix:
-</p>
-
-<p>
-\[ P_{B \to C} = ( [v_1]_C \ [v_2]_C \ ... \ [v_n]_C ) \]
-</p>
-
-<p>
-Ie the columns of \( P_{B \to C} \) are given by the coordinate vectors of the elements in the basis \( B \) WRT \( C \).
-</p>
-
-<p>
-We claim \( \forall w \in V \):
-</p>
-
-<p>
-\[ P_{B \to C} \ [w]_C = [w]_B \]
-</p>
-</div>
-</div>
-
-<div id="outline-container-org9f7652e" class="outline-2">
-<h2 id="org9f7652e"><span class="section-number-2">2</span> Proof</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-Clearly \( P_{B \to C} \) is an \( n * n \) matrix, so the multiplication is defined. Consider:
-</p>
-
-<p>
-\[ P_{B \to C} \ [v_i]_B \]
-</p>
-
-<p>
-Where \( [v_i]_B \) is the coordinate vector of the ith vector in the basis \( B \) WRT to \( B \), and is thus 1 in the ith row and 0 everywhere else.
-</p>
-
-<p>
-We can see this multiplication will extract the ith column of \( P_{B \to C} \), and thus by the definition of \( P_{B \to C} \):
-</p>
-
-<p>
-\[ P_{B \to C} \ [v_i]_B = [v_i]_C \]
-</p>
-
-<p>
-Hence our claim holds for all basis vectors in \( B \). \( B \) spans \( V \), hence we can write any \( w \in V \) as:
-</p>
-
-<p>
-\[ w = a_1v_1 + ... + a_nv_n \]
-</p>
-
-<p>
-For some \( a_1, ... a_n \in K \). So:
-</p>
-
-\begin{align} 
-[w]_C &= [a_1v_1 + ... + a_nv_n]_C \\
-&= a_1[v_1]_C + ... + a_n[v_n]_C \\
-&= P_{B \to C} \ a_1[v_1]_B + ... + P_{B \to C} \ a_n[v_n]_B \\
-&= P_{B \to C} (a_1[v_1]_B + ... + a_n[v_n]_B) \\
-&= P_{B \to C} ([a_1v_1 + ... + a_nv_n]_B) \\
-&= P_{B \to C} [w]_B
-\end{align}
-</div>
+</pre>
 </div>
 </div>
 <div id="postamble" class="status">
