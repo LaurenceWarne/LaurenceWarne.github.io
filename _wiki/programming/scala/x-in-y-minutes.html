@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-23 Sun 09:23 -->
+<!-- 2022-10-30 Sun 12:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X In Y Minutes</title>
@@ -259,19 +259,63 @@ My take on the x in y minutes saga for Scala 2.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-scala"><span class="org-comment-delimiter">// </span><span class="org-comment">The following are implicitly imported in every scala file:</span>
+<pre class="src src-scala"><span class="org-comment-delimiter">// </span><span class="org-comment">Also see the Scala language specification: https://www.scala-lang.org/files/archive/spec/2.13/</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">The following are implicitly imported in every scala file:</span>
 
 <span class="org-comment-delimiter">// </span><span class="org-comment">import java.lang._</span>
 <span class="org-comment-delimiter">// </span><span class="org-comment">import scala._</span>
 <span class="org-comment-delimiter">// </span><span class="org-comment">import scala.Predef._</span>
 
 
+<span class="org-comment-delimiter">//      </span><span class="org-comment">/\  /\ !!!!!!!! /\  /\</span>
+<span class="org-comment-delimiter">//     </span><span class="org-comment">|! ||! |!!!!!!!!|! ||! |</span>
+<span class="org-comment-delimiter">//     </span><span class="org-comment">|! ||! |        |! ||! |</span>
+<span class="org-comment-delimiter">//     </span><span class="org-comment">|! ||! | Naming |! ||! |</span>
+<span class="org-comment-delimiter">//     </span><span class="org-comment">|! ||! |        |! ||! |</span>
+<span class="org-comment-delimiter">//     </span><span class="org-comment">|__||__|!!!!!!!!|__||__|</span>
+<span class="org-comment-delimiter">//     </span><span class="org-comment">(__)(__)!!!!!!!!(__)(__)</span>
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">In Scala 2 val and defs cannot appear as toplevel definitions</span>
+
+<span class="org-keyword">object</span> <span class="org-constant">Naming</span> {
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Ordinarily, we wouldn't need to provide the type of x here since it can</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">be determined via type inference, but here we voluntarily provide a</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">'type ascription'</span>
+  <span class="org-keyword">val</span> <span class="org-variable-name">x</span><span class="org-keyword">:</span> <span class="org-type">Int</span> <span class="org-keyword">=</span> <span class="org-constant">3</span>
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Here Show is a Single Abstract Method (SAM) type</span>
+  <span class="org-keyword">trait</span> <span class="org-type">Show</span>[<span class="org-constant">A</span>] {
+    <span class="org-keyword">def</span> <span class="org-function-name">show</span>(a<span class="org-keyword">:</span> <span class="org-type">A</span>)<span class="org-keyword">:</span> <span class="org-type">String</span>
+  }
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Since Scala 2.12 function literals are accepted as valid SAM expressions:</span>
+  <span class="org-scala-font-lockXimplicit">implicit</span> <span class="org-keyword">val</span> <span class="org-variable-name">intShow</span><span class="org-keyword">:</span> <span class="org-type">Show</span>[<span class="org-constant">Int</span>] <span class="org-keyword">=</span> n <span class="org-keyword">=&gt;</span> s<span class="org-string">"here is my integer: </span><span class="org-variable-name">$n</span><span class="org-string">"</span>
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">A type alias</span>
+  <span class="org-keyword">type</span> <span class="org-constant">MyInt</span> <span class="org-keyword">=</span> <span class="org-constant">Int</span>
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Beware, implicit classes and defs will still apply to Int!</span>
+  <span class="org-keyword">import</span> scala.concurrent.duration.<span class="org-keyword">_</span>
+  <span class="org-scala-font-lockXimplicit">implicit</span> <span class="org-keyword">def</span> <span class="org-function-name">myIntToDuration</span>(n<span class="org-keyword">:</span> <span class="org-type">MyInt</span>)<span class="org-keyword">:</span> <span class="org-type">Duration</span> <span class="org-keyword">=</span> <span class="org-constant">Duration</span>(n, <span class="org-constant">SECONDS</span>)
+
+  <span class="org-keyword">val</span> <span class="org-variable-name">myDuration</span><span class="org-keyword">:</span> <span class="org-type">Duration</span> <span class="org-keyword">=</span> <span class="org-constant">3</span>
+}
+
+<span class="org-comment-delimiter">//       </span><span class="org-comment">/\  /\ !!!!!!!!! /\  /\</span>
+<span class="org-comment-delimiter">//      </span><span class="org-comment">|! ||! |!!!!!!!!!|! ||! |</span>
+<span class="org-comment-delimiter">//      </span><span class="org-comment">|! ||! |         |! ||! |</span>
+<span class="org-comment-delimiter">//      </span><span class="org-comment">|! ||! | Sorting |! ||! |</span>
+<span class="org-comment-delimiter">//      </span><span class="org-comment">|! ||! |         |! ||! |</span>
+<span class="org-comment-delimiter">//      </span><span class="org-comment">|__||__|!!!!!!!!!|__||__|</span>
+<span class="org-comment-delimiter">//      </span><span class="org-comment">(__)(__)!!!!!!!!!(__)(__)</span>
+
 </pre>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-10-23 Sun 09:23</p>
+<p class="date">Created: 2022-10-30 Sun 12:07</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
