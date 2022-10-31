@@ -6,7 +6,7 @@
 <!-- 2022-10-31 Mon 15:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Series</title>
+<title>X In Y Minutes</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -250,341 +250,69 @@ while (tags.length > 0) {
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-Previous: <a href='./sequences.html'>Sequences</a><span style='float: right;'>Up: <a href='./real-analysis.html'>Real Analysis</a></span><hr><h1 class="title">Series</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org60f8175">1. Definition</a></li>
-<li><a href="#org1433a17">2. Tests</a>
-<ul>
-<li><a href="#org4416e82">2.1. Nth Term Test</a>
-<ul>
-<li><a href="#orge01e03f">2.1.1. Proof</a></li>
-</ul>
-</li>
-<li><a href="#org6ab9088">2.2. Integral Test</a></li>
-<li><a href="#orgd36df83">2.3. Comparison Test</a>
-<ul>
-<li><a href="#orgc8b1b2b">2.3.1. Proof</a></li>
-</ul>
-</li>
-<li><a href="#org71dde0f">2.4. Ratio Test</a></li>
-<li><a href="#orgf3980f4">2.5. Root Test</a>
-<ul>
-<li><a href="#org79b421f">2.5.1. Proof</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org2849f0b">3. Problems</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org60f8175" class="outline-2">
-<h2 id="org60f8175"><span class="section-number-2">1</span> Definition</h2>
-<div class="outline-text-2" id="text-1">
+Previous: <a href='./short-notes.html'>Short Notes</a>, Next: <a href='./xorg.html'>Xorg</a><span style='float: right;'>Up: <a href='./linux.html'>Linux</a></span><hr><h1 class="title">X In Y Minutes</h1>
 <p>
-Given some (infinite) sequence \( (a_n)_n \) we can consider its <b>infinite series</b>, denoted:
+x in y minutes saga for random linux stuff.
 </p>
 
-<p>
-\[
-\sum_{n=1}^{\infty} a_n
-\]
-</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span class="org-comment-delimiter"># </span><span class="org-comment">Use du to check disk usage, ls -l is not recursive</span>
+$ du -h -d 1 org
+28K     org/linux
+704K    org/maths
+1.5M    org/.git
+144K    org/programming
+12K     org/.github
+2.5M    org
 
-<p>
-We say the <b>series</b> converges iff the sequence of partial sums of the sequence converges.
-</p>
+<span class="org-comment-delimiter"># </span><span class="org-comment">linux distinguishes virtual memory into user space and kernel space.  Device drivers,</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">kernel extensions, and the kernel itself run in kernel space whereas user</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">applications run in user space</span>
 
-<p>
-\[
-S_n = \sum_{i=1}^n a_i
-\]
-</p>
-
-<p>
-If \( S_n \) converges we say the series is <b>convergent</b>, else we say the series is <b>divergent</b>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org1433a17" class="outline-2">
-<h2 id="org1433a17"><span class="section-number-2">2</span> Tests</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-There is no general process for checking if a series converges, but we can apply tests which provide definitive statements for some series.
-</p>
-</div>
-
-<div id="outline-container-org4416e82" class="outline-3">
-<h3 id="org4416e82"><span class="section-number-3">2.1</span> Nth Term Test</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-If a series converges then its corresponding sequence must be null.
-</p>
-</div>
-
-<div id="outline-container-orge01e03f" class="outline-4">
-<h4 id="orge01e03f"><span class="section-number-4">2.1.1</span> Proof</h4>
-<div class="outline-text-4" id="text-2-1-1">
-<p>
-Suppose \( S_n \) converges to some \( L \) then by the shifted sequence rule, \( S_{n + 1} \) also converges to the same \( L \). By the algebra of limits theorem:
-</p>
-
-<p>
-\[
-    (S_{n + 1} - S_n)_n
-    \]
-</p>
-
-<p>
-converges to \( L - L = 0 \), but 
-</p>
-
-<p>
-\[
-    (S_{n + 1} - S_n)_n = (a_n)_n \implies a_n \text{ converges to } 0
-    \]
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org6ab9088" class="outline-3">
-<h3 id="org6ab9088"><span class="section-number-3">2.2</span> Integral Test</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-Let the sequence \( (a_n)_n \) be defined by \( a_n = f(n) \) then if the following are true for \( f \): 
-</p>
-
-<ol class="org-ol">
-<li>\( f \) is defined on the interval \( I = [1, \infty) \)</li>
-<li>\( f \) is monotonically decresing on \( I \)</li>
-<li>\( f \) is positive on  \( I \)</li>
-</ol>
-
-<p>
-Then the integral test states that: 
-</p>
-
-<p>
-\[
-\sum_{n=1}^{\infty} a_n \text{ converges } \iff \int^{\infty}_{1} f(x) \ dx\text{ exists }
-\]
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgd36df83" class="outline-3">
-<h3 id="orgd36df83"><span class="section-number-3">2.3</span> Comparison Test</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-Given two sequences \( a_n \) and \( b_n \), for which
-</p>
-
-<ol class="org-ol">
-<li>\( a_n, b_n > 0 \ \forall n \)</li>
-<li>\( a_n \le b_n \ \forall n \)</li>
-</ol>
-
-<p>
-The comparison test states that:
-</p>
-
-<p>
-\[
-\sum_{n=1}^{\infty} b_n \text{ converges } \implies \sum_{n=1}^{\infty} a_n \text{ converges}
-   \]
-</p>
-
-<p>
-And
-</p>
-
-<p>
-\[
-\sum_{n=1}^{\infty} a_n \text{ diverges } \implies \sum_{n=1}^{\infty} b_n \text{ diverges}
-   \]
-</p>
-</div>
-
-<div id="outline-container-orgc8b1b2b" class="outline-4">
-<h4 id="orgc8b1b2b"><span class="section-number-4">2.3.1</span> Proof</h4>
-<div class="outline-text-4" id="text-2-3-1">
-<p>
-Consider the sequence of partial sums: \( S_n = \sum_{k=1}^n a_k, \ R_n = \sum_{k=1}^n b_k \). Given the convergence of \( R_n \) we know that it must have an upper bound \( B \).
-</p>
-
-<p>
-\[
-    \implies S_n \le R_n < B \ \forall n
-    \]
-\[
-    \implies S_n < B \ \forall n
-    \]
-</p>
-
-<p>
-And we also have from (1) that \( S_n \) is monotone increasing. Hence since \( S_n \) is monotone increasing and bounded above, it must converge by the MCT.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org71dde0f" class="outline-3">
-<h3 id="org71dde0f"><span class="section-number-3">2.4</span> Ratio Test</h3>
-<div class="outline-text-3" id="text-2-4">
-<p>
-Let 
-</p>
-
-<p>
-\[
-   L = \frac{|a_{n + 1}|}{|a_n|}
-   \]
-</p>
-
-<p>
-Then the ratio test asserts that if:
-</p>
-
-<ol class="org-ol">
-<li>\( L < 1 \implies a_n \text{ converges absolutely} \)</li>
-<li>\( L > 1 \implies \text{ the series is divergent} \)</li>
-<li>And if \( L = 1 \) or the limit does not exist, then the test is inconclusive</li>
-</ol>
-
-<p>
-The proof of this statement follows via construction of an appropriate geometric series and the comparison test.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgf3980f4" class="outline-3">
-<h3 id="orgf3980f4"><span class="section-number-3">2.5</span> Root Test</h3>
-<div class="outline-text-3" id="text-2-5">
-<p>
-Let
-</p>
-
-<p>
-\[
-   L = \limsup_{n \to \infty} |a_n|^{\frac{1}{n}}
-   \]
-</p>
-
-<p>
-Then similar to the ratio test, the root test asserts that:
-</p>
-
-<ol class="org-ol">
-<li>\( L < 1 \implies a_n \text{ converges absolutely} \)</li>
-<li>\( L > 1 \implies \text{ the series is divergent} \)</li>
-<li>And if \( L = 1 \) or the limit does not exist, then the test is inconclusive</li>
-</ol>
-
-<p>
-Note that if \( \lim_{n \to \infty } |a_n|^{\frac{1}{n}} \) exists then by the properties of the limit superior \( L =  \lim_{n \to \infty } |a_n|^{\frac{1}{n}} \).
-We can also use this test to define the RoC as:
-</p>
-
-<p>
-\[
-   R = \frac{1}{\limsup_{n \to \infty} |a_n|^{\frac{1}{n}}}
-   \]
-</p>
-
-<p>
-This works as the RoC makes no claims on the convergence at the boundaries, we can also substitute in \( \infty \) for the limit superior if \( (|a_n|^\frac{1}{n})_n \) does not have a convergent subsequence.
-</p>
-</div>
-
-<div id="outline-container-org79b421f" class="outline-4">
-<h4 id="org79b421f"><span class="section-number-4">2.5.1</span> Proof</h4>
-<div class="outline-text-4" id="text-2-5-1">
-<p>
-Suppose \( L < 1 \), then by the properties of the limit superior:
-</p>
-
-<p>
-\[
-    \exists N \in \mathbb{N}, \ k \ s.t. \ |a_n|^\frac{1}{n} < k < 1, \ \forall n \ge N
-    \]
-</p>
-
-<p>
-Since \( f(x) = x^n \) is strictly increasing on the interval \( [0, \infty) \):
-</p>
-
-<p>
-\[
-    \ |a_n| < k^n < 1, \ \forall n \ge N
-    \]
-</p>
-
-<p>
-Summing from \( N \) to \( \infty \):
-</p>
-
-<p>
-\[
-    \sum_{n=N}^{\infty} |a_n| < \sum_{n=N}^{\infty} k^n
-    \]
-</p>
-
-<p>
-But \( \sum_{n=N}^{\infty} k^n \) is a convergent geometric series, hence \( \sum_{n=N}^{\infty} |a_n| \) converges by the comparison test.
-</p>
-
-<p>
-\[
-    \implies \sum_{n=1}^{\infty} |a_n| \text{ converges}
-    \]
-</p>
-
-<p>
-Hence if property 1. above is satisfied, \( a_n \) not only converges, but converges <b>absolutely</b>. A similar argument can be applied to prove 3.
-</p>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org2849f0b" class="outline-2">
-<h2 id="org2849f0b"><span class="section-number-2">3</span> Problems</h2>
-<div class="outline-text-2" id="text-3">
-<ol class="org-ol">
-<li>Show \( \sum_{n=1}^{\infty} \frac{1}{n} \) does not converge and hence show that \( \sum_{n=1}^{\infty} \frac{1}{2n + 1} \) does not converge.</li>
-</ol>
-</div>
+<span class="org-comment-delimiter"># </span><span class="org-comment">syscalls are function calls from user space to kernel space, to see a list of</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">available syscalls for your system run 'man syscalls'.  Using strace we can see</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">what syscalls an application makes:</span>
+$ strace
+strace echo hi | cat
+<span class="org-function-name">execve</span>(<span class="org-string">"/usr/bin/echo"</span>, [<span class="org-string">"echo"</span>, <span class="org-string">"hi"</span>], 0x7ffc25fd9838 /* 70 vars */) = 0
+<span class="org-function-name">brk</span>(NULL)                               = 0x563b21676000
+<span class="org-function-name">access</span>(<span class="org-string">"/etc/ld.so.preload"</span>, R_OK)      = -1 ENOENT (No such file or directory)
+<span class="org-function-name">openat</span>(AT_FDCWD, <span class="org-string">"/etc/ld.so.cache"</span>, O_RDONLY|O_CLOEXEC) = 3
+<span class="org-function-name">fstat</span>(3, {<span class="org-variable-name">st_mode</span>=S_IFREG|0644, <span class="org-variable-name">st_size</span>=212631, ...}) = 0
+<span class="org-function-name">mmap</span>(NULL, 212631, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f7719896000
+<span class="org-function-name">close</span>(3)                                = 0
+<span class="org-function-name">openat</span>(AT_FDCWD, <span class="org-string">"/lib/x86_64-linux-gnu/libc.so.6"</span>, O_RDONLY|O_CLOEXEC) = 3
+<span class="org-builtin">read</span>(3, <span class="org-string">"\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0&gt;\0\1\0\0\0@&gt;\2\0\0\0\0\0"</span>..., 832) = 832
+<span class="org-function-name">fstat</span>(3, {<span class="org-variable-name">st_mode</span>=S_IFREG|0755, <span class="org-variable-name">st_size</span>=1905632, ...}) = 0
+<span class="org-function-name">mmap</span>(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7719894000
+<span class="org-function-name">mmap</span>(NULL, 1918592, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f77196bf000
+<span class="org-function-name">mmap</span>(0x7f77196e1000, 1417216, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x22000) = 0x7f77196e1000
+<span class="org-function-name">mmap</span>(0x7f771983b000, 323584, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x17c000) = 0x7f771983b000
+<span class="org-function-name">mmap</span>(0x7f771988a000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ca000) = 0x7f771988a000
+<span class="org-function-name">mmap</span>(0x7f7719890000, 13952, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f7719890000
+<span class="org-function-name">close</span>(3)                                = 0
+<span class="org-function-name">arch_prctl</span>(ARCH_SET_FS, 0x7f7719895580) = 0
+<span class="org-function-name">mprotect</span>(0x7f771988a000, 16384, PROT_READ) = 0
+<span class="org-function-name">mprotect</span>(0x563b20f85000, 4096, PROT_READ) = 0
+<span class="org-function-name">mprotect</span>(0x7f77198f4000, 4096, PROT_READ) = 0
+<span class="org-function-name">munmap</span>(0x7f7719896000, 212631)          = 0
+<span class="org-function-name">brk</span>(NULL)                               = 0x563b21676000
+<span class="org-function-name">brk</span>(0x563b21697000)                     = 0x563b21697000
+<span class="org-function-name">openat</span>(AT_FDCWD, <span class="org-string">"/usr/lib/locale/locale-archive"</span>, O_RDONLY|O_CLOEXEC) = 3
+<span class="org-function-name">fstat</span>(3, {<span class="org-variable-name">st_mode</span>=S_IFREG|0644, <span class="org-variable-name">st_size</span>=3041504, ...}) = 0
+<span class="org-function-name">mmap</span>(NULL, 3041504, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f77193d8000
+<span class="org-function-name">close</span>(3)                                = 0
+<span class="org-function-name">fstat</span>(1, {<span class="org-variable-name">st_mode</span>=S_IFIFO|0600, <span class="org-variable-name">st_size</span>=0, ...}) = 0
+<span class="org-function-name">write</span>(1, <span class="org-string">"hi\n"</span>, 3)                     = 3
+hi
+<span class="org-function-name">close</span>(1)                                = 0
+<span class="org-function-name">close</span>(2)                                = 0
+<span class="org-function-name">exit_group</span>(0)                           = ?
++++ exited with 0 +++
+</pre>
 </div>
 </div>
 <div id="postamble" class="status">
