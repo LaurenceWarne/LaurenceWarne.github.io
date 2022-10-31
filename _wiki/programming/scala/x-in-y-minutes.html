@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-31 Mon 08:44 -->
+<!-- 2022-10-31 Mon 08:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X In Y Minutes</title>
@@ -321,8 +321,8 @@ My take on the x in y minutes saga for Scala 2.
   <span class="org-comment-delimiter">// </span><span class="org-comment">Similarly, Ordered is the equivalent to java's Comparator, note both are</span>
   <span class="org-comment-delimiter">// </span><span class="org-comment">available without import, as they are Members of the scala package</span>
   <span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">DummyLong</span>(x<span class="org-keyword">:</span> <span class="org-type">Long</span>) <span class="org-keyword">extends</span> <span class="org-type">AnyVal</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Ordering is a contravariant functor, with 'on' providing the equivalent of</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">a contramap</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Ordering can be considered contravariant functor, with 'on' providing the</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">equivalent of contramap</span>
   <span class="org-scala-font-lockXimplicit">implicit</span> <span class="org-keyword">val</span> <span class="org-variable-name">dummyLongOrdering</span><span class="org-keyword">:</span> <span class="org-type">Ordering</span>[<span class="org-constant">DummyLong</span>] <span class="org-keyword">=</span>
     <span class="org-constant">Ordering</span>[<span class="org-constant">Long</span>].on(dummyLong <span class="org-keyword">=&gt;</span> dummyLong.x)
 
@@ -339,7 +339,7 @@ My take on the x in y minutes saga for Scala 2.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-10-31 Mon 08:44</p>
+<p class="date">Created: 2022-10-31 Mon 08:46</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
