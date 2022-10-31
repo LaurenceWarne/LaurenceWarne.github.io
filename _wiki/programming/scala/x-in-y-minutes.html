@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-30 Sun 12:07 -->
+<!-- 2022-10-31 Mon 08:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X In Y Minutes</title>
@@ -310,12 +310,36 @@ My take on the x in y minutes saga for Scala 2.
 <span class="org-comment-delimiter">//      </span><span class="org-comment">|__||__|!!!!!!!!!|__||__|</span>
 <span class="org-comment-delimiter">//      </span><span class="org-comment">(__)(__)!!!!!!!!!(__)(__)</span>
 
+<span class="org-keyword">object</span> <span class="org-constant">Sorting</span> {
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Ordered is the equivalent to (and indeed extends) java's Comparable, ie it</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">represents 'natural' orderings</span>
+  <span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">DummyInt</span>(x<span class="org-keyword">:</span> <span class="org-type">Int</span>) <span class="org-keyword">extends</span> <span class="org-type">Ordered</span>[<span class="org-constant">DummyInt</span>] {
+    <span class="org-keyword">def</span> <span class="org-function-name">compare</span>(that<span class="org-keyword">:</span> <span class="org-type">DummyInt</span>)<span class="org-keyword">:</span> <span class="org-type">Int</span> <span class="org-keyword">=</span> x - that.x
+  }
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Similarly, Ordered is the equivalent to java's Comparator, note both are</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">available without import, as they are Members of the scala package</span>
+  <span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">DummyLong</span>(x<span class="org-keyword">:</span> <span class="org-type">Long</span>) <span class="org-keyword">extends</span> <span class="org-type">AnyVal</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Ordering is a contravariant functor, with 'on' providing the equivalent of</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">a contramap</span>
+  <span class="org-scala-font-lockXimplicit">implicit</span> <span class="org-keyword">val</span> <span class="org-variable-name">dummyLongOrdering</span><span class="org-keyword">:</span> <span class="org-type">Ordering</span>[<span class="org-constant">DummyLong</span>] <span class="org-keyword">=</span>
+    <span class="org-constant">Ordering</span>[<span class="org-constant">Long</span>].on(dummyLong <span class="org-keyword">=&gt;</span> dummyLong.x)
+
+  <span class="org-keyword">val</span> <span class="org-variable-name">myList</span> <span class="org-keyword">=</span> <span class="org-constant">List</span>(<span class="org-constant">DummyInt</span>(<span class="org-constant">10</span>), <span class="org-constant">DummyInt</span>(<span class="org-constant">1</span>), <span class="org-constant">DummyInt</span>(<span class="org-constant">-2</span>), <span class="org-constant">DummyInt</span>(<span class="org-constant">7</span>))
+  println(myList.sorted)
+  <span class="org-comment-delimiter">// </span><span class="org-comment">List(DummyInt(x = -2), DummyInt(x = 1), DummyInt(x = 7), DummyInt(x = 10))</span>
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Note the signature of sorted is sorted[B &gt;: A](implicit ord: Ordering[B])</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">but the companion of Ordered provides an implicit conversion from Ordered[A]</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">to Ordering[A] (https://www.scala-lang.org/api/current/scala/math/Ordered$.html)</span>
+}
 </pre>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-10-30 Sun 12:07</p>
+<p class="date">Created: 2022-10-31 Mon 08:44</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
