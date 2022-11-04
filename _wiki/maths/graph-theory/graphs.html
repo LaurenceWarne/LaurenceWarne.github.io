@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-31 Mon 15:54 -->
+<!-- 2022-11-04 Fri 16:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Graphs</title>
@@ -280,33 +280,33 @@ Previous: <a href='./graph-colouring.html'>Graph Colouring</a><span style='float
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd914d57">1. Introduction</a></li>
-<li><a href="#orgbf0ee56">2. Vertex Sequences</a>
+<li><a href="#orgfa113b5">1. Introduction</a></li>
+<li><a href="#org62378a2">2. Vertex Sequences</a>
 <ul>
-<li><a href="#org988e0ba">2.1. <b>Definition</b></a></li>
-<li><a href="#org9e589fd">2.2. <b>Definition</b></a></li>
-<li><a href="#org3430e39">2.3. <b>Definition</b></a></li>
-<li><a href="#org28d7a52">2.4. <b>Definition</b></a></li>
+<li><a href="#orgd3631cb">2.1. <b>Definition</b></a></li>
+<li><a href="#org115a42e">2.2. <b>Definition</b></a></li>
+<li><a href="#org4706136">2.3. <b>Definition</b></a></li>
+<li><a href="#orga7dce7f">2.4. <b>Definition</b></a></li>
 </ul>
 </li>
-<li><a href="#orgcaf97ce">3. Subgraphs</a>
+<li><a href="#orgcd32a40">3. Subgraphs</a>
 <ul>
-<li><a href="#org46f2914">3.1. <b>Definition</b></a></li>
-<li><a href="#org8e49e93">3.2. <b>Definition</b></a></li>
-<li><a href="#org56b40b3">3.3. <b>Definition</b></a></li>
+<li><a href="#org6456799">3.1. <b>Definition</b></a></li>
+<li><a href="#org1ab17b9">3.2. <b>Definition</b></a></li>
+<li><a href="#org9e31f2f">3.3. <b>Definition</b></a></li>
 </ul>
 </li>
-<li><a href="#org34c2670">4. Adjacency Matrices</a>
+<li><a href="#org9a88e1f">4. Adjacency Matrices</a>
 <ul>
-<li><a href="#org375dad7">4.1. Applications</a></li>
+<li><a href="#org843bf16">4.1. Applications</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd914d57" class="outline-2">
-<h2 id="orgd914d57"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orgfa113b5" class="outline-2">
+<h2 id="orgfa113b5"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We denote a graph as \( G(V, E) \), where \( V = \{ v_1, v_2 ... v_n \} \) is the vertex set of the graph and
@@ -323,12 +323,12 @@ We also say \( G \) is <b>simple</b> if there is at most on edge connecting any 
 </div>
 </div>
 
-<div id="outline-container-orgbf0ee56" class="outline-2">
-<h2 id="orgbf0ee56"><span class="section-number-2">2</span> Vertex Sequences</h2>
+<div id="outline-container-org62378a2" class="outline-2">
+<h2 id="org62378a2"><span class="section-number-2">2</span> Vertex Sequences</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org988e0ba" class="outline-3">
-<h3 id="org988e0ba"><span class="section-number-3">2.1</span> <b>Definition</b></h3>
+<div id="outline-container-orgd3631cb" class="outline-3">
+<h3 id="orgd3631cb"><span class="section-number-3">2.1</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 A <b>walk</b> in a graph \( G(V, E) \) is a finite sequence of vertices \( (v_1 ... v_k) \) such that each consecutive pair forms an edge of \( G \).
@@ -336,8 +336,8 @@ A <b>walk</b> in a graph \( G(V, E) \) is a finite sequence of vertices \( (v_1 
 </div>
 </div>
 
-<div id="outline-container-org9e589fd" class="outline-3">
-<h3 id="org9e589fd"><span class="section-number-3">2.2</span> <b>Definition</b></h3>
+<div id="outline-container-org115a42e" class="outline-3">
+<h3 id="org115a42e"><span class="section-number-3">2.2</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 A <b>trail</b> (or tour) is a walk in which all the edges \( e_i = (v_i, v_{i + 1}) \) are distinct. We can remember this by associating them with <b>Eulerian trails</b> (which much visit every edge exactly once).
@@ -345,8 +345,8 @@ A <b>trail</b> (or tour) is a walk in which all the edges \( e_i = (v_i, v_{i + 
 </div>
 </div>
 
-<div id="outline-container-org3430e39" class="outline-3">
-<h3 id="org3430e39"><span class="section-number-3">2.3</span> <b>Definition</b></h3>
+<div id="outline-container-org4706136" class="outline-3">
+<h3 id="org4706136"><span class="section-number-3">2.3</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 A <b>path</b> is a trail in which a vertex occurs occurs only once in the edge sequence.
@@ -354,8 +354,8 @@ A <b>path</b> is a trail in which a vertex occurs occurs only once in the edge s
 </div>
 </div>
 
-<div id="outline-container-org28d7a52" class="outline-3">
-<h3 id="org28d7a52"><span class="section-number-3">2.4</span> <b>Definition</b></h3>
+<div id="outline-container-orga7dce7f" class="outline-3">
+<h3 id="orga7dce7f"><span class="section-number-3">2.4</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 A <b>cycle</b> is a trail in which all the vertices are distinct, except for the first and last which are the same.
@@ -364,12 +364,12 @@ A <b>cycle</b> is a trail in which all the vertices are distinct, except for the
 </div>
 </div>
 
-<div id="outline-container-orgcaf97ce" class="outline-2">
-<h2 id="orgcaf97ce"><span class="section-number-2">3</span> Subgraphs</h2>
+<div id="outline-container-orgcd32a40" class="outline-2">
+<h2 id="orgcd32a40"><span class="section-number-2">3</span> Subgraphs</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org46f2914" class="outline-3">
-<h3 id="org46f2914"><span class="section-number-3">3.1</span> <b>Definition</b></h3>
+<div id="outline-container-org6456799" class="outline-3">
+<h3 id="org6456799"><span class="section-number-3">3.1</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 A <b>clique</b> is a set of vertices \( S \subseteq V \) such that the subgraph induced by \( S \) forms a complete graph.
@@ -377,8 +377,8 @@ A <b>clique</b> is a set of vertices \( S \subseteq V \) such that the subgraph 
 </div>
 </div>
 
-<div id="outline-container-org8e49e93" class="outline-3">
-<h3 id="org8e49e93"><span class="section-number-3">3.2</span> <b>Definition</b></h3>
+<div id="outline-container-org1ab17b9" class="outline-3">
+<h3 id="org1ab17b9"><span class="section-number-3">3.2</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 An <b>independent set</b>, I, of \( G(V, E) \) is a set \( I \subseteq V \) such that no pair of vertices in \( I \) is joined by an edge in \( E \).
@@ -386,8 +386,8 @@ An <b>independent set</b>, I, of \( G(V, E) \) is a set \( I \subseteq V \) such
 </div>
 </div>
 
-<div id="outline-container-org56b40b3" class="outline-3">
-<h3 id="org56b40b3"><span class="section-number-3">3.3</span> <b>Definition</b></h3>
+<div id="outline-container-org9e31f2f" class="outline-3">
+<h3 id="org9e31f2f"><span class="section-number-3">3.3</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Let \( G(V, E) \) be a graph, then the <b>graph complement</b> of \( G \) is a graph \( H(V, E') \) such that \( e \in E' \iff e \not \in E \).
@@ -396,8 +396,8 @@ Let \( G(V, E) \) be a graph, then the <b>graph complement</b> of \( G \) is a g
 </div>
 </div>
 
-<div id="outline-container-org34c2670" class="outline-2">
-<h2 id="org34c2670"><span class="section-number-2">4</span> Adjacency Matrices</h2>
+<div id="outline-container-org9a88e1f" class="outline-2">
+<h2 id="org9a88e1f"><span class="section-number-2">4</span> Adjacency Matrices</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Given a directed or undirected graph \( G(V, E) \) on \( n \) vertices, we define the <b>adjacency matrix</b>, \( A \), of \( G \) as an \( n * n \) matrix with entries given by:
@@ -417,8 +417,8 @@ This is always symmetric if \( G \) is undirected, and zeroes always fill the ma
 </p>
 </div>
 
-<div id="outline-container-org375dad7" class="outline-3">
-<h3 id="org375dad7"><span class="section-number-3">4.1</span> Applications</h3>
+<div id="outline-container-org843bf16" class="outline-3">
+<h3 id="org843bf16"><span class="section-number-3">4.1</span> Applications</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Note \( (A^k)_{i, j} \) gives the number of paths of length \( k \) starting at \( v_i \) and ending at \( v_j \). Hence using matrix associativiy we can compute this value in \( O(log(k)) \) or \( O(1) \) time. 
@@ -443,7 +443,7 @@ Which can be computed in the same time complexity.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-10-31 Mon 15:54</p>
+<p class="date">Created: 2022-11-04 Fri 16:40</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
