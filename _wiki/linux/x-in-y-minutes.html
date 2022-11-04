@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-31 Mon 15:54 -->
+<!-- 2022-11-04 Fri 16:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X In Y Minutes</title>
@@ -312,12 +312,29 @@ hi
 <span class="org-function-name">close</span>(2)                                = 0
 <span class="org-function-name">exit_group</span>(0)                           = ?
 +++ exited with 0 +++
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">File descriptors index a per-process file descriptor table which in turn</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">indexes into a system-wide table of files opened by all process called the file table</span>
+$ nop &amp;
+$ ls /proc/$<span class="org-variable-name">!</span>/fd  <span class="org-comment-delimiter"># </span><span class="org-comment">You may need to escape the ! with zsh</span>
+0  1  2
+$ file /proc/$<span class="org-variable-name">!</span>/fd/2
+/proc/PID/fd/2: symbolic link to /dev/pts/5
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Note /prod/PID/fd/0, /prod/PID/fd/1, /prod/PID/fd/2 always point to stdin, stdout and</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">stderr, for the previous command, all 3 however will point to the psuedo-terminal</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">/dev/pts/5.  If instead we use the command:</span>
+$ nop &gt; out.file &amp;
+$ file /proc/$<span class="org-variable-name">!</span>/fd/0
+/proc/PID/fd/1: symbolic link to /home/laurencewarne/projects/mill/out.file
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">We see stdout indeed points to a file.</span>
 </pre>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-10-31 Mon 15:54</p>
+<p class="date">Created: 2022-11-04 Fri 16:40</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
