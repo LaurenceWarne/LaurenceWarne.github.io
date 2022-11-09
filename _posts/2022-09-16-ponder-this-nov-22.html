@@ -1,0 +1,88 @@
+---
+date: 2022-09-16 10:18
+author: Laurence Warne
+title: Ponder This Nov 22
+layout: post
+excerpt: A solution to the November 2022 IBM Ponder This
+categories: 
+- maths
+- programming
+tags: 
+---
+
+<div id="outline-container-orgebe4493" class="outline-2">
+<h2 id="orgebe4493">The Question</h2>
+<div class="outline-text-2" id="text-orgebe4493">
+<p>
+You can view the question here: <a href="https://research.ibm.com/haifa/ponderthis/challenges/November2022.html">https://research.ibm.com/haifa/ponderthis/challenges/November2022.html</a>.  It asks suppose we are given a draw of \( b \) socks with \( a \) comfortable items and the remaining \( b - a \) uncomfortable, what is the smallest value of \( b \) of at least 100 digits such that the probability of drawing two comfortable socks is exactly \( \frac{1}{974170} \)?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org78e957f" class="outline-2">
+<h2 id="org78e957f">Solution</h2>
+<div class="outline-text-2" id="text-org78e957f">
+<p>
+For brevity, lets let \( k = 974170 \).  Now, the first part of question is equivalent to finding \( a,b \) such that:
+\[
+\frac{a}{b} * \frac{a - 1}{b - 1} = \frac{1}{k} 
+\]
+</p>
+
+<p>
+Multiplying out:
+</p>
+
+\begin{align*}
+ka(a - 1) = b(b - 1) &\iff b^2 + (-b) + (-ka^2 + ka) = 0 \\
+                     &\iff b = \frac{1 \pm \sqrt{1 + 4ka^2 -4ka}}{2}
+\end{align*}
+
+<p>
+Where the second step just follows from the quadratic formula.  Clearly, if \( b \) is positive we can disregard the negative sign, and note that radicand is always odd, hence if it's square, then the root will also be odd and thus the numerator even, and hence \( b \) will be a whole number.
+</p>
+
+<p>
+So our problem reduces to finding \( a \) values such that the expression \( 1 + 4ka^2 -4ka \) is itself square.  Now suppose \( 1 + 4ka^2 - 4ka = x^2 \) for some \( x \).  Then we can complete and square and rearrange to obtain:
+</p>
+
+\begin{align}
+x^2 - k(2a - 1)^2 = -k + 1
+\end{align}
+
+<p>
+Which is of the form of a <a href="https://en.wikipedia.org/wiki/Pell%27s_equation#Generalized_Pell's_equation">generalised Pell's equation</a> (letting \( y = 2a - 1, -k + 1 = N \)), which are quite tricky to solve.  Solutions generalised Pell's equations can be grouped into seperate classes, and the fundamental solutions of each class can then be used to generate all solutions for that particular class.  A fast method for solving these equations can be found <a href="http://web.archive.org/web/20120309013237/http://www.jpr2718.org/pell.pdf">here</a>.
+</p>
+
+<p>
+We find the fundamental solutions for each class in our case to be:
+</p>
+
+<p>
+\[
+(x, y) \in \{(-229969, 233), (-1, 1), (1, 1), (229969, 233), (974169, 987)\}
+\]
+</p>
+
+<p>
+In order to determine all solutions for each class, consider \( r = x + y\sqrt{974170} \).  We see \( (x, y) \) is a solution to (1) iff \( M(r) := r \bar{r}  = (x + y\sqrt{974170})(x - y\sqrt{974170}) = -974169 \).  Now it is straighforward to show \( M: \mathbb{Z}[\sqrt{974170}] \to \mathbb{Z}^{\ge 0} \) is multiplicative, and so if we can find an \( r' = a + b\sqrt{974170} \in \mathbb{Z}[\sqrt{974170}] \) such that \( M(r') = 1 \) we can generate an infinite stream of solutions.
+</p>
+
+<p>
+However, \( M(r') = 1 \iff (a + b\sqrt{974170})(a - b\sqrt{974170}) = 1 \iff a^2 -974170b^2 = 1 \) which is just a regular Pell's equation!  This has fundamental solution \( (a, b) = (1948339, 1974) \) and so we can formulate new solutions to (1) using \( x_n + y_n\sqrt{974170} = (1948339 + 1974\sqrt{974170})^n(x + y\sqrt{974170}) \) and it turns out all solutions are of this form when \( (x, y) \) are the fundamental solutions to (1).
+</p>
+
+<p>
+\( (x_n, y_n) \) grow exponentially in relation to \( n \), so computing \( y \) as to make \( b \) of at least 100 digits can be done extremely quickly.  The smallest such \( (x, y) \) are:
+</p>
+
+\begin{align*}
+x &= 358215987739182004690086378181625469679573777244481977174053689999534311804982937308746736066326142199 \\
+y &= 362933945169315204684486536809603899412307756418124003349633249331941231267453010603520849884063709
+\end{align*}
+
+<p>
+Finding the corresponding \( a \) and \( b \) is left to the reader (:
+</p>
+</div>
+</div>
