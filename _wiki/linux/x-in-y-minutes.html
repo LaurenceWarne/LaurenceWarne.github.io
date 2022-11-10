@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-04 Fri 16:40 -->
+<!-- 2022-11-10 Thu 21:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X In Y Minutes</title>
@@ -326,15 +326,47 @@ $ file /proc/$<span class="org-variable-name">!</span>/fd/2
 <span class="org-comment-delimiter"># </span><span class="org-comment">/dev/pts/5.  If instead we use the command:</span>
 $ nop &gt; out.file &amp;
 $ file /proc/$<span class="org-variable-name">!</span>/fd/0
-/proc/PID/fd/1: symbolic link to /home/laurencewarne/projects/mill/out.file
+/proc/PID/fd/1: symbolic link to /home/laurencewarne/out.file
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">We see stdout indeed points to a file.</span>
+
+<span class="org-comment-delimiter">#############</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Processes #</span>
+<span class="org-comment-delimiter">#############</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">On linux processes are grouped into groups, which are further grouped into sessions.</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Lets have a look at what commands are running in our shell session:</span>
+$ ps -o command,pid,ppid,pgid,sid --ppid $<span class="org-variable-name">$</span>
+COMMAND                         PID    PPID    PGID     SID
+ps -o command,pid,ppid,pgid   19765    4739   19765    4739
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">PGID and SID point to the process group leader and session leader respectively.</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Here we see our ps process is a process group leader (the sole member of its group),</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">but not a session leader, in fact the session group leader is the shell process</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">(zsh in my case).</span>
+
+$ ps -o command,pid,ppid,pgid,sid --ppid $<span class="org-variable-name">$</span> | cat
+COMMAND                         PID    PPID    PGID     SID
+ps -o command,pid,ppid,pgid   20135    4739   20135    4739
+cat                           20136    4739   20135    4739
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Here we see a slight difference, cat has it's process group id set to the pid of</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">the ps command.  Process groups are useful as it's possible to direct signals</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">to whole process groups instead of singular processes using the killpg() system</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">call or prepending '-' to the kill command.</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Sessions are usually tied to a controlling terminal, e.g. bash.  If the exiting</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">process is a session leader and its controlling terminal is the controlling</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">terminal of the session, then each process in the foreground process group of</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">this controlling terminal is sent a SIGHUP signal, and the terminal is</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">disassociated from this session, allowing it to be acquired by a new controlling</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">process.More info can be found here: https://man7.org/linux/man-pages/man3/exit.3.html</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">another link is here: https://man7.org/linux/man-pages/man3/exit.3.html.</span>
 </pre>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-11-04 Fri 16:40</p>
+<p class="date">Created: 2022-11-10 Thu 21:13</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
