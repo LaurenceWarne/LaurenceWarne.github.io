@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-10 Thu 21:13 -->
+<!-- 2022-12-13 Tue 16:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X In Y Minutes</title>
@@ -333,13 +333,21 @@ My take on the x in y minutes saga for Scala 2.
   <span class="org-comment-delimiter">// </span><span class="org-comment">Note the signature of sorted is sorted[B &gt;: A](implicit ord: Ordering[B])</span>
   <span class="org-comment-delimiter">// </span><span class="org-comment">but the companion of Ordered provides an implicit conversion from Ordered[A]</span>
   <span class="org-comment-delimiter">// </span><span class="org-comment">to Ordering[A] (https://www.scala-lang.org/api/current/scala/math/Ordered$.html)</span>
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">An ordering on DummyLong induces an ordering on Seqs (the lexicographic ordering),</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">we can obtain it via the import</span>
+  <span class="org-keyword">import</span> scala.math.<span class="org-constant">Ordering</span>.<span class="org-constant">Implicits</span>.<span class="org-keyword">_</span>
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Note the above import also gives us '&lt;' and such</span>
+  println(<span class="org-constant">List</span>(<span class="org-constant">DummyLong</span>(<span class="org-constant">10</span>)) &lt; <span class="org-constant">List</span>(<span class="org-constant">DummyLong</span>(<span class="org-constant">10</span>), <span class="org-constant">DummyLong</span>(<span class="org-constant">1</span>)))
+  <span class="org-comment-delimiter">// </span><span class="org-comment">true</span>
 }
 </pre>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2022-11-10 Thu 21:13</p>
+<p class="date">Created: 2022-12-13 Tue 16:16</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
