@@ -62,6 +62,8 @@ permalink: /links/
 
 * <a href="https://www.jaapsch.net/puzzles/">Jaap's Puzzle Page</a> 
 
+* <a href="https://www.brand.site.co.il/riddles/usingyourhead.html">Monthly Maths Riddles</a> by Michael Brand (Inactive)
+
 # Blogs
 
 * <a href="https://mathproblems123.wordpress.com/">Beni Bogoşel's Blog</a>
