@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-02 Mon 14:45 -->
+<!-- 2023-01-02 Mon 16:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Euler Library</title>
@@ -280,36 +280,36 @@ Next: <a href='./questions.html'>Questions</a><span style='float: right;'>Up: <a
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org64517f6">1. Linear Recurrence Closure</a>
+<li><a href="#orgd53a019">1. Linear Recurrence Closure</a>
 <ul>
-<li><a href="#org003557b">1.1. Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#org690673f">1.1. Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org1eaeb95">2. Power Modulo</a>
+<li><a href="#org6520162">2. Power Modulo</a>
 <ul>
-<li><a href="#org84eef47">2.1. Proof (first condition):&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#orged36325">2.1. Proof (first condition):&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgdc00826">3. Factorisation in Quadratic Integer Rings</a>
+<li><a href="#org23f81a6">3. Factorisation in Quadratic Integer Rings</a>
 <ul>
-<li><a href="#org9f98969">3.1. Gaussian Integers</a>
+<li><a href="#org0b3e190">3.1. Gaussian Integers</a>
 <ul>
-<li><a href="#org695a46c">3.1.1. Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
-<li><a href="#orgc8fafd8">3.1.2. Sum of Squares</a></li>
+<li><a href="#org7dd6c90">3.1.1. Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#org4b8d380">3.1.2. Sum of Squares</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org7887755">4. Euler Transform</a></li>
-<li><a href="#orgaa00655">5. Floor Sums</a></li>
-<li><a href="#org1a0cc9a">6. Binomial Coefficients Modulo \( p \)</a></li>
-<li><a href="#org0a9f84d">7. Assorted</a></li>
+<li><a href="#orgb9ff039">4. Euler Transform</a></li>
+<li><a href="#orgf26bd70">5. Floor Sums</a></li>
+<li><a href="#orgf99a1be">6. Binomial Coefficients Modulo \( p \)</a></li>
+<li><a href="#org2deed90">7. Assorted</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org64517f6" class="outline-2">
-<h2 id="org64517f6"><span class="section-number-2">1</span> Linear Recurrence Closure</h2>
+<div id="outline-container-orgd53a019" class="outline-2">
+<h2 id="orgd53a019"><span class="section-number-2">1</span> Linear Recurrence Closure</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 If \( a_n \) and \( b_n \) are linear recurrences, then:
@@ -321,8 +321,8 @@ If \( a_n \) and \( b_n \) are linear recurrences, then:
 </ol>
 </div>
 
-<div id="outline-container-org003557b" class="outline-3">
-<h3 id="org003557b"><span class="section-number-3">1.1</span> Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h3>
+<div id="outline-container-org690673f" class="outline-3">
+<h3 id="org690673f"><span class="section-number-3">1.1</span> Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Let \( C_a(x) \) and \( C_b(x) \) be the characteristic polynomials of \( a_n \) and \( b_n \) respectively.  Then we claim 
@@ -430,8 +430,8 @@ mat.row_del(-1)
 </div>
 </div>
 
-<div id="outline-container-org1eaeb95" class="outline-2">
-<h2 id="org1eaeb95"><span class="section-number-2">2</span> Power Modulo</h2>
+<div id="outline-container-org6520162" class="outline-2">
+<h2 id="org6520162"><span class="section-number-2">2</span> Power Modulo</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 If \( a \) and \( p \) are coprime then:
@@ -457,8 +457,8 @@ a^x \pmod p & \text{for } x < \phi(p)\\
 </p>
 </div>
 
-<div id="outline-container-org84eef47" class="outline-3">
-<h3 id="org84eef47"><span class="section-number-3">2.1</span> Proof (first condition):&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h3>
+<div id="outline-container-orged36325" class="outline-3">
+<h3 id="orged36325"><span class="section-number-3">2.1</span> Proof (first condition):&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Let \( p_1^{e_1}p_2^{e_2}... \) be the prime factorisation of \( p \), and \( e_i' \) be the largest \( e \) s.t. \( p^e | a \).  Consider
@@ -507,12 +507,12 @@ For \( p_i \) with \( e_i' > 0 \), we must have \( m_i = 0 \), and so given \( q
 </div>
 </div>
 
-<div id="outline-container-orgdc00826" class="outline-2">
-<h2 id="orgdc00826"><span class="section-number-2">3</span> Factorisation in Quadratic Integer Rings</h2>
+<div id="outline-container-org23f81a6" class="outline-2">
+<h2 id="org23f81a6"><span class="section-number-2">3</span> Factorisation in Quadratic Integer Rings</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org9f98969" class="outline-3">
-<h3 id="org9f98969"><span class="section-number-3">3.1</span> Gaussian Integers</h3>
+<div id="outline-container-org0b3e190" class="outline-3">
+<h3 id="org0b3e190"><span class="section-number-3">3.1</span> Gaussian Integers</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 \( a + bi \in \mathbb{Z}[i]  \) is prime iff one of the components is zero and the other is an associate of a (normal) prime of the form \( 3 \pmod 4 \), or its norm is (a normal) prime.  This follows from the fact that \( p \) can be written as the sum of two squares iff -1 is a quadratic residue modulo \( p \).  Note by <a href="https://en.wikipedia.org/wiki/Fermat%27s_theorem_on_sums_of_two_squares">Fermat's Two Square Theorem</a> we can always write \( p \equiv 1 \pmod 4 \) as a sum of two squares.
@@ -522,8 +522,8 @@ For \( p_i \) with \( e_i' > 0 \), we must have \( m_i = 0 \), and so given \( q
 It follows we can find the prime factorisation of \( n \in \mathbb{Z} \) by taking its normal factorisation and further decomposing primes of the form \( 1 \pmod 4 \).  Solving \( p = (a + bi)(a - bi) = a^2 + b^2 \) can be done efficiently by first solving for \( x^2 \equiv -1 \pmod p \) (using Tonelli Shanks), we then find \( a + bi = gcd(p, \ x + i) \).
 </p>
 </div>
-<div id="outline-container-org695a46c" class="outline-4">
-<h4 id="org695a46c"><span class="section-number-4">3.1.1</span> Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
+<div id="outline-container-org7dd6c90" class="outline-4">
+<h4 id="org7dd6c90"><span class="section-number-4">3.1.1</span> Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 If \( p | x^2 + 1 \) then \( p | (x + i)(x - i) \), arguing for a contradiction we see we cannot have \( p|(x + i) \) or \( p | (x - i) \).  Thus \( gcd(p, \ x + i) \) and \( gcd(p, \ x - i) \) are not units so we can find a proper divisor of \( p \) by computing either of them.  Clearly \( a + bi = gcd(p, x \pm i) \) has nonzero real and imaginary parts (since \( p \) is prime in \( \mathbb{Z}  \)), and so if \( (c + di)(a + bi) = p \) we must have \( c + di = a - bi \) since \( p \) is real.  This completes the proof.
@@ -532,8 +532,8 @@ If \( p | x^2 + 1 \) then \( p | (x + i)(x - i) \), arguing for a contradiction 
 </div>
 
 
-<div id="outline-container-orgc8fafd8" class="outline-4">
-<h4 id="orgc8fafd8"><span class="section-number-4">3.1.2</span> Sum of Squares</h4>
+<div id="outline-container-org4b8d380" class="outline-4">
+<h4 id="org4b8d380"><span class="section-number-4">3.1.2</span> Sum of Squares</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 This gives us a way to compute all the ways in which \( n \) can be written as the sum of squares: <a href="https://mathoverflow.net/a/319809/332110">https://mathoverflow.net/a/319809/332110</a>.
@@ -543,8 +543,8 @@ This gives us a way to compute all the ways in which \( n \) can be written as t
 </div>
 </div>
 
-<div id="outline-container-org7887755" class="outline-2">
-<h2 id="org7887755"><span class="section-number-2">4</span> Euler Transform</h2>
+<div id="outline-container-orgb9ff039" class="outline-2">
+<h2 id="orgb9ff039"><span class="section-number-2">4</span> Euler Transform</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Given we know the number of connected graph \( a_n \) satsifying some property, we can calculate the total number of graphs satsifying the property (\( b_n \)) using the Euler Transform:
@@ -568,8 +568,8 @@ c_n = \sum_{d|n} d a_d
 </div>
 </div>
 
-<div id="outline-container-orgaa00655" class="outline-2">
-<h2 id="orgaa00655"><span class="section-number-2">5</span> Floor Sums</h2>
+<div id="outline-container-orgf26bd70" class="outline-2">
+<h2 id="orgf26bd70"><span class="section-number-2">5</span> Floor Sums</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 We can compute the sum:
@@ -595,8 +595,8 @@ Also known are fast methods to compute \( \sum_{x = 0}^n \left \lfloor \frac{ax 
 </div>
 </div>
 
-<div id="outline-container-org1a0cc9a" class="outline-2">
-<h2 id="org1a0cc9a"><span class="section-number-2">6</span> Binomial Coefficients Modulo \( p \)</h2>
+<div id="outline-container-orgf99a1be" class="outline-2">
+<h2 id="orgf99a1be"><span class="section-number-2">6</span> Binomial Coefficients Modulo \( p \)</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 <a href="https://en.wikipedia.org/wiki/Lucas%27s_theorem">Lucas' Theorem</a> states that if \( m_km_{k - 1}\hdots m_0 \) and \( n_kn_{k - 1}\hdots n_0 \) are the base \( p \) digit representations of \( m \) and \( n \) respectively, then:
@@ -620,8 +620,8 @@ The number of entries in the mth row of Pascal's triangle that are not divisible
 </div>
 </div>
 
-<div id="outline-container-org0a9f84d" class="outline-2">
-<h2 id="org0a9f84d"><span class="section-number-2">7</span> Assorted</h2>
+<div id="outline-container-org2deed90" class="outline-2">
+<h2 id="org2deed90"><span class="section-number-2">7</span> Assorted</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>\( f_{n + 1} = a_nf_n + \cdots + a_0f_{n - k} \) is totally periodic modulo \( n \) if \( a_0 \) is a unit in \( \mathbb{Z}_n \)</li>
@@ -631,7 +631,7 @@ The number of entries in the mth row of Pascal's triangle that are not divisible
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-01-02 Mon 14:45</p>
+<p class="date">Created: 2023-01-02 Mon 16:42</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
