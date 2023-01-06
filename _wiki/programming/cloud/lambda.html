@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-02 Mon 16:42 -->
+<!-- 2023-01-06 Fri 15:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lambda</title>
@@ -258,17 +258,17 @@ Previous: <a href='./kinesis.html'>Kinesis</a><span style='float: right;'>Up: <a
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1e746fb">1. Links</a></li>
-<li><a href="#orge4b2bca">2. Intro</a></li>
-<li><a href="#org5c45da6">3. Runtimes</a></li>
-<li><a href="#org2d48b82">4. Lifecycle</a></li>
-<li><a href="#orgf41f464">5. Layers</a></li>
+<li><a href="#org4245c39">1. Links</a></li>
+<li><a href="#org0a020c7">2. Intro</a></li>
+<li><a href="#orgcef8c94">3. Runtimes</a></li>
+<li><a href="#org8a30549">4. Lifecycle</a></li>
+<li><a href="#org87217ca">5. Layers</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1e746fb" class="outline-2">
-<h2 id="org1e746fb"><span class="section-number-2">1</span> Links</h2>
+<div id="outline-container-org4245c39" class="outline-2">
+<h2 id="org4245c39"><span class="section-number-2">1</span> Links</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><b>AWS developer guide</b>: <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">https://docs.aws.amazon.com/lambda/latest/dg/welcome.html</a></li>
@@ -278,8 +278,8 @@ Previous: <a href='./kinesis.html'>Kinesis</a><span style='float: right;'>Up: <a
 </div>
 </div>
 
-<div id="outline-container-orge4b2bca" class="outline-2">
-<h2 id="orge4b2bca"><span class="section-number-2">2</span> Intro</h2>
+<div id="outline-container-org0a020c7" class="outline-2">
+<h2 id="org0a020c7"><span class="section-number-2">2</span> Intro</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The main method of triggering Lambdas is to use an <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html">event source mapping</a> which typically reads an item from a stream or queue and then uses this item to invoke a Lambda using the appropriate event type.
@@ -287,8 +287,8 @@ The main method of triggering Lambdas is to use an <a href="https://docs.aws.ama
 </div>
 </div>
 
-<div id="outline-container-org5c45da6" class="outline-2">
-<h2 id="org5c45da6"><span class="section-number-2">3</span> Runtimes</h2>
+<div id="outline-container-orgcef8c94" class="outline-2">
+<h2 id="orgcef8c94"><span class="section-number-2">3</span> Runtimes</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Lambdas run in <b>execution environments</b> which provide an isolated environment for Lambda functions to run.  <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">Runtimes</a> provide support for a specific language within an execution environment.  If the frequency of events is more than a single instance can handle, AWS Lambda will scale by starting more instances, and will stop instances that are no longer active.
@@ -296,8 +296,8 @@ Lambdas run in <b>execution environments</b> which provide an isolated environme
 </div>
 </div>
 
-<div id="outline-container-org2d48b82" class="outline-2">
-<h2 id="org2d48b82"><span class="section-number-2">4</span> Lifecycle</h2>
+<div id="outline-container-org8a30549" class="outline-2">
+<h2 id="org8a30549"><span class="section-number-2">4</span> Lifecycle</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 When using a provisioned runtime (e.g. you've created a class using an AWS SDK), AWS Lambda will instantiate the class and re-use it for multiple events so resources (e.g. an S3 client) can be re used on subsequent invocations.
@@ -309,8 +309,8 @@ You can use <b>reserved concurrency</b> (<code>ReservedConcurrentExecutions</cod
 </div>
 </div>
 
-<div id="outline-container-orgf41f464" class="outline-2">
-<h2 id="orgf41f464"><span class="section-number-2">5</span> Layers</h2>
+<div id="outline-container-org87217ca" class="outline-2">
+<h2 id="org87217ca"><span class="section-number-2">5</span> Layers</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 You can use Lambda <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Layers</a> to re-use particular parts of your environment.  A layer basically consists of a zip file containing files grouped into one or more directories who themselves have special meaning.  For example, if you are using the java runtime, then <code>CLASSPATH</code> is always set to <code>java/lib</code> and so you can add to the classpath if you use a layer like:
@@ -327,7 +327,7 @@ Similarly, all runtimes have <code>bin/</code> in their <code>PATH</code> and so
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-01-02 Mon 16:42</p>
+<p class="date">Created: 2023-01-06 Fri 15:48</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
