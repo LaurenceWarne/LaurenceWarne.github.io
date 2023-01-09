@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-06 Fri 15:49 -->
+<!-- 2023-01-09 Mon 12:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>IAM</title>
@@ -258,33 +258,33 @@ Previous: <a href='./deployments.html'>Deployments</a>, Next: <a href='./kinesis
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6790f31">1. Users and Roles</a>
+<li><a href="#org547152d">1. Users and Roles</a>
 <ul>
 <li>
 <ul>
-<li><a href="#org126235d">1.0.1. IAM Users</a></li>
-<li><a href="#org45adcb0">1.0.2. IAM Roles</a></li>
-<li><a href="#org9fa136d">1.0.3. IAM Policies</a></li>
-<li><a href="#org7dc0503">1.0.4. Principals</a></li>
+<li><a href="#org79daa3a">1.0.1. IAM Users</a></li>
+<li><a href="#orgb07cb1d">1.0.2. IAM Roles</a></li>
+<li><a href="#orgca76a3e">1.0.3. IAM Policies</a></li>
+<li><a href="#orgfda93bb">1.0.4. Principals</a></li>
 </ul>
 </li>
-<li><a href="#org70f1742">1.1. Examples</a></li>
+<li><a href="#org68cf864">1.1. Examples</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6790f31" class="outline-2">
-<h2 id="org6790f31"><span class="section-number-2">1</span> Users and Roles</h2>
+<div id="outline-container-org547152d" class="outline-2">
+<h2 id="org547152d"><span class="section-number-2">1</span> Users and Roles</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 An AWS account is first associated with one root user who has complete access over AWS services and accounts.  It's <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users">best practice</a> to create an IAM user using the root user and lock away the root user credentials.
 </p>
 </div>
 
-<div id="outline-container-org126235d" class="outline-4">
-<h4 id="org126235d"><span class="section-number-4">1.0.1</span> IAM Users</h4>
+<div id="outline-container-org79daa3a" class="outline-4">
+<h4 id="org79daa3a"><span class="section-number-4">1.0.1</span> IAM Users</h4>
 <div class="outline-text-4" id="text-1-0-1">
 <p>
 An <b>IAM User</b> consists of a name, a password for accessing the AWS console and up to two access keys that can be used with the AWS API or CLI.  It's granted permissions by either making it a member of a user group (recommended) or directly adding policies.
@@ -292,8 +292,8 @@ An <b>IAM User</b> consists of a name, a password for accessing the AWS console 
 </div>
 </div>
 
-<div id="outline-container-org45adcb0" class="outline-4">
-<h4 id="org45adcb0"><span class="section-number-4">1.0.2</span> IAM Roles</h4>
+<div id="outline-container-orgb07cb1d" class="outline-4">
+<h4 id="orgb07cb1d"><span class="section-number-4">1.0.2</span> IAM Roles</h4>
 <div class="outline-text-4" id="text-1-0-2">
 <p>
 An <b>IAM Role</b> is similar to an IAM user, but does not have any credentials associated with it.  An IAM user can assume a role to temporarily take on permissions for a specific task.
@@ -301,8 +301,8 @@ An <b>IAM Role</b> is similar to an IAM user, but does not have any credentials 
 </div>
 </div>
 
-<div id="outline-container-org9fa136d" class="outline-4">
-<h4 id="org9fa136d"><span class="section-number-4">1.0.3</span> IAM Policies</h4>
+<div id="outline-container-orgca76a3e" class="outline-4">
+<h4 id="orgca76a3e"><span class="section-number-4">1.0.3</span> IAM Policies</h4>
 <div class="outline-text-4" id="text-1-0-3">
 <p>
 An <b>IAM policy</b> describes which entities can access particular resources.  Many policies will exist by default in your account: <a href="https://us-east-1.console.aws.amazon.com/iamv2/home#/policies">https://us-east-1.console.aws.amazon.com/iamv2/home#/policies</a>.
@@ -310,8 +310,8 @@ An <b>IAM policy</b> describes which entities can access particular resources.  
 </div>
 </div>
 
-<div id="outline-container-org7dc0503" class="outline-4">
-<h4 id="org7dc0503"><span class="section-number-4">1.0.4</span> Principals</h4>
+<div id="outline-container-orgfda93bb" class="outline-4">
+<h4 id="orgfda93bb"><span class="section-number-4">1.0.4</span> Principals</h4>
 <div class="outline-text-4" id="text-1-0-4">
 <p>
 A principal is an individual or application which can make requests for an action on an AWS resource.  The principal is authenticated as the AWS account root user or an IAM entity (a user or role) to make requests to AWS.
@@ -319,8 +319,8 @@ A principal is an individual or application which can make requests for an actio
 </div>
 </div>
 
-<div id="outline-container-org70f1742" class="outline-3">
-<h3 id="org70f1742"><span class="section-number-3">1.1</span> Examples</h3>
+<div id="outline-container-org68cf864" class="outline-3">
+<h3 id="org68cf864"><span class="section-number-3">1.1</span> Examples</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Here's a Cloudformation snippet which sets up an <code>AWS::IAM::Role</code> for use as the execution role of an <code>AWS::ECS::TaskDefinition</code> (ie the <code>ExecutionRoleArn</code> property):
@@ -385,7 +385,7 @@ For example, we could define different a different action in an inline policy pr
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-01-06 Fri 15:49</p>
+<p class="date">Created: 2023-01-09 Mon 12:41</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
