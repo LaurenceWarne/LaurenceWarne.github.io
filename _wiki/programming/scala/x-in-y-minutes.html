@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-09 Mon 12:41 -->
+<!-- 2023-01-11 Wed 11:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X In Y Minutes</title>
@@ -342,12 +342,40 @@ My take on the x in y minutes saga for Scala 2.
   println(<span class="org-constant">List</span>(<span class="org-constant">DummyLong</span>(<span class="org-constant">10</span>)) &lt; <span class="org-constant">List</span>(<span class="org-constant">DummyLong</span>(<span class="org-constant">10</span>), <span class="org-constant">DummyLong</span>(<span class="org-constant">1</span>)))
   <span class="org-comment-delimiter">// </span><span class="org-comment">true</span>
 }
+
+<span class="org-keyword">object</span> <span class="org-constant">Types</span> {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">A singleton type is a type which depends on a literal</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">See: https://docs.scala-lang.org/sips/42.type.html</span>
+  <span class="org-keyword">val</span> <span class="org-variable-name">lsSingle</span><span class="org-keyword">:</span> <span class="org-type">List</span>[<span class="org-constant">1</span>] <span class="org-keyword">=</span> <span class="org-constant">List</span>(<span class="org-constant">1</span>, <span class="org-constant">1</span>)
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Let's introduce TypeTags!  Consider the following:</span>
+  <span class="org-scala-font-lockXsealed">sealed</span> <span class="org-keyword">trait</span> <span class="org-type">BankBalance</span>
+  <span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">Savings</span>(value<span class="org-keyword">:</span> <span class="org-type">Int</span>) <span class="org-keyword">extends</span> <span class="org-type">BankBalance</span>
+  <span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">Debt</span>(value<span class="org-keyword">:</span> <span class="org-type">Int</span>) <span class="org-keyword">extends</span> <span class="org-type">BankBalance</span>
+
+  <span class="org-keyword">def</span> <span class="org-function-name">check</span>[<span class="org-constant">A</span> <span class="org-keyword">&lt;:</span> <span class="org-constant">BankBalance</span>](xs<span class="org-keyword">:</span> <span class="org-type">List</span>[<span class="org-constant">A</span>]) <span class="org-keyword">=</span> xs <span class="org-keyword">match</span> {
+    <span class="org-keyword">case</span> <span class="org-variable-name">l</span><span class="org-keyword">:</span> <span class="org-type">List</span>[<span class="org-constant">Debt</span>] <span class="org-keyword">=&gt;</span> s<span class="org-string">"Debts of size </span><span class="org-variable-name">${l.sum}</span><span class="org-string">!"</span>
+    <span class="org-keyword">case</span> <span class="org-keyword">_:</span> <span class="org-type">List</span>[<span class="org-constant">BankBalance</span>] <span class="org-keyword">=&gt;</span> <span class="org-string">"OK"</span>
+  }
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">The method above produces the compiler warning:</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">'the type test for List[test.Debt] cannot be checked at runtime'</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">This is because of type erasure.</span>
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">We can use TypeTags to fix this:</span>
+  <span class="org-keyword">import</span> scala.reflect.runtime.universe.<span class="org-keyword">_</span>
+
+  <span class="org-keyword">def</span> <span class="org-function-name">check2</span>[<span class="org-constant">A</span> <span class="org-keyword">&lt;:</span> <span class="org-constant">BankBalance</span> <span class="org-keyword">:</span> <span class="org-type">TypeTag</span>](xs<span class="org-keyword">:</span> <span class="org-type">List</span>[<span class="org-constant">A</span>]) <span class="org-keyword">=</span> typeOf[<span class="org-constant">A</span>] <span class="org-keyword">match</span> {
+    <span class="org-keyword">case</span> <span class="org-variable-name">t</span> <span class="org-keyword">if</span> t =:= typeOf[<span class="org-constant">Debt</span>] <span class="org-keyword">=&gt;</span> <span class="org-string">"list of strings"</span>
+    <span class="org-keyword">case</span> <span class="org-variable-name">t</span> <span class="org-keyword">if</span> t &lt;:&lt; typeOf[<span class="org-constant">BankBalance</span>] <span class="org-keyword">=&gt;</span> <span class="org-string">"list of foos"</span>
+  }
+}
 </pre>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-01-09 Mon 12:41</p>
+<p class="date">Created: 2023-01-11 Wed 11:58</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
