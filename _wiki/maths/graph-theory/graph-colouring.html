@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-09 Mon 12:41 -->
+<!-- 2023-01-11 Wed 11:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Graph Colouring</title>
@@ -280,23 +280,23 @@ Next: <a href='./graphs.html'>Graphs</a><span style='float: right;'>Up: <a href=
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgff6ce86">1. Definition</a></li>
-<li><a href="#orgdee4d1f">2. Chromatic Number</a>
+<li><a href="#org1a84210">1. Definition</a></li>
+<li><a href="#org7dac2d7">2. Chromatic Number</a>
 <ul>
-<li><a href="#org14b4124">2.1. Bounds</a></li>
+<li><a href="#orga554cd4">2.1. Bounds</a></li>
 </ul>
 </li>
-<li><a href="#orgcbecdbc">3. Chromatic Polynomial</a>
+<li><a href="#org0b92183">3. Chromatic Polynomial</a>
 <ul>
-<li><a href="#org39fb8a7">3.1. Theorem</a></li>
+<li><a href="#org5ec3ba6">3.1. Theorem</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgff6ce86" class="outline-2">
-<h2 id="orgff6ce86"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-org1a84210" class="outline-2">
+<h2 id="org1a84210"><span class="section-number-2">1</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We define a k-colouring of an undirected graph \( G(V, E) \) as a function \( f: V \to \mathbb{Z}_k = \{ 1 ... k\} \) such that:
@@ -314,8 +314,8 @@ Ie no neighbouring vertices have the same colour. Additionally, if \( G \) admit
 </div>
 </div>
 
-<div id="outline-container-orgdee4d1f" class="outline-2">
-<h2 id="orgdee4d1f"><span class="section-number-2">2</span> Chromatic Number</h2>
+<div id="outline-container-org7dac2d7" class="outline-2">
+<h2 id="org7dac2d7"><span class="section-number-2">2</span> Chromatic Number</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We define \( \chi(G) \) as the smallest k such that \( G \) is k-colourable. Clearly such a k must always exist as a graph on \( n \) vertices is always n-colourable (assign all the vertices different colours).
@@ -326,8 +326,8 @@ However determining \( \chi(G) \) for an arbitrary graph is nontrivial and is in
 </p>
 </div>
 
-<div id="outline-container-org14b4124" class="outline-3">
-<h3 id="org14b4124"><span class="section-number-3">2.1</span> Bounds</h3>
+<div id="outline-container-orga554cd4" class="outline-3">
+<h3 id="orga554cd4"><span class="section-number-3">2.1</span> Bounds</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Using a greedy algorithm we can deduce that:
@@ -362,16 +362,16 @@ Clearly if \( G \) has <b>k-clique</b> then:
 </div>
 </div>
 
-<div id="outline-container-orgcbecdbc" class="outline-2">
-<h2 id="orgcbecdbc"><span class="section-number-2">3</span> Chromatic Polynomial</h2>
+<div id="outline-container-org0b92183" class="outline-2">
+<h2 id="org0b92183"><span class="section-number-2">3</span> Chromatic Polynomial</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Given some simple graph \( G \) we define the <b>Chromatic Function</b> \( P_G: \mathbb{Z}^+ \to \mathbb{Z}^+ \) as the number of ways we can colour \( G \) using \( k \) or fewer colours. Hence if \( k < \chi(G) \) then \( P_G(k) = 0 \).
 </p>
 </div>
 
-<div id="outline-container-org39fb8a7" class="outline-3">
-<h3 id="org39fb8a7"><span class="section-number-3">3.1</span> Theorem</h3>
+<div id="outline-container-org5ec3ba6" class="outline-3">
+<h3 id="org5ec3ba6"><span class="section-number-3">3.1</span> Theorem</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 <i>The Chromatic Function of a simple graph \( G \) is polynomial</i>.
@@ -403,7 +403,7 @@ We can apply this procedure to the two new graphs \( G - e \) and \( G/ e \), an
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-01-09 Mon 12:41</p>
+<p class="date">Created: 2023-01-11 Wed 11:58</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
