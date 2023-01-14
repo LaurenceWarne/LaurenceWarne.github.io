@@ -9,7 +9,7 @@ My name is Laurence Warne and I'm a maths student at the University of Mancheste
 </p>
 
 <img src="https://projecteuler.net/profile/__LW__.png" alt="Project Euler">
-
+<img src="{{site.baseurl}}/assets/montage22.png">
 
 <!-- This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/) -->
 
