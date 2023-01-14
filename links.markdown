@@ -22,25 +22,15 @@ permalink: /links/
 
 # Programming
 
-* Scala 2 <a href="https://underscore.io/blog/posts/2016/12/05/type-lambdas.html">Kind Projector plugin</a>: motivation and usage
-
 * <a href="https://www.fosskers.ca/en/blog/contributing-to-emacs">Blog post on Contributing to Emacs</a> / <a href="https://archive.casouri.cat/note/2020/contributing-to-emacs/#org2f80ace">And Another</a>
 
 * <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">Character Sets</a> by Joel Spolsky
 
 * <a href="https://debbugs.gnu.org/cgi/pkgreport.cgi?bug-rev=on;package=emacs">Emacs Bug Tracker</a> 
 
-* <a href="https://pavelfatin.com/scala-collections-tips-and-tricks/">Scala collections tips and tricks</a> by Pavel Fatin
-
 * <a href="https://martin.kleppmann.com/2014/11/25/hermitage-testing-the-i-in-acid.html">Isolation in DBs</a> by Martin Kleppmann
 
-* <a href="https://www.chris-kipp.io/blog/an-intro-to-the-scala-presentation-compiler">Introduction to the Scala Presentation Compiler</a> by Chris Kipp
-
-* <a href="https://docs.scala-lang.org/overviews/collections/performance-characteristics.html">Time complexity of Scala collection operations</a>
-
-* <a href="https://docs.scala-lang.org/overviews/core/binary-compatibility-for-library-authors.html">Scala Binary Compatibility</a>
-
-* <a href="https://docs.scala-lang.org/overviews/core/binary-compatibility-for-library-authors.html">Miscelleneous Programs Written by Donald Knuth</a> 
+* <a href="https://cs.stanford.edu/~knuth/programs.html">Miscelleneous Programs Written by Donald Knuth</a> 
 
 # Question Sources
 
