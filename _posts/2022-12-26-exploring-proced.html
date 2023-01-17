@@ -1,0 +1,237 @@
+---
+date: 2022-12-26 10:00
+author: Laurence Warne
+title: Exploring Proced
+layout: post
+excerpt: Exploring Proced
+categories: 
+- emacs
+- programming
+tags: 
+---
+<p>
+I was searching in Github in vain for a tool which would I could use as a process monitor, until I found that a tool already exists, and is in fact already shipped with Emacs: <code>proced.el</code> (written by Roland Winkler).  To start, we can kick off a Proced buffer by <code>M-x proced</code>, and by default we'll be greeted by something like:
+</p>
+
+
+<div id="org6bb08cb" class="figure">
+<p><img src="https://user-images.githubusercontent.com/17688577/210267266-d63a08b6-001d-4ebe-9680-9572034c288b.png" alt="210267266-d63a08b6-001d-4ebe-9680-9572034c288b.png" />
+</p>
+</div>
+
+<p>
+Within this buffer, we can perform many useful process management operations:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key</th>
+<th scope="col" class="org-left">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>k</code>, <code>x</code></td>
+<td class="org-left">Send a signal to the process under point</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>f</code></td>
+<td class="org-left">Filter processes (for example, <code>user-running</code> will only show processes owned by you which are running)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>F</code></td>
+<td class="org-left">Choose between a collection of preset and user-defined attributes to show for each process (called <b>formats</b>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;ENTER&gt;</code></td>
+<td class="org-left">Refine the current list of processes according to attribute of the process under point (see <code>proced-grammar-alist</code> for some more information on how this works - for example pressing <code>ENTER</code> on the memory column of a given process will change it so that only processes with memory <code>&gt;=</code> to the given process will be shown)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>m</code> / <code>u</code></td>
+<td class="org-left">Mark/unmark the process at point, <code>M</code> / <code>U</code> mark/unmark all processes</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>P</code></td>
+<td class="org-left">Mark a process and its parents</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>t</code></td>
+<td class="org-left">Toggles marks</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>r</code></td>
+<td class="org-left">Renice process at point</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Many of these commands will use marked processes instead of the process at point if any marked processes exist.
+</p>
+
+<p>
+By default, processes will by sorted by CPU usage, this can be changed using <code>s</code>, followed by one of <code>c</code> to sort by CPU, <code>m</code> to sort by memory, <code>p</code> to sort by process ID, <code>s</code> to sort by start time, <code>t</code> to sort by time (= system time + user time), <code>u</code> to sort by user, and finally <code>S</code> will prompt you to choose a sort time based on all process attributes (even if they aren't present in the current format).
+</p>
+
+<div id="outline-container-org05ff819" class="outline-2">
+<h2 id="org05ff819">Customisation</h2>
+<div class="outline-text-2" id="text-org05ff819">
+<p>
+Off the bat, by default the Proced buffer will <b>not</b> update automatically.  An update can be manually triggered via <code>g</code>, but to emulate something similar to <code>top</code> / <code>htop</code> behaviour we can set:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #3679D8;">(</span><span style="color: #D83441;">setq-default</span> <span style="color: #86e7d7;">proced-auto-update-flag</span> t<span style="color: #3679D8;">)</span>
+<span style="color: #3679D8;">(</span><span style="color: #D83441;">setq</span> <span style="color: #86e7d7;">proced-auto-update-interval</span> 1<span style="color: #3679D8;">)</span>
+</pre>
+</div>
+
+<p>
+<code>proced-auto-update-flag</code> enables auto updating the Proced buffer (by default) every five seconds, and we use <code>proced-auto-update-interval</code> to shorten this to every second.  We need <code>setq-default</code> for the first of these rather than <code>setq</code> since <code>proced-auto-update-flag</code> is a <a href="https://stackoverflow.com/questions/18172728/the-difference-between-setq-and-setq-default-in-emacs-lisp">buffer-local variable</a> (we can make use of this by calling <code>proced-toggle-auto-update</code> within a Proced buffer which will toggle auto-update without changing the global value of <code>proced-auto-update-flag</code>).  I'm also not a fan of the default formats, but it's easy to define one yourself and set this as the default:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #3679D8;">(</span><span style="color: #8041D8;">add-to-list</span>
+ '<span style="color: #86e7d7;">proced-format-alist</span>
+ '<span style="color: #8041D8;">(</span>custom user pid ppid sess tree pcpu pmem rss start time state <span style="color: #79D836;">(</span>args comm<span style="color: #79D836;">)</span><span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+<span style="color: #3679D8;">(</span><span style="color: #D83441;">setq-default</span> <span style="color: #86e7d7;">proced-format</span> 'custom<span style="color: #3679D8;">)</span>
+</pre>
+</div>
+<p>
+The <code>car</code> of the value you're adding is the name of the new format, and the other symbols are values which appear in <code>list-system-processes</code> (for more information see <code>proced-format-alist</code>).  <code>list-system-processes</code> also gives a nice rundown on the meaning of each attribute.  You can also add your own custom attributes, here's a great example I found in <a href="https://github.com/legoscia/dotemacs/blob/master/dotemacs.org#proced-erlang-magic">legoscia's Emacs config</a>.
+</p>
+
+<p>
+Something else you may notice is that moving down a row also sets the column you're in to <code>args</code>, personally I find this annoying, but you can turn this off:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #3679D8;">(</span><span style="color: #D83441;">setq</span> <span style="color: #86e7d7;">proced-goal-attribute</span> nil<span style="color: #3679D8;">)</span>
+</pre>
+</div>
+
+<p>
+The final cherry on top is that from Emacs 29 onwards, you can enable colouring for various attributes:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #3679D8;">(</span><span style="color: #D83441;">setq</span> proced-enable-color-flag t<span style="color: #3679D8;">)</span>
+</pre>
+</div>
+
+<p>
+Which, using our new default format, leaves us with:
+</p>
+
+
+<div id="org9d583ad" class="figure">
+<p><img src="https://user-images.githubusercontent.com/17688577/212047844-7531d1be-6920-45ef-b7b5-6b3cdb03c7a2.png" alt="212047844-7531d1be-6920-45ef-b7b5-6b3cdb03c7a2.png" />
+</p>
+</div>
+
+<p>
+Full customisation:
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #3679D8;">(</span><span style="color: #D83441;">use-package</span> <span style="color: #8041D8;">proced</span>
+  <span style="color: #86e7d7;">:ensure</span> nil
+  <span style="color: #86e7d7;">:commands</span> proced
+  <span style="color: #86e7d7;">:bind</span> <span style="color: #8041D8;">(</span><span style="color: #79D836;">(</span><span style="color: #79D836;">"C-M-p"</span> . proced<span style="color: #79D836;">)</span><span style="color: #8041D8;">)</span>
+  <span style="color: #86e7d7;">:config</span>
+  <span style="color: #8041D8;">(</span><span style="color: #D83441;">setq-default</span> <span style="color: #86e7d7;">proced-auto-update-flag</span> t<span style="color: #8041D8;">)</span>
+  <span style="color: #8041D8;">(</span><span style="color: #D83441;">setq</span> <span style="color: #86e7d7;">proced-auto-update-interval</span> 1
+        <span style="color: #86e7d7;">proced-goal-attribute</span> nil
+        proced-enable-color-flag t<span style="color: #8041D8;">)</span>
+  <span style="color: #8041D8;">(</span><span style="color: #8041D8;">add-to-list</span>
+   '<span style="color: #86e7d7;">proced-format-alist</span>
+   '<span style="color: #79D836;">(</span>custom user pid ppid sess tree pcpu pmem rss start time state <span style="color: #AB11D8;">(</span>args comm<span style="color: #AB11D8;">)</span><span style="color: #79D836;">)</span><span style="color: #8041D8;">)</span>
+  <span style="color: #8041D8;">(</span><span style="color: #D83441;">setq-default</span> <span style="color: #86e7d7;">proced-format</span> 'custom<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org490cb89" class="outline-2">
+<h2 id="org490cb89">Rolling Your Own Formatting for Attributes</h2>
+<div class="outline-text-2" id="text-org490cb89">
+<p>
+<code>proced-grammar-alist</code> opens the door for a lot of control over how attributes are shown in Proced buffers.  The documentation goes into a lot of detail, but I'll provide a quick example here to give an idea.
+</p>
+
+<p>
+Suppose our goal is to set the colour of Java executables in the <code>args</code> column to that strange orangey-brown colour that everyone seems to associate with Java.  We can start by first defining our format function:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #3679D8;">(</span><span style="color: #D83441;">defun</span> <span style="color: #D8B941;">my-format-java-args</span> <span style="color: #8041D8;">(</span>args<span style="color: #8041D8;">)</span>
+  <span style="color: #8041D8;">(</span><span style="color: #D83441;">pcase-let*</span> <span style="color: #79D836;">(</span><span style="color: #AB11D8;">(</span>base <span style="color: #2D9574;">(</span><span style="color: #8041D8;">proced-format-args</span> args<span style="color: #2D9574;">)</span><span style="color: #AB11D8;">)</span>
+               <span style="color: #AB11D8;">(</span>`<span style="color: #2D9574;">(</span>,exe . ,rest<span style="color: #2D9574;">)</span> <span style="color: #2D9574;">(</span><span style="color: #8041D8;">split-string</span> base<span style="color: #2D9574;">)</span><span style="color: #AB11D8;">)</span>
+               <span style="color: #AB11D8;">(</span>exe-prop
+                <span style="color: #2D9574;">(</span><span style="color: #D83441;">if</span> <span style="color: #3679D8;">(</span><span style="color: #8041D8;">string=</span> exe <span style="color: #79D836;">"java"</span><span style="color: #3679D8;">)</span>
+                    <span style="color: #3679D8;">(</span><span style="color: #8041D8;">propertize</span> exe 'font-lock-face '<span style="color: #8041D8;">(</span><span style="color: #79D836;">(</span>t <span style="color: #AB11D8;">(</span><span style="color: #3679D8;">:foreground</span> <span style="color: #79D836;">"#f89820"</span><span style="color: #AB11D8;">)</span><span style="color: #79D836;">)</span><span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+                  exe<span style="color: #2D9574;">)</span><span style="color: #AB11D8;">)</span><span style="color: #79D836;">)</span>
+    <span style="color: #79D836;">(</span><span style="color: #8041D8;">mapconcat</span> #'identity <span style="color: #AB11D8;">(</span><span style="color: #8041D8;">cons</span> exe-prop rest<span style="color: #AB11D8;">)</span> <span style="color: #79D836;">" "</span><span style="color: #79D836;">)</span><span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+</pre>
+</div>
+
+<p>
+Now, we just need to tell <code>proced-grammar-alist</code> to use this function for the <code>args</code> attribute:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #3679D8;">(</span><span style="color: #D83441;">setf</span> <span style="color: #8041D8;">(</span><span style="color: #8041D8;">alist-get</span> 'args <span style="color: #86e7d7;">proced-grammar-alist</span><span style="color: #8041D8;">)</span>
+      '<span style="color: #8041D8;">(</span><span style="color: #79D836;">"Args"</span>               <span style="color: #767676; font-style: italic;">; </span><span style="color: #767676; font-style: italic;">name of the column</span>
+        my-format-java-args  <span style="color: #767676; font-style: italic;">; </span><span style="color: #767676; font-style: italic;">format function</span>
+        left                 <span style="color: #767676; font-style: italic;">; </span><span style="color: #767676; font-style: italic;">alignment within column</span>
+        proced-string-lessp  <span style="color: #767676; font-style: italic;">; </span><span style="color: #767676; font-style: italic;">defines the sort method (ascending)</span>
+        nil                  <span style="color: #767676; font-style: italic;">; </span><span style="color: #767676; font-style: italic;">non-nil reverses sort order</span>
+       <span style="color: #79D836;">(</span>args pid<span style="color: #79D836;">)</span>            <span style="color: #767676; font-style: italic;">; </span><span style="color: #767676; font-style: italic;">sort scheme</span>
+       <span style="color: #79D836;">(</span>nil t nil<span style="color: #79D836;">)</span><span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>         <span style="color: #767676; font-style: italic;">; </span><span style="color: #767676; font-style: italic;">refiner for custom refinement logic - see proced-refine</span>
+</pre>
+</div>
+
+<p>
+And you should see the results straight away:
+</p>
+
+
+<div id="org95aef60" class="figure">
+<p><img src="https://user-images.githubusercontent.com/17688577/212048912-991ba757-f3e3-4abb-b386-0b90fc5dc901.png" alt="212048912-991ba757-f3e3-4abb-b386-0b90fc5dc901.png" /> 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org83302c7" class="outline-2">
+<h2 id="org83302c7">Remote Systems</h2>
+<div class="outline-text-2" id="text-org83302c7">
+<p>
+Thanks to Michael Albinus, from Emacs 29 onwards invoking <code>proced</code> when <code>default-directory</code> is remote (for example, your current buffer points to a remote file) and <code>proced-show-remote-processes</code> is non-nil, will prompt Proced to show processes from the remote system instead of your local machine, which can make <code>proced</code> a lot more useful when working with <code>tramp</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2869ff4" class="outline-2">
+<h2 id="org2869ff4">See Also</h2>
+<div class="outline-text-2" id="text-org2869ff4">
+<ul class="org-ul">
+<li><a href="https://www.masteringemacs.org/article/displaying-interacting-processes-proced">https://www.masteringemacs.org/article/displaying-interacting-processes-proced</a></li>
+<li><a href="https://emacsredux.com/blog/2013/05/02/manage-processes-with-proced/">https://emacsredux.com/blog/2013/05/02/manage-processes-with-proced/</a></li>
+</ul>
+</div>
+</div>
