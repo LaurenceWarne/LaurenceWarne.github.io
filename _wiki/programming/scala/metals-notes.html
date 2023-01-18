@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-01-18 Wed 16:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Metals Notes</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="root" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script defer>
+window.onload = function(){
+let tags = document.getElementsByClassName('tag');
+for (let i = 0; i < tags.length; i++ ) {
+    var element = tags[i];
+    var parent = element.parentNode;
+    if (parent.tagName.startsWith('H')) {
+	var target = parent.parentNode
+	parent.style = 'display: inline';
+	var details = document.createElement('details');
+	var summary = document.createElement('summary');
+	details.style = 'display: inline';
+	//details.appendChild(target);
+	target.insertBefore(summary, parent);
+	//target.insertBefore(document.createElement('br'), parent.nextSibling);
+        target.insertBefore(document.createElement('br'), parent.nextSibling);
+	summary.appendChild(parent);
+	while (target.childNodes.length > 0) {
+	    details.appendChild(target.childNodes[0]);
+	}
+	target.appendChild(details);
+        target.appendChild(document.createElement('br'));
+        target.appendChild(document.createElement('br'));
+    }
+}
+while (tags.length > 0) {
+    tags[0].remove();
+}
+}</script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+Previous: <a href='./hax.html'>Hax</a>, Next: <a href='./repositories.html'>Repositories</a><span style='float: right;'>Up: <a href='./scala.html'>Scala</a></span><hr><h1 class="title">Metals Notes</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org99e260e">1. Links</a></li>
+<li><a href="#orgfa1242f">2. Custom Class Loading</a></li>
+<li><a href="#orgc8b0c64">3. Diagnostics</a>
+<ul>
+<li><a href="#org74b3b56">3.1. Flow</a></li>
+</ul>
+</li>
+<li><a href="#org92bf002">4. Build Servers</a></li>
+<li><a href="#org53c21ff">5. Random Objects Passed Around</a></li>
+<li><a href="#orgf2e322f">6. Semanticdb</a></li>
+<li><a href="#org15b9e6b">7. Symbol Indexing Flow</a></li>
+<li><a href="#orgbfccc92">8. Code Lenses</a></li>
+<li><a href="#org1547ab2">9. Heirarchy</a></li>
+</ul>
+</div>
+</div>
+<p>
+Presentation compilers are used for completions, hovers, backup definition provider (when it's not found in SemanticDB), diagnostics (?), see <a href="./mtags/src/main/scala-2/scala/meta/internal/pc/ScalaPresentationCompiler.scala">PresentationCompiler.scala</a> for more info.
+</p>
+
+<p>
+SemanticDB is used for definition navigation and find references, etc within a project, for external sources Interactive SemanticDB is used to produce SemanticDB on demand using the presentation compiler.
+</p>
+
+<p>
+To get the presentation compiler for a particular file path, <code>loadCompiler</code> is used throughout <code>scala.meta.internal.metals.Compilers.scala</code>.
+</p>
+
+<div id="outline-container-org99e260e" class="outline-2">
+<h2 id="org99e260e"><span class="section-number-2">1</span> Links</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="https://www.youtube.com/watch?v=fpzN_vTBy18">A Dive into how Metals works by Chris Kipp</a></li>
+<li>BSP link to <a href="https://build-server-protocol.github.io/docs/extensions/scala.html#scala-build-target">ScalaBuildTarget</a>s, you can find information on a particular build target by clicking on it in <b>Metals Doctor</b></li>
+<li>Short description of how presentation compilers are created: <a href="https://github.com/scalameta/metals/issues/1653">https://github.com/scalameta/metals/issues/1653</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfa1242f" class="outline-2">
+<h2 id="orgfa1242f"><span class="section-number-2">2</span> Custom Class Loading</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+We need a presentation compiler for each build target since different build targets can have different classpaths and compiler settings.
+</p>
+
+<p>
+The presentation compiler APIs are compiled against exact Scala versions of the compiler while Metals only runs in a single Scala version. In order to communicate between Metals and the reflectively loaded compiler, a custom classloader, <code>PresentationCompilerClassLoader,</code> is used by <code>scala.meta.internal.metals.Embedded</code> which is in turn used by <code>Compilers</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc8b0c64" class="outline-2">
+<h2 id="orgc8b0c64"><span class="section-number-2">3</span> Diagnostics</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><a href="https://github.com/scalameta/metals/blob/main/docs/editors/overview.md">https://github.com/scalameta/metals/blob/main/docs/editors/overview.md</a>
+<ul class="org-ul">
+<li>Diagnostics are triggered on compile, compilation is triggered on file save for the build target (project/module) containing the focused text file.</li>
+<li>Syntax errors are published as you type but type errors are handled by the build tool</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org74b3b56" class="outline-3">
+<h3 id="org74b3b56"><span class="section-number-3">3.1</span> Flow</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li>metals sends a <code>buildTarget/compile</code> (<a href="https://build-server-protocol.github.io/docs/specification#compile-request">link</a>) request to the BSP server (in <code>BuildServerConnection.compile</code>), to ask the build server to compile a list of build targets.</li>
+
+<li>The BSP will start compilation, sending intermittent <code>build/publishDiagnostics</code> notifications back to metals.  This is caught by <code>Diagnostics.onBuildPublishDiagnostics</code> which calls <code>Diagnostics.onBuildPublishDiagnostics</code>.  This adds the diagnostics in the request to a queue for each path (<code>Diagnostics.diagnostics</code> is a <code>Map[AbsolutePath, Queue[Diagnostic]]</code>).  The path is also added to <code>diagnosticsBuffer</code>.  No diagnostics are sent to the LSP client at this stage, but they may be cleared if the sent notification had the <code>reset</code> parameter set to true.</li>
+
+<li><code>build/taskFinish</code> is sent by the BSP server to indicate that compilation has finished, which is caught by <code>ForwardingMetalsBuildClient.buildTaskFinish</code>, which then calls <code>Diagnostics.onFinishCompileBuildTarget</code>, this clears <code>diagnosticsBuffer</code>, and finally sends the diagnostics the LSP client.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org92bf002" class="outline-2">
+<h2 id="org92bf002"><span class="section-number-2">4</span> Build Servers</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Switch occurs in <code>BspConnector.switchBuildServer</code>.  Build servers are generated by <code>BuildServerProvider</code> (an extension of the <code>BuildTool</code> trait) instances.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org53c21ff" class="outline-2">
+<h2 id="org53c21ff"><span class="section-number-2">5</span> Random Objects Passed Around</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-scala"><span class="org-keyword">val</span> <span class="org-variable-name">buffers</span><span class="org-keyword">:</span> <span class="org-type">Buffers</span> <span class="org-comment-delimiter">// </span><span class="org-comment">holds currently loaded files</span>
+<span class="org-keyword">val</span> <span class="org-variable-name">trees</span><span class="org-keyword">:</span> <span class="org-type">Trees</span>     <span class="org-comment-delimiter">// </span><span class="org-comment">manages parsing of source files to Scalameta ASTs</span>
+<span class="org-keyword">val</span> <span class="org-variable-name">tables</span><span class="org-keyword">:</span> <span class="org-type">Tables</span>   <span class="org-comment-delimiter">// </span><span class="org-comment">Used to persist chosen build server, etc to a h2 db</span>
+<span class="org-keyword">val</span> <span class="org-variable-name">semanticdbs</span><span class="org-keyword">:</span> <span class="org-type">Semanticdbs</span> <span class="org-comment-delimiter">//</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf2e322f" class="outline-2">
+<h2 id="orgf2e322f"><span class="section-number-2">6</span> <a href="https://scalameta.org/docs/semanticdb/guide.html">Semanticdb</a></h2>
+<div class="outline-text-2" id="text-6">
+<p>
+A semanticdb payload associated with a file contains:
+</p>
+<ul class="org-ul">
+<li><code>Uri</code> the uri of the source file, ie <code>metals/src/main/scala/scala/meta/internal/metals/codelenses/RunTestCodeLens.scala</code></li>
+
+<li><p>
+<code>Symbols</code> which contains information on definitions in the source file, e.g.
+</p>
+<div class="org-src-container">
+<pre class="src src-scala">local36 <span class="org-keyword">=&gt;</span> <span class="org-keyword">val</span> <span class="org-variable-name">local</span> <span class="org-type">dataKind</span><span class="org-keyword">:</span> <span class="org-type">String</span>
+local37 <span class="org-keyword">=&gt;</span> <span class="org-keyword">val</span> <span class="org-variable-name">local</span> <span class="org-type">data</span><span class="org-keyword">:</span> <span class="org-type">JsonElement</span>
+scala/meta/internal/metals/codelenses/<span class="org-constant">RunTestCodeLens</span><span class="org-keyword">#</span> <span class="org-keyword">=&gt;</span> <span class="org-scala-font-lockXfinal">final</span> <span class="org-keyword">class</span> <span class="org-type">RunTestCodeLens</span> <span class="org-keyword">extends</span> <span class="org-type">AnyRef</span> <span class="org-keyword">with</span> <span class="org-type">CodeLens</span> { +<span class="org-constant">17</span> decls }
+</pre>
+</div></li>
+
+<li><p>
+<code>Ocurrences</code> a list of identifiers from the source file with their line/column-based positions and unique identifiers pointing to corresponding definitions resolved by the compiler:
+</p>
+<pre class="example">
+[75:13..75:22) =&gt; scala/Option#getOrElse().
+[75:23..75:26) =&gt; scala/package.Seq.
+[75:27..75:32) =&gt; scala/collection/SeqFactory.Delegate#empty().
+[82:14..82:26) &lt;= scala/meta/internal/metals/codelenses/RunTestCodeLens#isMainMethod().
+</pre>
+<p>
+For example, <code>[2:4..2:11): println =&gt; scala/Predef.println(+1).</code> says that the identifier println on line 3 (zero-based numbering scheme!) refers to the second overload of println from scala/Predef
+</p></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org15b9e6b" class="outline-2">
+<h2 id="org15b9e6b"><span class="section-number-2">7</span> Symbol Indexing Flow</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li><b>Indexer.scala</b> -&gt;
+<b>MetalsLanguageServer.connectToNewBuildServer()</b> -&gt; <b>profiledIndexWorkspace()</b> -&gt; <b>indexWorkspace()</b> -&gt; <b>indexDependencySources()</b></li>
+<li><b>DefinitionProvider.scala</b> -&gt; Uses a GlobalSymbolIndex, but only index.definitions (also has access to the raw Mtags?)</li>
+<li><a href="mtags/src/main/scala/scala/meta/internal/mtags/OnDemandSymbolIndex.scala">OnDemandSymbolIndex.scala</a> -&gt; GlobalSymbolIndex implementation, holds buckets of symbols</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbfccc92" class="outline-2">
+<h2 id="orgbfccc92"><span class="section-number-2">8</span> Code Lenses</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Code lenses are refreshed whenever:
+</p>
+<ul class="org-ul">
+<li>There is a reindexing (<code>Indexer.indexWorkspace</code> calls <code>languageClient.refreshModel</code> which in turn calls <code>workspace/codeLens/refresh</code> (?), which prompts the client to call <code>textDocument/codeLens</code></li>
+<li>There is a (re)compilation (<code>Compilations.compile</code> calls <code>languageClient.refreshModel</code>), ie a user saves their document.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1547ab2" class="outline-2">
+<h2 id="org1547ab2"><span class="section-number-2">9</span> Heirarchy</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+<code>MetalsLanguageServer.scala</code> -&gt;
+  <code>Compilers.scala</code> holds a list of <code>ScalaPresentationCompiler.scala</code> -&gt;
+    Which can create a new <code>MetalsGlobal.scala</code> object using <code>newCompiler()</code> -&gt;
+</p>
+
+<p>
+Completions call tree:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-scala"><span class="org-comment-delimiter">////////////////////////////////</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">MetalsLanguageServer.scala //</span>
+<span class="org-comment-delimiter">////////////////////////////////</span>
+<span class="org-preprocessor">@JsonRequest</span>(<span class="org-string">"textDocument/completion"</span>)
+<span class="org-keyword">def</span> <span class="org-function-name">completion</span>(params<span class="org-keyword">:</span> <span class="org-type">CompletionParams</span>)<span class="org-keyword">:</span> <span class="org-type">CompletableFuture</span>[<span class="org-constant">CompletionList</span>] <span class="org-keyword">=</span>
+  <span class="org-constant">CancelTokens</span>.future { token <span class="org-keyword">=&gt;</span> compilers.completions(params, token) }
+
+<span class="org-comment-delimiter">/////////////////////</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">Compilers.scala //</span>
+<span class="org-comment-delimiter">/////////////////////</span>
+<span class="org-keyword">def</span> <span class="org-function-name">completions</span>(
+    params<span class="org-keyword">:</span> <span class="org-type">CompletionParams</span>,
+    token<span class="org-keyword">:</span> <span class="org-type">CancelToken</span>,
+)<span class="org-keyword">:</span> <span class="org-type">Future</span>[<span class="org-constant">CompletionList</span>] <span class="org-keyword">=</span>
+  withPCAndAdjustLsp(params) { (pc, pos, adjust) <span class="org-keyword">=&gt;</span>
+    <span class="org-keyword">val</span> <span class="org-variable-name">offsetParams</span> <span class="org-keyword">=</span>
+      <span class="org-constant">CompilerOffsetParams</span>.fromPos(pos, token)
+    pc.complete(offsetParams)
+      .asScala
+      .map { list <span class="org-keyword">=&gt;</span>
+        adjust.adjustCompletionListInPlace(list)
+        list
+      }
+  }.getOrElse(<span class="org-constant">Future</span>.successful(<span class="org-keyword">new</span> <span class="org-type">CompletionList</span>(<span class="org-constant">Nil</span>.asJava)))
+
+<span class="org-comment-delimiter">/////////////////////////////////////</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">ScalaPresentationCompiler.scala //</span>
+<span class="org-comment-delimiter">/////////////////////////////////////</span>
+<span class="org-scala-font-lockXoverride">override</span> <span class="org-keyword">def</span> <span class="org-function-name">complete</span>(
+    params<span class="org-keyword">:</span> <span class="org-type">OffsetParams</span>
+)<span class="org-keyword">:</span> <span class="org-type">CompletableFuture</span>[<span class="org-constant">CompletionList</span>] <span class="org-keyword">=</span>
+  compilerAccess.withInterruptableCompiler(
+    <span class="org-constant">EmptyCompletionList</span>(),
+    params.token
+  ) { pc <span class="org-keyword">=&gt;</span> <span class="org-keyword">new</span> <span class="org-type">CompletionProvider</span>(pc.compiler(), params).completions() }
+
+
+<span class="org-comment-delimiter">//////////////////////////////</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">CompletionProvider.scala //</span>
+<span class="org-comment-delimiter">//////////////////////////////</span>
+
+<span class="org-keyword">def</span> <span class="org-function-name">completions</span>()<span class="org-keyword">:</span> <span class="org-type">CompletionList</span> <span class="org-keyword">=</span> {
+  <span class="org-keyword">val</span> <span class="org-variable-name">filename</span> <span class="org-keyword">=</span> params.uri().toString()
+  <span class="org-keyword">val</span> <span class="org-variable-name">unit</span> <span class="org-keyword">=</span> addCompilationUnit(
+    code <span class="org-keyword">=</span> params.text,
+    filename <span class="org-keyword">=</span> filename,
+    cursor <span class="org-keyword">=</span> <span class="org-constant">Some</span>(params.offset),
+    cursorName <span class="org-keyword">=</span> cursorName
+  )
+
+  <span class="org-keyword">val</span> <span class="org-variable-name">pos</span> <span class="org-keyword">=</span> unit.position(params.offset)
+  <span class="org-keyword">val</span> <span class="org-variable-name">isSnippet</span> <span class="org-keyword">=</span> isSnippetEnabled(pos, params.text())
+
+  <span class="org-keyword">val</span> (<span class="org-variable-name">i</span>, <span class="org-variable-name">completion</span>, <span class="org-variable-name">editRange</span>, <span class="org-variable-name">query</span>) <span class="org-keyword">=</span> safeCompletionsAt(pos, params.uri())
+  <span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+}
+
+<span class="org-scala-font-lockXprivate">private</span> <span class="org-keyword">def</span> <span class="org-function-name">safeCompletionsAt</span>(
+    pos<span class="org-keyword">:</span> <span class="org-type">Position</span>,
+    source<span class="org-keyword">:</span> <span class="org-type">URI</span>
+)<span class="org-keyword">:</span> (<span class="org-constant">InterestingMembers</span>, <span class="org-constant">CompletionPosition</span>, l.<span class="org-constant">Range</span>, <span class="org-constant">String</span>) <span class="org-keyword">=</span> {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Call to the presentation compiler is here</span>
+  <span class="org-keyword">val</span> <span class="org-variable-name">completions</span> <span class="org-keyword">=</span> completionsAt(pos) <span class="org-keyword">match</span> {
+    <span class="org-keyword">case</span> <span class="org-constant">CompletionResult</span>.<span class="org-constant">NoResults</span> <span class="org-keyword">=&gt;</span>
+      <span class="org-keyword">new</span> <span class="org-type">DynamicFallbackCompletions</span>(pos).print()
+    <span class="org-keyword">case</span> <span class="org-variable-name">r</span> <span class="org-keyword">=&gt;</span> r
+  }
+  <span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+  <span class="org-keyword">val</span> <span class="org-variable-name">completion</span> <span class="org-keyword">=</span> completionPosition(
+    pos,
+    source,
+    params.text(),
+    editRange,
+    completions,
+    latestParentTrees
+  )
+  <span class="org-comment-delimiter">// </span><span class="org-comment">... finally the return value</span>
+  (items, completion, editRange, query)
+}
+
+<span class="org-comment-delimiter">///////////////////////</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">Completions.scala //</span>
+<span class="org-comment-delimiter">///////////////////////</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">the implementation of completionPositionUnsafe does a lot of `typedTreeAt(pos).tpe`</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">which often causes null pointer exceptions, it's easier to catch the error in</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">completePosition</span>
+<span class="org-keyword">def</span> <span class="org-function-name">completionPositionUnsafe</span>(
+      pos<span class="org-keyword">:</span> <span class="org-type">Position</span>,
+      source<span class="org-keyword">:</span> <span class="org-type">URI</span>,
+      text<span class="org-keyword">:</span> <span class="org-type">String</span>,
+      editRange<span class="org-keyword">:</span> <span class="org-type">l</span>.<span class="org-constant">Range</span>,
+      completions<span class="org-keyword">:</span> <span class="org-type">CompletionResult</span>,
+      latestEnclosingArg<span class="org-keyword">:</span> <span class="org-type">List</span>[<span class="org-constant">Tree</span>]
+  )<span class="org-keyword">:</span> <span class="org-type">CompletionPosition</span> <span class="org-keyword">=</span> {
+
+}  
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: root</p>
+<p class="date">Created: 2023-01-18 Wed 16:20</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
