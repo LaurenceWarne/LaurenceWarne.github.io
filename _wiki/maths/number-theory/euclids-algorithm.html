@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-14 Sat 18:34 -->
+<!-- 2023-01-18 Wed 16:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Euclid's Algorithm</title>
@@ -280,24 +280,24 @@ Previous: <a href='./chinese-remainder-theorem.html'>Chinese Remainder Theorem</
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org15d06b7">1. Diophantine Equations</a>
+<li><a href="#org659705a">1. Diophantine Equations</a>
 <ul>
-<li><a href="#org308c82b">1.1. Lemma 1</a></li>
-<li><a href="#org313ba33">1.2. Lemma 2</a></li>
-<li><a href="#org7bacd0a">1.3. Lemma 3</a></li>
+<li><a href="#orga85e437">1.1. Lemma 1</a></li>
+<li><a href="#orga74a82c">1.2. Lemma 2</a></li>
+<li><a href="#org0c946fa">1.3. Lemma 3</a></li>
 </ul>
 </li>
-<li><a href="#orgeac8da1">2. Euclid's Algorithm</a>
+<li><a href="#org7f8b96c">2. Euclid's Algorithm</a>
 <ul>
-<li><a href="#org869c690">2.1. Example</a></li>
+<li><a href="#org814cc02">2.1. Example</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org15d06b7" class="outline-2">
-<h2 id="org15d06b7"><span class="section-number-2">1</span> Diophantine Equations</h2>
+<div id="outline-container-org659705a" class="outline-2">
+<h2 id="org659705a"><span class="section-number-2">1</span> Diophantine Equations</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Let \(a, b \) and \( c \) be fixed integers, then consider integer solutions to the equation:
@@ -312,8 +312,8 @@ We show there exist solutions iff \( gcd(a, b) | c \), and further, if this is t
 </p>
 </div>
 
-<div id="outline-container-org308c82b" class="outline-3">
-<h3 id="org308c82b"><span class="section-number-3">1.1</span> Lemma 1</h3>
+<div id="outline-container-orga85e437" class="outline-3">
+<h3 id="orga85e437"><span class="section-number-3">1.1</span> Lemma 1</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 if \( gcd(a, b) \not| c \) There exists no solution to (1).
@@ -346,8 +346,8 @@ Which shows \( p \) must divide \( c \) and hence is a contradiction.
 </div>
 
 
-<div id="outline-container-org313ba33" class="outline-3">
-<h3 id="org313ba33"><span class="section-number-3">1.2</span> Lemma 2</h3>
+<div id="outline-container-orga74a82c" class="outline-3">
+<h3 id="orga74a82c"><span class="section-number-3">1.2</span> Lemma 2</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 There exists a solution to (1) if \( c =  gcd(a, b) \)
@@ -424,8 +424,8 @@ Where y is \( -\lfloor \frac{ax}{b} \rfloor \). Hence trivially there also exist
 </div>
 </div>
 
-<div id="outline-container-org7bacd0a" class="outline-3">
-<h3 id="org7bacd0a"><span class="section-number-3">1.3</span> Lemma 3</h3>
+<div id="outline-container-org0c946fa" class="outline-3">
+<h3 id="org0c946fa"><span class="section-number-3">1.3</span> Lemma 3</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 If there exists one solution to \( ax + by = c \) then there exists infinite solutions.
@@ -464,16 +464,16 @@ Where \( M \) is any integer, is a solution.
 </div>
 </div>
 
-<div id="outline-container-orgeac8da1" class="outline-2">
-<h2 id="orgeac8da1"><span class="section-number-2">2</span> Euclid's Algorithm</h2>
+<div id="outline-container-org7f8b96c" class="outline-2">
+<h2 id="org7f8b96c"><span class="section-number-2">2</span> Euclid's Algorithm</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We can express \( gcd(a, b) \) as a linear combination of \( a \) and \( b \) easily using Euclid's algorithm.
 </p>
 </div>
 
-<div id="outline-container-org869c690" class="outline-3">
-<h3 id="org869c690"><span class="section-number-3">2.1</span> Example</h3>
+<div id="outline-container-org814cc02" class="outline-3">
+<h3 id="org814cc02"><span class="section-number-3">2.1</span> Example</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 <b>Express gcd(1442, 980) as a linear combination of 1442 and 980.</b>
@@ -510,7 +510,7 @@ And thus we arrive at the linear combination.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-01-14 Sat 18:34</p>
+<p class="date">Created: 2023-01-18 Wed 16:20</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
