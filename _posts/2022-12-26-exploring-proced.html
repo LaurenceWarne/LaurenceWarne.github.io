@@ -14,7 +14,7 @@ I was searching in Github in vain for a tool which would I could use as a proces
 </p>
 
 
-<div id="org6bb08cb" class="figure">
+<div id="org55c04ad" class="figure">
 <p><img src="https://user-images.githubusercontent.com/17688577/210267266-d63a08b6-001d-4ebe-9680-9572034c288b.png" alt="210267266-d63a08b6-001d-4ebe-9680-9572034c288b.png" />
 </p>
 </div>
@@ -139,28 +139,29 @@ Which, using our new default format, leaves us with:
 </p>
 
 
-<div id="org9d583ad" class="figure">
+<div id="org9d5c3ea" class="figure">
 <p><img src="https://user-images.githubusercontent.com/17688577/212047844-7531d1be-6920-45ef-b7b5-6b3cdb03c7a2.png" alt="212047844-7531d1be-6920-45ef-b7b5-6b3cdb03c7a2.png" />
 </p>
 </div>
 
 <p>
-Full customisation:
+Full customisation (using <code>use-package</code>'s <code>:custom</code> to handle the vagaries of global and buffer-local variable customisation, thanks to u/deaddyfreddy from reddit for this)
 </p>
 <div class="org-src-container">
 <pre class="src src-elisp"><span style="color: #3679D8;">(</span><span style="color: #D83441;">use-package</span> <span style="color: #8041D8;">proced</span>
   <span style="color: #86e7d7;">:ensure</span> nil
   <span style="color: #86e7d7;">:commands</span> proced
   <span style="color: #86e7d7;">:bind</span> <span style="color: #8041D8;">(</span><span style="color: #79D836;">(</span><span style="color: #79D836;">"C-M-p"</span> . proced<span style="color: #79D836;">)</span><span style="color: #8041D8;">)</span>
+  <span style="color: #86e7d7;">:custom</span>
+  <span style="color: #8041D8;">(</span>proced-auto-update-flag t<span style="color: #8041D8;">)</span>
+  <span style="color: #8041D8;">(</span>proced-goal-attribute nil<span style="color: #8041D8;">)</span>
+  <span style="color: #8041D8;">(</span>proced-show-remote-processes t<span style="color: #8041D8;">)</span>
+  <span style="color: #8041D8;">(</span>proced-enable-color-flag t<span style="color: #8041D8;">)</span>
+  <span style="color: #8041D8;">(</span><span style="color: #8041D8;">proced-format</span> 'custom<span style="color: #8041D8;">)</span>
   <span style="color: #86e7d7;">:config</span>
-  <span style="color: #8041D8;">(</span><span style="color: #D83441;">setq-default</span> <span style="color: #86e7d7;">proced-auto-update-flag</span> t<span style="color: #8041D8;">)</span>
-  <span style="color: #8041D8;">(</span><span style="color: #D83441;">setq</span> <span style="color: #86e7d7;">proced-auto-update-interval</span> 1
-        <span style="color: #86e7d7;">proced-goal-attribute</span> nil
-        proced-enable-color-flag t<span style="color: #8041D8;">)</span>
   <span style="color: #8041D8;">(</span><span style="color: #8041D8;">add-to-list</span>
    '<span style="color: #86e7d7;">proced-format-alist</span>
-   '<span style="color: #79D836;">(</span>custom user pid ppid sess tree pcpu pmem rss start time state <span style="color: #AB11D8;">(</span>args comm<span style="color: #AB11D8;">)</span><span style="color: #79D836;">)</span><span style="color: #8041D8;">)</span>
-  <span style="color: #8041D8;">(</span><span style="color: #D83441;">setq-default</span> <span style="color: #86e7d7;">proced-format</span> 'custom<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+   '<span style="color: #79D836;">(</span>custom user pid ppid sess tree pcpu pmem rss start time state <span style="color: #AB11D8;">(</span>args comm<span style="color: #AB11D8;">)</span><span style="color: #79D836;">)</span><span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
 </pre>
 </div>
 </div>
@@ -210,7 +211,7 @@ And you should see the results straight away:
 </p>
 
 
-<div id="org95aef60" class="figure">
+<div id="orgff31136" class="figure">
 <p><img src="https://user-images.githubusercontent.com/17688577/212048912-991ba757-f3e3-4abb-b386-0b90fc5dc901.png" alt="212048912-991ba757-f3e3-4abb-b386-0b90fc5dc901.png" /> 
 </p>
 </div>
