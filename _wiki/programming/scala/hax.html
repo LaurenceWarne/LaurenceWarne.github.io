@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-29 Sun 10:23 -->
+<!-- 2023-01-29 Sun 10:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
@@ -258,18 +258,18 @@ Next: <a href='./metals-notes.html'>Metals Notes</a><span style='float: right;'>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org85f23a2">1. Unapplying a String Interpolator</a></li>
-<li><a href="#org65ed77e">2. null to Option</a></li>
-<li><a href="#orgb876939">3. Apply on Different Data Structures</a>
+<li><a href="#orgcb6d791">1. Unapplying a String Interpolator</a></li>
+<li><a href="#org6d795fd">2. null to Option</a></li>
+<li><a href="#orgfe41f9d">3. Apply on Different Data Structures</a>
 <ul>
-<li><a href="#org8df79ae">3.1. Lists</a></li>
-<li><a href="#org42029d9">3.2. Sets</a></li>
+<li><a href="#org5a94263">3.1. Lists</a></li>
+<li><a href="#orgff8c71d">3.2. Sets</a></li>
 </ul>
 </li>
-<li><a href="#org84a1110">4. For Comprehension One-liner</a></li>
-<li><a href="#org8d6ea99">5. Tuple to Case Class</a></li>
-<li><a href="#orgb1137ad">6. Quicksort</a></li>
-<li><a href="#orgf4abc96">7. Capturing Standard Output</a></li>
+<li><a href="#org300b6b1">4. For Comprehension One-liner</a></li>
+<li><a href="#org10dc7b5">5. Tuple to Case Class</a></li>
+<li><a href="#org0799573">6. Quicksort</a></li>
+<li><a href="#orge4ad791">7. Capturing Standard Output</a></li>
 </ul>
 </div>
 </div>
@@ -277,8 +277,8 @@ Next: <a href='./metals-notes.html'>Metals Notes</a><span style='float: right;'>
 Scala LyfHax.
 </p>
 
-<div id="outline-container-org85f23a2" class="outline-2">
-<h2 id="org85f23a2"><span class="section-number-2">1</span> Unapplying a String Interpolator</h2>
+<div id="outline-container-orgcb6d791" class="outline-2">
+<h2 id="orgcb6d791"><span class="section-number-2">1</span> Unapplying a String Interpolator</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Since 2.13 you can use <code>unapply</code> with string interpolators:
@@ -295,8 +295,8 @@ Since 2.13 you can use <code>unapply</code> with string interpolators:
 </div>
 </div>
 
-<div id="outline-container-org65ed77e" class="outline-2">
-<h2 id="org65ed77e"><span class="section-number-2">2</span> null to Option</h2>
+<div id="outline-container-org6d795fd" class="outline-2">
+<h2 id="org6d795fd"><span class="section-number-2">2</span> null to Option</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We can easily turn possible <code>null</code> values into an <code>Option</code> via <code>apply</code>:
@@ -315,12 +315,12 @@ Note without the type hint here the <code>Option</code> will have type <code>Opt
 </div>
 </div>
 
-<div id="outline-container-orgb876939" class="outline-2">
-<h2 id="orgb876939"><span class="section-number-2">3</span> Apply on Different Data Structures</h2>
+<div id="outline-container-orgfe41f9d" class="outline-2">
+<h2 id="orgfe41f9d"><span class="section-number-2">3</span> Apply on Different Data Structures</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org8df79ae" class="outline-3">
-<h3 id="org8df79ae"><span class="section-number-3">3.1</span> Lists</h3>
+<div id="outline-container-org5a94263" class="outline-3">
+<h3 id="org5a94263"><span class="section-number-3">3.1</span> Lists</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 We can use the <code>apply</code> method on List objects to obtain the value at an index, but beware this is not safe, <code>lift</code> is usually a better option.
@@ -344,8 +344,8 @@ myList(<span class="org-constant">3</span>)
 </div>
 </div>
 
-<div id="outline-container-org42029d9" class="outline-3">
-<h3 id="org42029d9"><span class="section-number-3">3.2</span> Sets</h3>
+<div id="outline-container-orgff8c71d" class="outline-3">
+<h3 id="orgff8c71d"><span class="section-number-3">3.2</span> Sets</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 <code>apply</code> on Sets can be used to test membership:
@@ -362,8 +362,8 @@ bellsLt1k(<span class="org-constant">10</span>)
 </div>
 </div>
 </div>
-<div id="outline-container-org84a1110" class="outline-2">
-<h2 id="org84a1110"><span class="section-number-2">4</span> For Comprehension One-liner</h2>
+<div id="outline-container-org300b6b1" class="outline-2">
+<h2 id="org300b6b1"><span class="section-number-2">4</span> For Comprehension One-liner</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-scala"><span class="org-keyword">val</span> <span class="org-variable-name">rollOfTwoDie</span> <span class="org-keyword">=</span> (<span class="org-keyword">for</span> (x <span class="org-keyword">&lt;-</span> (<span class="org-constant">1</span> to <span class="org-constant">6</span>); y <span class="org-keyword">&lt;-</span> (<span class="org-constant">1</span> to <span class="org-constant">6</span>)) <span class="org-keyword">yield</span> x + y).sorted
@@ -373,8 +373,8 @@ bellsLt1k(<span class="org-constant">10</span>)
 </div>
 </div>
 
-<div id="outline-container-org8d6ea99" class="outline-2">
-<h2 id="org8d6ea99"><span class="section-number-2">5</span> Tuple to Case Class</h2>
+<div id="outline-container-org10dc7b5" class="outline-2">
+<h2 id="org10dc7b5"><span class="section-number-2">5</span> Tuple to Case Class</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 We can use the <code>.tupled</code> method of <a href="https://www.scala-lang.org/api/current/scala/Function2.html">FunctionN</a> to nicely obtain a case class instance from a tuple:
@@ -393,8 +393,8 @@ We can use the <code>.tupled</code> method of <a href="https://www.scala-lang.or
 </div>
 </div>
 
-<div id="outline-container-orgb1137ad" class="outline-2">
-<h2 id="orgb1137ad"><span class="section-number-2">6</span> Quicksort</h2>
+<div id="outline-container-org0799573" class="outline-2">
+<h2 id="org0799573"><span class="section-number-2">6</span> Quicksort</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Obligatory quicksort implementation:
@@ -416,8 +416,8 @@ Obligatory quicksort implementation:
 </div>
 </div>
 
-<div id="outline-container-orgf4abc96" class="outline-2">
-<h2 id="orgf4abc96"><span class="section-number-2">7</span> Capturing Standard Output</h2>
+<div id="outline-container-orge4ad791" class="outline-2">
+<h2 id="orge4ad791"><span class="section-number-2">7</span> Capturing Standard Output</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 You can easily capture standard output using <code>Console.withOut</code>.  This saves you from having to reset the output stream when you're done if you were to use <code>System.setOut</code>.
@@ -436,7 +436,7 @@ println(baos)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-01-29 Sun 10:23</p>
+<p class="date">Created: 2023-01-29 Sun 10:44</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
