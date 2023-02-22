@@ -54,6 +54,10 @@ permalink: /links/
 
 * <a href="https://www.brand.site.co.il/riddles/usingyourhead.html">Monthly Maths Riddles</a> by Michael Brand (Inactive)
 
+* <a href="https://www.janestreet.com/puzzles/">Jane Street Puzzles</a>
+
+* <a href="https://cryptohack.org">Cryptohack</a>: learn modern cryptography
+
 # Blogs
 
 * <a href="https://mathproblems123.wordpress.com/">Beni Bogoşel's Blog</a>
