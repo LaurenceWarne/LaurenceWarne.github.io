@@ -6,7 +6,7 @@
 <!-- 2023-03-04 Sat 19:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Power Series</title>
+<title>C</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -250,111 +250,36 @@ while (tags.length > 0) {
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-Previous: <a href='./limit-superior.html'>Limit Superior</a>, Next: <a href='./sequences.html'>Sequences</a><span style='float: right;'>Up: <a href='./real-analysis.html'>Real Analysis</a></span><hr><h1 class="title">Power Series</h1>
+<span >Up: <a href='./programming.html'>Programming</a></span><hr><h1 class="title">C</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8cd832f">1. Definition</a>
-<ul>
-<li><a href="#orgfae089d">1.1. Proof</a></li>
-</ul>
-</li>
+<li><a href="#orgbd6772d">1. Pointers</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8cd832f" class="outline-2">
-<h2 id="org8cd832f"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-orgbd6772d" class="outline-2">
+<h2 id="orgbd6772d"><span class="section-number-2">1</span> Pointers</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Let \( (a_n)_n \) be some sequence, then a series of the form:
+A pointer is a data type that contains the address of a storage location of a variable of a particular type.  We need to use <code>*</code> to show a variable is a pointer:
 </p>
 
-<p>
-\[
-\sum_{n=1}^{\infty} a_n x^n
-\]
-</p>
-
-<p>
-Is called a power series (in \( x \)), where \( x \in \mathbb{R} \).
-</p>
-
-<p>
-We make the statement that one of the following must be true:
-</p>
-
-<p>
-\[
-S = \sum_{n=1}^{\infty} a_n x^n
-\]
-</p>
-
-<p>
-Converges:
-</p>
-
-<ol class="org-ol">
-<li>\( \forall x \in \mathbb{R} \)</li>
-<li>Only for \( x = 0 \)</li>
-<li>\( \forall |x| \le R \text{, and diverges } \forall |x| > R \ where \( R \) is some real. We this \( R \) <b>The Radius of Convergence</b> of the power series</li>
-</ol>
+<div class="org-src-container">
+<pre class="src src-c"><span class="org-type">int</span> <span class="org-variable-name">my_int</span> = 3;           <span class="org-comment-delimiter">// </span><span class="org-comment">We could use string instead of char[] in c++</span>
+<span class="org-type">int</span>* <span class="org-variable-name">int_ptr</span> = &amp;my_int;   <span class="org-comment-delimiter">// </span><span class="org-comment">Obtain pointer from value</span>
+<span class="org-type">int</span> <span class="org-variable-name">my_int2</span> = *int_ptr    <span class="org-comment-delimiter">// </span><span class="org-comment">Obtain value from pointer</span>
+</pre>
 </div>
 
-<div id="outline-container-orgfae089d" class="outline-3">
-<h3 id="orgfae089d"><span class="section-number-3">1.1</span> Proof</h3>
-<div class="outline-text-3" id="text-1-1">
 <p>
-Suppose \( S \) converges for some \( x = r \), then we know that the sequence \( (a_n r^n)_n \) is null and hence that \( \exists M \ s.t. \ |a_n r^n| \le M \ \forall n \).
-Now consider some \( |u| < |r| \), and let \( t = \frac{|u|}{|r|} \). So that \( 0 < t < 1 \) and
+Whitespace before or after the <code>*</code> is optional.
 </p>
-
-<p>
-\[
-      \mid a_n u^n \mid \  = \ \mid a_n r^n \mid t^n \le M t^n \ \forall n
-   \]
-</p>
-
-<p>
-Summing over infinity:
-</p>
-
-<p>
-\[
-   \implies 0 \le \sum_{n=1}^{\infty} |a_n u^n| \le M\sum_{n=1}^{\infty} t^n
-   \]
-</p>
-
-<p>
-Then the series on the right is a convergent geometric series by the predicate on \( t \), and hence we can conclude by the sandwich rule that \( S \) converges absolutely for \( x = u \).
-</p>
-</div>
 </div>
 </div>
 </div>

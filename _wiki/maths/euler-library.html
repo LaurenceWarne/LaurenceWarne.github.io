@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-28 Tue 16:10 -->
+<!-- 2023-03-04 Sat 19:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Euler Library</title>
@@ -280,46 +280,46 @@ Next: <a href='./questions.html'>Questions</a><span style='float: right;'>Up: <a
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8764f72">1. Linear Recurrence Closure</a>
+<li><a href="#org5d06bba">1. Linear Recurrence Closure</a>
 <ul>
-<li><a href="#org3aae52a">1.1. Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#org2fd96ee">1.1. Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orga2d4a09">2. Power Modulo</a>
+<li><a href="#org8572110">2. Power Modulo</a>
 <ul>
-<li><a href="#orgc57f40e">2.1. Proof (first condition):&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#orgb16f19e">2.1. Proof (first condition):&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgca3b28f">3. Factorisation in Quadratic Integer Rings</a>
+<li><a href="#org6015203">3. Factorisation in Quadratic Integer Rings</a>
 <ul>
-<li><a href="#org3a2d7d8">3.1. Gaussian Integers</a>
+<li><a href="#orgdcca5f9">3.1. Gaussian Integers</a>
 <ul>
-<li><a href="#orgae94b13">3.1.1. Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
-<li><a href="#org13f0b38">3.1.2. Sum of Squares</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org1b04bd3">4. Euler Transform</a></li>
-<li><a href="#org388f73e">5. Floor Sums</a></li>
-<li><a href="#orga9e2219">6. Binomial Coefficients Modulo \( p \)</a></li>
-<li><a href="#org2b678b6">7. Diophantine Equations</a>
-<ul>
-<li><a href="#orgb7484a4">7.1. Nonnegative Solutions to Linear Equations</a>
-<ul>
-<li><a href="#org6d02d9f">7.1.1. Python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#org13806ed">3.1.1. Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#org65b1719">3.1.2. Sum of Squares</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org339478d">8. Transforms</a></li>
-<li><a href="#orgefa2d31">9. Assorted</a></li>
+<li><a href="#orge20f2ba">4. Euler Transform</a></li>
+<li><a href="#orgbf9192c">5. Floor Sums</a></li>
+<li><a href="#orgefd9c19">6. Binomial Coefficients Modulo \( p \)</a></li>
+<li><a href="#org75568bd">7. Diophantine Equations</a>
+<ul>
+<li><a href="#org402a4cb">7.1. Nonnegative Solutions to Linear Equations</a>
+<ul>
+<li><a href="#org68f8ca9">7.1.1. Python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org90a8e32">8. Transforms</a></li>
+<li><a href="#orgd1580ba">9. Assorted</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8764f72" class="outline-2">
-<h2 id="org8764f72"><span class="section-number-2">1</span> Linear Recurrence Closure</h2>
+<div id="outline-container-org5d06bba" class="outline-2">
+<h2 id="org5d06bba"><span class="section-number-2">1</span> Linear Recurrence Closure</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 If \( a_n \) and \( b_n \) are linear recurrences, then:
@@ -331,8 +331,8 @@ If \( a_n \) and \( b_n \) are linear recurrences, then:
 </ol>
 </div>
 
-<div id="outline-container-org3aae52a" class="outline-3">
-<h3 id="org3aae52a"><span class="section-number-3">1.1</span> Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h3>
+<div id="outline-container-org2fd96ee" class="outline-3">
+<h3 id="org2fd96ee"><span class="section-number-3">1.1</span> Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Let \( C_a(x) \) and \( C_b(x) \) be the characteristic polynomials of \( a_n \) and \( b_n \) respectively.  Then we claim 
@@ -444,8 +444,8 @@ See also <a href="https://math.stackexchange.com/questions/1348838/sum-and-produ
 </div>
 </div>
 
-<div id="outline-container-orga2d4a09" class="outline-2">
-<h2 id="orga2d4a09"><span class="section-number-2">2</span> Power Modulo</h2>
+<div id="outline-container-org8572110" class="outline-2">
+<h2 id="org8572110"><span class="section-number-2">2</span> Power Modulo</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 If \( a \) and \( p \) are coprime then:
@@ -471,8 +471,8 @@ a^x \pmod p & \text{for } x < \phi(p)\\
 </p>
 </div>
 
-<div id="outline-container-orgc57f40e" class="outline-3">
-<h3 id="orgc57f40e"><span class="section-number-3">2.1</span> Proof (first condition):&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h3>
+<div id="outline-container-orgb16f19e" class="outline-3">
+<h3 id="orgb16f19e"><span class="section-number-3">2.1</span> Proof (first condition):&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Let \( p_1^{e_1}p_2^{e_2}... \) be the prime factorisation of \( p \), and \( e_i' \) be the largest \( e \) s.t. \( p^e | a \).  Consider
@@ -521,12 +521,12 @@ For \( p_i \) with \( e_i' > 0 \), we must have \( m_i = 0 \), and so given \( q
 </div>
 </div>
 
-<div id="outline-container-orgca3b28f" class="outline-2">
-<h2 id="orgca3b28f"><span class="section-number-2">3</span> Factorisation in Quadratic Integer Rings</h2>
+<div id="outline-container-org6015203" class="outline-2">
+<h2 id="org6015203"><span class="section-number-2">3</span> Factorisation in Quadratic Integer Rings</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org3a2d7d8" class="outline-3">
-<h3 id="org3a2d7d8"><span class="section-number-3">3.1</span> Gaussian Integers</h3>
+<div id="outline-container-orgdcca5f9" class="outline-3">
+<h3 id="orgdcca5f9"><span class="section-number-3">3.1</span> Gaussian Integers</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 \( a + bi \in \mathbb{Z}[i]  \) is prime iff one of the components is zero and the other is an associate of a (normal) prime of the form \( 3 \pmod 4 \), or its norm is (a normal) prime.  This follows from the fact that \( p \) can be written as the sum of two squares iff -1 is a quadratic residue modulo \( p \).  Note by <a href="https://en.wikipedia.org/wiki/Fermat%27s_theorem_on_sums_of_two_squares">Fermat's Two Square Theorem</a> we can always write \( p \equiv 1 \pmod 4 \) as a sum of two squares.
@@ -536,8 +536,8 @@ For \( p_i \) with \( e_i' > 0 \), we must have \( m_i = 0 \), and so given \( q
 It follows we can find the prime factorisation of \( n \in \mathbb{Z} \) by taking its normal factorisation and further decomposing primes of the form \( 1 \pmod 4 \).  Solving \( p = (a + bi)(a - bi) = a^2 + b^2 \) can be done efficiently by first solving for \( x^2 \equiv -1 \pmod p \) (using Tonelli Shanks), we then find \( a + bi = gcd(p, \ x + i) \).
 </p>
 </div>
-<div id="outline-container-orgae94b13" class="outline-4">
-<h4 id="orgae94b13"><span class="section-number-4">3.1.1</span> Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
+<div id="outline-container-org13806ed" class="outline-4">
+<h4 id="org13806ed"><span class="section-number-4">3.1.1</span> Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 If \( p | x^2 + 1 \) then \( p | (x + i)(x - i) \), arguing for a contradiction we see we cannot have \( p|(x + i) \) or \( p | (x - i) \).  Thus \( gcd(p, \ x + i) \) and \( gcd(p, \ x - i) \) are not units so we can find a proper divisor of \( p \) by computing either of them.  Clearly \( a + bi = gcd(p, x \pm i) \) has nonzero real and imaginary parts (since \( p \) is prime in \( \mathbb{Z}  \)), and so if \( (c + di)(a + bi) = p \) we must have \( c + di = a - bi \) since \( p \) is real.  This completes the proof.
@@ -545,8 +545,8 @@ If \( p | x^2 + 1 \) then \( p | (x + i)(x - i) \), arguing for a contradiction 
 </div>
 </div>
 
-<div id="outline-container-org13f0b38" class="outline-4">
-<h4 id="org13f0b38"><span class="section-number-4">3.1.2</span> Sum of Squares</h4>
+<div id="outline-container-org65b1719" class="outline-4">
+<h4 id="org65b1719"><span class="section-number-4">3.1.2</span> Sum of Squares</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 This gives us a way to compute all the ways in which \( n \) can be written as the sum of squares: <a href="https://mathoverflow.net/a/319809/332110">https://mathoverflow.net/a/319809/332110</a>, and also implies if \( S(n) \) denotes the total number of ways an integer \( n = 2^\lambda p_1^{a_1}p_2^{a_2}...p_n^{a_n}q_1^{b_1}q_2^{b_2}...q_m^{b_m} \) (\( p_i \equiv 1 \pmod 4, q_i \equiv 3 \pmod 4 \)), can be written as the sum of two positive squares then:
@@ -568,8 +568,8 @@ Which follows from the <a href="https://en.wikipedia.org/wiki/Brahmagupta%E2%80%
 </div>
 </div>
 
-<div id="outline-container-org1b04bd3" class="outline-2">
-<h2 id="org1b04bd3"><span class="section-number-2">4</span> Euler Transform</h2>
+<div id="outline-container-orge20f2ba" class="outline-2">
+<h2 id="orge20f2ba"><span class="section-number-2">4</span> Euler Transform</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Given we know the number of connected graph \( a_n \) satsifying some property, we can calculate the total number of graphs satsifying the property (\( b_n \)) using the Euler Transform:
@@ -593,8 +593,8 @@ c_n = \sum_{d|n} d a_d
 </div>
 </div>
 
-<div id="outline-container-org388f73e" class="outline-2">
-<h2 id="org388f73e"><span class="section-number-2">5</span> Floor Sums</h2>
+<div id="outline-container-orgbf9192c" class="outline-2">
+<h2 id="orgbf9192c"><span class="section-number-2">5</span> Floor Sums</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 We can compute the sum:
@@ -620,8 +620,8 @@ Also known are fast methods to compute \( \sum_{x = 0}^n \left \lfloor \frac{ax 
 </div>
 </div>
 
-<div id="outline-container-orga9e2219" class="outline-2">
-<h2 id="orga9e2219"><span class="section-number-2">6</span> Binomial Coefficients Modulo \( p \)</h2>
+<div id="outline-container-orgefd9c19" class="outline-2">
+<h2 id="orgefd9c19"><span class="section-number-2">6</span> Binomial Coefficients Modulo \( p \)</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 <a href="https://en.wikipedia.org/wiki/Lucas%27s_theorem">Lucas' Theorem</a> states that if \( m_km_{k - 1}\cdots m_0 \) and \( n_kn_{k - 1}\cdots n_0 \) are the base \( p \) digit representations of \( m \) and \( n \) respectively, then:
@@ -645,12 +645,12 @@ The number of entries in the mth row of Pascal's triangle that are not divisible
 </div>
 </div>
 
-<div id="outline-container-org2b678b6" class="outline-2">
-<h2 id="org2b678b6"><span class="section-number-2">7</span> Diophantine Equations</h2>
+<div id="outline-container-org75568bd" class="outline-2">
+<h2 id="org75568bd"><span class="section-number-2">7</span> Diophantine Equations</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-orgb7484a4" class="outline-3">
-<h3 id="orgb7484a4"><span class="section-number-3">7.1</span> Nonnegative Solutions to Linear Equations</h3>
+<div id="outline-container-org402a4cb" class="outline-3">
+<h3 id="org402a4cb"><span class="section-number-3">7.1</span> Nonnegative Solutions to Linear Equations</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 Consider nonnegative solutions to \( x_1 + \cdots + x_k = n \) where \( n \) is known.  Using stars and bars, we can see the total numbers of n-tuple solutions is \( \binom{n + k - 1}{k - 1} \).
@@ -707,8 +707,8 @@ The base cases \( f(0) \cdots f(k) \)  can be obtained by manually expanding \( 
 </p>
 </div>
 
-<div id="outline-container-org6d02d9f" class="outline-4">
-<h4 id="org6d02d9f"><span class="section-number-4">7.1.1</span> Python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
+<div id="outline-container-org68f8ca9" class="outline-4">
+<h4 id="org68f8ca9"><span class="section-number-4">7.1.1</span> Python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
 <div class="outline-text-4" id="text-7-1-1">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">from</span> collections <span class="org-keyword">import</span> defaultdict
@@ -730,8 +730,8 @@ The base cases \( f(0) \cdots f(k) \)  can be obtained by manually expanding \( 
 </div>
 </div>
 
-<div id="outline-container-org339478d" class="outline-2">
-<h2 id="org339478d"><span class="section-number-2">8</span> Transforms</h2>
+<div id="outline-container-org90a8e32" class="outline-2">
+<h2 id="org90a8e32"><span class="section-number-2">8</span> Transforms</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 <a href="http://www.serbanology.com/article/A%20Bitwise%20Convolution%20Tutorial">http://www.serbanology.com/article/A%20Bitwise%20Convolution%20Tutorial</a>
@@ -740,8 +740,8 @@ The base cases \( f(0) \cdots f(k) \)  can be obtained by manually expanding \( 
 </div>
 </div>
 
-<div id="outline-container-orgefa2d31" class="outline-2">
-<h2 id="orgefa2d31"><span class="section-number-2">9</span> Assorted</h2>
+<div id="outline-container-orgd1580ba" class="outline-2">
+<h2 id="orgd1580ba"><span class="section-number-2">9</span> Assorted</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>\( f_{n + 1} = a_nf_n + \cdots + a_0f_{n - k} \) is totally periodic modulo \( n \) if \( a_0 \) is a unit in \( \mathbb{Z}_n \)</li>
@@ -751,7 +751,7 @@ The base cases \( f(0) \cdots f(k) \)  can be obtained by manually expanding \( 
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-02-28 Tue 16:10</p>
+<p class="date">Created: 2023-03-04 Sat 19:49</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
