@@ -58,6 +58,8 @@ permalink: /links/
 
 * <a href="https://cryptohack.org">Cryptohack</a>: learn modern cryptography
 
+* <a href="https://www.ocf.berkeley.edu/~wwu/riddles/intro.shtml">Berkeley Puzzles</a>
+
 # Blogs
 
 * <a href="https://mathproblems123.wordpress.com/">Beni Bogoşel's Blog</a>
