@@ -69,3 +69,8 @@ permalink: /links/
 * <a href="https://nicholas-miklaucic.github.io/">Nicholas Miklaucic's Blog</a>
 
 * <a href="http://am-just-a-nobody.blogspot.com/">Muthveerappanr's Blog</a>
+
+* <a href="https://nickdrozd.github.io/">nickdrozd's Blog</a>
+
+* <a href="https://www.sligocki.com/">Shawn Ligocki's Blog</a>
+
