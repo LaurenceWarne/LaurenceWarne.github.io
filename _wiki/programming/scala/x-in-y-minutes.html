@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-03-25 Sat 16:58 -->
+<!-- 2023-03-27 Mon 15:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X In Y Minutes</title>
@@ -334,8 +334,8 @@ My take on the x in y minutes saga for Scala 2.
   <span class="org-comment-delimiter">// </span><span class="org-comment">but the companion of Ordered provides an implicit conversion from Ordered[A]</span>
   <span class="org-comment-delimiter">// </span><span class="org-comment">to Ordering[A] (https://www.scala-lang.org/api/current/scala/math/Ordered$.html)</span>
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">An ordering on DummyLong induces an ordering on Seqs (the lexicographic ordering),</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">we can obtain it via the import</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">An ordering on DummyLong induces an ordering on Seqs of DummyLongs</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">(the lexicographic ordering), we can obtain it via the import</span>
   <span class="org-keyword">import</span> scala.math.<span class="org-constant">Ordering</span>.<span class="org-constant">Implicits</span>.<span class="org-keyword">_</span>
 
   <span class="org-comment-delimiter">// </span><span class="org-comment">This import also brings into scope '&lt;' (and others) to use with Orderings</span>
@@ -366,8 +366,8 @@ My take on the x in y minutes saga for Scala 2.
   <span class="org-keyword">import</span> scala.reflect.runtime.universe.<span class="org-keyword">_</span>
 
   <span class="org-keyword">def</span> <span class="org-function-name">check2</span>[<span class="org-constant">A</span> <span class="org-keyword">&lt;:</span> <span class="org-constant">BankBalance</span> <span class="org-keyword">:</span> <span class="org-type">TypeTag</span>](xs<span class="org-keyword">:</span> <span class="org-type">List</span>[<span class="org-constant">A</span>]) <span class="org-keyword">=</span> typeOf[<span class="org-constant">A</span>] <span class="org-keyword">match</span> {
-    <span class="org-keyword">case</span> <span class="org-variable-name">t</span> <span class="org-keyword">if</span> t =:= typeOf[<span class="org-constant">Debt</span>] <span class="org-keyword">=&gt;</span> <span class="org-string">"list of strings"</span>
-    <span class="org-keyword">case</span> <span class="org-variable-name">t</span> <span class="org-keyword">if</span> t &lt;:&lt; typeOf[<span class="org-constant">BankBalance</span>] <span class="org-keyword">=&gt;</span> <span class="org-string">"list of foos"</span>
+    <span class="org-keyword">case</span> <span class="org-variable-name">t</span> <span class="org-keyword">if</span> t =:= typeOf[<span class="org-constant">Debt</span>] <span class="org-keyword">=&gt;</span> s<span class="org-string">"Debts of size </span><span class="org-variable-name">${l.sum}</span><span class="org-string">!"</span>
+    <span class="org-keyword">case</span> <span class="org-variable-name">t</span> <span class="org-keyword">if</span> t &lt;:&lt; typeOf[<span class="org-constant">BankBalance</span>] <span class="org-keyword">=&gt;</span> <span class="org-string">"OK"</span>
   }
 }
 </pre>
@@ -375,7 +375,7 @@ My take on the x in y minutes saga for Scala 2.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-03-25 Sat 16:58</p>
+<p class="date">Created: 2023-03-27 Mon 15:25</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
