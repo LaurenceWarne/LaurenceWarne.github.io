@@ -20,6 +20,8 @@ permalink: /links/
 
 * <a href="https://nhigham.com/index-of-what-is-articles/">"What Is"</a> articles by Nick Higham - a lot of stuff on linear algebra and matrix analysis
 
+* <a href="https://fungrim.org/">Formulae Grimoire</a> by Fredrik Johansson
+
 # Programming
 
 * <a href="https://www.fosskers.ca/en/blog/contributing-to-emacs">Blog post on Contributing to Emacs</a> / <a href="https://archive.casouri.cat/note/2020/contributing-to-emacs/#org2f80ace">And Another</a>
