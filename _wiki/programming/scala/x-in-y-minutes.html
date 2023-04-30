@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-16 Sun 11:00 -->
+<!-- 2023-04-30 Sun 07:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X In Y Minutes</title>
@@ -370,12 +370,21 @@ My take on the x in y minutes saga for Scala 2.
     <span class="org-keyword">case</span> <span class="org-variable-name">t</span> <span class="org-keyword">if</span> t &lt;:&lt; typeOf[<span class="org-constant">BankBalance</span>] <span class="org-keyword">=&gt;</span> <span class="org-string">"OK"</span>
   }
 }
+
+<span class="org-keyword">object</span> <span class="org-constant">collections</span> {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">A standard Java array</span>
+  <span class="org-keyword">val</span> <span class="org-variable-name">a</span> <span class="org-keyword">=</span> <span class="org-constant">Array</span>(<span class="org-constant">1</span>, <span class="org-constant">2</span>, <span class="org-constant">3</span>)
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Beware == on Array returns true iff the arrays point to the same reference</span>
+  a == <span class="org-constant">Array</span>(<span class="org-constant">1</span>, <span class="org-constant">2</span>, <span class="org-constant">3</span>)
+  <span class="org-comment-delimiter">// </span><span class="org-comment">false</span>
+}
 </pre>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-04-16 Sun 11:00</p>
+<p class="date">Created: 2023-04-30 Sun 07:52</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
