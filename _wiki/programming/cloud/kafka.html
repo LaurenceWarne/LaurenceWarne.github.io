@@ -6,7 +6,7 @@
 <!-- 2023-05-03 Wed 17:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Holomorphic Functions</title>
+<title>Kafka</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -250,73 +250,42 @@ while (tags.length > 0) {
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-Previous: <a href='./contour-integration.html'>Contour Integration</a>, Next: <a href='./integral-theorems.html'>Integral Theorems</a><span style='float: right;'>Up: <a href='./complex-analysis.html'>Complex Analysis</a></span><hr><h1 class="title">Holomorphic Functions</h1>
+Previous: <a href='./iam.html'>Iam</a>, Next: <a href='./kinesis.html'>Kinesis</a><span style='float: right;'>Up: <a href='./cloud.html'>Cloud</a></span><hr><h1 class="title">Kafka</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga32de7c">1. Definition</a></li>
-<li><a href="#org35583d9">2. Properties</a></li>
+<li><a href="#orgec1b939">1. Links</a></li>
+<li><a href="#orga02f952">2. Topics</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga32de7c" class="outline-2">
-<h2 id="orga32de7c"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-orgec1b939" class="outline-2">
+<h2 id="orgec1b939"><span class="section-number-2">1</span> Links</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-A function \( f: U \subseteq \mathbb{C} \to \mathbb{C} \) is said to be <b>differentiable</b> at \( a \in U \) if the following limit exists:
-</p>
-
-<p>
-\[
-\lim_{z \to a} \frac{f(z) - f(a)}{z - a}
-\]
-</p>
-
-<p>
-Further, \( f \) is said to be <b>holomorphic</b> on \( U \) if it is differentiable for all \( a \) in \( U \).
-</p>
+<ul class="org-ul">
+<li><a href="https://kafka.apache.org/24/documentation.html">Official Documentation</a></li>
+<li><a href="https://ibm-cloud-architecture.github.io/refarch-eda/technology/kafka-overview/">https://ibm-cloud-architecture.github.io/refarch-eda/technology/kafka-overview/</a></li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-org35583d9" class="outline-2">
-<h2 id="org35583d9"><span class="section-number-2">2</span> Properties</h2>
+<div id="outline-container-orga02f952" class="outline-2">
+<h2 id="orga02f952"><span class="section-number-2">2</span> Topics</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Holomorphic functions are quite special.  Here are some of their properties:
+A topics is an independent, named stream of records which produces push to and consumers get records from:
 </p>
 
-<ol class="org-ol">
-<li>All holomorphic functions are <b>analytic</b>, ie equal to their Taylor series</li>
-<li>If a holomorphic function is bounded and entire, then it is constant (Liouville's theorem)</li>
-<li>If \( f \) is entire as well as holomorphic, then it can be represented as a (possibly infinite) product of its zeros (<a href="https://en.wikipedia.org/wiki/Weierstrass_factorization_theorem">Weierstrass Factorization Theorem</a>)</li>
-</ol>
+
+<div id="orgeda578a" class="figure">
+<p><img src="https://ibm-cloud-architecture.github.io/refarch-eda/technology/images/kafka-hl-view.png" alt="kafka-hl-view.png" />
+</p>
+</div>
 </div>
 </div>
 </div>
