@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-05-03 Wed 17:47 -->
+<!-- 2023-05-03 Wed 17:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kafka</title>
@@ -258,14 +258,15 @@ Previous: <a href='./iam.html'>Iam</a>, Next: <a href='./kinesis.html'>Kinesis</
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgec1b939">1. Links</a></li>
-<li><a href="#orga02f952">2. Topics</a></li>
+<li><a href="#orga1dd1e3">1. Links</a></li>
+<li><a href="#orgeb72c64">2. Topics</a></li>
+<li><a href="#org98ba1e4">3. Commands</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgec1b939" class="outline-2">
-<h2 id="orgec1b939"><span class="section-number-2">1</span> Links</h2>
+<div id="outline-container-orga1dd1e3" class="outline-2">
+<h2 id="orga1dd1e3"><span class="section-number-2">1</span> Links</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><a href="https://kafka.apache.org/24/documentation.html">Official Documentation</a></li>
@@ -274,24 +275,40 @@ Previous: <a href='./iam.html'>Iam</a>, Next: <a href='./kinesis.html'>Kinesis</
 </div>
 </div>
 
-<div id="outline-container-orga02f952" class="outline-2">
-<h2 id="orga02f952"><span class="section-number-2">2</span> Topics</h2>
+<div id="outline-container-orgeb72c64" class="outline-2">
+<h2 id="orgeb72c64"><span class="section-number-2">2</span> Topics</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A topics is an independent, named stream of records which produces push to and consumers get records from:
+<img src="https://ibm-cloud-architecture.github.io/refarch-eda/technology/images/kafka-hl-view.png" alt="kafka-hl-view.png" />
 </p>
+</div>
+</div>
 
-
-<div id="orgeda578a" class="figure">
-<p><img src="https://ibm-cloud-architecture.github.io/refarch-eda/technology/images/kafka-hl-view.png" alt="kafka-hl-view.png" />
+<div id="outline-container-org98ba1e4" class="outline-2">
+<h2 id="org98ba1e4"><span class="section-number-2">3</span> Commands</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+List all consumer groups for all topics:
 </p>
+<div class="org-src-container">
+<pre class="src src-bash">kafka-consumer-groups.sh --bootstrap-server &lt;bootstrap servers&gt; --describe --all-groups
+</pre>
+</div>
+
+<p>
+List configuration for all brokers:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">kafka-configs.sh --bootstrap-server &lt;bootstrap servers&gt; --entity-type brokers --describe --all
+</pre>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-05-03 Wed 17:47</p>
+<p class="date">Created: 2023-05-03 Wed 17:56</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
