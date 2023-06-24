@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-06-24 Sat 17:36 -->
+<!-- 2023-06-24 Sat 21:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
@@ -258,19 +258,19 @@ Previous: <a href='./files.html'>Files</a>, Next: <a href='./modules.html'>Modul
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9444051">1. Unpacking</a>
+<li><a href="#org88cce6d">1. Unpacking</a>
 <ul>
-<li><a href="#orgab2c919">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
+<li><a href="#orgc40b3af">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
 </ul>
 </li>
-<li><a href="#org9d5f570">2. Poor Man's Cache</a></li>
-<li><a href="#org3cd1683">3. ♥ Generators ♥</a></li>
-<li><a href="#org2a288a8">4. Poor Man's defaultdict</a></li>
-<li><a href="#orgf1b5187">5. Zip is it's own Inverse</a></li>
-<li><a href="#orgecf7793">6. <code>=</code> in Format Strings</a></li>
-<li><a href="#orge57a20c">7. <code>shlex</code> for Commands</a></li>
-<li><a href="#orgc0b94f2">8. Built in Iverson Brackets</a></li>
-<li><a href="#orgc472f8e">9. Ad-hoc Timing</a></li>
+<li><a href="#org3c97f11">2. Poor Man's Cache</a></li>
+<li><a href="#org37a8582">3. ♥ Generators ♥</a></li>
+<li><a href="#org9739776">4. Poor Man's defaultdict</a></li>
+<li><a href="#org30d9c5f">5. Zip is it's own Inverse</a></li>
+<li><a href="#org5444e38">6. <code>=</code> in Format Strings</a></li>
+<li><a href="#orge315c55">7. <code>shlex</code> for Commands</a></li>
+<li><a href="#org8f4c02a">8. Built in Iverson Brackets</a></li>
+<li><a href="#org028d0bb">9. Ad-hoc Timing</a></li>
 </ul>
 </div>
 </div>
@@ -278,8 +278,8 @@ Previous: <a href='./files.html'>Files</a>, Next: <a href='./modules.html'>Modul
 A menagarie of cool python snippets!
 </p>
 
-<div id="outline-container-org9444051" class="outline-2">
-<h2 id="org9444051"><span class="section-number-2">1</span> Unpacking</h2>
+<div id="outline-container-org88cce6d" class="outline-2">
+<h2 id="org88cce6d"><span class="section-number-2">1</span> Unpacking</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">is_palindrome</span>(indexable):
@@ -292,8 +292,8 @@ A menagarie of cool python snippets!
 </div>
 </div>
 
-<div id="outline-container-orgab2c919" class="outline-3">
-<h3 id="orgab2c919"><span class="section-number-3">1.1</span> Bonus Hack: Quicksort - EZ Sorting</h3>
+<div id="outline-container-orgc40b3af" class="outline-3">
+<h3 id="orgc40b3af"><span class="section-number-3">1.1</span> Bonus Hack: Quicksort - EZ Sorting</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Not the most efficient implementation, but we can implement quicksort extremely succinctly using list unpacking + recursion:
@@ -319,8 +319,8 @@ Of course <code>sorted(ls)</code> does the job too.
 </div>
 </div>
 
-<div id="outline-container-org9d5f570" class="outline-2">
-<h2 id="org9d5f570"><span class="section-number-2">2</span> Poor Man's Cache</h2>
+<div id="outline-container-org3c97f11" class="outline-2">
+<h2 id="org3c97f11"><span class="section-number-2">2</span> Poor Man's Cache</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">fib</span>(n: <span class="org-builtin">int</span>, cache={0: 1, 1: 1}):
@@ -340,8 +340,8 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 </div>
 
-<div id="outline-container-org3cd1683" class="outline-2">
-<h2 id="org3cd1683"><span class="section-number-2">3</span> ♥ Generators ♥</h2>
+<div id="outline-container-org37a8582" class="outline-2">
+<h2 id="org37a8582"><span class="section-number-2">3</span> ♥ Generators ♥</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">triangle_number</span>(n: <span class="org-builtin">int</span>):
@@ -355,8 +355,8 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 </div>
 
-<div id="outline-container-org2a288a8" class="outline-2">
-<h2 id="org2a288a8"><span class="section-number-2">4</span> Poor Man's defaultdict</h2>
+<div id="outline-container-org9739776" class="outline-2">
+<h2 id="org9739776"><span class="section-number-2">4</span> Poor Man's defaultdict</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-variable-name">my_dict</span> = {<span class="org-string">"a"</span>: 1, <span class="org-string">"b"</span>: 2}
@@ -370,8 +370,8 @@ If we forego the slice syntax, we can specify a default value to <code>.get</cod
 </div>
 </div>
 
-<div id="outline-container-orgf1b5187" class="outline-2">
-<h2 id="orgf1b5187"><span class="section-number-2">5</span> Zip is it's own Inverse</h2>
+<div id="outline-container-org30d9c5f" class="outline-2">
+<h2 id="org30d9c5f"><span class="section-number-2">5</span> Zip is it's own Inverse</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">import</span> string
@@ -386,8 +386,8 @@ If we forego the slice syntax, we can specify a default value to <code>.get</cod
 </div>
 
 
-<div id="outline-container-orgecf7793" class="outline-2">
-<h2 id="orgecf7793"><span class="section-number-2">6</span> <code>=</code> in Format Strings</h2>
+<div id="outline-container-org5444e38" class="outline-2">
+<h2 id="org5444e38"><span class="section-number-2">6</span> <code>=</code> in Format Strings</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Since 3.8 you can prepend the expression text to the evaluated expression if you append an <code>=</code> to the format expression.
@@ -404,8 +404,8 @@ Since 3.8 you can prepend the expression text to the evaluated expression if you
 </div>
 
 
-<div id="outline-container-orge57a20c" class="outline-2">
-<h2 id="orge57a20c"><span class="section-number-2">7</span> <code>shlex</code> for Commands</h2>
+<div id="outline-container-orge315c55" class="outline-2">
+<h2 id="orge315c55"><span class="section-number-2">7</span> <code>shlex</code> for Commands</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 We can use <code>shlex.split</code> to transform a command string into a list of arguments suitable for <code>subprocess.Popen</code> or even:
@@ -431,8 +431,8 @@ Also useful are <code>shlex.quote(s)</code> which returns a shell escaped versio
 </div>
 </div>
 
-<div id="outline-container-orgc0b94f2" class="outline-2">
-<h2 id="orgc0b94f2"><span class="section-number-2">8</span> Built in <a href="https://en.wikipedia.org/wiki/Iverson_bracket">Iverson Brackets</a></h2>
+<div id="outline-container-org8f4c02a" class="outline-2">
+<h2 id="org8f4c02a"><span class="section-number-2">8</span> Built in <a href="https://en.wikipedia.org/wiki/Iverson_bracket">Iverson Brackets</a></h2>
 <div class="outline-text-2" id="text-8">
 <p>
 We can perform arithmetic with boolean values and integers, basically <code>True = 1</code> and <code>False = 0</code> (so much for strong typing!).  We can use this behaviour to implement Iverson Brackets fairly readably:
@@ -451,8 +451,8 @@ We can perform arithmetic with boolean values and integers, basically <code>True
 </div>
 </div>
 
-<div id="outline-container-orgc472f8e" class="outline-2">
-<h2 id="orgc472f8e"><span class="section-number-2">9</span> Ad-hoc Timing</h2>
+<div id="outline-container-org028d0bb" class="outline-2">
+<h2 id="org028d0bb"><span class="section-number-2">9</span> Ad-hoc Timing</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 IPython's <code>%timeit</code> is extremely useful, but for situations where this is not possible, we can use <code>time</code> in conjuction with the <code>-c</code> flag to time a function belonging to a module in the current directory:
@@ -467,7 +467,7 @@ IPython's <code>%timeit</code> is extremely useful, but for situations where thi
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-06-24 Sat 17:36</p>
+<p class="date">Created: 2023-06-24 Sat 21:08</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
