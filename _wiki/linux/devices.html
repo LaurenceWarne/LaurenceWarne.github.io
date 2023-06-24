@@ -6,7 +6,7 @@
 <!-- 2023-06-24 Sat 17:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Modules</title>
+<title>Devices</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -253,121 +253,21 @@ while (tags.length > 0) {
 </head>
 <body>
 <div id="content">
-Previous: <a href='./hax.html'>Hax</a><span style='float: right;'>Up: <a href='./python.html'>Python</a></span><hr><h1 class="title">Modules</h1>
+Next: <a href='./gpg.html'>Gpg</a><span style='float: right;'>Up: <a href='./linux.html'>Linux</a></span><hr><h1 class="title">Devices</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6fd8bd8">1. Nomenclature</a></li>
-<li><a href="#orgeb788b1">2. The Import Statement</a>
-<ul>
-<li><a href="#org33b3e50">2.1. From</a></li>
-</ul>
-</li>
-<li><a href="#orgf10d6c2">3. The <code>__init__.py</code> File</a></li>
+<li><a href="#org6c980b3">1. Managing Partitions</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6fd8bd8" class="outline-2">
-<h2 id="org6fd8bd8"><span class="section-number-2">1</span> Nomenclature</h2>
+<div id="outline-container-org6c980b3" class="outline-2">
+<h2 id="org6c980b3"><span class="section-number-2">1</span> Managing Partitions</h2>
 <div class="outline-text-2" id="text-1">
-<ol class="org-ol">
-<li><b>Module</b> An object that serves as a unit of python code.</li>
-<li><b>Package</b> Analogous to directories in a file system, they are special kinds of modules which contain submodules or subpackages. Any module with a <code>__path__</code> attribute is a package.</li>
-<li><b>Namespace</b> A place where a variable is stored. Namespaces are implemented as dictionaries. There are the local, global and built-in namespaces as well as nested namespaces in objects. Namespaces are used to implement scope.</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-orgeb788b1" class="outline-2">
-<h2 id="orgeb788b1"><span class="section-number-2">2</span> The Import Statement</h2>
-<div class="outline-text-2" id="text-2">
 <p>
-We can use the <code>import</code> statement to use code from other modules in our module. 
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python"><span class="org-keyword">import</span> numpy <span class="org-keyword">as</span> np
-<span class="org-keyword">import</span> matplotlib.pyplot  <span class="org-comment-delimiter"># </span><span class="org-comment">Note this also imports maplotlib</span>
-
-<span class="org-variable-name">x</span> = np.linspace(0, 10, 1000)
-matplotlib.pyplot.plot(x, x**2)
-matplotlib.pyplot.show()
-</pre>
-</div>
-
-<p>
-When a module is first imported, Python searches for the module and if found, it creates a <b>module object</b>. We can now access the module's global namespace from within our module using <code>mymodule.var</code>.
-</p>
-
-<p>
-Importing a module doesn't automatically import all of its submodules, but a package may choose to do this in its <code>__init__.py</code>. For more info see <a href="https://stackoverflow.com/questions/22840671/what-is-the-difference-between-importing-python-sub-modules-from-numpy-matplotl?noredirect=1&amp;lq=1">this</a> post.
-</p>
-</div>
-
-<div id="outline-container-org33b3e50" class="outline-3">
-<h3 id="org33b3e50"><span class="section-number-3">2.1</span> From</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-We can use the <code>from</code> statement to import subpackages, classes and functions into our script.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python"><span class="org-keyword">from</span> numpy.random <span class="org-keyword">import</span> standard_normal  <span class="org-comment-delimiter"># </span><span class="org-comment">Import function standard_normal</span>
-<span class="org-keyword">from</span> matplotlib <span class="org-keyword">import</span> pyplot <span class="org-keyword">as</span> plt      <span class="org-comment-delimiter"># </span><span class="org-comment">Import subpackage plt</span>
-
-plt.scatter(standard_normal(1000), standard_normal(1000))
-plt.show()
-</pre>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgf10d6c2" class="outline-2">
-<h2 id="orgf10d6c2"><span class="section-number-2">3</span> The <code>__init__.py</code> File</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-Any directory with an <code>__init__.py</code> file is recognised as a <b>valid package</b>.
-</p>
-
-<p>
-When a regular package is imported, this <code>__init__.py</code> file is implicitly executed, and the objects it defines are bound to names in the package’s namespace. The <code>__init__.py</code> file can contain the same Python code that any other module can contain, and Python will add some additional attributes to the module when it is imported.
-</p>
-
-<pre class="example">
-my_package/
-    __init__.py
-    my_module.py
-    my_other_module.py
-</pre>
-
-<p>
-In <code>__init__.py</code>:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python"><span class="org-keyword">from</span> .my_module <span class="org-keyword">import</span> Foo
-<span class="org-keyword">from</span> .my_other_module <span class="org-keyword">import</span> foo
-</pre>
-</div>
-
-<p>
-In <code>my_script.py</code>:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-python"><span class="org-keyword">import</span> my_package
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">We can now use Foo and foo</span>
-<span class="org-variable-name">x</span> = my_package.Foo()
-my_package.foo()
-</pre>
-</div>
-
-<p>
-It's common however for an <code>__init__.py</code> file to be left completely empty.
+<a href="https://unix.stackexchange.com/questions/271671/move-free-space-from-end-of-the-drive-to-first-partition-with-gparted">https://unix.stackexchange.com/questions/271671/move-free-space-from-end-of-the-drive-to-first-partition-with-gparted</a>
 </p>
 </div>
 </div>
