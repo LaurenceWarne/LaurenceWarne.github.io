@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-06-24 Sat 17:36 -->
+<!-- 2023-06-24 Sat 21:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Vpcs</title>
@@ -258,20 +258,24 @@ Previous: <a href='./lambda.html'>Lambda</a><span style='float: right;'>Up: <a h
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf9a337b">1. Subnets</a></li>
+<li><a href="#org81a7d0c">1. Subnets</a>
+<ul>
+<li><a href="#org3b9f4c3">1.1. Routing Encore</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf9a337b" class="outline-2">
-<h2 id="orgf9a337b"><span class="section-number-2">1</span> Subnets</h2>
+<div id="outline-container-org81a7d0c" class="outline-2">
+<h2 id="org81a7d0c"><span class="section-number-2">1</span> Subnets</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A subnet is said to be <b>public</b> if and only if it a route exists in it's route table to an <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">internet gateway</a>, else a subnet is said to be <b>private</b>.  For example:
 </p>
 
 
-<div id="org7dfe6d2" class="figure">
+<div id="org0103d46" class="figure">
 <p><img src="./subnet-route-table.png" alt="subnet-route-table.png" />
 </p>
 </div>
@@ -283,12 +287,29 @@ We see the default gateway destination (<code>0.0.0.0/0</code>) is set to an int
 <p>
 In a public subnet however, it is also necesarry to assign public ips to instances which need to be accessible from the internet <b>and</b> access the internet.  This can be done by enabling the <code>Auto-assign public IPv4 address</code> on the subnet, or alternatively assigning <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">elastic ip addresses</a>.
 </p>
+
+<p>
+In order to make instances in private subnets able to access the internet, it's <a href="https://docs.aws.amazon.com/workspaces-web/latest/adminguide/internet-access-private.html">recommended</a> to create a NAT gateway, and an entry for the gateway in each of the private subnet route tables you want to enable outbound traffic for.
+</p>
+</div>
+
+<div id="outline-container-org3b9f4c3" class="outline-3">
+<h3 id="org3b9f4c3"><span class="section-number-3">1.1</span> Routing Encore</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Also noteworthy is by default all subnets within a VPC can communicate with each other.  This is illustrated by the first entry in the image above with Target <code>local</code>, which by default is added to all route tables.
+</p>
+
+<p>
+If your route table has multiple routes, the most specific route that matches the traffic (longest prefix match) is used - so in the image above it doesn't matter whether the default root precedes or supersedes the other.
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-06-24 Sat 17:36</p>
+<p class="date">Created: 2023-06-24 Sat 21:08</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
