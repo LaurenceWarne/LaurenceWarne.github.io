@@ -6,7 +6,7 @@
 <!-- 2023-06-25 Sun 19:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Python</title>
+<title>Route53</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -253,25 +253,27 @@ while (tags.length > 0) {
 </head>
 <body>
 <div id="content">
-<span >Up: <a href='../programming.html'>Programming</a></span><hr><h1 class="title">Python</h1>
+Previous: <a href='./lambda.html'>Lambda</a>, Next: <a href='./vpc.html'>Vpc</a><span style='float: right;'>Up: <a href='./cloud.html'>Cloud</a></span><hr><h1 class="title">Route53</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5d2d48a">1. Files</a></li>
-<li><a href="#orga13ceae">2. Hax</a></li>
-<li><a href="#orgf5732a2">3. Modules</a></li>
+<li><a href="#org8cecd08">1. Hosted Zones</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5d2d48a" class="outline-2">
-<h2 id="org5d2d48a"><span class="section-number-2">1</span> <a href="./files.html">Files</a></h2>
+
+<div id="outline-container-org8cecd08" class="outline-2">
+<h2 id="org8cecd08"><span class="section-number-2">1</span> Hosted Zones</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<b>Hosted Zones</b> groups DNS records associated with a particular domain.  A <a href="https://en.wikipedia.org/wiki/Domain_Name_System#Resource_records">DNS record</a> defines how traffic is routed for the domain (or subdomain) it is associated with.
+</p>
+
+<p>
+Many common DNS record types are supported, though there is also a Route 53-specific virtual record type called <code>Alias</code>, which function similarly to CNAME records but are resolved on the server side and appear to clients as an A record.  They can be used to create transparent references to other AWS resources that only provide DNS names and not IP addresses, such as an Elastic Load Balancer or a CloudFront distribution.
+</p>
 </div>
-<div id="outline-container-orga13ceae" class="outline-2">
-<h2 id="orga13ceae"><span class="section-number-2">2</span> <a href="./hax.html">Hax</a></h2>
-</div>
-<div id="outline-container-orgf5732a2" class="outline-2">
-<h2 id="orgf5732a2"><span class="section-number-2">3</span> <a href="./modules.html">Modules</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
