@@ -76,3 +76,6 @@ permalink: /links/
 
 * <a href="https://www.sligocki.com/">Shawn Ligocki's Blog</a>
 
+* <a href="https://www.asmeurer.com/blog">Aaron Meurer's Blog</a>
+
+* <a href="https://gbroxey.github.io/blog/">Griff's Blog</a>
