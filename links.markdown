@@ -22,6 +22,8 @@ permalink: /links/
 
 * <a href="https://fungrim.org/">Formulae Grimoire</a> by Fredrik Johansson
 
+* <a href="https://venhance.github.io/napkin/Napkin.pdf">An Infinitely Large Napkin</a> by Evan Chen
+
 # Programming
 
 * <a href="https://www.fosskers.ca/en/blog/contributing-to-emacs">Blog post on Contributing to Emacs</a> / <a href="https://archive.casouri.cat/note/2020/contributing-to-emacs/#org2f80ace">And Another</a>
