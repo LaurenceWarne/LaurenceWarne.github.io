@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-07-23 Sun 10:08 -->
+<!-- 2023-08-10 Thu 08:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TLS</title>
@@ -258,8 +258,8 @@ Previous: <a href='./routing.html'>Routing</a><span style='float: right;'>Up: <a
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org30051f9">1. Certificate Authorities</a></li>
-<li><a href="#orgfd802ff">2. Digital Certificates</a></li>
+<li><a href="#orga247103">1. Certificate Authorities</a></li>
+<li><a href="#org5997867">2. Digital Certificates</a></li>
 </ul>
 </div>
 </div>
@@ -267,8 +267,8 @@ Previous: <a href='./routing.html'>Routing</a><span style='float: right;'>Up: <a
 TLS superseeds SSL, it's used to encrypt communication between two parties, often over the transport layer (e.g. TCP).  <a href="https://wiki.archlinux.org/title/OpenSSL">OpenSSL</a> is a common implementation of both SSL and TLS used on linux platforms.
 </p>
 
-<div id="outline-container-org30051f9" class="outline-2">
-<h2 id="org30051f9"><span class="section-number-2">1</span> Certificate Authorities</h2>
+<div id="outline-container-orga247103" class="outline-2">
+<h2 id="orga247103"><span class="section-number-2">1</span> Certificate Authorities</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The OpenSSL configuration files live in <code>/etc/ssl</code>, notably <code>/etc/ssl/certs</code> which holds a list of trusted certificates for the platform.
@@ -288,8 +288,8 @@ See also: <a href="https://manpages.ubuntu.com/manpages/xenial/man8/update-ca-ce
 </div>
 </div>
 
-<div id="outline-container-orgfd802ff" class="outline-2">
-<h2 id="orgfd802ff"><span class="section-number-2">2</span> Digital Certificates</h2>
+<div id="outline-container-org5997867" class="outline-2">
+<h2 id="org5997867"><span class="section-number-2">2</span> Digital Certificates</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Communication starts with the client and server agreeing to use a certain <a href="https://en.wikipedia.org/wiki/Cipher_suite">cipher suite</a>.  The server will then provide its <a href="https://en.wikipedia.org/wiki/Public_key_certificate">Digital Certificate</a>:
@@ -348,7 +348,7 @@ Next we obtain information about the subject:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-07-23 Sun 10:08</p>
+<p class="date">Created: 2023-08-10 Thu 08:14</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

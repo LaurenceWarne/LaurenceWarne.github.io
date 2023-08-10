@@ -6,7 +6,7 @@
 <!-- 2023-08-10 Thu 08:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sequences</title>
+<title>Alarms</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
 <style type="text/css">
@@ -250,165 +250,35 @@ while (tags.length > 0) {
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-Previous: <a href='./power-series.html'>Power Series</a>, Next: <a href='./series.html'>Series</a><span style='float: right;'>Up: <a href='./real-analysis.html'>Real Analysis</a></span><hr><h1 class="title">Sequences</h1>
+Next: <a href='./deployments.html'>Deployments</a><span style='float: right;'>Up: <a href='./cloud.html'>Cloud</a></span><hr><h1 class="title">Alarms</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org59869a2">1. Definition</a></li>
-<li><a href="#org1300ebe">2. Convergence</a></li>
-<li><a href="#orgbbaa257">3. Algebra of Limits</a></li>
-<li><a href="#orga1df695">4. Sandwich Theorem</a></li>
-<li><a href="#org0a85144">5. Monotone Convergence Theorem</a>
-<ul>
-<li><a href="#org8034204">5.1. Proof</a></li>
-</ul>
-</li>
+<li><a href="#org66b5313">1. Alarm Attributes</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org59869a2" class="outline-2">
-<h2 id="org59869a2"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-org66b5313" class="outline-2">
+<h2 id="org66b5313"><span class="section-number-2">1</span> Alarm Attributes</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Formally we can define a sequence \( (a_n)_n \) as a mapping from the natural numbers to the reals or more generally the complex numbers. Informally a sequence is an ordered collection of numbers.
+<b>Example</b>: If you alarm on 4 out of 5 data points with a period of 1 minute, then:
 </p>
+<ul class="org-ul">
+<li><code>datapointsToAlarm</code> = 4</li>
+<li><code>evaluationPeriods</code> = 5</li>
+<li><code>period</code>            = 1 minute</li>
+</ul>
 
 <p>
-We make common use of the notation:
+<code>threshold</code> is what determines whether a data point (calculated from the metric definition) is "bad" and contributes to the 4 out of 5 data points rule.
+see also: <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html</a>
 </p>
-
-<p>
-\[
-(\overbrace{a_n}^{\mathclap{\text{Denotes the sequence function}}})_\underbrace{n \in S}_{\mathclap{\text{domain of the function}}}
-\]
-</p>
-
-<p>
-The domain of the function \( a_n \) is almost always the natural numbers which is abbreviated to just \( n \), as above. It is also common to forgo the brackets and domain subscript and refer to the sequence simply as \( a_n \).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org1300ebe" class="outline-2">
-<h2 id="org1300ebe"><span class="section-number-2">2</span> Convergence</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-We say a sequence \( (a_n)_n \) <b>converges</b> to a limit \( L \) iff:
-</p>
-
-<p>
-\[
-\forall \epsilon \in \mathbb{R} > 0 \ \exists N \in \mathbb{N} \ s.t. \ \forall n \ge N, \ |a_n - L| < \epsilon
-\]
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgbbaa257" class="outline-2">
-<h2 id="orgbbaa257"><span class="section-number-2">3</span> Algebra of Limits</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-Suppose \( (a_n)_n \) and \( (b_n)_n \) are convergent sequences with limit \( a \) and \( b \) respectively, then:
-</p>
-
-<ol class="org-ol">
-<li>\( (|a_n|)_n \) converges with limit \( |a| \)</li>
-<li>\( (ka_n)_n \) converges with limit \( ka \)</li>
-<li>\( (a_n + b_n)_n \) converges with limit \( a + b \)</li>
-<li>\( (a_nb_n)_n \) converges with limit \( ab \)</li>
-<li>If \( b_n \ne 0 \ \forall n \) and \( b \ne 0 \) then \( (\frac{a_n}{b_n})_n \) converges to \( \frac{a}{b} \)</li>
-<li>If \( b_n \ne 0 \ \forall n \) and \( b \ne 0 \) then \( (\frac{1}{b})_n \) converges to \( \frac{1}{b} \)</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-orga1df695" class="outline-2">
-<h2 id="orga1df695"><span class="section-number-2">4</span> Sandwich Theorem</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-Suppose \( (a_n)_n \) and \( (b_n)_n \) are convergent sequences with the same limit \( L \). The sandwich theorem states that:
-</p>
-
-<p>
-\[
-\exists k \in \mathbb{N} \ s.t. \ b_n \le c_n \le a_n \forall n \ge k \implies c_n \to L
-\]
-</p>
-</div>
-</div>
-
-<div id="outline-container-org0a85144" class="outline-2">
-<h2 id="org0a85144"><span class="section-number-2">5</span> Monotone Convergence Theorem</h2>
-<div class="outline-text-2" id="text-5">
-<p>
-The <b>MCT</b> states that if a sequence \( a_n \) is bounded above and monotonically increasing (\( a_{n + 1} \ge a_n \ \forall n \)), then it is convergent. It can be shown that the limit is the supremum of the sequence.
-</p>
-</div>
-
-<div id="outline-container-org8034204" class="outline-3">
-<h3 id="org8034204"><span class="section-number-3">5.1</span> Proof</h3>
-<div class="outline-text-3" id="text-5-1">
-<p>
-Suppose \( a_n \) is monotone increasing and bounded with supremum \( L \). Since \( L \) is the supremum:
-</p>
-
-<p>
-\[
-\forall \epsilon > 0 \ \exists N \ s.t. \ a_N > L - \epsilon
-\]
-</p>
-
-<p>
-Now since the sequence is monotone increasing:
-</p>
-
-<p>
-\[
-\forall \epsilon > 0 \ \exists N \ s.t. \ \forall n \ge N, \ a_n > L - \epsilon
-\]
-</p>
-
-<p>
-Rearranging the last part:
-</p>
-
-<p>
-\[
-\forall \epsilon > 0 \ \exists N \ s.t. \ \forall n \ge N, \ |a_n - L| < \epsilon
-\]
-</p>
-
-<p>
-Which is the definition of convergence.
-</p>
-</div>
 </div>
 </div>
 </div>
