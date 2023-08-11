@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-08-10 Thu 08:14 -->
+<!-- 2023-08-11 Fri 20:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Alarms</title>
@@ -258,16 +258,32 @@ Next: <a href='./deployments.html'>Deployments</a><span style='float: right;'>Up
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org66b5313">1. Alarm Attributes</a></li>
+<li><a href="#org60e8dc5">1. Alarms</a>
+<ul>
+<li><a href="#org970b50a">1.1. Example:</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org66b5313" class="outline-2">
-<h2 id="org66b5313"><span class="section-number-2">1</span> Alarm Attributes</h2>
+<div id="outline-container-org60e8dc5" class="outline-2">
+<h2 id="org60e8dc5"><span class="section-number-2">1</span> Alarms</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-<b>Example</b>: If you alarm on 4 out of 5 data points with a period of 1 minute, then:
+The most common kind of alarm is a <b>metric alarm</b> which is an alarm linked to a Cloudwatch metric (though more sophisticated alarms are available).  Alarms of this kind are typically configured to trigger after said metric exceeds a threshold in a given number of time periods.
+</p>
+
+<p>
+<b>Actions</b> are associated with alarms and are dispatched once alarms reach <code>ALARM</code> state, a common example would be to send a notification to an <a href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">SNS topic</a>.
+</p>
+</div>
+
+<div id="outline-container-org970b50a" class="outline-3">
+<h3 id="org970b50a"><span class="section-number-3">1.1</span> Example:</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+If you alarm on 4 out of 5 data points with a period of 1 minute, then:
 </p>
 <ul class="org-ul">
 <li><code>datapointsToAlarm</code> = 4</li>
@@ -277,14 +293,15 @@ Next: <a href='./deployments.html'>Deployments</a><span style='float: right;'>Up
 
 <p>
 <code>threshold</code> is what determines whether a data point (calculated from the metric definition) is "bad" and contributes to the 4 out of 5 data points rule.
-see also: <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html</a>
+See also: <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html</a>
 </p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-08-10 Thu 08:14</p>
+<p class="date">Created: 2023-08-11 Fri 20:37</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
