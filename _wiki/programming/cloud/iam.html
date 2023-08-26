@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-29 Sun 10:44 -->
+<!-- 2023-08-16 Wed 18:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>IAM</title>
@@ -253,38 +253,38 @@ while (tags.length > 0) {
 </head>
 <body>
 <div id="content">
-Previous: <a href='./deployments.html'>Deployments</a>, Next: <a href='./kinesis.html'>Kinesis</a><span style='float: right;'>Up: <a href='./cloud.html'>Cloud</a></span><hr><h1 class="title">IAM</h1>
+Previous: <a href='./deployments.html'>Deployments</a>, Next: <a href='./kafka.html'>Kafka</a><span style='float: right;'>Up: <a href='./cloud.html'>Cloud</a></span><hr><h1 class="title">IAM</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4bcaccd">1. Users and Roles</a>
+<li><a href="#org52637e0">1. Users and Roles</a>
 <ul>
 <li>
 <ul>
-<li><a href="#org457f3ea">1.0.1. IAM Users</a></li>
-<li><a href="#org1ad5011">1.0.2. IAM Roles</a></li>
-<li><a href="#orgd625917">1.0.3. IAM Policies</a></li>
-<li><a href="#org606b258">1.0.4. Principals</a></li>
+<li><a href="#org2e89c0f">1.0.1. IAM Users</a></li>
+<li><a href="#orgbe516c1">1.0.2. IAM Roles</a></li>
+<li><a href="#org988c6d9">1.0.3. IAM Policies</a></li>
+<li><a href="#org6a43b71">1.0.4. Principals</a></li>
 </ul>
 </li>
-<li><a href="#org67e17a8">1.1. Examples</a></li>
+<li><a href="#org812b22d">1.1. Examples</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4bcaccd" class="outline-2">
-<h2 id="org4bcaccd"><span class="section-number-2">1</span> Users and Roles</h2>
+<div id="outline-container-org52637e0" class="outline-2">
+<h2 id="org52637e0"><span class="section-number-2">1</span> Users and Roles</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 An AWS account is first associated with one root user who has complete access over AWS services and accounts.  It's <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users">best practice</a> to create an IAM user using the root user and lock away the root user credentials.
 </p>
 </div>
 
-<div id="outline-container-org457f3ea" class="outline-4">
-<h4 id="org457f3ea"><span class="section-number-4">1.0.1</span> IAM Users</h4>
+<div id="outline-container-org2e89c0f" class="outline-4">
+<h4 id="org2e89c0f"><span class="section-number-4">1.0.1</span> IAM Users</h4>
 <div class="outline-text-4" id="text-1-0-1">
 <p>
 An <b>IAM User</b> consists of a name, a password for accessing the AWS console and up to two access keys that can be used with the AWS API or CLI.  It's granted permissions by either making it a member of a user group (recommended) or directly adding policies.
@@ -292,8 +292,8 @@ An <b>IAM User</b> consists of a name, a password for accessing the AWS console 
 </div>
 </div>
 
-<div id="outline-container-org1ad5011" class="outline-4">
-<h4 id="org1ad5011"><span class="section-number-4">1.0.2</span> IAM Roles</h4>
+<div id="outline-container-orgbe516c1" class="outline-4">
+<h4 id="orgbe516c1"><span class="section-number-4">1.0.2</span> IAM Roles</h4>
 <div class="outline-text-4" id="text-1-0-2">
 <p>
 An <b>IAM Role</b> is similar to an IAM user, but does not have any credentials associated with it.  An IAM user can assume a role to temporarily take on permissions for a specific task.
@@ -301,8 +301,8 @@ An <b>IAM Role</b> is similar to an IAM user, but does not have any credentials 
 </div>
 </div>
 
-<div id="outline-container-orgd625917" class="outline-4">
-<h4 id="orgd625917"><span class="section-number-4">1.0.3</span> IAM Policies</h4>
+<div id="outline-container-org988c6d9" class="outline-4">
+<h4 id="org988c6d9"><span class="section-number-4">1.0.3</span> IAM Policies</h4>
 <div class="outline-text-4" id="text-1-0-3">
 <p>
 An <b>IAM policy</b> describes which entities can access particular resources.  Many policies will exist by default in your account: <a href="https://us-east-1.console.aws.amazon.com/iamv2/home#/policies">https://us-east-1.console.aws.amazon.com/iamv2/home#/policies</a>.
@@ -310,8 +310,8 @@ An <b>IAM policy</b> describes which entities can access particular resources.  
 </div>
 </div>
 
-<div id="outline-container-org606b258" class="outline-4">
-<h4 id="org606b258"><span class="section-number-4">1.0.4</span> Principals</h4>
+<div id="outline-container-org6a43b71" class="outline-4">
+<h4 id="org6a43b71"><span class="section-number-4">1.0.4</span> Principals</h4>
 <div class="outline-text-4" id="text-1-0-4">
 <p>
 A principal is an individual or application which can make requests for an action on an AWS resource.  The principal is authenticated as the AWS account root user or an IAM entity (a user or role) to make requests to AWS.
@@ -319,8 +319,8 @@ A principal is an individual or application which can make requests for an actio
 </div>
 </div>
 
-<div id="outline-container-org67e17a8" class="outline-3">
-<h3 id="org67e17a8"><span class="section-number-3">1.1</span> Examples</h3>
+<div id="outline-container-org812b22d" class="outline-3">
+<h3 id="org812b22d"><span class="section-number-3">1.1</span> Examples</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Here's a Cloudformation snippet which sets up an <code>AWS::IAM::Role</code> for use as the execution role of an <code>AWS::ECS::TaskDefinition</code> (ie the <code>ExecutionRoleArn</code> property):
@@ -351,23 +351,23 @@ The <code>AssumeRolePolicyDocument</code> property defines the <b>trust policy</
 Here's a similar snippet, but in terraform:
 </p>
 <div class="org-src-container">
-<pre class="src src-terraform"><span class="org-builtin">resource</span> <span class="org-terraform--resource-type">"aws_iam_role"</span> <span class="org-terraform--resource-name">"ecs_task_execution_role"</span> {
-  <span class="org-variable-name">name</span> = <span class="org-string">"ecs_task_execution_role"</span>
+<pre class="src src-terraform"><span class="org-terraform-builtin">resource</span> <span class="org-terraform-resource-type">"aws_iam_role"</span> <span class="org-terraform-resource-name">"ecs_task_execution_role"</span> {
+  <span class="org-terraform-variable-name">name</span> = <span class="org-string">"ecs_task_execution_role"</span>
 
-  <span class="org-variable-name">assume_role_policy</span> = jsonencode({
-    <span class="org-variable-name">Version</span> = <span class="org-string">"2012-10-17"</span>
-    <span class="org-variable-name">Statement</span> = [
+  <span class="org-terraform-variable-name">assume_role_policy</span> = jsonencode({
+    <span class="org-terraform-variable-name">Version</span> = <span class="org-string">"2012-10-17"</span>
+    <span class="org-terraform-variable-name">Statement</span> = [
       {
-        <span class="org-variable-name">Effect</span> = <span class="org-string">"Allow"</span>
-        <span class="org-variable-name">Principal</span> = {
-          <span class="org-variable-name">Service</span> = <span class="org-string">"ecs-tasks.amazonaws.com"</span>
+        <span class="org-terraform-variable-name">Effect</span> = <span class="org-string">"Allow"</span>
+        <span class="org-terraform-variable-name">Principal</span> = {
+          <span class="org-terraform-variable-name">Service</span> = <span class="org-string">"ecs-tasks.amazonaws.com"</span>
         }
-           <span class="org-variable-name">Action</span> = <span class="org-string">"sts:AssumeRole"</span>
+           <span class="org-terraform-variable-name">Action</span> = <span class="org-string">"sts:AssumeRole"</span>
       },
     ]
   })
 
-  <span class="org-variable-name">managed_policy_arns</span> = [<span class="org-string">"arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"</span>]
+  <span class="org-terraform-variable-name">managed_policy_arns</span> = [<span class="org-string">"arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"</span>]
 }
 </pre>
 </div>
@@ -385,7 +385,7 @@ For example, we could define different a different action in an inline policy pr
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-01-29 Sun 10:44</p>
+<p class="date">Created: 2023-08-16 Wed 18:55</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

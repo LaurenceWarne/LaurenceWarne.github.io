@@ -20,6 +20,10 @@ permalink: /links/
 
 * <a href="https://nhigham.com/index-of-what-is-articles/">"What Is"</a> articles by Nick Higham - a lot of stuff on linear algebra and matrix analysis
 
+* <a href="https://fungrim.org/">Formulae Grimoire</a> by Fredrik Johansson
+
+* <a href="https://venhance.github.io/napkin/Napkin.pdf">An Infinitely Large Napkin</a> by Evan Chen
+
 # Programming
 
 * <a href="https://www.fosskers.ca/en/blog/contributing-to-emacs">Blog post on Contributing to Emacs</a> / <a href="https://archive.casouri.cat/note/2020/contributing-to-emacs/#org2f80ace">And Another</a>
@@ -54,6 +58,12 @@ permalink: /links/
 
 * <a href="https://www.brand.site.co.il/riddles/usingyourhead.html">Monthly Maths Riddles</a> by Michael Brand (Inactive)
 
+* <a href="https://www.janestreet.com/puzzles/">Jane Street Puzzles</a>
+
+* <a href="https://cryptohack.org">Cryptohack</a>: learn modern cryptography
+
+* <a href="https://www.ocf.berkeley.edu/~wwu/riddles/intro.shtml">Berkeley Puzzles</a>
+
 # Blogs
 
 * <a href="https://mathproblems123.wordpress.com/">Beni Bogoşel's Blog</a>
@@ -63,3 +73,11 @@ permalink: /links/
 * <a href="https://nicholas-miklaucic.github.io/">Nicholas Miklaucic's Blog</a>
 
 * <a href="http://am-just-a-nobody.blogspot.com/">Muthveerappanr's Blog</a>
+
+* <a href="https://nickdrozd.github.io/">nickdrozd's Blog</a>
+
+* <a href="https://www.sligocki.com/">Shawn Ligocki's Blog</a>
+
+* <a href="https://www.asmeurer.com/blog">Aaron Meurer's Blog</a>
+
+* <a href="https://gbroxey.github.io/blog/">Griff's Blog</a>
