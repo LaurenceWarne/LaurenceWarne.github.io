@@ -258,24 +258,24 @@ Previous: <a href='./s3.html'>S3</a><span style='float: right;'>Up: <a href='./c
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org24c4571">1. Subnets</a>
+<li><a href="#org78d888e">1. Subnets</a>
 <ul>
-<li><a href="#orgf6e1f86">1.1. Routing Encore</a></li>
+<li><a href="#org1896dea">1.1. Routing Encore</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org24c4571" class="outline-2">
-<h2 id="org24c4571"><span class="section-number-2">1</span> Subnets</h2>
+<div id="outline-container-org78d888e" class="outline-2">
+<h2 id="org78d888e"><span class="section-number-2">1</span> Subnets</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A subnet is said to be <b>public</b> if and only if it a route exists in it's route table to an <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">internet gateway</a>, else a subnet is said to be <b>private</b>.  For example:
 </p>
 
 
-<div id="orgb6d2493" class="figure">
+<div id="org199b12a" class="figure">
 <p><img src="./subnet-route-table.png" alt="subnet-route-table.png" />
 </p>
 </div>
@@ -293,8 +293,8 @@ In order to make instances in private subnets able to access the internet, it's 
 </p>
 </div>
 
-<div id="outline-container-orgf6e1f86" class="outline-3">
-<h3 id="orgf6e1f86"><span class="section-number-3">1.1</span> Routing Encore</h3>
+<div id="outline-container-org1896dea" class="outline-3">
+<h3 id="org1896dea"><span class="section-number-3">1.1</span> Routing Encore</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Also noteworthy is by default all subnets within a VPC can communicate with each other.  This is illustrated by the first entry in the image above with Target <code>local</code>, which by default is added to all route tables.
