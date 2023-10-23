@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-08-26 Sat 16:15 -->
+<!-- 2023-10-23 Mon 18:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Vpcs</title>
@@ -258,24 +258,24 @@ Previous: <a href='./s3.html'>S3</a><span style='float: right;'>Up: <a href='./c
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3503190">1. Subnets</a>
+<li><a href="#orgef1dda9">1. Subnets</a>
 <ul>
-<li><a href="#orgc17ab06">1.1. Routing Encore</a></li>
+<li><a href="#org2e6ba87">1.1. Routing Encore</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3503190" class="outline-2">
-<h2 id="org3503190"><span class="section-number-2">1</span> Subnets</h2>
+<div id="outline-container-orgef1dda9" class="outline-2">
+<h2 id="orgef1dda9"><span class="section-number-2">1</span> Subnets</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A subnet is said to be <b>public</b> if and only if it a route exists in it's route table to an <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">internet gateway</a>, else a subnet is said to be <b>private</b>.  For example:
 </p>
 
 
-<div id="org3248c33" class="figure">
+<div id="org04488be" class="figure">
 <p><img src="./subnet-route-table.png" alt="subnet-route-table.png" />
 </p>
 </div>
@@ -293,8 +293,8 @@ In order to make instances in private subnets able to access the internet, it's 
 </p>
 </div>
 
-<div id="outline-container-orgc17ab06" class="outline-3">
-<h3 id="orgc17ab06"><span class="section-number-3">1.1</span> Routing Encore</h3>
+<div id="outline-container-org2e6ba87" class="outline-3">
+<h3 id="org2e6ba87"><span class="section-number-3">1.1</span> Routing Encore</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Also noteworthy is by default all subnets within a VPC can communicate with each other.  This is illustrated by the first entry in the image above with Target <code>local</code>, which by default is added to all route tables.
@@ -309,7 +309,7 @@ If your route table has multiple routes, the most specific route that matches th
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2023-08-26 Sat 16:15</p>
+<p class="date">Created: 2023-10-23 Mon 18:34</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
