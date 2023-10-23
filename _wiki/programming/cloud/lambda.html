@@ -258,17 +258,17 @@ Previous: <a href='./kinesis.html'>Kinesis</a>, Next: <a href='./route53.html'>R
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org29e9c4a">1. Links</a></li>
-<li><a href="#orgd6e1bf7">2. Intro</a></li>
-<li><a href="#orgde13288">3. Runtimes</a></li>
-<li><a href="#orgbf68392">4. Lifecycle</a></li>
-<li><a href="#org29a5c8d">5. Layers</a></li>
+<li><a href="#orgaf6fef0">1. Links</a></li>
+<li><a href="#org213de70">2. Intro</a></li>
+<li><a href="#org7d7e932">3. Runtimes</a></li>
+<li><a href="#orgf8b4dc5">4. Lifecycle</a></li>
+<li><a href="#org8ba75c3">5. Layers</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org29e9c4a" class="outline-2">
-<h2 id="org29e9c4a"><span class="section-number-2">1</span> Links</h2>
+<div id="outline-container-orgaf6fef0" class="outline-2">
+<h2 id="orgaf6fef0"><span class="section-number-2">1</span> Links</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><b>AWS developer guide</b>: <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">https://docs.aws.amazon.com/lambda/latest/dg/welcome.html</a></li>
@@ -278,8 +278,8 @@ Previous: <a href='./kinesis.html'>Kinesis</a>, Next: <a href='./route53.html'>R
 </div>
 </div>
 
-<div id="outline-container-orgd6e1bf7" class="outline-2">
-<h2 id="orgd6e1bf7"><span class="section-number-2">2</span> Intro</h2>
+<div id="outline-container-org213de70" class="outline-2">
+<h2 id="org213de70"><span class="section-number-2">2</span> Intro</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The main method of triggering Lambdas is to use an <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html">event source mapping</a> which typically reads an item from a stream or queue and then uses this item to invoke a Lambda using the appropriate event type.
@@ -287,8 +287,8 @@ The main method of triggering Lambdas is to use an <a href="https://docs.aws.ama
 </div>
 </div>
 
-<div id="outline-container-orgde13288" class="outline-2">
-<h2 id="orgde13288"><span class="section-number-2">3</span> Runtimes</h2>
+<div id="outline-container-org7d7e932" class="outline-2">
+<h2 id="org7d7e932"><span class="section-number-2">3</span> Runtimes</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Lambdas run in <b>execution environments</b> which provide an isolated environment for Lambda functions to run.  <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">Runtimes</a> provide support for a specific language within an execution environment.  If the frequency of events is more than a single instance can handle, AWS Lambda will scale by starting more instances, and will stop instances that are no longer active.
@@ -296,8 +296,8 @@ Lambdas run in <b>execution environments</b> which provide an isolated environme
 </div>
 </div>
 
-<div id="outline-container-orgbf68392" class="outline-2">
-<h2 id="orgbf68392"><span class="section-number-2">4</span> Lifecycle</h2>
+<div id="outline-container-orgf8b4dc5" class="outline-2">
+<h2 id="orgf8b4dc5"><span class="section-number-2">4</span> Lifecycle</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 When using a provisioned runtime (e.g. you've created a class using an AWS SDK), AWS Lambda will instantiate the class and re-use it for multiple events so resources (e.g. an S3 client) can be re used on subsequent invocations.
@@ -309,8 +309,8 @@ You can use <b>reserved concurrency</b> (<code>ReservedConcurrentExecutions</cod
 </div>
 </div>
 
-<div id="outline-container-org29a5c8d" class="outline-2">
-<h2 id="org29a5c8d"><span class="section-number-2">5</span> Layers</h2>
+<div id="outline-container-org8ba75c3" class="outline-2">
+<h2 id="org8ba75c3"><span class="section-number-2">5</span> Layers</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 You can use Lambda <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Layers</a> to re-use particular parts of your environment.  A layer basically consists of a zip file containing files grouped into one or more directories who themselves have special meaning.  For example, if you are using the java runtime, then <code>CLASSPATH</code> is always set to <code>java/lib</code> and so you can add to the classpath if you use a layer like:
