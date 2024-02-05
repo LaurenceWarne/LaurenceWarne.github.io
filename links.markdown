@@ -81,3 +81,7 @@ permalink: /links/
 * <a href="https://www.asmeurer.com/blog">Aaron Meurer's Blog</a>
 
 * <a href="https://gbroxey.github.io/blog/">Griff's Blog</a>
+
+* <a href="https://smsxgz.github.io/">smsxgz's Blog</a>
+
+* <a href="https://jeremykun.com/main-content/">Jeremy Kun's Blog</a>
