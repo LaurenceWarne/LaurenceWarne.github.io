@@ -1,0 +1,452 @@
+---
+date: 2024-02-10 10:00
+author: Laurence Warne
+title: Counting Strings and the Goulden-Jackson Cluster Method
+layout: post
+excerpt: Counting Strings and the Goulden-Jackson Cluster Method
+categories: 
+- maths
+- combinatorics
+tags: 
+---
+<p>
+<i>A lot of this post was inspired by the papers of <a href="https://sites.math.rutgers.edu/~zeilberg/mamarim/mamarimPDF/gj.pdf">John Noonan &amp; Doron Zeilberger</a> and <a href="https://arxiv.org/pdf/1508.02793.pdf">Zhuang</a> (you can also checkoout the <a href="https://uwaterloo.ca/math/sites/default/files/uploads/documents/gjjlms1979.pdf">original paper</a>, but it's a bit harder to follow)</i>.
+</p>
+
+<div id="outline-container-org8a92afc" class="outline-2">
+<h2 id="org8a92afc">Intro</h2>
+<div class="outline-text-2" id="text-org8a92afc">
+<p>
+Suppose we want to find the number of strings of length \( n \) (sourced from some given alphabet \( V \)), which don't contain any of a given set of strings \( B \) as a substring.  Is there a fast way to do this?
+</p>
+
+<p>
+The most basic case is excluding a string of a single character, in which case there are \( n^{\left|V\right| - 1} \) total strings.  But past single character strings, reasoning becomes a bit more difficult.  It's always true (and we will show) that the total number of strings follows a linear recurrence and so calculating the first few results using DP and using Berlekamp Massey will give a fast way, though we will show a way to compute a generating function directly.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga0d9f1b" class="outline-2">
+<h2 id="orga0d9f1b">A Derivation</h2>
+<div class="outline-text-2" id="text-orga0d9f1b">
+<p>
+Let's first define the weight \( W_R \) of some word \( w = w_1 \dots w_n  \in V^* \) of length \( n \), and \( R \in \mathbb{Z}^+  \).  We will define it using the set of variables \( x\left[w'\right] \) for all \( w' \in V^* \) of length \( R \) or less as follows:
+</p>
+
+<p>
+\[
+W_R(w) = \prod_{k = 1}^n \prod_{m = k}^{\min(k + R, n)} x\left[w_k \dots w_m\right]
+\]
+</p>
+
+<p>
+Note some factors may appear more than once, for example:
+</p>
+
+<p>
+\[
+W_2(HELL) = x\left[H\right]x\left[E\right]x\left[L\right]^2x\left[HE\right]x\left[EL\right]x\left[LL\right]
+\]
+</p>
+
+<p>
+Now, we define the generating function over \( x[w] \) where \( w \) has length \( \le R \) as:
+</p>
+
+<p>
+\[
+\Phi_R = \sum_{w \in V^*} W_R(w)
+\]
+</p>
+
+<p>
+Our strategy will be to perform substitutions on \( \Phi_R \) in order to recover the generating functions we want.  For example the mapping:
+</p>
+
+\begin{equation}
+x[w] \mapsto \left\{
+    \begin{array}{ll}
+        0, & \text{if } w \in B \text{, e.g. w is a string we want to exclude}\\
+        x, & \text{if } w \text{ is a single character string}\\
+        1, & \text{otherwise}
+    \end{array}\right.
+\end{equation}
+
+<p>
+Will give us the generating function \( \sum a_n x^n \) where \( a_n \) is the number of words of length \( n \) not containing any \( w \in B \) as a substring.  We'll denote this generating function by \( f_B(x) \).
+</p>
+</div>
+
+<div id="outline-container-org562732d" class="outline-3">
+<h3 id="org562732d">Computing \( \Phi_R \)</h3>
+<div class="outline-text-3" id="text-org562732d">
+<p>
+Let's define:
+</p>
+
+<p>
+\[
+Suff(w) = \{ w' \in V^* : \text{w' ends in w} \}
+\]
+</p>
+
+<p>
+Now, all words in \( V^* \) must either be of length less than \( R \) or end in some string of length \( R \).  Define:
+</p>
+
+<p>
+\[
+\Phi_{R, w} = \sum_{w' \in Suff(w)} W_R(w')
+\]
+</p>
+
+<p>
+Then \( \Phi_R \) is the sum of \( \Phi_{R, w} \) for all words of length \( R \) plus the sum of \( W_R(w) \) for all words of length less than \( R \).  Next, we see that our set of \( \Phi_{R, w} \) form a set of simultaneous equations:
+</p>
+
+<p>
+\[
+ \Phi_{R, w_1 \dots w_R} = W_R(w) + \left(\prod_{i \ge 1} x\left[w_i \dots w_r \right] \right) \sum_{c \in V} \Phi_{R, cw_1 \dots w_{R - 1}}
+\]
+</p>
+
+<p>
+EAch equation says in essence, if a word \( w' \) ends in \( w \), then it must either be \( w \) itself, else we can drop the last character of \( w' \) and we are left another word with a suffix of length \( R \).  And so calculating \( \Phi_R \) reduces to solving these equations.  We can also glean from this that \( \Phi_R \) is rational in its variables which implies as we stated in our introduction, \( f_B(x) \) is the GF of a linear recurrence.
+</p>
+
+<p>
+Note, making the substitution (1) prior to solving the system simplifies computing \( f_B(x) \).  We'll denote (1) applied to \( \Phi_{R, w} \) as \( \Phi_{R, w}(x) \).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org39ed092" class="outline-3">
+<h3 id="org39ed092">Example</h3>
+<div class="outline-text-3" id="text-org39ed092">
+<p>
+Consider the binary string of length \( n \) not containing the substring \( 111 \).  We see (making our substitution ahead of time):
+</p>
+
+\begin{align*}
+\Phi_{3, 000}(x) &= x^3 + x \left(\Phi_{3, 100}(x) + \Phi_{3, 000}(x) \right)\\
+\Phi_{3, 001}(x) &= x^3 + x \left(\Phi_{3, 100}(x) + \Phi_{3, 000}(x) \right)\\
+\Phi_{3, 010}(x) &= x^3 + x \left(\Phi_{3, 101}(x) + \Phi_{3, 001}(x) \right)\\
+\Phi_{3, 011}(x) &= x^3 + x \left(\Phi_{3, 101}(x) + \Phi_{3, 001}(x) \right)\\
+\Phi_{3, 100}(x) &= x^3 + x \left(\Phi_{3, 110}(x) + \Phi_{3, 010}(x) \right)\\
+\Phi_{3, 101}(x) &= x^3 + x \left(\Phi_{3, 110}(x) + \Phi_{3, 010}(x) \right)\\
+\Phi_{3, 110}(x) &= x^3 + x \left(\Phi_{3, 111}(x) + \Phi_{3, 011}(x) \right)\\
+\Phi_{3, 111}(x) &= x \left(\Phi_{3, 111}(x) + \Phi_{3, 011}(x) \right)\\
+\end{align*}
+
+<p>
+Solving, we find that:
+</p>
+
+\begin{align*}
+\Phi_{3, 000}(x) &= \Phi_{3, 001}(x) = \Phi_{3, 010}(x) = \Phi_{3, 011}(x) = -\frac{x^5 + x^4 + x^3}{x^3 + x^2 + x - 1}\\
+\Phi_{3, 100}(x) &= \Phi_{3, 101}(x) = \Phi_{3, 110}(x) = -\frac{x^4 + x^3}{x^3 + x^2 + x - 1}\\
+\Phi_{3, 111}(x) &= 0
+\end{align*}
+
+<p>
+And thus:
+</p>
+
+\begin{align*}
+f_{\{111\}}(x) &= 1 + 2x + 4x^2 + \frac{4x^5 + 6x^4 + 7x^3}{1 - x^3 - x^2 - x}\\
+     &= \frac{x^2 + x + 1}{1 - x^3 - x^2 - x}\\
+\end{align*}
+
+<p>
+AKA the (shifted) <a href="https://oeis.org/A000073">Tribonacci numbers</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdeaf7c0" class="outline-2">
+<h2 id="orgdeaf7c0">The Goulden-Jackson Cluster Method</h2>
+<div class="outline-text-2" id="text-orgdeaf7c0">
+<p>
+For large alphabets and \( R \) the method above will result in a lot of computational effort; our system alone will be of size \( \left|V\right|^R \).  We'll introduce the Goulden-Jackson Cluster method as a means of reducing our work.
+</p>
+
+<p>
+In this section we'll add a couple of restrictions on our set of bad words \( B \).  Firstly, no bad word should appear as a substring of any other bad word - the bigger bad word can be removed from \( B \) for the same end result.  Secondly, all \( b \in B \) should be of length at least two.  If this is not true, we can equivalently remove \( v \in B \) from our alphabet \( V \).
+</p>
+</div>
+
+<div id="outline-container-org85c7481" class="outline-3">
+<h3 id="org85c7481">Clusters</h3>
+<div class="outline-text-3" id="text-org85c7481">
+<p>
+Given \( w \) and a set of words \( B \), we define a <b>marked word</b> as a pair \( (w, \{ (b_1, i_1), (b_2, i_2) \dots (b_l, i_l) : w_{i_k} \dots w_{i_k + length(b_k) - 1} = b_k \in B \}) \).  For example, for \( B = \{HE, EL, LO \} \), the following is a marked word:
+</p>
+
+<p>
+\[
+(HELLO, \{ (HE, 1), (EL, 2), (LO, 4) \})
+\]
+</p>
+
+<p>
+And we define a <b>cluster</b> as a nonempty marked word for which every letter in \( w \) belongs to at least one bad word, and neighbouring bad words appearing in \( w \) always overlap:
+</p>
+
+<p>
+\[
+(HEL, \{ (HE, 1), (EL, 2) \})
+\]
+</p>
+
+<p>
+Note, every subword of \( B \) in \( w \) needn't be included in the marked word, for example:
+</p>
+
+<p>
+\[
+(HELLO, \{ (HE, 1) \})
+\]
+</p>
+
+<p>
+Is a completely valid marked word.
+</p>
+
+<p>
+Given \( B \), we'll define \( C_B(w) \) as the set of all clusters on \( w \) (exercise: find \( w, B \) such that this set has size greater than one), \( M_B \) as the set of all marked words, and \( C_B \) as the set of all clusters.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6c33ca7" class="outline-3">
+<h3 id="org6c33ca7">A Formula</h3>
+<div class="outline-text-3" id="text-org6c33ca7">
+<p>
+First of all, we'll give an equivalent definition of \( f_B(x) \):
+</p>
+
+<p>
+\[
+f_B(x) = \sum_{w \in L_B} x^{length(w)}
+\]
+</p>
+
+<p>
+Where \( L_B \) is the set of all words in \( V^* \), not containing any word in \( B \) as a substring.  We'll focus on calculating \( f_B(x) \) from here on, but other substitutions on \( \Phi_R \) act similarly (and are in examples).
+</p>
+
+<p>
+Further define the auxiliary generating functions:
+</p>
+
+\begin{align*}
+F_B(x, t) &= \sum_{(w, S) = m \in M_B} x^{length(w)} t^{\left|S\right|}\\
+C_B(x, t) &= \sum_{(w, S) = c \in C_B} x^{length(w)} t^{\left|S\right|}
+\end{align*}
+
+<p>
+And define \( Q(m = (w, S)) = x^{length(w)}t^{\left|S\right|} \) for brevity (it should be clear that \( Q(m_1m_2) = Q(m_1)Q(m_2) \)).  Next, we see that every marked word \( m = (w, S) \) either ends in a character not present in any bad word in \( S \), or otherwise the last character is part of the last bad word in \( S \) (which itself must be part of a cluster):
+</p>
+
+<p>
+\[
+ M_B = \{ e \} \cup \{ mc : m \in M_B, \ c \in C_B \} \cup \{ mv : m \in M_B, \ v \in V \}\\
+\]
+</p>
+ \begin{align*}
+\Rightarrow F_B(x, t) &= 1 + \sum_{m \in M_B} \sum_{c \in C_B} Q(mc) + \sum_{m \in M_B} \sum_{v \in V} Q(mv)\\
+                      &= 1 + \sum_{m \in M_B} \sum_{c \in C_B} Q(m)Q(c) + \sum_{m \in M_B} \sum_{v \in V} Q(m)Q(v)\\
+                      &= 1 + F_B(x, t)C_B(x, t) + \left|V\right|x \left(F_B(x, t)\right)\\
+                      &= \frac{1}{1 - \left|V\right|x - C_B(x, t)}
+ \end{align*}
+
+<p>
+Where \( e \) is the (unique) empty marked word; note also the union is disjoint.  We also wave hands a bit for \( v \in V \), these always correspond to exactly one marked word given all elements of \( B \) have length greater than one.
+</p>
+
+<p>
+Thus, calculating \( F_B(x, b) \) reduces to calculating \( C_B(x, t) \).  We can group clusters according to their last bad word \( b \).  For some cluster \( c = (w, S) \), the cluster must then either consist solely of \( b \) (which implies \( w = b \)), else we can remove \( b \) along with some suffix of \( w \) to produce a smaller cluster.
+</p>
+
+<p>
+For each \( b \in B \) let \( C_B[b] \) denote the set of clusters ending in \( b \), with \( C_B[b](x, t) \) defined similarly.  Then \( C_B[b](x, t) \) form a SLE, for example for \( B = \{HELE, ELEM\} \), we have:
+</p>
+
+\begin{align*}
+C_B[ELEM](x, t) &= C_B[HELE](x, t)xt + C_B[HELE](x, t)x^3t + x^4t\\
+C_B[HELE](x, t) &= x^4t
+\end{align*}
+
+<p>
+Which results in:
+</p>
+
+\begin{align*}
+C_B(x, t) &= x^4t + x^4t(xt + x^3t + 1)\\
+F_B(x, t) &= \frac{1}{(1 - 26x) - (x^4t + x^4t(xt + x^3t + 1))}
+\end{align*}
+
+<p>
+Now, recovering \( f_B(x) \) from \( F_B(x, t) \) is equivalent to substituting \( t = -1 \) (exercise!), resulting in:
+</p>
+
+<p>
+\[
+f_B(x) = \frac{1}{1 - x^7 - x^5 - 2x^4 - 26x}
+\]
+</p>
+
+<p>
+Sample Sage implementation:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #D83441;">import</span> string
+
+
+<span style="color: #D83441;">def</span> <span style="color: #D8B941;">goulden_jackson</span><span style="color: #3679D8;">(</span>bad_words, alphabet=string.ascii_uppercase<span style="color: #3679D8;">)</span>:
+    <span style="color: #86e7d7;">s</span>, <span style="color: #86e7d7;">gfvs</span> = var<span style="color: #3679D8;">(</span><span style="color: #79D836;">"s"</span><span style="color: #3679D8;">)</span>, <span style="color: #3679D8;">{</span>w: var<span style="color: #8041D8;">(</span>f<span style="color: #79D836;">"G_</span>{w}<span style="color: #79D836;">"</span><span style="color: #8041D8;">)</span> <span style="color: #D83441;">for</span> w <span style="color: #D83441;">in</span> bad_words<span style="color: #3679D8;">}</span>
+    <span style="color: #86e7d7;">eqns</span> = <span style="color: #3679D8;">[]</span>
+    <span style="color: #D83441;">for</span> end_word <span style="color: #D83441;">in</span> bad_words:
+        <span style="color: #86e7d7;">eq</span> = -s^<span style="color: #3679D8;">(</span><span style="color: #3679D8;">len</span><span style="color: #8041D8;">(</span>end_word<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+        <span style="color: #D83441;">for</span> i <span style="color: #D83441;">in</span> <span style="color: #3679D8;">range</span><span style="color: #3679D8;">(</span>1, <span style="color: #3679D8;">len</span><span style="color: #8041D8;">(</span>end_word<span style="color: #8041D8;">)</span> + 1<span style="color: #3679D8;">)</span>:
+            <span style="color: #86e7d7;">sub</span> = end_word<span style="color: #3679D8;">[</span>:i<span style="color: #3679D8;">]</span>
+            <span style="color: #D83441;">for</span> source_word <span style="color: #D83441;">in</span> bad_words:
+                <span style="color: #D83441;">if</span> source_word.endswith<span style="color: #3679D8;">(</span>sub<span style="color: #3679D8;">)</span>:
+                    <span style="color: #86e7d7;">eq</span> += -s^<span style="color: #3679D8;">(</span><span style="color: #3679D8;">len</span><span style="color: #8041D8;">(</span>end_word<span style="color: #8041D8;">)</span> - <span style="color: #3679D8;">len</span><span style="color: #8041D8;">(</span>sub<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>*gfvs<span style="color: #3679D8;">[</span>source_word<span style="color: #3679D8;">]</span>
+        eqns.append<span style="color: #3679D8;">(</span>eq == 0<span style="color: #3679D8;">)</span>
+
+    <span style="color: #86e7d7;">soln</span> = solve<span style="color: #3679D8;">(</span>eqns, *gfvs.values<span style="color: #8041D8;">()</span><span style="color: #3679D8;">)</span>
+    <span style="color: #86e7d7;">CB</span> = <span style="color: #3679D8;">sum</span><span style="color: #3679D8;">(</span>eq.right<span style="color: #8041D8;">()</span> <span style="color: #D83441;">for</span> eq <span style="color: #D83441;">in</span> <span style="color: #8041D8;">(</span>soln<span style="color: #79D836;">[</span>0<span style="color: #79D836;">]</span> <span style="color: #D83441;">if</span> <span style="color: #3679D8;">len</span><span style="color: #79D836;">(</span>bad_words<span style="color: #79D836;">)</span> &gt; 1 <span style="color: #D83441;">else</span> soln<span style="color: #8041D8;">)</span><span style="color: #3679D8;">)</span>
+    <span style="color: #86e7d7;">G</span> = 1 / <span style="color: #3679D8;">(</span>1 - <span style="color: #3679D8;">len</span><span style="color: #8041D8;">(</span>alphabet<span style="color: #8041D8;">)</span>*s - CB<span style="color: #3679D8;">)</span>
+    <span style="color: #D83441;">return</span> G.numerator<span style="color: #3679D8;">()</span> / G.denominator<span style="color: #3679D8;">()</span>
+</pre>
+</div>
+
+<p>
+Our overlap checking is not optimised, we could do better with a suffix tree when <code>bad_words</code> is large.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0a1ed88" class="outline-2">
+<h2 id="org0a1ed88">Examples</h2>
+<div class="outline-text-2" id="text-org0a1ed88">
+</div>
+<div id="outline-container-org6e6100d" class="outline-3">
+<h3 id="org6e6100d">PGF for the First Occurrence of a Binary String</h3>
+<div class="outline-text-3" id="text-org6e6100d">
+<p>
+For some binary string \( w = w_1 \dots w_l \), let \( G(x) = \sum_{n = 1} p_n x^n \) where \( p_n \) is defined as the probability that the first occurrence of the string \( w \) in a random infinite binary string starts at \( n \).
+</p>
+
+<p>
+Then the number of binary strings of length \( n \) where the first occurrence of \( w \) occurs at the last \( l \) characters is given by the number of binary strings of length \( n \) which <b>do</b> contain \( w \) as a substring, minus the the number of binary strings of length \( n - 1 \) which contain \( w \) as a substring:
+</p>
+
+\begin{align*}
+(2^n - \left[x^n\right]f_{\{w\}}(x)) - (2^{n - 1} - \left[x^{n - 1}\right]f_{\{w\}}(x))
+\end{align*}
+
+<p>
+Adjusting by \( l \) since we want the character where \( w \) starts:
+</p>
+
+\begin{align*}
+p_n = \frac{(2^{n + l} - \left[x^{n + l}\right]f_{\{w\}}(x)) - (2^{n + l - 1} - \left[x^{n + l - 1}\right]f_{\{w\}}(x))}{2^{n + l - 1}}
+\end{align*}
+
+<p>
+Summing and multiplying through by \( x \) to account for moving from \( 0 \) to \( 1 \) indexing:
+</p>
+
+\begin{align*}
+G(x) &= 2x(1 - x)\frac{\frac{1}{1 - 2x} - f_{\{w\}}(x)}{2^lx^l}\bigg\rvert_{x=\frac{x}{2}}\\
+     &= x\left(1 - \frac{x}{2}\right)\frac{\frac{1}{1 - x} - f_{\{w\}}(\frac{x}{2})}{x^l}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org0621058" class="outline-3">
+<h3 id="org0621058">A Weighted Penney's Game</h3>
+<div class="outline-text-3" id="text-org0621058">
+<p>
+Consider a game between two players which consists of tosses of an unfair coin (say heads = \( p \)).  Player 1 records a single win if the result is heads, and player 2 similarly for tails.  A player wins the game if they reach \( k \) consecutive wins.  What is the probability player 1 wins?
+</p>
+
+<p>
+We will first calculate the number of strings of length \( n \) containing a given string \( w_1 \), and <i>not</i> containing a second string \( w_2 \) (denote this criteria \( C_1 \)).  This corresponds to a sequence of tosses containing \( k \) \( H \)s in a row, but not \( k \) \( T \)s.  Then we see how this allows us to calculate number of strings of length \( n \) containing a given string \( w_1 \) only as a suffix, and not containing a second string \( w_2 \) (\( C_2 \)), which will give us our result.
+</p>
+
+<p>
+Let \( S_n \) consist of the set of strings satisfying \( C_1 \).  Then if \( V_n \) is the set of strings of length \( n \) not containing \( w_2 \), and \( U_n \) is the set of strings of length \( n \) not containing \( w_1 \) or \( w_2 \), what is \( W_n = V_n - U_n \)?
+</p>
+
+<p>
+We'll show by the classic subset argument \( W_n = S_n \).  Suppose \( w \) is a target string, e.g. it contains \( w_1 \) and not \( w_2 \).  Then \( w \in V_n \) since it doesn't contain \( w_2 \), and also \( w \not \in U_n \) since it contains \( w_1 \), which implies \( S_n \subseteq W_n \).  Similarly, if \( w \in V_n\) then \( w \) does not contain \( w_2 \), and \( w \not \in U_n \) implies \( w \) must contain \( w_1 \) since we now it doesn't contain \( w_2 \); thus \( W_n \subseteq S_n \).
+</p>
+
+<p>
+Since \( U_n \subseteq V_n \) we must have:
+</p>
+
+<p>
+\[
+\left|S_n\right| = \left|V_n\right| - \left|U_n\right|
+\]
+</p>
+
+<p>
+For brevity let \( x_n = \left|X_n\right| \). Since \( v_n, u_n \) are just substring exclusion problems, we can use our methods to calculate \( s_n \).  But now how do we calculate the number of substrings of length \( n \) which don't contain \( w_2 \), and contain \( w_1 \) only as a suffix?  Like in the previous example, we may be tempted to say "subtract \( 2s_{n - 1} \) from \( s_n \) to account for adding \( H \) or \( T \) to any \( w \in S_{n - 1} \)", but this is not correct since appending \( T \) to \( w \in S_{n - 1} \) may result in a string ending in \( k\  T\)s.
+</p>
+
+<p>
+Let \( S(x, y) = \sum_{n, m} s_{n, m} x^ny^m \) where \( s_{n, m} \) is the number of strings with \( n \) \( H \)s and \( m \) \( T \)s satisfying \( C_1 \) (we know this one).  Further let \( T(x, y) = \sum_{n, m} t_{n, m} x^ny^m \) where \( t_{n,m} \) is as like \( s_{n, m} \), but with added condition that the string ends in \( T \); and let Further let \( K(x, y) = \sum_{n, m} k_{n, m} x^ny^m \) where \( k_{n,m} \) is as like \( s_{n, m} \), but with added condition that the string ends in \( k - 1 \) lots of \( T \)s.  Then the following holds:
+</p>
+
+\begin{align*}
+T(x, y) &= yS(x, y) - yK(x, y)\\
+K(x, y) &= y^4S(x, y) - y^4T(x, y)\\
+P(x, y) &= (1 - x - y)S(x, y) + K(x, y)
+\end{align*}
+
+<p>
+Where \( P(x, y) \) is the generating function we want (e.g. satisfying \( C_2 \)), which results in the following:
+</p>
+
+<p>
+\[
+P(x, y) = \left(1 - x - y + y \frac{y^{k - 1} - y^k}{1 - y^k}\right)S(x, y)
+\]
+</p>
+
+<p>
+Now the probability of player 1 winning is just \( P(p, (1 - p)) \).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orged6aaba" class="outline-2">
+<h2 id="orged6aaba">Questions</h2>
+<div class="outline-text-2" id="text-orged6aaba">
+<ol class="org-ol">
+<li>Is the following an equivalent definition of a cluster: "Define \( (w, S) \) as a cluster if it cannot be decomposed as the concatenation (defined how you would expect) of two nonempty marked words"?</li>
+<li>How may we find the generating function of the number of words of length \( n \) in which every letter must be contained in a bad word?</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org1e75b00" class="outline-2">
+<h2 id="org1e75b00">Links</h2>
+<div class="outline-text-2" id="text-org1e75b00">
+<ul class="org-ul">
+<li><a href="https://uwaterloo.ca/math/sites/default/files/uploads/documents/gjjlms1979.pdf">https://uwaterloo.ca/math/sites/default/files/uploads/documents/gjjlms1979.pdf</a> (original paper)</li>
+<li><a href="https://sites.math.rutgers.edu/~zeilberg/mamarim/mamarimPDF/gj.pdf">https://sites.math.rutgers.edu/~zeilberg/mamarim/mamarimPDF/gj.pdf</a></li>
+<li><a href="https://arxiv.org/pdf/1508.02793.pdf">https://arxiv.org/pdf/1508.02793.pdf</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Penney%27s_game">https://en.wikipedia.org/wiki/Penney%27s_game</a></li>
+</ul>
+</div>
+</div>
