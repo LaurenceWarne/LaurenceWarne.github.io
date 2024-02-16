@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-01-10 Wed 21:33 -->
+<!-- 2024-02-16 Fri 14:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Euler Library</title>
@@ -280,53 +280,53 @@ Next: <a href='./questions.html'>Questions</a><span style='float: right;'>Up: <a
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org25d9718">1. Linear Recurrence Closure</a>
+<li><a href="#orga21a54d">1. Linear Recurrence Closure</a>
 <ul>
-<li><a href="#orgf6e5bab">1.1. Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#orgf77f8d2">1.1. Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgf3df359">2. Kitamasa Method for Linear Recurrences</a>
+<li><a href="#orge7bbf87">2. Kitamasa Method for Linear Recurrences</a>
 <ul>
-<li><a href="#org32650dd">2.1. Polynomials</a>
+<li><a href="#orgb1d5fbc">2.1. Polynomials</a>
 <ul>
-<li><a href="#org1e607c2">2.1.1. Example</a></li>
+<li><a href="#org168ef27">2.1.1. Example</a></li>
 </ul>
 </li>
-<li><a href="#org3f662d0">2.2. 💖 Matrices 💖</a></li>
+<li><a href="#org5fe7ab4">2.2. 💖 Matrices 💖</a></li>
 </ul>
 </li>
-<li><a href="#org9c5f032">3. Factorisation in Quadratic Integer Rings</a>
+<li><a href="#org7fb8de6">3. Factorisation in Quadratic Integer Rings</a>
 <ul>
-<li><a href="#org9782dfb">3.1. Gaussian Integers</a>
+<li><a href="#orgecc5c25">3.1. Gaussian Integers</a>
 <ul>
-<li><a href="#orgd7485bc">3.1.1. Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
-<li><a href="#org72568ea">3.1.2. Sum of Squares</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgc40b894">4. Euler Transform</a></li>
-<li><a href="#org3986a74">5. Floor Sums</a></li>
-<li><a href="#org0f6fa72">6. Markov Chains</a></li>
-<li><a href="#orgd38780f">7. Binomial Coefficients Modulo \( p \)</a></li>
-<li><a href="#org9e1c7cc">8. Diophantine Equations</a>
-<ul>
-<li><a href="#org8fddf67">8.1. Nonnegative Solutions to Linear Equations</a>
-<ul>
-<li><a href="#orgc27dcf6">8.1.1. Python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#org9783f65">3.1.1. Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#org52cdfa3">3.1.2. Sum of Squares</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgcca2dd5">9. Nim</a></li>
-<li><a href="#orge5d8483">10. Transforms</a></li>
-<li><a href="#orgaa3974a">11. Assorted</a></li>
+<li><a href="#org3dfd59f">4. Euler Transform</a></li>
+<li><a href="#orgc4b2426">5. Floor Sums</a></li>
+<li><a href="#org5e48358">6. Markov Chains</a></li>
+<li><a href="#org830543b">7. Binomial Coefficients Modulo \( p \)</a></li>
+<li><a href="#orgbe206af">8. Diophantine Equations</a>
+<ul>
+<li><a href="#orga89bf39">8.1. Nonnegative Solutions to Linear Equations</a>
+<ul>
+<li><a href="#org9bc182b">8.1.1. Python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org0dcaa05">9. Nim</a></li>
+<li><a href="#org1ebf9b4">10. Transforms</a></li>
+<li><a href="#org2eb6f8f">11. Assorted</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org25d9718" class="outline-2">
-<h2 id="org25d9718"><span class="section-number-2">1</span> Linear Recurrence Closure</h2>
+<div id="outline-container-orga21a54d" class="outline-2">
+<h2 id="orga21a54d"><span class="section-number-2">1</span> Linear Recurrence Closure</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 If \( a_n \) and \( b_n \) are linear recurrences, then:
@@ -338,8 +338,8 @@ If \( a_n \) and \( b_n \) are linear recurrences, then:
 </ol>
 </div>
 
-<div id="outline-container-orgf6e5bab" class="outline-3">
-<h3 id="orgf6e5bab"><span class="section-number-3">1.1</span> Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h3>
+<div id="outline-container-orgf77f8d2" class="outline-3">
+<h3 id="orgf77f8d2"><span class="section-number-3">1.1</span> Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Let \( C_a(x) \) and \( C_b(x) \) be the characteristic polynomials of \( a_n \) and \( b_n \) respectively.  Then we claim 
@@ -451,12 +451,12 @@ See also <a href="https://math.stackexchange.com/questions/1348838/sum-and-produ
 </div>
 </div>
 
-<div id="outline-container-orgf3df359" class="outline-2">
-<h2 id="orgf3df359"><span class="section-number-2">2</span> Kitamasa Method for Linear Recurrences</h2>
+<div id="outline-container-orge7bbf87" class="outline-2">
+<h2 id="orge7bbf87"><span class="section-number-2">2</span> Kitamasa Method for Linear Recurrences</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org32650dd" class="outline-3">
-<h3 id="org32650dd"><span class="section-number-3">2.1</span> Polynomials</h3>
+<div id="outline-container-orgb1d5fbc" class="outline-3">
+<h3 id="orgb1d5fbc"><span class="section-number-3">2.1</span> Polynomials</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Suppose \( b_n \) is a linear recurrence with characteristic polynomial \( f(x) = x^m + ... + c \), and a set of base cases \( b_0 ... b_{m - 1} \).  Then it is well known:
@@ -516,8 +516,8 @@ Alternate explanation: <a href="https://codeforces.com/blog/entry/61306">https:/
 </p>
 </div>
 
-<div id="outline-container-org1e607c2" class="outline-4">
-<h4 id="org1e607c2"><span class="section-number-4">2.1.1</span> Example</h4>
+<div id="outline-container-org168ef27" class="outline-4">
+<h4 id="org168ef27"><span class="section-number-4">2.1.1</span> Example</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 Suppose \( b_n = 2^n + n = 2^n + n(1)^n \), and so has characteristic polynomial \( f(x) = (x - 1)^2(x - 2) = x^3 - 4x^2 + 5x - 2 \) , and so \( b_n = 4b_{n - 1} - 5b_{n - 2} + 2b_{n - 3} \), with base cases \( b_0 = 1, \ b_1 = 3, \ b_2 = 6 \).  Suppose we want to find \( b_7 \).  Then:
@@ -536,8 +536,8 @@ And so we find that \( 120b_2 - 233b_1 + 114b_0 = 135 = 2^7 + 7 \).
 </div>
 </div>
 
-<div id="outline-container-org3f662d0" class="outline-3">
-<h3 id="org3f662d0"><span class="section-number-3">2.2</span> 💖 Matrices 💖</h3>
+<div id="outline-container-org5fe7ab4" class="outline-3">
+<h3 id="org5fe7ab4"><span class="section-number-3">2.2</span> 💖 Matrices 💖</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 And so our problem reduces to finding \( x^N \pmod{f(x)} \), where \( f(x) \) is the characteristic polynomial of our recurrence.
@@ -546,12 +546,12 @@ And so our problem reduces to finding \( x^N \pmod{f(x)} \), where \( f(x) \) is
 </div>
 </div>
 
-<div id="outline-container-org9c5f032" class="outline-2">
-<h2 id="org9c5f032"><span class="section-number-2">3</span> Factorisation in Quadratic Integer Rings</h2>
+<div id="outline-container-org7fb8de6" class="outline-2">
+<h2 id="org7fb8de6"><span class="section-number-2">3</span> Factorisation in Quadratic Integer Rings</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org9782dfb" class="outline-3">
-<h3 id="org9782dfb"><span class="section-number-3">3.1</span> Gaussian Integers</h3>
+<div id="outline-container-orgecc5c25" class="outline-3">
+<h3 id="orgecc5c25"><span class="section-number-3">3.1</span> Gaussian Integers</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 \( a + bi \in \mathbb{Z}[i]  \) is prime iff one of the components is zero and the other is an associate of a (normal) prime of the form \( 3 \pmod 4 \), or its norm is (a normal) prime.  This follows from the fact that \( p \) can be written as the sum of two squares iff -1 is a quadratic residue modulo \( p \).  Note by <a href="https://en.wikipedia.org/wiki/Fermat%27s_theorem_on_sums_of_two_squares">Fermat's Two Square Theorem</a> we can always write \( p \equiv 1 \pmod 4 \) as a sum of two squares.
@@ -561,8 +561,8 @@ And so our problem reduces to finding \( x^N \pmod{f(x)} \), where \( f(x) \) is
 It follows we can find the prime factorisation of \( n \in \mathbb{Z} \) by taking its normal factorisation and further decomposing primes of the form \( 1 \pmod 4 \).  Solving \( p = (a + bi)(a - bi) = a^2 + b^2 \) can be done efficiently by first solving for \( x^2 \equiv -1 \pmod p \) (using Tonelli Shanks), we then find \( a + bi = gcd(p, \ x + i) \).
 </p>
 </div>
-<div id="outline-container-orgd7485bc" class="outline-4">
-<h4 id="orgd7485bc"><span class="section-number-4">3.1.1</span> Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
+<div id="outline-container-org9783f65" class="outline-4">
+<h4 id="org9783f65"><span class="section-number-4">3.1.1</span> Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 If \( p | x^2 + 1 \) then \( p | (x + i)(x - i) \), arguing for a contradiction we see we cannot have \( p|(x + i) \) or \( p | (x - i) \).  Thus \( gcd(p, \ x + i) \) and \( gcd(p, \ x - i) \) are not units so we can find a proper divisor of \( p \) by computing either of them.  Clearly \( a + bi = gcd(p, x \pm i) \) has nonzero real and imaginary parts (since \( p \) is prime in \( \mathbb{Z}  \)), and so if \( (c + di)(a + bi) = p \) we must have \( c + di = a - bi \) since \( p \) is real.  This completes the proof.
@@ -570,8 +570,8 @@ If \( p | x^2 + 1 \) then \( p | (x + i)(x - i) \), arguing for a contradiction 
 </div>
 </div>
 
-<div id="outline-container-org72568ea" class="outline-4">
-<h4 id="org72568ea"><span class="section-number-4">3.1.2</span> Sum of Squares</h4>
+<div id="outline-container-org52cdfa3" class="outline-4">
+<h4 id="org52cdfa3"><span class="section-number-4">3.1.2</span> Sum of Squares</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 This gives us a way to compute all the ways in which \( n \) can be written as the sum of squares: <a href="https://mathoverflow.net/a/319809/332110">https://mathoverflow.net/a/319809/332110</a>, and also implies if \( S(n) \) denotes the total number of ways an integer \( n = 2^\lambda p_1^{a_1}p_2^{a_2}...p_n^{a_n}q_1^{b_1}q_2^{b_2}...q_m^{b_m} \) (\( p_i \equiv 1 \pmod 4, q_i \equiv 3 \pmod 4 \)), can be written as the sum of two positive squares then:
@@ -593,8 +593,8 @@ Which follows from the <a href="https://en.wikipedia.org/wiki/Brahmagupta%E2%80%
 </div>
 </div>
 
-<div id="outline-container-orgc40b894" class="outline-2">
-<h2 id="orgc40b894"><span class="section-number-2">4</span> Euler Transform</h2>
+<div id="outline-container-org3dfd59f" class="outline-2">
+<h2 id="org3dfd59f"><span class="section-number-2">4</span> Euler Transform</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Given we know the number of connected graph \( a_n \) satsifying some property, we can calculate the total number of graphs satsifying the property (\( b_n \)) using the Euler Transform:
@@ -618,8 +618,8 @@ c_n = \sum_{d|n} d a_d
 </div>
 </div>
 
-<div id="outline-container-org3986a74" class="outline-2">
-<h2 id="org3986a74"><span class="section-number-2">5</span> Floor Sums</h2>
+<div id="outline-container-orgc4b2426" class="outline-2">
+<h2 id="orgc4b2426"><span class="section-number-2">5</span> Floor Sums</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 We can compute the sum:
@@ -645,11 +645,11 @@ Also known are fast methods to compute \( \sum_{x = 0}^n \left \lfloor \frac{ax 
 </div>
 </div>
 
-<div id="outline-container-org0f6fa72" class="outline-2">
-<h2 id="org0f6fa72"><span class="section-number-2">6</span> Markov Chains</h2>
+<div id="outline-container-org5e48358" class="outline-2">
+<h2 id="org5e48358"><span class="section-number-2">6</span> Markov Chains</h2>
 <div class="outline-text-2" id="text-6">
 <p>
-An absorbing Markov chain has the following form:
+An <a href="https://en.wikipedia.org/wiki/Absorbing_Markov_chain">absorbing Markov chain</a> has the following form:
 </p>
 
  \begin{align*}
@@ -701,14 +701,14 @@ Then for example <code>sage</code> <code>(In - Q).solve_right(ones_vector)</code
     <span class="org-variable-name">I</span> = identity_matrix(ring, n)
     <span class="org-variable-name">N_inv</span> = (I - Q)
     <span class="org-variable-name">ones_vector</span> = vector([1]*n)
-    <span class="org-keyword">return</span> M.solve_right(ones_vector)[i]
+    <span class="org-keyword">return</span> N_inv.solve_right(ones_vector)[i]
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgd38780f" class="outline-2">
-<h2 id="orgd38780f"><span class="section-number-2">7</span> Binomial Coefficients Modulo \( p \)</h2>
+<div id="outline-container-org830543b" class="outline-2">
+<h2 id="org830543b"><span class="section-number-2">7</span> Binomial Coefficients Modulo \( p \)</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 <a href="https://en.wikipedia.org/wiki/Lucas%27s_theorem">Lucas' Theorem</a> states that if \( m_km_{k - 1}\cdots m_0 \) and \( n_kn_{k - 1}\cdots n_0 \) are the base \( p \) digit representations of \( m \) and \( n \) respectively, then:
@@ -732,12 +732,12 @@ The number of entries in the mth row of Pascal's triangle that are not divisible
 </div>
 </div>
 
-<div id="outline-container-org9e1c7cc" class="outline-2">
-<h2 id="org9e1c7cc"><span class="section-number-2">8</span> Diophantine Equations</h2>
+<div id="outline-container-orgbe206af" class="outline-2">
+<h2 id="orgbe206af"><span class="section-number-2">8</span> Diophantine Equations</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org8fddf67" class="outline-3">
-<h3 id="org8fddf67"><span class="section-number-3">8.1</span> Nonnegative Solutions to Linear Equations</h3>
+<div id="outline-container-orga89bf39" class="outline-3">
+<h3 id="orga89bf39"><span class="section-number-3">8.1</span> Nonnegative Solutions to Linear Equations</h3>
 <div class="outline-text-3" id="text-8-1">
 <p>
 Consider nonnegative solutions to \( x_1 + \cdots + x_k = n \) where \( n \) is known.  Using stars and bars, we can see the total numbers of n-tuple solutions is \( \binom{n + k - 1}{k - 1} \).
@@ -794,8 +794,8 @@ The base cases \( f(0) \cdots f(k) \)  can be obtained by manually expanding \( 
 </p>
 </div>
 
-<div id="outline-container-orgc27dcf6" class="outline-4">
-<h4 id="orgc27dcf6"><span class="section-number-4">8.1.1</span> Python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
+<div id="outline-container-org9bc182b" class="outline-4">
+<h4 id="org9bc182b"><span class="section-number-4">8.1.1</span> Python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
 <div class="outline-text-4" id="text-8-1-1">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">from</span> collections <span class="org-keyword">import</span> defaultdict
@@ -817,8 +817,8 @@ The base cases \( f(0) \cdots f(k) \)  can be obtained by manually expanding \( 
 </div>
 </div>
 
-<div id="outline-container-orgcca2dd5" class="outline-2">
-<h2 id="orgcca2dd5"><span class="section-number-2">9</span> Nim</h2>
+<div id="outline-container-org0dcaa05" class="outline-2">
+<h2 id="org0dcaa05"><span class="section-number-2">9</span> Nim</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 The Sprague-Grundy Theorem states that every impartial game is equivalent to a game of Nim with a single heap.
@@ -826,8 +826,8 @@ The Sprague-Grundy Theorem states that every impartial game is equivalent to a g
 </div>
 </div>
 
-<div id="outline-container-orge5d8483" class="outline-2">
-<h2 id="orge5d8483"><span class="section-number-2">10</span> Transforms</h2>
+<div id="outline-container-org1ebf9b4" class="outline-2">
+<h2 id="org1ebf9b4"><span class="section-number-2">10</span> Transforms</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 <a href="http://www.serbanology.com/article/A%20Bitwise%20Convolution%20Tutorial">http://www.serbanology.com/article/A%20Bitwise%20Convolution%20Tutorial</a>
@@ -836,8 +836,8 @@ The Sprague-Grundy Theorem states that every impartial game is equivalent to a g
 </div>
 </div>
 
-<div id="outline-container-orgaa3974a" class="outline-2">
-<h2 id="orgaa3974a"><span class="section-number-2">11</span> Assorted</h2>
+<div id="outline-container-org2eb6f8f" class="outline-2">
+<h2 id="org2eb6f8f"><span class="section-number-2">11</span> Assorted</h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li>\( f_{n + 1} = a_nf_n + \cdots + a_0f_{n - k} \) is totally periodic modulo \( n \) if \( a_0 \) is a unit in \( \mathbb{Z}_n \)</li>
@@ -847,7 +847,7 @@ The Sprague-Grundy Theorem states that every impartial game is equivalent to a g
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-01-10 Wed 21:33</p>
+<p class="date">Created: 2024-02-16 Fri 14:05</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
