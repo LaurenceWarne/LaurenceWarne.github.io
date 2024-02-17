@@ -373,7 +373,7 @@ G(x) &= 2x(1 - x)\frac{\frac{1}{1 - 2x} - f_{\{w\}}(x)}{2^lx^l}\bigg\rvert_{x=\f
 <h3 id="org0621058">A Weighted Penney's Game</h3>
 <div class="outline-text-3" id="text-org0621058">
 <p>
-Consider a game between two players which consists of tosses of an unfair coin (say heads = \( p \)).  Player 1 records a single win if the result is heads, and player 2 similarly for tails.  A player wins the game if they reach \( k \) consecutive wins.  What is the probability player 1 wins?
+Consider a game between two players which consists of a set of rounds consisting of tosses of an unfair coin (say heads = \( p \)).  Player 1 wins the round if the result is heads, and player 2 similarly for tails.  A player wins the game if they reach \( k \) consecutive round wins.  What is the probability player 1 wins?  Markov chains may be a bit cleaner for this example, but we'll show how GJ can be applied anyway!
 </p>
 
 <p>
@@ -433,7 +433,7 @@ Now the probability of player 1 winning is just \( P(p, (1 - p)) \).
 <h2 id="orged6aaba">Questions</h2>
 <div class="outline-text-2" id="text-orged6aaba">
 <ol class="org-ol">
-<li>Is the following an equivalent definition of a cluster: "Define \( (w, S) \) as a cluster if it cannot be decomposed as the concatenation (defined how you would expect) of two nonempty marked words"?</li>
+<li>Is the following equivalent to our definition of a cluster: "Define \( (w, S) \) as a cluster if it cannot be decomposed as the concatenation (defined how you would expect) of two nonempty marked words"?</li>
 <li>How may we find the generating function of the number of words of length \( n \) in which every letter must be contained in a bad word?</li>
 </ol>
 </div>
