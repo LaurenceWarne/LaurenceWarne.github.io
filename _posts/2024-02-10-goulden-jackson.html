@@ -111,7 +111,7 @@ Then \( \Phi_R \) is the sum of \( \Phi_{R, w} \) for all words of length \( R \
 </p>
 
 <p>
-EAch equation says in essence, if a word \( w' \) ends in \( w \), then it must either be \( w \) itself, else we can drop the last character of \( w' \) and we are left another word with a suffix of length \( R \).  And so calculating \( \Phi_R \) reduces to solving these equations.  We can also glean from this that \( \Phi_R \) is rational in its variables which implies as we stated in our introduction, \( f_B(x) \) is the GF of a linear recurrence.
+Each equation says in essence, if a word \( w' \) ends in \( w \), then it must either be \( w \) itself, else we can drop the last character of \( w' \) and we are left another word with a suffix of length \( R \).  And so calculating \( \Phi_R \) reduces to solving these equations.  We can also glean from this that \( \Phi_R \) is rational in its variables which implies as we stated in our introduction, \( f_B(x) \) is the GF of a linear recurrence.
 </p>
 
 <p>
@@ -215,6 +215,10 @@ Is a completely valid marked word.
 
 <p>
 Given \( B \), we'll define \( C_B(w) \) as the set of all clusters on \( w \) (exercise: find \( w, B \) such that this set has size greater than one), \( M_B \) as the set of all marked words, and \( C_B \) as the set of all clusters.
+</p>
+
+<p>
+The concatenation of two marked words \( m_1, \ m_2 \) will be denoted \( m_1m_2 \), and defined how you would expect.
 </p>
 </div>
 </div>
@@ -325,7 +329,7 @@ Sample Sage implementation:
 </div>
 
 <p>
-Our overlap checking is not optimised, we could do better with a suffix tree when <code>bad_words</code> is large.
+Our overlap checking is not optimised, we could do better with a suffix tree when <code>bad_words</code> is large.  We could also further exploit symmetry, e.g. we must always have \( C_B[abb](x, t) = C_B[cbb](x, t) \).
 </p>
 </div>
 </div>
