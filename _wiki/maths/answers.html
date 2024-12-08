@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-23 Sat 11:44 -->
+<!-- 2024-12-08 Sun 18:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Answers</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,8 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -228,78 +228,66 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <span >Up: <a href='./maths.html'>Maths</a></span><hr><h1 class="title">Answers</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2d0accb">1. Questions</a>
+<li><a href="#org9f2787a">1. Questions</a>
 <ul>
-<li><a href="#org9be6d92">1.1. Analysis</a></li>
-<li><a href="#org395a60f">1.2. Algebra</a></li>
-<li><a href="#orgb7b937f">1.3. Linear Algebra</a></li>
-<li><a href="#orgfc383a1">1.4. Number Theory</a></li>
-<li><a href="#org35807ce">1.5. Graph Theory</a></li>
-<li><a href="#org05729ed">1.6. Computation</a></li>
+<li><a href="#orga7d860b">1.1. Analysis</a></li>
+<li><a href="#org60e74bb">1.2. Algebra</a></li>
+<li><a href="#org195f88e">1.3. Linear Algebra</a></li>
+<li><a href="#org787f42a">1.4. Number Theory</a></li>
+<li><a href="#orgb05433c">1.5. Graph Theory</a></li>
+<li><a href="#org2eed5d1">1.6. Computation</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2d0accb" class="outline-2">
-<h2 id="org2d0accb"><span class="section-number-2">1</span> Questions</h2>
+<div id="outline-container-org9f2787a" class="outline-2">
+<h2 id="org9f2787a"><span class="section-number-2">1.</span> Questions</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org9be6d92" class="outline-3">
-<h3 id="org9be6d92"><span class="section-number-3">1.1</span> Analysis</h3>
+<div id="outline-container-orga7d860b" class="outline-3">
+<h3 id="orga7d860b"><span class="section-number-3">1.1.</span> Analysis</h3>
 <div class="outline-text-3" id="text-1-1">
 <ol class="org-ol">
 <li>Add \( z^6 \) to both sides, and the LHS is a binomial expansion. Then take 6th roots taking care to respect roots of unity.</li>
@@ -315,8 +303,8 @@ while (tags.length > 0) {
 </div>
 </div>
 
-<div id="outline-container-org395a60f" class="outline-3">
-<h3 id="org395a60f"><span class="section-number-3">1.2</span> Algebra</h3>
+<div id="outline-container-org60e74bb" class="outline-3">
+<h3 id="org60e74bb"><span class="section-number-3">1.2.</span> Algebra</h3>
 <div class="outline-text-3" id="text-1-2">
 <ol class="org-ol">
 <li>?</li>
@@ -332,8 +320,8 @@ while (tags.length > 0) {
 </div>
 </div>
 
-<div id="outline-container-orgb7b937f" class="outline-3">
-<h3 id="orgb7b937f"><span class="section-number-3">1.3</span> Linear Algebra</h3>
+<div id="outline-container-org195f88e" class="outline-3">
+<h3 id="org195f88e"><span class="section-number-3">1.3.</span> Linear Algebra</h3>
 <div class="outline-text-3" id="text-1-3">
 <ol class="org-ol">
 <li>?</li>
@@ -377,8 +365,8 @@ In the case \( |R| = |C| \le 2 \) the statement (about symmetricity) is true: su
 </div>
 </div>
 
-<div id="outline-container-orgfc383a1" class="outline-3">
-<h3 id="orgfc383a1"><span class="section-number-3">1.4</span> Number Theory</h3>
+<div id="outline-container-org787f42a" class="outline-3">
+<h3 id="org787f42a"><span class="section-number-3">1.4.</span> Number Theory</h3>
 <div class="outline-text-3" id="text-1-4">
 <ol class="org-ol">
 <li>If \( a \) and \( b \) are odd, then \( a^2 + b^2 \equiv 2 \mod 4 \), but all even squares are congruent to \( 0 \mod 4\).</li>
@@ -392,8 +380,8 @@ In the case \( |R| = |C| \le 2 \) the statement (about symmetricity) is true: su
 </div>
 </div>
 
-<div id="outline-container-org35807ce" class="outline-3">
-<h3 id="org35807ce"><span class="section-number-3">1.5</span> Graph Theory</h3>
+<div id="outline-container-orgb05433c" class="outline-3">
+<h3 id="orgb05433c"><span class="section-number-3">1.5.</span> Graph Theory</h3>
 <div class="outline-text-3" id="text-1-5">
 <ol class="org-ol">
 <li>Proceed by induction.</li>
@@ -401,8 +389,8 @@ In the case \( |R| = |C| \le 2 \) the statement (about symmetricity) is true: su
 </div>
 </div>
 
-<div id="outline-container-org05729ed" class="outline-3">
-<h3 id="org05729ed"><span class="section-number-3">1.6</span> Computation</h3>
+<div id="outline-container-org2eed5d1" class="outline-3">
+<h3 id="org2eed5d1"><span class="section-number-3">1.6.</span> Computation</h3>
 <div class="outline-text-3" id="text-1-6">
 <ol class="org-ol">
 <li>Binary search</li>
@@ -417,10 +405,10 @@ In the case \( |R| = |C| \le 2 \) the statement (about symmetricity) is true: su
 We're not interested in the fact that <code>x</code> will be changed in place by the second function since we only care about outputs.  In most cases the functions return exactly the same value, but we can use the second function to append a list to itself and get the <a href="https://docs.python.org/dev/library/constants.html#Ellipsis">ellipses</a> of doom:
 </p>
 <div class="org-src-container">
-<pre class="src src-python">&gt;&gt;&gt; <span class="org-variable-name">x</span> = <span class="org-variable-name">y</span> = [1]
-&gt;&gt;&gt; append1(x, y)
+<pre class="src src-python"><span class="org-operator">&gt;&gt;&gt;</span> <span class="org-variable-name">x</span> <span class="org-operator">=</span> <span class="org-variable-name">y</span> <span class="org-operator">=</span> [1]
+<span class="org-operator">&gt;&gt;&gt;</span> append1(x, y)
 [1, [1]]
-&gt;&gt;&gt; append2(x, y)
+<span class="org-operator">&gt;&gt;&gt;</span> append2(x, y)
 [1, [...]]
 </pre>
 </div></li>
@@ -431,7 +419,7 @@ We're not interested in the fact that <code>x</code> will be changed in place by
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-03-23 Sat 11:44</p>
+<p class="date">Created: 2024-12-08 Sun 18:43</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

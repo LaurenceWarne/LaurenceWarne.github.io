@@ -6,7 +6,7 @@
 <!-- 2024-12-08 Sun 18:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Similar Congruences</title>
+<title>Hardware</title>
 <meta name="author" content="root" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -228,89 +228,14 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script>
-  window.MathJax = {
-    tex: {
-      ams: {
-        multlineWidth: '85%'
-      },
-      tags: 'ams',
-      tagSide: 'right',
-      tagIndent: '.8em'
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    svg: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    output: {
-      font: 'mathjax-modern',
-      displayOverflow: 'overflow'
-    }
-  };
-</script>
-
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 </head>
 <body>
 <div id="content" class="content">
-Previous: <a href='./modular-arithmetic.html'>Modular Arithmetic</a><span style='float: right;'>Up: <a href='./number-theory.html'>Number Theory</a></span><hr><h1 class="title">Similar Congruences</h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#orgd0cb21b">1. Similar Congruences</a></li>
+Previous: <a href='./gpg.html'>Gpg</a>, Next: <a href='./run-levels.html'>Run Levels</a><span style='float: right;'>Up: <a href='./linux.html'>Linux</a></span><hr><h1 class="title">Hardware</h1>
+<ul class="org-ul">
+<li><b>DIMM</b> <a href="https://en.wikipedia.org/wiki/DIMM">Dual In-line Memory Module</a>: a type of memory that provides RAM to a computer's motherboard, aka a RAM stick</li>
+<li><b>PCIE</b> <a href="https://en.wikipedia.org/wiki/PCI_Express">Peripheral Component Interconnected Express</a>: a high-speed serial computer expansion bus standard which comes in x1, x4, x8, x16, x32 configurations, additionally with later generations giving greater transfer speeds.</li>
 </ul>
-</div>
-</div>
-
-<div id="outline-container-orgd0cb21b" class="outline-2">
-<h2 id="orgd0cb21b"><span class="section-number-2">1.</span> Similar Congruences</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Consider solutions to the simultaneous congruences:
-</p>
-
-\begin{align}
-x \equiv a_1 \mod n^{p} \\
-x \equiv a_2 \mod n^{q}
-\end{align}
-
-<p>
-with \( p >= q \). Now from (1):
-</p>
-
-\begin{align*}
-& x - a_1 = \lambda n^{p}               & \text{For some \( \lambda \in Z \).} \\
-& \Rightarrow x \equiv a_1 \mod n^{q}   & \text{using n^{q} | n^{p}} \\
-& \Rightarrow a_1 \equiv a_2 \mod n^{q} & \text{} \\ 
-\end{align*}
-
-<p>
-Hence \( a_1 = a_2 \mod n^{q} \) is a necessary condition for solutions to exist.
-Suppose this is true, ie:
-</p>
-
-\begin{align}
-x \equiv a_1 \mod n^{p} \\
-x \equiv a_1 \mod n^{q}
-\end{align}
-
-<p>
-Then the set of solutions to (3) are a subset of the set of solutions to (4), hence we
-need only consider \( x \equiv a_1 \mod n^{p} \).
-</p>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>

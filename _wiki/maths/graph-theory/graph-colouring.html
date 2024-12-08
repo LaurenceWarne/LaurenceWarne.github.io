@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-23 Sat 11:44 -->
+<!-- 2024-12-08 Sun 18:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Graph Colouring</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,8 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -228,75 +228,63 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Next: <a href='./graphs.html'>Graphs</a><span style='float: right;'>Up: <a href='./graph-theory.html'>Graph Theory</a></span><hr><h1 class="title">Graph Colouring</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org87c4171">1. Definition</a></li>
-<li><a href="#org6462831">2. Chromatic Number</a>
+<li><a href="#org07a5601">1. Definition</a></li>
+<li><a href="#org7435bba">2. Chromatic Number</a>
 <ul>
-<li><a href="#org09cfa0e">2.1. Bounds</a></li>
+<li><a href="#org197c40e">2.1. Bounds</a></li>
 </ul>
 </li>
-<li><a href="#orge3cc468">3. Chromatic Polynomial</a>
+<li><a href="#org957d021">3. Chromatic Polynomial</a>
 <ul>
-<li><a href="#org2b96200">3.1. Theorem</a></li>
+<li><a href="#org77f99f0">3.1. Theorem</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org87c4171" class="outline-2">
-<h2 id="org87c4171"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-org07a5601" class="outline-2">
+<h2 id="org07a5601"><span class="section-number-2">1.</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We define a k-colouring of an undirected graph \( G(V, E) \) as a function \( f: V \to \mathbb{Z}_k = \{ 1 ... k\} \) such that:
@@ -314,8 +302,8 @@ Ie no neighbouring vertices have the same colour. Additionally, if \( G \) admit
 </div>
 </div>
 
-<div id="outline-container-org6462831" class="outline-2">
-<h2 id="org6462831"><span class="section-number-2">2</span> Chromatic Number</h2>
+<div id="outline-container-org7435bba" class="outline-2">
+<h2 id="org7435bba"><span class="section-number-2">2.</span> Chromatic Number</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We define \( \chi(G) \) as the smallest k such that \( G \) is k-colourable. Clearly such a k must always exist as a graph on \( n \) vertices is always n-colourable (assign all the vertices different colours).
@@ -326,8 +314,8 @@ However determining \( \chi(G) \) for an arbitrary graph is nontrivial and is in
 </p>
 </div>
 
-<div id="outline-container-org09cfa0e" class="outline-3">
-<h3 id="org09cfa0e"><span class="section-number-3">2.1</span> Bounds</h3>
+<div id="outline-container-org197c40e" class="outline-3">
+<h3 id="org197c40e"><span class="section-number-3">2.1.</span> Bounds</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Using a greedy algorithm we can deduce that:
@@ -362,16 +350,16 @@ Clearly if \( G \) has <b>k-clique</b> then:
 </div>
 </div>
 
-<div id="outline-container-orge3cc468" class="outline-2">
-<h2 id="orge3cc468"><span class="section-number-2">3</span> Chromatic Polynomial</h2>
+<div id="outline-container-org957d021" class="outline-2">
+<h2 id="org957d021"><span class="section-number-2">3.</span> Chromatic Polynomial</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Given some simple graph \( G \) we define the <b>Chromatic Function</b> \( P_G: \mathbb{Z}^+ \to \mathbb{Z}^+ \) as the number of ways we can colour \( G \) using \( k \) or fewer colours. Hence if \( k < \chi(G) \) then \( P_G(k) = 0 \).
 </p>
 </div>
 
-<div id="outline-container-org2b96200" class="outline-3">
-<h3 id="org2b96200"><span class="section-number-3">3.1</span> Theorem</h3>
+<div id="outline-container-org77f99f0" class="outline-3">
+<h3 id="org77f99f0"><span class="section-number-3">3.1.</span> Theorem</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 <i>The Chromatic Function of a simple graph \( G \) is polynomial</i>.
@@ -403,7 +391,7 @@ We can apply this procedure to the two new graphs \( G - e \) and \( G/ e \), an
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-03-23 Sat 11:44</p>
+<p class="date">Created: 2024-12-08 Sun 18:43</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

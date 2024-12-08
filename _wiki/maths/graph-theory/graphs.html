@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-23 Sat 11:44 -->
+<!-- 2024-12-08 Sun 18:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Graphs</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,8 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -228,85 +228,73 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./graph-colouring.html'>Graph Colouring</a><span style='float: right;'>Up: <a href='./graph-theory.html'>Graph Theory</a></span><hr><h1 class="title">Graphs</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge36a670">1. Introduction</a></li>
-<li><a href="#org5883717">2. Vertex Sequences</a>
+<li><a href="#org6a17311">1. Introduction</a></li>
+<li><a href="#orgd755dd4">2. Vertex Sequences</a>
 <ul>
-<li><a href="#org56b8262">2.1. <b>Definition</b></a></li>
-<li><a href="#org4526b01">2.2. <b>Definition</b></a></li>
-<li><a href="#org9350341">2.3. <b>Definition</b></a></li>
-<li><a href="#org150fc56">2.4. <b>Definition</b></a></li>
+<li><a href="#org072d753">2.1. <b>Definition</b></a></li>
+<li><a href="#orgd4f8b9e">2.2. <b>Definition</b></a></li>
+<li><a href="#org6fcc280">2.3. <b>Definition</b></a></li>
+<li><a href="#org506c18c">2.4. <b>Definition</b></a></li>
 </ul>
 </li>
-<li><a href="#org8b7e5a2">3. Subgraphs</a>
+<li><a href="#orga705dea">3. Subgraphs</a>
 <ul>
-<li><a href="#org938caef">3.1. <b>Definition</b></a></li>
-<li><a href="#org21e529f">3.2. <b>Definition</b></a></li>
-<li><a href="#orga88b74f">3.3. <b>Definition</b></a></li>
+<li><a href="#orgc49bfd3">3.1. <b>Definition</b></a></li>
+<li><a href="#org70e90d6">3.2. <b>Definition</b></a></li>
+<li><a href="#org06edf0b">3.3. <b>Definition</b></a></li>
 </ul>
 </li>
-<li><a href="#orgdb9745b">4. Adjacency Matrices</a>
+<li><a href="#org5fdba19">4. Adjacency Matrices</a>
 <ul>
-<li><a href="#orge240f39">4.1. Applications</a></li>
+<li><a href="#org98db6fa">4.1. Applications</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge36a670" class="outline-2">
-<h2 id="orge36a670"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org6a17311" class="outline-2">
+<h2 id="org6a17311"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We denote a graph as \( G(V, E) \), where \( V = \{ v_1, v_2 ... v_n \} \) is the vertex set of the graph and
@@ -323,12 +311,12 @@ We also say \( G \) is <b>simple</b> if there is at most on edge connecting any 
 </div>
 </div>
 
-<div id="outline-container-org5883717" class="outline-2">
-<h2 id="org5883717"><span class="section-number-2">2</span> Vertex Sequences</h2>
+<div id="outline-container-orgd755dd4" class="outline-2">
+<h2 id="orgd755dd4"><span class="section-number-2">2.</span> Vertex Sequences</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org56b8262" class="outline-3">
-<h3 id="org56b8262"><span class="section-number-3">2.1</span> <b>Definition</b></h3>
+<div id="outline-container-org072d753" class="outline-3">
+<h3 id="org072d753"><span class="section-number-3">2.1.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 A <b>walk</b> in a graph \( G(V, E) \) is a finite sequence of vertices \( (v_1 ... v_k) \) such that each consecutive pair forms an edge of \( G \).
@@ -336,8 +324,8 @@ A <b>walk</b> in a graph \( G(V, E) \) is a finite sequence of vertices \( (v_1 
 </div>
 </div>
 
-<div id="outline-container-org4526b01" class="outline-3">
-<h3 id="org4526b01"><span class="section-number-3">2.2</span> <b>Definition</b></h3>
+<div id="outline-container-orgd4f8b9e" class="outline-3">
+<h3 id="orgd4f8b9e"><span class="section-number-3">2.2.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 A <b>trail</b> (or tour) is a walk in which all the edges \( e_i = (v_i, v_{i + 1}) \) are distinct. We can remember this by associating them with <b>Eulerian trails</b> (which much visit every edge exactly once).
@@ -345,8 +333,8 @@ A <b>trail</b> (or tour) is a walk in which all the edges \( e_i = (v_i, v_{i + 
 </div>
 </div>
 
-<div id="outline-container-org9350341" class="outline-3">
-<h3 id="org9350341"><span class="section-number-3">2.3</span> <b>Definition</b></h3>
+<div id="outline-container-org6fcc280" class="outline-3">
+<h3 id="org6fcc280"><span class="section-number-3">2.3.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 A <b>path</b> is a trail in which a vertex occurs occurs only once in the edge sequence.
@@ -354,8 +342,8 @@ A <b>path</b> is a trail in which a vertex occurs occurs only once in the edge s
 </div>
 </div>
 
-<div id="outline-container-org150fc56" class="outline-3">
-<h3 id="org150fc56"><span class="section-number-3">2.4</span> <b>Definition</b></h3>
+<div id="outline-container-org506c18c" class="outline-3">
+<h3 id="org506c18c"><span class="section-number-3">2.4.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 A <b>cycle</b> is a trail in which all the vertices are distinct, except for the first and last which are the same.
@@ -364,12 +352,12 @@ A <b>cycle</b> is a trail in which all the vertices are distinct, except for the
 </div>
 </div>
 
-<div id="outline-container-org8b7e5a2" class="outline-2">
-<h2 id="org8b7e5a2"><span class="section-number-2">3</span> Subgraphs</h2>
+<div id="outline-container-orga705dea" class="outline-2">
+<h2 id="orga705dea"><span class="section-number-2">3.</span> Subgraphs</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org938caef" class="outline-3">
-<h3 id="org938caef"><span class="section-number-3">3.1</span> <b>Definition</b></h3>
+<div id="outline-container-orgc49bfd3" class="outline-3">
+<h3 id="orgc49bfd3"><span class="section-number-3">3.1.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 A <b>clique</b> is a set of vertices \( S \subseteq V \) such that the subgraph induced by \( S \) forms a complete graph.
@@ -377,8 +365,8 @@ A <b>clique</b> is a set of vertices \( S \subseteq V \) such that the subgraph 
 </div>
 </div>
 
-<div id="outline-container-org21e529f" class="outline-3">
-<h3 id="org21e529f"><span class="section-number-3">3.2</span> <b>Definition</b></h3>
+<div id="outline-container-org70e90d6" class="outline-3">
+<h3 id="org70e90d6"><span class="section-number-3">3.2.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 An <b>independent set</b>, I, of \( G(V, E) \) is a set \( I \subseteq V \) such that no pair of vertices in \( I \) is joined by an edge in \( E \).
@@ -386,8 +374,8 @@ An <b>independent set</b>, I, of \( G(V, E) \) is a set \( I \subseteq V \) such
 </div>
 </div>
 
-<div id="outline-container-orga88b74f" class="outline-3">
-<h3 id="orga88b74f"><span class="section-number-3">3.3</span> <b>Definition</b></h3>
+<div id="outline-container-org06edf0b" class="outline-3">
+<h3 id="org06edf0b"><span class="section-number-3">3.3.</span> <b>Definition</b></h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Let \( G(V, E) \) be a graph, then the <b>graph complement</b> of \( G \) is a graph \( H(V, E') \) such that \( e \in E' \iff e \not \in E \).
@@ -396,8 +384,8 @@ Let \( G(V, E) \) be a graph, then the <b>graph complement</b> of \( G \) is a g
 </div>
 </div>
 
-<div id="outline-container-orgdb9745b" class="outline-2">
-<h2 id="orgdb9745b"><span class="section-number-2">4</span> Adjacency Matrices</h2>
+<div id="outline-container-org5fdba19" class="outline-2">
+<h2 id="org5fdba19"><span class="section-number-2">4.</span> Adjacency Matrices</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Given a directed or undirected graph \( G(V, E) \) on \( n \) vertices, we define the <b>adjacency matrix</b>, \( A \), of \( G \) as an \( n * n \) matrix with entries given by:
@@ -417,8 +405,8 @@ This is always symmetric if \( G \) is undirected, and zeroes always fill the ma
 </p>
 </div>
 
-<div id="outline-container-orge240f39" class="outline-3">
-<h3 id="orge240f39"><span class="section-number-3">4.1</span> Applications</h3>
+<div id="outline-container-org98db6fa" class="outline-3">
+<h3 id="org98db6fa"><span class="section-number-3">4.1.</span> Applications</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Note \( (A^k)_{i, j} \) gives the number of paths of length \( k \) starting at \( v_i \) and ending at \( v_j \). Hence using matrix associativiy we can compute this value in \( O(log(k)) \) or \( O(1) \) time. 
@@ -443,7 +431,7 @@ Which can be computed in the same time complexity.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-03-23 Sat 11:44</p>
+<p class="date">Created: 2024-12-08 Sun 18:43</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
