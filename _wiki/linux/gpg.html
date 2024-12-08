@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-12-08 Sun 18:43 -->
+<!-- 2024-12-08 Sun 18:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>GPG</title>
@@ -236,25 +236,25 @@ Previous: <a href='./devices.html'>Devices</a>, Next: <a href='./hardware.html'>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgaeb2d08">1. Introduction</a></li>
-<li><a href="#orgd2f7764">2. CLI</a>
+<li><a href="#orge59e258">1. Introduction</a></li>
+<li><a href="#org7a4bfd3">2. CLI</a>
 <ul>
-<li><a href="#orgba4ac12">2.1. Fingerprints</a></li>
-<li><a href="#org6d80046">2.2. Subkeys</a>
+<li><a href="#org50a96f6">2.1. Fingerprints</a></li>
+<li><a href="#org9d355e7">2.2. Subkeys</a>
 <ul>
-<li><a href="#org9e96f82">2.2.1. Key roles:</a></li>
+<li><a href="#org8b44be1">2.2.1. Key roles:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org7fd3a0a">3. Editing Keys</a></li>
-<li><a href="#orgc420990">4. Digital Signatures</a></li>
+<li><a href="#orgad0b5f0">3. Editing Keys</a></li>
+<li><a href="#org003e9a8">4. Digital Signatures</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgaeb2d08" class="outline-2">
-<h2 id="orgaeb2d08"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orge59e258" class="outline-2">
+<h2 id="orge59e258"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://www.gnupg.org/">GnuPG</a> is an implementation of the <b>OpenPGP standard</b>. It enables the encryption of data and
@@ -270,8 +270,8 @@ the public key with a real person.
 </div>
 </div>
 
-<div id="outline-container-orgd2f7764" class="outline-2">
-<h2 id="orgd2f7764"><span class="section-number-2">2.</span> CLI</h2>
+<div id="outline-container-org7a4bfd3" class="outline-2">
+<h2 id="org7a4bfd3"><span class="section-number-2">2.</span> CLI</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We can generate a new key pair with:
@@ -319,8 +319,8 @@ Note only public keys are listed here. The first column here denotes the type of
 </p>
 </div>
 
-<div id="outline-container-orgba4ac12" class="outline-3">
-<h3 id="orgba4ac12"><span class="section-number-3">2.1.</span> Fingerprints</h3>
+<div id="outline-container-org50a96f6" class="outline-3">
+<h3 id="org50a96f6"><span class="section-number-3">2.1.</span> Fingerprints</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The long strings are the <b>key fingerprints</b>. A fingerprint is calculated from a
@@ -340,8 +340,8 @@ Closely related (but not shown), is the ID of a key (pair), which just denotes t
 </div>
 </div>
 
-<div id="outline-container-org6d80046" class="outline-3">
-<h3 id="org6d80046"><span class="section-number-3">2.2.</span> Subkeys</h3>
+<div id="outline-container-org9d355e7" class="outline-3">
+<h3 id="org9d355e7"><span class="section-number-3">2.2.</span> Subkeys</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 In the first column of the cmd output, 'sub' indicates the described key is a <b>subkey</b>, of the 
@@ -360,8 +360,8 @@ encryption subkey to do so, in place of your master signing key. The characters 
 brackets shown in the output correspond to the following:
 </p>
 </div>
-<div id="outline-container-org9e96f82" class="outline-4">
-<h4 id="org9e96f82"><span class="section-number-4">2.2.1.</span> Key roles:</h4>
+<div id="outline-container-org8b44be1" class="outline-4">
+<h4 id="org8b44be1"><span class="section-number-4">2.2.1.</span> Key roles:</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -414,8 +414,8 @@ brackets shown in the output correspond to the following:
 
 
 
-<div id="outline-container-org7fd3a0a" class="outline-2">
-<h2 id="org7fd3a0a"><span class="section-number-2">3.</span> Editing Keys</h2>
+<div id="outline-container-orgad0b5f0" class="outline-2">
+<h2 id="orgad0b5f0"><span class="section-number-2">3.</span> Editing Keys</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 We can interact with the keys on our keyring using:
@@ -440,8 +440,8 @@ gpg&gt; trust
 </div>
 </div>
 
-<div id="outline-container-orgc420990" class="outline-2">
-<h2 id="orgc420990"><span class="section-number-2">4.</span> Digital Signatures</h2>
+<div id="outline-container-org003e9a8" class="outline-2">
+<h2 id="org003e9a8"><span class="section-number-2">4.</span> Digital Signatures</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 A <b>digital signature</b> serves the same purpose as a hand-written signature.
@@ -451,7 +451,7 @@ A <b>digital signature</b> serves the same purpose as a hand-written signature.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-12-08 Sun 18:43</p>
+<p class="date">Created: 2024-12-08 Sun 18:45</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

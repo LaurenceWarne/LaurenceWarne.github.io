@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-12-08 Sun 18:43 -->
+<!-- 2024-12-08 Sun 18:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Files</title>
@@ -236,17 +236,17 @@ Next: <a href='./hax.html'>Hax</a><span style='float: right;'>Up: <a href='./pyt
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga7ec091">1. Working with Files</a>
+<li><a href="#orga58a614">1. Working with Files</a>
 <ul>
-<li><a href="#orga9d3dd9">1.1. Asyncio</a></li>
+<li><a href="#org2fce857">1.1. Asyncio</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga7ec091" class="outline-2">
-<h2 id="orga7ec091"><span class="section-number-2">1.</span> Working with Files</h2>
+<div id="outline-container-orga58a614" class="outline-2">
+<h2 id="orga58a614"><span class="section-number-2">1.</span> Working with Files</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The builtin <a href="https://docs.python.org/3/library/functions.html#open">open</a> function returns either a text stream or bytes stream depending on the <code>mode</code> argument.  These are analogous to structures in the <code>IO</code> module:
@@ -279,8 +279,8 @@ Most streams (those for which <code>seekable()</code> returns <code>True</code>)
 </p>
 </div>
 
-<div id="outline-container-orga9d3dd9" class="outline-3">
-<h3 id="orga9d3dd9"><span class="section-number-3">1.1.</span> Asyncio</h3>
+<div id="outline-container-org2fce857" class="outline-3">
+<h3 id="org2fce857"><span class="section-number-3">1.1.</span> Asyncio</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Local file IO is typically blocking, but we can use <a href="https://github.com/Tinche/aiofiles">aiofiles</a> in asyncio applications which uses a dedicated thread pool to avoid blocking IO:
@@ -302,7 +302,7 @@ The file object returned supports many of the methods available on standard stre
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-12-08 Sun 18:43</p>
+<p class="date">Created: 2024-12-08 Sun 18:45</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
