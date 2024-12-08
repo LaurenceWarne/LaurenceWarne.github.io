@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-23 Sat 11:44 -->
+<!-- 2024-12-08 Sun 18:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,8 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -228,49 +228,27 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./files.html'>Files</a>, Next: <a href='./modules.html'>Modules</a><span style='float: right;'>Up: <a href='./python.html'>Python</a></span><hr><h1 class="title">Hax</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org33117f9">1. Unpacking</a>
+<li><a href="#orgd5d7d2d">1. Unpacking</a>
 <ul>
-<li><a href="#orgafb897d">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
+<li><a href="#orgcf225a4">1.1. Bonus Hack: Quicksort - EZ Sorting</a></li>
 </ul>
 </li>
-<li><a href="#orga792db6">2. Poor Man's Cache</a></li>
-<li><a href="#org836aa8d">3. ♥ Generators ♥</a></li>
-<li><a href="#orgaba46f8">4. Poor Man's defaultdict</a></li>
-<li><a href="#orgd345ca4">5. Zip is it's own Inverse</a></li>
-<li><a href="#orgf1d1f70">6. <code>=</code> in Format Strings</a></li>
-<li><a href="#org4d848d5">7. <code>shlex</code> for Commands</a></li>
-<li><a href="#orgb8ed5e2">8. Built in Iverson Brackets</a></li>
-<li><a href="#orgb280b4f">9. Ad-hoc Timing</a></li>
+<li><a href="#orge3f5bc3">2. Poor Man's Cache</a></li>
+<li><a href="#orge60609a">3. ♥ Generators ♥</a></li>
+<li><a href="#orgb6dee9e">4. Poor Man's defaultdict</a></li>
+<li><a href="#org356febb">5. Zip is it's own Inverse</a></li>
+<li><a href="#orgc2199ca">6. <code>=</code> in Format Strings</a></li>
+<li><a href="#org04f2d78">7. <code>shlex</code> for Commands</a></li>
+<li><a href="#orgb26554d">8. Built in Iverson Brackets</a></li>
+<li><a href="#orgdde583d">9. Ad-hoc Timing</a></li>
 </ul>
 </div>
 </div>
@@ -278,22 +256,22 @@ Previous: <a href='./files.html'>Files</a>, Next: <a href='./modules.html'>Modul
 A menagarie of cool python snippets!
 </p>
 
-<div id="outline-container-org33117f9" class="outline-2">
-<h2 id="org33117f9"><span class="section-number-2">1</span> Unpacking</h2>
+<div id="outline-container-orgd5d7d2d" class="outline-2">
+<h2 id="orgd5d7d2d"><span class="section-number-2">1.</span> Unpacking</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">is_palindrome</span>(indexable):
-    <span class="org-keyword">if</span> <span class="org-builtin">len</span>(indexable) &gt; 1:
-        first, *<span class="org-variable-name">rest</span>, <span class="org-variable-name">last</span> = indexable
-        <span class="org-keyword">return</span> first == last <span class="org-keyword">and</span> is_palindrome(rest)
+    <span class="org-keyword">if</span> <span class="org-builtin">len</span>(indexable) <span class="org-operator">&gt;</span> 1:
+        <span class="org-variable-name">first</span>, <span class="org-operator">*</span><span class="org-variable-name">rest</span>, <span class="org-variable-name">last</span> <span class="org-operator">=</span> indexable
+        <span class="org-keyword">return</span> first <span class="org-operator">==</span> last <span class="org-keyword">and</span> is_palindrome(rest)
     <span class="org-keyword">else</span>:
         <span class="org-keyword">return</span> <span class="org-constant">True</span>
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgafb897d" class="outline-3">
-<h3 id="orgafb897d"><span class="section-number-3">1.1</span> Bonus Hack: Quicksort - EZ Sorting</h3>
+<div id="outline-container-orgcf225a4" class="outline-3">
+<h3 id="orgcf225a4"><span class="section-number-3">1.1.</span> Bonus Hack: Quicksort - EZ Sorting</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Not the most efficient implementation, but we can implement quicksort extremely succinctly using list unpacking + recursion:
@@ -302,11 +280,11 @@ Not the most efficient implementation, but we can implement quicksort extremely 
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">quicksort</span>(ls: <span class="org-builtin">list</span>):
     <span class="org-keyword">if</span> ls:
-        pivot, *<span class="org-variable-name">rest</span> = ls
-        <span class="org-variable-name">smaller</span>, <span class="org-variable-name">greater</span> = [], []
+        <span class="org-variable-name">pivot</span>, <span class="org-operator">*</span><span class="org-variable-name">rest</span> <span class="org-operator">=</span> ls
+        <span class="org-variable-name">smaller</span>, <span class="org-variable-name">greater</span> <span class="org-operator">=</span> [], []
         <span class="org-keyword">for</span> item <span class="org-keyword">in</span> rest:
-            (smaller <span class="org-keyword">if</span> pivot &gt; item <span class="org-keyword">else</span> greater).append(item)
-        <span class="org-keyword">return</span> quicksort(smaller) + [pivot] + quicksort(greater)
+            (smaller <span class="org-keyword">if</span> pivot <span class="org-operator">&gt;</span> item <span class="org-keyword">else</span> greater).append(item)
+        <span class="org-keyword">return</span> quicksort(smaller) <span class="org-operator">+</span> [pivot] <span class="org-operator">+</span> quicksort(greater)
     <span class="org-keyword">else</span>:
         <span class="org-keyword">return</span> []
 </pre>
@@ -319,13 +297,13 @@ Of course <code>sorted(ls)</code> does the job too.
 </div>
 </div>
 
-<div id="outline-container-orga792db6" class="outline-2">
-<h2 id="orga792db6"><span class="section-number-2">2</span> Poor Man's Cache</h2>
+<div id="outline-container-orge3f5bc3" class="outline-2">
+<h2 id="orge3f5bc3"><span class="section-number-2">2.</span> Poor Man's Cache</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">fib</span>(n: <span class="org-builtin">int</span>, cache={0: 1, 1: 1}):
+<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">fib</span>(n: <span class="org-builtin">int</span>, cache<span class="org-operator">=</span>{0: 1, 1: 1}):
     <span class="org-keyword">if</span> n <span class="org-keyword">not</span> <span class="org-keyword">in</span> cache:
-        <span class="org-variable-name">cache</span>[n] = fib(n - 1, cache) + fib(n - 2, cache)
+        <span class="org-variable-name">cache</span>[n] <span class="org-operator">=</span> fib(n <span class="org-operator">-</span> 1, cache) <span class="org-operator">+</span> fib(n <span class="org-operator">-</span> 2, cache)
     <span class="org-keyword">return</span> cache[n]
 </pre>
 </div>
@@ -340,12 +318,12 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 </div>
 
-<div id="outline-container-org836aa8d" class="outline-2">
-<h2 id="org836aa8d"><span class="section-number-2">3</span> ♥ Generators ♥</h2>
+<div id="outline-container-orge60609a" class="outline-2">
+<h2 id="orge60609a"><span class="section-number-2">3.</span> ♥ Generators ♥</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">triangle_number</span>(n: <span class="org-builtin">int</span>):
-    <span class="org-keyword">return</span> <span class="org-builtin">sum</span>(k <span class="org-keyword">for</span> k <span class="org-keyword">in</span> <span class="org-builtin">range</span>(n + 1))
+    <span class="org-keyword">return</span> <span class="org-builtin">sum</span>(k <span class="org-keyword">for</span> k <span class="org-keyword">in</span> <span class="org-builtin">range</span>(n <span class="org-operator">+</span> 1))
 </pre>
 </div>
 
@@ -355,12 +333,12 @@ Bonus points for fixing up this one so it doesn't blow up the stack.
 </div>
 </div>
 
-<div id="outline-container-orgaba46f8" class="outline-2">
-<h2 id="orgaba46f8"><span class="section-number-2">4</span> Poor Man's defaultdict</h2>
+<div id="outline-container-orgb6dee9e" class="outline-2">
+<h2 id="orgb6dee9e"><span class="section-number-2">4.</span> Poor Man's defaultdict</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-<pre class="src src-python"><span class="org-variable-name">my_dict</span> = {<span class="org-string">"a"</span>: 1, <span class="org-string">"b"</span>: 2}
-<span class="org-keyword">print</span>(my_dict.get(<span class="org-string">"A"</span>, -1))
+<pre class="src src-python"><span class="org-variable-name">my_dict</span> <span class="org-operator">=</span> {<span class="org-string">"a"</span>: 1, <span class="org-string">"b"</span>: 2}
+<span class="org-builtin">print</span>(my_dict.get(<span class="org-string">"A"</span>, <span class="org-operator">-</span>1))
 </pre>
 </div>
 
@@ -370,42 +348,42 @@ If we forego the slice syntax, we can specify a default value to <code>.get</cod
 </div>
 </div>
 
-<div id="outline-container-orgd345ca4" class="outline-2">
-<h2 id="orgd345ca4"><span class="section-number-2">5</span> Zip is it's own Inverse</h2>
+<div id="outline-container-org356febb" class="outline-2">
+<h2 id="org356febb"><span class="section-number-2">5.</span> Zip is it's own Inverse</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">import</span> string
 
-<span class="org-variable-name">zipped</span> = <span class="org-builtin">list</span>(<span class="org-builtin">zip</span>(<span class="org-builtin">range</span>(10), string.ascii_lowercase, string.ascii_uppercase))
-<span class="org-keyword">print</span>(<span class="org-string">"Zipped up: "</span> + <span class="org-builtin">str</span>(zipped))
-<span class="org-variable-name">dezipped</span> = <span class="org-builtin">list</span>(<span class="org-builtin">zip</span>(*zipped))
-<span class="org-keyword">print</span>(<span class="org-string">"Dezipped: "</span> + <span class="org-builtin">str</span>(dezipped))
+<span class="org-variable-name">zipped</span> <span class="org-operator">=</span> <span class="org-builtin">list</span>(<span class="org-builtin">zip</span>(<span class="org-builtin">range</span>(10), string.ascii_lowercase, string.ascii_uppercase))
+<span class="org-builtin">print</span>(<span class="org-string">"Zipped up: "</span> <span class="org-operator">+</span> <span class="org-builtin">str</span>(zipped))
+<span class="org-variable-name">dezipped</span> <span class="org-operator">=</span> <span class="org-builtin">list</span>(<span class="org-builtin">zip</span>(<span class="org-operator">*</span>zipped))
+<span class="org-builtin">print</span>(<span class="org-string">"Dezipped: "</span> <span class="org-operator">+</span> <span class="org-builtin">str</span>(dezipped))
 </pre>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgf1d1f70" class="outline-2">
-<h2 id="orgf1d1f70"><span class="section-number-2">6</span> <code>=</code> in Format Strings</h2>
+<div id="outline-container-orgc2199ca" class="outline-2">
+<h2 id="orgc2199ca"><span class="section-number-2">6.</span> <code>=</code> in Format Strings</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Since 3.8 you can prepend the expression text to the evaluated expression if you append an <code>=</code> to the format expression.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span class="org-variable-name">name</span> = <span class="org-string">"Bob"</span>
-<span class="org-variable-name">age</span> = <span class="org-string">"37"</span>
+<pre class="src src-python"><span class="org-variable-name">name</span> <span class="org-operator">=</span> <span class="org-string">"Bob"</span>
+<span class="org-variable-name">age</span> <span class="org-operator">=</span> <span class="org-string">"37"</span>
 
-<span class="org-keyword">print</span>(f<span class="org-string">"Person({name=}, {age=})"</span>)
+<span class="org-builtin">print</span>(f<span class="org-string">"Person(</span>{name<span class="org-operator">=</span>}<span class="org-string">, </span>{age<span class="org-operator">=</span>}<span class="org-string">)"</span>)
 </pre>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org4d848d5" class="outline-2">
-<h2 id="org4d848d5"><span class="section-number-2">7</span> <code>shlex</code> for Commands</h2>
+<div id="outline-container-org04f2d78" class="outline-2">
+<h2 id="org04f2d78"><span class="section-number-2">7.</span> <code>shlex</code> for Commands</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 We can use <code>shlex.split</code> to transform a command string into a list of arguments suitable for <code>subprocess.Popen</code> or even:
@@ -414,11 +392,11 @@ We can use <code>shlex.split</code> to transform a command string into a list of
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">import</span> shlex, subprocess, pprint
 
-<span class="org-variable-name">command</span> = <span class="org-string">"""find . -type f -printf '%TY-%Tm-%Td %TT %p</span>
+<span class="org-variable-name">command</span> <span class="org-operator">=</span> <span class="org-string">"""find . -type f -printf '%TY-%Tm-%Td %TT %p</span>
 <span class="org-string">'"""</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">Lists files and when they were last edited</span>
-<span class="org-variable-name">args</span> = shlex.split(command)
-<span class="org-variable-name">result</span> = subprocess.run(args, capture_output=<span class="org-constant">True</span>)
-<span class="org-variable-name">recently_edited</span> = <span class="org-builtin">sorted</span>(result.stdout.decode(<span class="org-string">"utf-8"</span>).splitlines())[-2:]
+<span class="org-variable-name">args</span> <span class="org-operator">=</span> shlex.split(command)
+<span class="org-variable-name">result</span> <span class="org-operator">=</span> subprocess.run(args, capture_output<span class="org-operator">=</span><span class="org-constant">True</span>)
+<span class="org-variable-name">recently_edited</span> <span class="org-operator">=</span> <span class="org-builtin">sorted</span>(result.stdout.decode(<span class="org-string">"utf-8"</span>).splitlines())[<span class="org-operator">-</span>2:]
 pprint.pp(recently_edited)
 <span class="org-comment-delimiter"># </span><span class="org-comment">['2022-08-01 18:12:41.0370089750 ./files.org',</span>
 <span class="org-comment-delimiter">#  </span><span class="org-comment">'2022-11-05 21:40:23.4741009550 ./hax.org']</span>
@@ -431,8 +409,8 @@ Also useful are <code>shlex.quote(s)</code> which returns a shell escaped versio
 </div>
 </div>
 
-<div id="outline-container-orgb8ed5e2" class="outline-2">
-<h2 id="orgb8ed5e2"><span class="section-number-2">8</span> Built in <a href="https://en.wikipedia.org/wiki/Iverson_bracket">Iverson Brackets</a></h2>
+<div id="outline-container-orgb26554d" class="outline-2">
+<h2 id="orgb26554d"><span class="section-number-2">8.</span> Built in <a href="https://en.wikipedia.org/wiki/Iverson_bracket">Iverson Brackets</a></h2>
 <div class="outline-text-2" id="text-8">
 <p>
 We can perform arithmetic with boolean values and integers, basically <code>True = 1</code> and <code>False = 0</code> (so much for strong typing!).  We can use this behaviour to implement Iverson Brackets fairly readably:
@@ -442,17 +420,17 @@ We can perform arithmetic with boolean values and integers, basically <code>True
 <pre class="src src-python"><span class="org-keyword">from</span> math <span class="org-keyword">import</span> gcd
 
 <span class="org-keyword">def</span> <span class="org-function-name">phi</span>(n):
-    <span class="org-keyword">return</span> <span class="org-builtin">sum</span>((gcd(n, i) == 1) <span class="org-keyword">for</span> i <span class="org-keyword">in</span> <span class="org-builtin">range</span>(1, n + 1))
+    <span class="org-keyword">return</span> <span class="org-builtin">sum</span>((gcd(n, i) <span class="org-operator">==</span> 1) <span class="org-keyword">for</span> i <span class="org-keyword">in</span> <span class="org-builtin">range</span>(1, n <span class="org-operator">+</span> 1))
 
 <span class="org-keyword">def</span> <span class="org-function-name">ramp</span>(x):
-    <span class="org-keyword">return</span> x*(x &gt; 0)
+    <span class="org-keyword">return</span> x<span class="org-operator">*</span>(x <span class="org-operator">&gt;</span> 0)
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgb280b4f" class="outline-2">
-<h2 id="orgb280b4f"><span class="section-number-2">9</span> Ad-hoc Timing</h2>
+<div id="outline-container-orgdde583d" class="outline-2">
+<h2 id="orgdde583d"><span class="section-number-2">9.</span> Ad-hoc Timing</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 IPython's <code>%timeit</code> is extremely useful, but for situations where this is not possible, we can use <code>time</code> in conjuction with the <code>-c</code> flag to time a function belonging to a module in the current directory:
@@ -467,7 +445,7 @@ IPython's <code>%timeit</code> is extremely useful, but for situations where thi
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-03-23 Sat 11:44</p>
+<p class="date">Created: 2024-12-08 Sun 18:43</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

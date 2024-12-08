@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-23 Sat 11:44 -->
+<!-- 2024-12-08 Sun 18:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Metals Notes</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,8 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -228,49 +228,27 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./hax.html'>Hax</a>, Next: <a href='./repositories.html'>Repositories</a><span style='float: right;'>Up: <a href='./scala.html'>Scala</a></span><hr><h1 class="title">Metals Notes</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org79e1f34">1. Links</a></li>
-<li><a href="#orgd6c1922">2. Custom Class Loading</a></li>
-<li><a href="#orga634593">3. Diagnostics</a>
+<li><a href="#orgc15a97d">1. Links</a></li>
+<li><a href="#org4eaf178">2. Custom Class Loading</a></li>
+<li><a href="#orgc5bc448">3. Diagnostics</a>
 <ul>
-<li><a href="#orgc280e04">3.1. Flow</a></li>
+<li><a href="#orge8b9c55">3.1. Flow</a></li>
 </ul>
 </li>
-<li><a href="#orgc4b7dc2">4. Build Servers</a></li>
-<li><a href="#orged51e5d">5. Random Objects Passed Around</a></li>
-<li><a href="#org6e05208">6. Semanticdb</a></li>
-<li><a href="#org82c21b4">7. Symbol Indexing Flow</a></li>
-<li><a href="#org19b2ad7">8. Code Lenses</a></li>
-<li><a href="#org11d3313">9. Heirarchy</a></li>
+<li><a href="#org806725b">4. Build Servers</a></li>
+<li><a href="#org886d171">5. Random Objects Passed Around</a></li>
+<li><a href="#org051819d">6. Semanticdb</a></li>
+<li><a href="#org0c10c17">7. Symbol Indexing Flow</a></li>
+<li><a href="#org19f7844">8. Code Lenses</a></li>
+<li><a href="#orgfac38e5">9. Heirarchy</a></li>
 </ul>
 </div>
 </div>
@@ -286,8 +264,8 @@ SemanticDB is used for definition navigation and find references, etc within a p
 To get the presentation compiler for a particular file path, <code>loadCompiler</code> is used throughout <code>scala.meta.internal.metals.Compilers.scala</code>.
 </p>
 
-<div id="outline-container-org79e1f34" class="outline-2">
-<h2 id="org79e1f34"><span class="section-number-2">1</span> Links</h2>
+<div id="outline-container-orgc15a97d" class="outline-2">
+<h2 id="orgc15a97d"><span class="section-number-2">1.</span> Links</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=fpzN_vTBy18">A Dive into how Metals works by Chris Kipp</a></li>
@@ -297,8 +275,8 @@ To get the presentation compiler for a particular file path, <code>loadCompiler<
 </div>
 </div>
 
-<div id="outline-container-orgd6c1922" class="outline-2">
-<h2 id="orgd6c1922"><span class="section-number-2">2</span> Custom Class Loading</h2>
+<div id="outline-container-org4eaf178" class="outline-2">
+<h2 id="org4eaf178"><span class="section-number-2">2.</span> Custom Class Loading</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We need a presentation compiler for each build target since different build targets can have different classpaths and compiler settings.
@@ -310,8 +288,8 @@ The presentation compiler APIs are compiled against exact Scala versions of the 
 </div>
 </div>
 
-<div id="outline-container-orga634593" class="outline-2">
-<h2 id="orga634593"><span class="section-number-2">3</span> Diagnostics</h2>
+<div id="outline-container-orgc5bc448" class="outline-2">
+<h2 id="orgc5bc448"><span class="section-number-2">3.</span> Diagnostics</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="https://github.com/scalameta/metals/blob/main/docs/editors/overview.md">https://github.com/scalameta/metals/blob/main/docs/editors/overview.md</a>
@@ -328,8 +306,8 @@ The presentation compiler APIs are compiled against exact Scala versions of the 
 </ul>
 </div>
 
-<div id="outline-container-orgc280e04" class="outline-3">
-<h3 id="orgc280e04"><span class="section-number-3">3.1</span> Flow</h3>
+<div id="outline-container-orge8b9c55" class="outline-3">
+<h3 id="orge8b9c55"><span class="section-number-3">3.1.</span> Flow</h3>
 <div class="outline-text-3" id="text-3-1">
 <ol class="org-ol">
 <li>metals sends a <code>buildTarget/compile</code> (<a href="https://build-server-protocol.github.io/docs/specification#compile-request">link</a>) request to the BSP server (in <code>BuildServerConnection.compile</code>), to ask the build server to compile a list of build targets.</li>
@@ -342,8 +320,8 @@ The presentation compiler APIs are compiled against exact Scala versions of the 
 </div>
 </div>
 
-<div id="outline-container-orgc4b7dc2" class="outline-2">
-<h2 id="orgc4b7dc2"><span class="section-number-2">4</span> Build Servers</h2>
+<div id="outline-container-org806725b" class="outline-2">
+<h2 id="org806725b"><span class="section-number-2">4.</span> Build Servers</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Switch occurs in <code>BspConnector.switchBuildServer</code>.  Build servers are generated by <code>BuildServerProvider</code> (an extension of the <code>BuildTool</code> trait) instances.
@@ -351,8 +329,8 @@ Switch occurs in <code>BspConnector.switchBuildServer</code>.  Build servers are
 </div>
 </div>
 
-<div id="outline-container-orged51e5d" class="outline-2">
-<h2 id="orged51e5d"><span class="section-number-2">5</span> Random Objects Passed Around</h2>
+<div id="outline-container-org886d171" class="outline-2">
+<h2 id="org886d171"><span class="section-number-2">5.</span> Random Objects Passed Around</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-scala"><span class="org-keyword">val</span> <span class="org-variable-name">buffers</span><span class="org-keyword">:</span> <span class="org-type">Buffers</span> <span class="org-comment-delimiter">// </span><span class="org-comment">holds currently loaded files</span>
@@ -364,8 +342,8 @@ Switch occurs in <code>BspConnector.switchBuildServer</code>.  Build servers are
 </div>
 </div>
 
-<div id="outline-container-org6e05208" class="outline-2">
-<h2 id="org6e05208"><span class="section-number-2">6</span> <a href="https://scalameta.org/docs/semanticdb/guide.html">Semanticdb</a></h2>
+<div id="outline-container-org051819d" class="outline-2">
+<h2 id="org051819d"><span class="section-number-2">6.</span> <a href="https://scalameta.org/docs/semanticdb/guide.html">Semanticdb</a></h2>
 <div class="outline-text-2" id="text-6">
 <p>
 A semanticdb payload associated with a file contains:
@@ -400,8 +378,8 @@ For example, <code>[2:4..2:11): println =&gt; scala/Predef.println(+1).</code> s
 </div>
 
 
-<div id="outline-container-org82c21b4" class="outline-2">
-<h2 id="org82c21b4"><span class="section-number-2">7</span> Symbol Indexing Flow</h2>
+<div id="outline-container-org0c10c17" class="outline-2">
+<h2 id="org0c10c17"><span class="section-number-2">7.</span> Symbol Indexing Flow</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li><b>Indexer.scala</b> -&gt;
@@ -412,8 +390,8 @@ For example, <code>[2:4..2:11): println =&gt; scala/Predef.println(+1).</code> s
 </div>
 </div>
 
-<div id="outline-container-org19b2ad7" class="outline-2">
-<h2 id="org19b2ad7"><span class="section-number-2">8</span> Code Lenses</h2>
+<div id="outline-container-org19f7844" class="outline-2">
+<h2 id="org19f7844"><span class="section-number-2">8.</span> Code Lenses</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Code lenses are refreshed whenever:
@@ -425,8 +403,8 @@ Code lenses are refreshed whenever:
 </div>
 </div>
 
-<div id="outline-container-org11d3313" class="outline-2">
-<h2 id="org11d3313"><span class="section-number-2">9</span> Heirarchy</h2>
+<div id="outline-container-orgfac38e5" class="outline-2">
+<h2 id="orgfac38e5"><span class="section-number-2">9.</span> Heirarchy</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 <code>MetalsLanguageServer.scala</code> -&gt;
@@ -543,7 +521,7 @@ Completions call tree:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-03-23 Sat 11:44</p>
+<p class="date">Created: 2024-12-08 Sun 18:43</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

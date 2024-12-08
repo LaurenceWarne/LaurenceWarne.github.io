@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-23 Sat 11:44 -->
+<!-- 2024-12-08 Sun 18:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Series</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,8 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -228,87 +228,75 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./sequences.html'>Sequences</a><span style='float: right;'>Up: <a href='./real-analysis.html'>Real Analysis</a></span><hr><h1 class="title">Series</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0cce410">1. Definition</a></li>
-<li><a href="#orgb580168">2. Tests</a>
+<li><a href="#orga4d6bcb">1. Definition</a></li>
+<li><a href="#org0f953cf">2. Tests</a>
 <ul>
-<li><a href="#orgd3644ad">2.1. Nth Term Test</a>
+<li><a href="#orge038b9a">2.1. Nth Term Test</a>
 <ul>
-<li><a href="#org1aaf8b9">2.1.1. Proof</a></li>
+<li><a href="#org350bb99">2.1.1. Proof</a></li>
 </ul>
 </li>
-<li><a href="#orgd532f1d">2.2. Integral Test</a></li>
-<li><a href="#org5b6ef60">2.3. Comparison Test</a>
+<li><a href="#orgccdf28f">2.2. Integral Test</a></li>
+<li><a href="#org8daa454">2.3. Comparison Test</a>
 <ul>
-<li><a href="#org53247ad">2.3.1. Proof</a></li>
+<li><a href="#orgd48890b">2.3.1. Proof</a></li>
 </ul>
 </li>
-<li><a href="#orge308383">2.4. Ratio Test</a></li>
-<li><a href="#org19a5f04">2.5. Root Test</a>
+<li><a href="#orgb0a7985">2.4. Ratio Test</a></li>
+<li><a href="#org4694811">2.5. Root Test</a>
 <ul>
-<li><a href="#org9366124">2.5.1. Proof</a></li>
+<li><a href="#orgde73177">2.5.1. Proof</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org04c0ebe">3. Problems</a></li>
+<li><a href="#org0dd7e57">3. Problems</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0cce410" class="outline-2">
-<h2 id="org0cce410"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-orga4d6bcb" class="outline-2">
+<h2 id="orga4d6bcb"><span class="section-number-2">1.</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Given some (infinite) sequence \( (a_n)_n \) we can consider its <b>infinite series</b>, denoted:
@@ -336,24 +324,24 @@ If \( S_n \) converges we say the series is <b>convergent</b>, else we say the s
 </div>
 </div>
 
-<div id="outline-container-orgb580168" class="outline-2">
-<h2 id="orgb580168"><span class="section-number-2">2</span> Tests</h2>
+<div id="outline-container-org0f953cf" class="outline-2">
+<h2 id="org0f953cf"><span class="section-number-2">2.</span> Tests</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 There is no general process for checking if a series converges, but we can apply tests which provide definitive statements for some series.
 </p>
 </div>
 
-<div id="outline-container-orgd3644ad" class="outline-3">
-<h3 id="orgd3644ad"><span class="section-number-3">2.1</span> Nth Term Test</h3>
+<div id="outline-container-orge038b9a" class="outline-3">
+<h3 id="orge038b9a"><span class="section-number-3">2.1.</span> Nth Term Test</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 If a series converges then its corresponding sequence must be null.
 </p>
 </div>
 
-<div id="outline-container-org1aaf8b9" class="outline-4">
-<h4 id="org1aaf8b9"><span class="section-number-4">2.1.1</span> Proof</h4>
+<div id="outline-container-org350bb99" class="outline-4">
+<h4 id="org350bb99"><span class="section-number-4">2.1.1.</span> Proof</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 Suppose \( S_n \) converges to some \( L \) then by the shifted sequence rule, \( S_{n + 1} \) also converges to the same \( L \). By the algebra of limits theorem:
@@ -378,8 +366,8 @@ converges to \( L - L = 0 \), but
 </div>
 </div>
 
-<div id="outline-container-orgd532f1d" class="outline-3">
-<h3 id="orgd532f1d"><span class="section-number-3">2.2</span> Integral Test</h3>
+<div id="outline-container-orgccdf28f" class="outline-3">
+<h3 id="orgccdf28f"><span class="section-number-3">2.2.</span> Integral Test</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Let the sequence \( (a_n)_n \) be defined by \( a_n = f(n) \) then if the following are true for \( f \): 
@@ -403,8 +391,8 @@ Then the integral test states that:
 </div>
 </div>
 
-<div id="outline-container-org5b6ef60" class="outline-3">
-<h3 id="org5b6ef60"><span class="section-number-3">2.3</span> Comparison Test</h3>
+<div id="outline-container-org8daa454" class="outline-3">
+<h3 id="org8daa454"><span class="section-number-3">2.3.</span> Comparison Test</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Given two sequences \( a_n \) and \( b_n \), for which
@@ -436,8 +424,8 @@ And
 </p>
 </div>
 
-<div id="outline-container-org53247ad" class="outline-4">
-<h4 id="org53247ad"><span class="section-number-4">2.3.1</span> Proof</h4>
+<div id="outline-container-orgd48890b" class="outline-4">
+<h4 id="orgd48890b"><span class="section-number-4">2.3.1.</span> Proof</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 Consider the sequence of partial sums: \( S_n = \sum_{k=1}^n a_k, \ R_n = \sum_{k=1}^n b_k \). Given the convergence of \( R_n \) we know that it must have an upper bound \( B \).
@@ -459,8 +447,8 @@ And we also have from (1) that \( S_n \) is monotone increasing. Hence since \( 
 </div>
 </div>
 
-<div id="outline-container-orge308383" class="outline-3">
-<h3 id="orge308383"><span class="section-number-3">2.4</span> Ratio Test</h3>
+<div id="outline-container-orgb0a7985" class="outline-3">
+<h3 id="orgb0a7985"><span class="section-number-3">2.4.</span> Ratio Test</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Let 
@@ -488,8 +476,8 @@ The proof of this statement follows via construction of an appropriate geometric
 </div>
 </div>
 
-<div id="outline-container-org19a5f04" class="outline-3">
-<h3 id="org19a5f04"><span class="section-number-3">2.5</span> Root Test</h3>
+<div id="outline-container-org4694811" class="outline-3">
+<h3 id="org4694811"><span class="section-number-3">2.5.</span> Root Test</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 Let
@@ -527,8 +515,8 @@ This works as the RoC makes no claims on the convergence at the boundaries, we c
 </p>
 </div>
 
-<div id="outline-container-org9366124" class="outline-4">
-<h4 id="org9366124"><span class="section-number-4">2.5.1</span> Proof</h4>
+<div id="outline-container-orgde73177" class="outline-4">
+<h4 id="orgde73177"><span class="section-number-4">2.5.1.</span> Proof</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <p>
 Suppose \( L < 1 \), then by the properties of the limit superior:
@@ -578,8 +566,8 @@ Hence if property 1. above is satisfied, \( a_n \) not only converges, but conve
 </div>
 </div>
 
-<div id="outline-container-org04c0ebe" class="outline-2">
-<h2 id="org04c0ebe"><span class="section-number-2">3</span> Problems</h2>
+<div id="outline-container-org0dd7e57" class="outline-2">
+<h2 id="org0dd7e57"><span class="section-number-2">3.</span> Problems</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>Show \( \sum_{n=1}^{\infty} \frac{1}{n} \) does not converge and hence show that \( \sum_{n=1}^{\infty} \frac{1}{2n + 1} \) does not converge.</li>
@@ -589,7 +577,7 @@ Hence if property 1. above is satisfied, \( a_n \) not only converges, but conve
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-03-23 Sat 11:44</p>
+<p class="date">Created: 2024-12-08 Sun 18:43</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

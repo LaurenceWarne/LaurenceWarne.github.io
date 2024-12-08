@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-23 Sat 11:44 -->
+<!-- 2024-12-08 Sun 18:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Basic Logic</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,8 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -228,82 +228,70 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Next: <a href='./partial-ordering.html'>Partial Ordering</a><span style='float: right;'>Up: <a href='./logic.html'>Logic</a></span><hr><h1 class="title">Basic Logic</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org21245e5">1. Propositions</a>
+<li><a href="#org555e7c6">1. Propositions</a>
 <ul>
-<li><a href="#org903c5d1">1.1. Examples</a>
+<li><a href="#orgc7af4c4">1.1. Examples</a>
 <ul>
-<li><a href="#org1d412a7">1.1.1. Predicates</a></li>
-<li><a href="#orge6c9a4f">1.1.2. Quantifiers</a></li>
-<li><a href="#org2cfb7e8">1.1.3. Propositions</a></li>
+<li><a href="#org19e17a7">1.1.1. Predicates</a></li>
+<li><a href="#orgeca7bd6">1.1.2. Quantifiers</a></li>
+<li><a href="#org5664ddb">1.1.3. Propositions</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgfcb6d00">2. Implication</a>
+<li><a href="#org1c620cf">2. Implication</a>
 <ul>
-<li><a href="#orgfa5140d">2.1. Truth Table</a></li>
+<li><a href="#org63739c4">2.1. Truth Table</a></li>
 </ul>
 </li>
-<li><a href="#org5de92f1">3. Contrapositive</a></li>
-<li><a href="#org8e5755a">4. Links</a></li>
+<li><a href="#org5f7e09d">3. Contrapositive</a></li>
+<li><a href="#org4901d1d">4. Links</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org21245e5" class="outline-2">
-<h2 id="org21245e5"><span class="section-number-2">1</span> Propositions</h2>
+<div id="outline-container-org555e7c6" class="outline-2">
+<h2 id="org555e7c6"><span class="section-number-2">1.</span> Propositions</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A proposition is a sentence which can be considered either true or false (not both). It
@@ -313,12 +301,12 @@ definintion/value).
 </p>
 </div>
 
-<div id="outline-container-org903c5d1" class="outline-3">
-<h3 id="org903c5d1"><span class="section-number-3">1.1</span> Examples</h3>
+<div id="outline-container-orgc7af4c4" class="outline-3">
+<h3 id="orgc7af4c4"><span class="section-number-3">1.1.</span> Examples</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org1d412a7" class="outline-4">
-<h4 id="org1d412a7"><span class="section-number-4">1.1.1</span> Predicates</h4>
+<div id="outline-container-org19e17a7" class="outline-4">
+<h4 id="org19e17a7"><span class="section-number-4">1.1.1.</span> Predicates</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
 <li>\( a \) and \( b \) are coprime</li>
@@ -327,8 +315,8 @@ definintion/value).
 </div>
 </div>
 
-<div id="outline-container-orge6c9a4f" class="outline-4">
-<h4 id="orge6c9a4f"><span class="section-number-4">1.1.2</span> Quantifiers</h4>
+<div id="outline-container-orgeca7bd6" class="outline-4">
+<h4 id="orgeca7bd6"><span class="section-number-4">1.1.2.</span> Quantifiers</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
 <li>Let \( n \) be an integer</li>
@@ -337,8 +325,8 @@ definintion/value).
 </div>
 </div>
 
-<div id="outline-container-org2cfb7e8" class="outline-4">
-<h4 id="org2cfb7e8"><span class="section-number-4">1.1.3</span> Propositions</h4>
+<div id="outline-container-org5664ddb" class="outline-4">
+<h4 id="org5664ddb"><span class="section-number-4">1.1.3.</span> Propositions</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <ul class="org-ul">
 <li>\( e^{i\theta} = cos\theta + isin\theta \)</li>
@@ -349,8 +337,8 @@ definintion/value).
 </div>
 </div>
 
-<div id="outline-container-orgfcb6d00" class="outline-2">
-<h2 id="orgfcb6d00"><span class="section-number-2">2</span> Implication</h2>
+<div id="outline-container-org1c620cf" class="outline-2">
+<h2 id="org1c620cf"><span class="section-number-2">2.</span> Implication</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The statement 
@@ -366,8 +354,8 @@ See <a href="https://math.stackexchange.com/questions/61779/problem-in-understan
 </p>
 </div>
 
-<div id="outline-container-orgfa5140d" class="outline-3">
-<h3 id="orgfa5140d"><span class="section-number-3">2.1</span> Truth Table</h3>
+<div id="outline-container-org63739c4" class="outline-3">
+<h3 id="org63739c4"><span class="section-number-3">2.1.</span> Truth Table</h3>
 <div class="outline-text-3" id="text-2-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -434,8 +422,8 @@ If \( A \) is false, \( A \Rightarrow B \) is said to be "vacuously" true.
 </div>
 </div>
 
-<div id="outline-container-org5de92f1" class="outline-2">
-<h2 id="org5de92f1"><span class="section-number-2">3</span> Contrapositive</h2>
+<div id="outline-container-org5f7e09d" class="outline-2">
+<h2 id="org5f7e09d"><span class="section-number-2">3.</span> Contrapositive</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 If \( A \) is sufficient for \( B \) then it follows that:
@@ -453,8 +441,8 @@ If \( A \) is sufficient for \( B \) then it follows that:
 </div>
 </div>
 
-<div id="outline-container-org8e5755a" class="outline-2">
-<h2 id="org8e5755a"><span class="section-number-2">4</span> Links</h2>
+<div id="outline-container-org4901d1d" class="outline-2">
+<h2 id="org4901d1d"><span class="section-number-2">4.</span> Links</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li>More info on the implication statement: <a href="https://www.slideshare.net/nszakir/chapter3-direct-proof-and-proof-by-contrapositive">https://www.slideshare.net/nszakir/chapter3-direct-proof-and-proof-by-contrapositive</a></li>
@@ -464,7 +452,7 @@ If \( A \) is sufficient for \( B \) then it follows that:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-03-23 Sat 11:44</p>
+<p class="date">Created: 2024-12-08 Sun 18:43</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-23 Sat 11:44 -->
+<!-- 2024-12-08 Sun 18:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Relations</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,8 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -228,79 +228,67 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./partial-ordering.html'>Partial Ordering</a><span style='float: right;'>Up: <a href='./logic.html'>Logic</a></span><hr><h1 class="title">Relations</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf565fda">1. Definition</a></li>
-<li><a href="#org38a2388">2. Equivalence Relations</a>
+<li><a href="#org258658a">1. Definition</a></li>
+<li><a href="#org6ba6df7">2. Equivalence Relations</a>
 <ul>
-<li><a href="#orgbfce886">2.1. Reflexive</a></li>
-<li><a href="#orgd45fbf3">2.2. Symmetric</a></li>
-<li><a href="#org8bff8fb">2.3. transitive</a></li>
+<li><a href="#orgcad898b">2.1. Reflexive</a></li>
+<li><a href="#org8a166a8">2.2. Symmetric</a></li>
+<li><a href="#orgc1c9787">2.3. transitive</a></li>
 </ul>
 </li>
-<li><a href="#orgec711a4">3. Equivalence Classes</a></li>
-<li><a href="#org7c6babd">4. Total Orders</a>
+<li><a href="#org0d53ef4">3. Equivalence Classes</a></li>
+<li><a href="#org494eb63">4. Total Orders</a>
 <ul>
-<li><a href="#orgfd8acb8">4.1. Antisymmetric</a></li>
-<li><a href="#org5dc5c05">4.2. Connex</a></li>
+<li><a href="#org70f9fb3">4.1. Antisymmetric</a></li>
+<li><a href="#orgdc5015f">4.2. Connex</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf565fda" class="outline-2">
-<h2 id="orgf565fda"><span class="section-number-2">1</span> Definition</h2>
+<div id="outline-container-org258658a" class="outline-2">
+<h2 id="org258658a"><span class="section-number-2">1.</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A binary relation \( R \) on some set \( S \) can be defined as:
@@ -321,16 +309,16 @@ Any reference to a relation will be taken as binary unless stated otherwise.
 </div>
 </div>
 
-<div id="outline-container-org38a2388" class="outline-2">
-<h2 id="org38a2388"><span class="section-number-2">2</span> Equivalence Relations</h2>
+<div id="outline-container-org6ba6df7" class="outline-2">
+<h2 id="org6ba6df7"><span class="section-number-2">2.</span> Equivalence Relations</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A relation is said to be an equivalence relation if it is <b>reflexive</b>, <b>symmetric</b> and <b>transitive</b>. 
 </p>
 </div>
 
-<div id="outline-container-orgbfce886" class="outline-3">
-<h3 id="orgbfce886"><span class="section-number-3">2.1</span> Reflexive</h3>
+<div id="outline-container-orgcad898b" class="outline-3">
+<h3 id="orgcad898b"><span class="section-number-3">2.1.</span> Reflexive</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 A relation is reflexive iff:
@@ -343,8 +331,8 @@ A relation is reflexive iff:
 </div>
 
 
-<div id="outline-container-orgd45fbf3" class="outline-3">
-<h3 id="orgd45fbf3"><span class="section-number-3">2.2</span> Symmetric</h3>
+<div id="outline-container-org8a166a8" class="outline-3">
+<h3 id="org8a166a8"><span class="section-number-3">2.2.</span> Symmetric</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 A relation is symmetric iff:
@@ -357,8 +345,8 @@ A relation is symmetric iff:
 </div>
 
 
-<div id="outline-container-org8bff8fb" class="outline-3">
-<h3 id="org8bff8fb"><span class="section-number-3">2.3</span> transitive</h3>
+<div id="outline-container-orgc1c9787" class="outline-3">
+<h3 id="orgc1c9787"><span class="section-number-3">2.3.</span> transitive</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 A relation is transitive iff:
@@ -377,8 +365,8 @@ For example the relation \( \leq \) over the reals is reflexive and transitive b
 </div>
 
 
-<div id="outline-container-orgec711a4" class="outline-2">
-<h2 id="orgec711a4"><span class="section-number-2">3</span> Equivalence Classes</h2>
+<div id="outline-container-org0d53ef4" class="outline-2">
+<h2 id="org0d53ef4"><span class="section-number-2">3.</span> Equivalence Classes</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 For an equivalence relation \( R \) over some set \( S \), the equivalence class of some \( a \in S \) is defined as:
@@ -394,16 +382,16 @@ The set of all equivalence classes forms a <b>partition</b> of \( S \): a collec
 </div>
 </div>
 
-<div id="outline-container-org7c6babd" class="outline-2">
-<h2 id="org7c6babd"><span class="section-number-2">4</span> Total Orders</h2>
+<div id="outline-container-org494eb63" class="outline-2">
+<h2 id="org494eb63"><span class="section-number-2">4.</span> Total Orders</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 A <b>total order</b> or <b>full order</b> is a relation, \( \le \) on some set \( S \) which is <b>transitive</b> and also the following hold \( \forall a, b \in S \):
 </p>
 </div>
 
-<div id="outline-container-orgfd8acb8" class="outline-3">
-<h3 id="orgfd8acb8"><span class="section-number-3">4.1</span> Antisymmetric</h3>
+<div id="outline-container-org70f9fb3" class="outline-3">
+<h3 id="org70f9fb3"><span class="section-number-3">4.1.</span> Antisymmetric</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 \( a \le b \land b \le a \implies a = b \)
@@ -411,8 +399,8 @@ A <b>total order</b> or <b>full order</b> is a relation, \( \le \) on some set \
 </div>
 </div>
 
-<div id="outline-container-org5dc5c05" class="outline-3">
-<h3 id="org5dc5c05"><span class="section-number-3">4.2</span> Connex</h3>
+<div id="outline-container-orgdc5015f" class="outline-3">
+<h3 id="orgdc5015f"><span class="section-number-3">4.2.</span> Connex</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 \( a \le b \) or \( b \le a \) 
@@ -427,7 +415,7 @@ A set paired with a total order, \( (S, \le) \) is called a <b>totally ordered s
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-03-23 Sat 11:44</p>
+<p class="date">Created: 2024-12-08 Sun 18:43</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-23 Sat 11:44 -->
+<!-- 2024-12-08 Sun 18:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Functions</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,8 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -228,72 +228,60 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./big-o-notation.html'>Big O Notation</a>, Next: <a href='./intermediate-value-theorem.html'>Intermediate Value Theorem</a><span style='float: right;'>Up: <a href='./real-analysis.html'>Real Analysis</a></span><hr><h1 class="title">Functions</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0064d99">1. Function Definition</a>
+<li><a href="#org81ad591">1. Function Definition</a>
 <ul>
-<li><a href="#org49751f8">1.1. Examples</a></li>
+<li><a href="#org164e330">1.1. Examples</a></li>
 </ul>
 </li>
-<li><a href="#orgc4b9e16">2. Injective Property</a></li>
-<li><a href="#org6d969c8">3. Surjective Property</a></li>
-<li><a href="#org0f7c7b8">4. Permutation</a></li>
+<li><a href="#org10bb91a">2. Injective Property</a></li>
+<li><a href="#orgd2525b0">3. Surjective Property</a></li>
+<li><a href="#org262f472">4. Permutation</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0064d99" class="outline-2">
-<h2 id="org0064d99"><span class="section-number-2">1</span> Function Definition</h2>
+<div id="outline-container-org81ad591" class="outline-2">
+<h2 id="org81ad591"><span class="section-number-2">1.</span> Function Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A function is a mapping from a domain \( A \) to a codomain \( B \). More specifically, a
@@ -309,8 +297,8 @@ A function is bijective if it is both injective and surjective.
 </p>
 </div>
 
-<div id="outline-container-org49751f8" class="outline-3">
-<h3 id="org49751f8"><span class="section-number-3">1.1</span> Examples</h3>
+<div id="outline-container-org164e330" class="outline-3">
+<h3 id="org164e330"><span class="section-number-3">1.1.</span> Examples</h3>
 <div class="outline-text-3" id="text-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -351,8 +339,8 @@ A function is bijective if it is both injective and surjective.
 </div>
 </div>
 
-<div id="outline-container-orgc4b9e16" class="outline-2">
-<h2 id="orgc4b9e16"><span class="section-number-2">2</span> Injective Property</h2>
+<div id="outline-container-org10bb91a" class="outline-2">
+<h2 id="org10bb91a"><span class="section-number-2">2.</span> Injective Property</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A function is injective if it describes a one-one mapping between \( A \) and \( B \). In
@@ -366,8 +354,8 @@ If \( f \) is injective then \( |A| = |f(A)| \)
 </div>
 </div>
 
-<div id="outline-container-org6d969c8" class="outline-2">
-<h2 id="org6d969c8"><span class="section-number-2">3</span> Surjective Property</h2>
+<div id="outline-container-orgd2525b0" class="outline-2">
+<h2 id="orgd2525b0"><span class="section-number-2">3.</span> Surjective Property</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 A function is surjective if the image of the function is equal to its codomain. If this is true
@@ -376,8 +364,8 @@ then \( |f(A)| = |B| \).
 </div>
 </div>
 
-<div id="outline-container-org0f7c7b8" class="outline-2">
-<h2 id="org0f7c7b8"><span class="section-number-2">4</span> Permutation</h2>
+<div id="outline-container-org262f472" class="outline-2">
+<h2 id="org262f472"><span class="section-number-2">4.</span> Permutation</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Let \( A \) be a set, then a permutation is a bijection from \( A\to A \). Hence \( f\colon 
@@ -388,7 +376,7 @@ A \to A \) is a permutation if it is injective (and therefore surjective).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-03-23 Sat 11:44</p>
+<p class="date">Created: 2024-12-08 Sun 18:43</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

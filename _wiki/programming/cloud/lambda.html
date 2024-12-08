@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-23 Sat 11:44 -->
+<!-- 2024-12-08 Sun 18:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lambda</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,8 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -228,47 +228,25 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./kinesis.html'>Kinesis</a>, Next: <a href='./route53.html'>Route53</a><span style='float: right;'>Up: <a href='./cloud.html'>Cloud</a></span><hr><h1 class="title">Lambda</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8c51b69">1. Links</a></li>
-<li><a href="#org1dece5f">2. Intro</a></li>
-<li><a href="#org3cef3ea">3. Runtimes</a></li>
-<li><a href="#orgcf0cacc">4. Lifecycle</a></li>
-<li><a href="#org30a186d">5. Layers</a></li>
+<li><a href="#org2015d95">1. Links</a></li>
+<li><a href="#orga1ee782">2. Intro</a></li>
+<li><a href="#orgf86bbe1">3. Runtimes</a></li>
+<li><a href="#org7ef47a3">4. Lifecycle</a></li>
+<li><a href="#orgd56b919">5. Layers</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8c51b69" class="outline-2">
-<h2 id="org8c51b69"><span class="section-number-2">1</span> Links</h2>
+<div id="outline-container-org2015d95" class="outline-2">
+<h2 id="org2015d95"><span class="section-number-2">1.</span> Links</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><b>AWS developer guide</b>: <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">https://docs.aws.amazon.com/lambda/latest/dg/welcome.html</a></li>
@@ -278,8 +256,8 @@ Previous: <a href='./kinesis.html'>Kinesis</a>, Next: <a href='./route53.html'>R
 </div>
 </div>
 
-<div id="outline-container-org1dece5f" class="outline-2">
-<h2 id="org1dece5f"><span class="section-number-2">2</span> Intro</h2>
+<div id="outline-container-orga1ee782" class="outline-2">
+<h2 id="orga1ee782"><span class="section-number-2">2.</span> Intro</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The main method of triggering Lambdas is to use an <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html">event source mapping</a> which typically reads an item from a stream or queue and then uses this item to invoke a Lambda using the appropriate event type.
@@ -287,8 +265,8 @@ The main method of triggering Lambdas is to use an <a href="https://docs.aws.ama
 </div>
 </div>
 
-<div id="outline-container-org3cef3ea" class="outline-2">
-<h2 id="org3cef3ea"><span class="section-number-2">3</span> Runtimes</h2>
+<div id="outline-container-orgf86bbe1" class="outline-2">
+<h2 id="orgf86bbe1"><span class="section-number-2">3.</span> Runtimes</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Lambdas run in <b>execution environments</b> which provide an isolated environment for Lambda functions to run.  <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">Runtimes</a> provide support for a specific language within an execution environment.  If the frequency of events is more than a single instance can handle, AWS Lambda will scale by starting more instances, and will stop instances that are no longer active.
@@ -296,8 +274,8 @@ Lambdas run in <b>execution environments</b> which provide an isolated environme
 </div>
 </div>
 
-<div id="outline-container-orgcf0cacc" class="outline-2">
-<h2 id="orgcf0cacc"><span class="section-number-2">4</span> Lifecycle</h2>
+<div id="outline-container-org7ef47a3" class="outline-2">
+<h2 id="org7ef47a3"><span class="section-number-2">4.</span> Lifecycle</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 When using a provisioned runtime (e.g. you've created a class using an AWS SDK), AWS Lambda will instantiate the class and re-use it for multiple events so resources (e.g. an S3 client) can be re used on subsequent invocations.
@@ -309,8 +287,8 @@ You can use <b>reserved concurrency</b> (<code>ReservedConcurrentExecutions</cod
 </div>
 </div>
 
-<div id="outline-container-org30a186d" class="outline-2">
-<h2 id="org30a186d"><span class="section-number-2">5</span> Layers</h2>
+<div id="outline-container-orgd56b919" class="outline-2">
+<h2 id="orgd56b919"><span class="section-number-2">5.</span> Layers</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 You can use Lambda <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Layers</a> to re-use particular parts of your environment.  A layer basically consists of a zip file containing files grouped into one or more directories who themselves have special meaning.  For example, if you are using the java runtime, then <code>CLASSPATH</code> is always set to <code>java/lib</code> and so you can add to the classpath if you use a layer like:
@@ -327,7 +305,7 @@ Similarly, all runtimes have <code>bin/</code> in their <code>PATH</code> and so
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-03-23 Sat 11:44</p>
+<p class="date">Created: 2024-12-08 Sun 18:43</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

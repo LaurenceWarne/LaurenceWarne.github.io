@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-23 Sat 11:44 -->
+<!-- 2024-12-08 Sun 18:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>IAM</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="root" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,8 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -228,63 +228,41 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 Previous: <a href='./deployments.html'>Deployments</a>, Next: <a href='./kafka.html'>Kafka</a><span style='float: right;'>Up: <a href='./cloud.html'>Cloud</a></span><hr><h1 class="title">IAM</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgbea67f7">1. Users and Roles</a>
+<li><a href="#orgff91689">1. Users and Roles</a>
 <ul>
 <li>
 <ul>
-<li><a href="#orgeb4b680">1.0.1. IAM Users</a></li>
-<li><a href="#org974846e">1.0.2. IAM Roles</a></li>
-<li><a href="#orgccf7059">1.0.3. IAM Policies</a></li>
-<li><a href="#org3b0ef34">1.0.4. Principals</a></li>
+<li><a href="#org09d01e5">1.0.1. IAM Users</a></li>
+<li><a href="#orge7fcc5f">1.0.2. IAM Roles</a></li>
+<li><a href="#orgd212d8d">1.0.3. IAM Policies</a></li>
+<li><a href="#org65b7a8c">1.0.4. Principals</a></li>
 </ul>
 </li>
-<li><a href="#org5783a88">1.1. Examples</a></li>
+<li><a href="#orge39f108">1.1. Examples</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgbea67f7" class="outline-2">
-<h2 id="orgbea67f7"><span class="section-number-2">1</span> Users and Roles</h2>
+<div id="outline-container-orgff91689" class="outline-2">
+<h2 id="orgff91689"><span class="section-number-2">1.</span> Users and Roles</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 An AWS account is first associated with one root user who has complete access over AWS services and accounts.  It's <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users">best practice</a> to create an IAM user using the root user and lock away the root user credentials.
 </p>
 </div>
 
-<div id="outline-container-orgeb4b680" class="outline-4">
-<h4 id="orgeb4b680"><span class="section-number-4">1.0.1</span> IAM Users</h4>
+<div id="outline-container-org09d01e5" class="outline-4">
+<h4 id="org09d01e5"><span class="section-number-4">1.0.1.</span> IAM Users</h4>
 <div class="outline-text-4" id="text-1-0-1">
 <p>
 An <b>IAM User</b> consists of a name, a password for accessing the AWS console and up to two access keys that can be used with the AWS API or CLI.  It's granted permissions by either making it a member of a user group (recommended) or directly adding policies.
@@ -292,8 +270,8 @@ An <b>IAM User</b> consists of a name, a password for accessing the AWS console 
 </div>
 </div>
 
-<div id="outline-container-org974846e" class="outline-4">
-<h4 id="org974846e"><span class="section-number-4">1.0.2</span> IAM Roles</h4>
+<div id="outline-container-orge7fcc5f" class="outline-4">
+<h4 id="orge7fcc5f"><span class="section-number-4">1.0.2.</span> IAM Roles</h4>
 <div class="outline-text-4" id="text-1-0-2">
 <p>
 An <b>IAM Role</b> is similar to an IAM user, but does not have any credentials associated with it.  An IAM user can assume a role to temporarily take on permissions for a specific task.
@@ -301,8 +279,8 @@ An <b>IAM Role</b> is similar to an IAM user, but does not have any credentials 
 </div>
 </div>
 
-<div id="outline-container-orgccf7059" class="outline-4">
-<h4 id="orgccf7059"><span class="section-number-4">1.0.3</span> IAM Policies</h4>
+<div id="outline-container-orgd212d8d" class="outline-4">
+<h4 id="orgd212d8d"><span class="section-number-4">1.0.3.</span> IAM Policies</h4>
 <div class="outline-text-4" id="text-1-0-3">
 <p>
 An <b>IAM policy</b> describes which entities can access particular resources.  Many policies will exist by default in your account: <a href="https://us-east-1.console.aws.amazon.com/iamv2/home#/policies">https://us-east-1.console.aws.amazon.com/iamv2/home#/policies</a>.
@@ -310,8 +288,8 @@ An <b>IAM policy</b> describes which entities can access particular resources.  
 </div>
 </div>
 
-<div id="outline-container-org3b0ef34" class="outline-4">
-<h4 id="org3b0ef34"><span class="section-number-4">1.0.4</span> Principals</h4>
+<div id="outline-container-org65b7a8c" class="outline-4">
+<h4 id="org65b7a8c"><span class="section-number-4">1.0.4.</span> Principals</h4>
 <div class="outline-text-4" id="text-1-0-4">
 <p>
 A principal is an individual or application which can make requests for an action on an AWS resource.  The principal is authenticated as the AWS account root user or an IAM entity (a user or role) to make requests to AWS.
@@ -319,8 +297,8 @@ A principal is an individual or application which can make requests for an actio
 </div>
 </div>
 
-<div id="outline-container-org5783a88" class="outline-3">
-<h3 id="org5783a88"><span class="section-number-3">1.1</span> Examples</h3>
+<div id="outline-container-orge39f108" class="outline-3">
+<h3 id="orge39f108"><span class="section-number-3">1.1.</span> Examples</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Here's a Cloudformation snippet which sets up an <code>AWS::IAM::Role</code> for use as the execution role of an <code>AWS::ECS::TaskDefinition</code> (ie the <code>ExecutionRoleArn</code> property):
@@ -332,12 +310,12 @@ Here's a Cloudformation snippet which sets up an <code>AWS::IAM::Role</code> for
   <span class="org-variable-name">Properties</span>:
     <span class="org-variable-name">AssumeRolePolicyDocument</span>:
       <span class="org-variable-name">Statement</span>:
-<span class="org-yaml-tab">        </span><span class="org-variable-name">- Effect</span>: Allow
-<span class="org-yaml-tab">        </span><span class="org-variable-name">  Principal</span>:
-<span class="org-yaml-tab">        </span><span class="org-variable-name">    Service</span>:
-<span class="org-yaml-tab">        </span>      - <span class="org-string">'ecs-tasks.amazonaws.com'</span>
-<span class="org-yaml-tab">        </span><span class="org-variable-name">  Action</span>:
-<span class="org-yaml-tab">        </span>    - <span class="org-string">'sts:AssumeRole'</span>
+        - <span class="org-variable-name">Effect</span>: Allow
+          <span class="org-variable-name">Principal</span>:
+            <span class="org-variable-name">Service</span>:
+              - <span class="org-string">'ecs-tasks.amazonaws.com'</span>
+          <span class="org-variable-name">Action</span>:
+            - <span class="org-string">'sts:AssumeRole'</span>
     <span class="org-variable-name">ManagedPolicyArns</span>:
       - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
 </pre>
@@ -385,7 +363,7 @@ For example, we could define different a different action in an inline policy pr
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-03-23 Sat 11:44</p>
+<p class="date">Created: 2024-12-08 Sun 18:43</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
