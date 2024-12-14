@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-12-08 Sun 18:45 -->
+<!-- 2024-12-14 Sat 19:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Repositories</title>
@@ -236,15 +236,15 @@ Previous: <a href='./metals-notes.html'>Metals Notes</a>, Next: <a href='./resou
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge859ca0">1. Maven</a></li>
-<li><a href="#orgc77a485">2. Ivy</a></li>
-<li><a href="#org6d62e6f">3. Coursier</a></li>
+<li><a href="#org5d066f2">1. Maven</a></li>
+<li><a href="#org53d76aa">2. Ivy</a></li>
+<li><a href="#org9746b48">3. Coursier</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge859ca0" class="outline-2">
-<h2 id="orge859ca0"><span class="section-number-2">1.</span> Maven</h2>
+<div id="outline-container-org5d066f2" class="outline-2">
+<h2 id="org5d066f2"><span class="section-number-2">1.</span> Maven</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://maven.apache.org/guides/introduction/introduction-to-repositories.html">Maven repositories</a> are responsible for holding artefacts and dependencies, they can either be local (on a user's local machine, typically <code>~/.m2</code>) or remote like maven central <a href="https://repo.maven.apache.org/maven2/">https://repo.maven.apache.org/maven2/</a>.
@@ -272,8 +272,8 @@ Or sbt:
 </div>
 </div>
 
-<div id="outline-container-orgc77a485" class="outline-2">
-<h2 id="orgc77a485"><span class="section-number-2">2.</span> Ivy</h2>
+<div id="outline-container-org53d76aa" class="outline-2">
+<h2 id="org53d76aa"><span class="section-number-2">2.</span> Ivy</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 You can find your local ivy cache at <code>~/.ivy2/cache</code> and your local repository at <code>~/.ivy2/local</code>.
@@ -281,8 +281,8 @@ You can find your local ivy cache at <code>~/.ivy2/cache</code> and your local r
 </div>
 </div>
 
-<div id="outline-container-org6d62e6f" class="outline-2">
-<h2 id="org6d62e6f"><span class="section-number-2">3.</span> Coursier</h2>
+<div id="outline-container-org9746b48" class="outline-2">
+<h2 id="org9746b48"><span class="section-number-2">3.</span> Coursier</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Both sbt and mill use <a href="https://get-coursier.io/docs/overview">coursier</a> for artefact fetching, and as a result most artefacts consumed by them are found in the coursier cache, located at <code>~/.cache/coursier/v1</code>.  From here the path artefacts lie in is generally split into repositories and then the artefacts themselves (see <a href="https://get-coursier.io/docs/cache">here</a> for more information).
@@ -292,7 +292,7 @@ Both sbt and mill use <a href="https://get-coursier.io/docs/overview">coursier</
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-12-08 Sun 18:45</p>
+<p class="date">Created: 2024-12-14 Sat 19:47</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
