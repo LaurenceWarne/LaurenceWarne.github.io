@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-12-14 Sat 19:47 -->
+<!-- 2024-12-28 Sat 19:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Variance</title>
@@ -268,15 +268,15 @@ while (tags.length > 0) {
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org00a43e3">1. Covariance</a></li>
-<li><a href="#org561e4bc">2. Contravariance</a></li>
-<li><a href="#org0b874c0">3. Gotchas</a></li>
+<li><a href="#orgd311f91">1. Covariance</a></li>
+<li><a href="#orgf2c0167">2. Contravariance</a></li>
+<li><a href="#org2a36ea8">3. Gotchas</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org00a43e3" class="outline-2">
-<h2 id="org00a43e3"><span class="section-number-2">1.</span> Covariance</h2>
+<div id="outline-container-orgd311f91" class="outline-2">
+<h2 id="orgd311f91"><span class="section-number-2">1.</span> Covariance</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We say some type <code>F</code> which takes a type paramater is covariant if \( S \subset T \Rightarrow F[S] \subset F[T] \).  ie we might reasonably claim a <code>List[Cat]</code> is a subtype of <code>List[Animal]</code>.  However this may cause some problems:
@@ -298,8 +298,8 @@ However, we can overcome this problem by making <code>List</code> immutable, so 
 </div>
 
 
-<div id="outline-container-org561e4bc" class="outline-2">
-<h2 id="org561e4bc"><span class="section-number-2">2.</span> Contravariance</h2>
+<div id="outline-container-orgf2c0167" class="outline-2">
+<h2 id="orgf2c0167"><span class="section-number-2">2.</span> Contravariance</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Sometimes it may also make sense for a particular type \( G \) that if \( S \) is a subtype of \( T \), then \( G[T] \) is a subtype of \( G[S] \) - and we call this <b>contravariance</b>.  An example of this could be a JSON encoder.  For example say if we have:
@@ -334,8 +334,8 @@ Hence an <code>Animal</code> encoder is just one particular type of <code>Dog</c
 </div>
 
 
-<div id="outline-container-org0b874c0" class="outline-2">
-<h2 id="org0b874c0"><span class="section-number-2">3.</span> Gotchas</h2>
+<div id="outline-container-org2a36ea8" class="outline-2">
+<h2 id="org2a36ea8"><span class="section-number-2">3.</span> Gotchas</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Suppose we have some covariant type:
@@ -380,7 +380,7 @@ myInts.contains(<span class="org-string">"not an int"</span>)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-12-14 Sat 19:47</p>
+<p class="date">Created: 2024-12-28 Sat 19:05</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

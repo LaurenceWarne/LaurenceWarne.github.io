@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-12-14 Sat 19:47 -->
+<!-- 2024-12-28 Sat 19:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TLS</title>
@@ -236,8 +236,8 @@ Previous: <a href='./routing.html'>Routing</a><span style='float: right;'>Up: <a
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org40509c3">1. Certificate Authorities</a></li>
-<li><a href="#org781dd97">2. Digital Certificates</a></li>
+<li><a href="#org25c17ac">1. Certificate Authorities</a></li>
+<li><a href="#org35e87a5">2. Digital Certificates</a></li>
 </ul>
 </div>
 </div>
@@ -245,8 +245,8 @@ Previous: <a href='./routing.html'>Routing</a><span style='float: right;'>Up: <a
 TLS superseeds SSL, it's used to encrypt communication between two parties, often over the transport layer (e.g. TCP).  <a href="https://wiki.archlinux.org/title/OpenSSL">OpenSSL</a> is a common implementation of both SSL and TLS used on linux platforms.
 </p>
 
-<div id="outline-container-org40509c3" class="outline-2">
-<h2 id="org40509c3"><span class="section-number-2">1.</span> Certificate Authorities</h2>
+<div id="outline-container-org25c17ac" class="outline-2">
+<h2 id="org25c17ac"><span class="section-number-2">1.</span> Certificate Authorities</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The OpenSSL configuration files live in <code>/etc/ssl</code>, notably <code>/etc/ssl/certs</code> which holds a list of trusted certificates for the platform.
@@ -316,8 +316,8 @@ See also: <a href="https://manpages.ubuntu.com/manpages/xenial/man8/update-ca-ce
 </div>
 
 
-<div id="outline-container-org781dd97" class="outline-2">
-<h2 id="org781dd97"><span class="section-number-2">2.</span> Digital Certificates</h2>
+<div id="outline-container-org35e87a5" class="outline-2">
+<h2 id="org35e87a5"><span class="section-number-2">2.</span> Digital Certificates</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Communication starts with the client and server agreeing to use a certain <a href="https://en.wikipedia.org/wiki/Cipher_suite">cipher suite</a>.  The server will then provide its <a href="https://en.wikipedia.org/wiki/Public_key_certificate">Digital Certificate</a>:
@@ -351,54 +351,48 @@ First of all we obtain information about the issuer:
 <code>CN=R3</code> <a href="https://letsencrypt.org/certificates/">R3</a> is an intermediate certificate (<code>CN</code> stands for "Common Name"), we will need to follow the certificate chain to fully verify this certificate:
 </p>
 
-<p>
-#+begin<sub>src</sub> bash
-</p></li>
-</ul>
-<p>
-$ openssl s<sub>client</sub> -showcerts -servername www.gnu.org -connect www.gnu.org:443 &lt;/dev/null
-</p>
+<div class="org-src-container">
+<pre class="src src-bash">$ openssl s_client -showcerts -servername www.gnu.org -connect www.gnu.org:443 &lt;/dev/null
 
-<p>
-CONNECTED(00000003)
-depth=2 C = US, O = Internet Security Research Group, CN = ISRG Root X1
+<span class="org-function-name">CONNECTED</span>(00000003)
+<span class="org-variable-name">depth</span>=2 C = US, O = Internet Security Research Group, CN = ISRG Root X1
 verify return:1
-depth=1 C = US, O = Let's Encrypt, CN = R11
-verify return:1
-depth=0 CN = wildebeest1p.gnu.org
-verify return:1
-&#x2014;
-Certificate chain
- 0 s:CN = wildebeest1p.gnu.org
-   i:C = US, O = Let's Encrypt, CN = R11
+<span class="org-variable-name">depth</span>=1 C = US, O = Let<span class="org-string">'s Encrypt, CN = R11</span>
+<span class="org-string">verify return:1</span>
+<span class="org-string">depth=0 CN = wildebeest1p.gnu.org</span>
+<span class="org-string">verify return:1</span>
+<span class="org-string">---</span>
+<span class="org-string">Certificate chain</span>
+<span class="org-string"> 0 s:CN = wildebeest1p.gnu.org</span>
+<span class="org-string">   i:C = US, O = Let'</span>s Encrypt, CN = R11
    a:PKEY: rsaEncryption, 2048 (bit); sigalg: RSA-SHA256
    v:NotBefore: Nov 13 08:04:26 2024 GMT; NotAfter: Feb 11 08:04:25 2025 GMT
-&#x2013;&#x2014;BEGIN CERTIFICATE&#x2013;&#x2014;
+-----BEGIN CERTIFICATE-----
 MIIJoTCCCImgAwIBAgISBPmzdvDVwW++ut5BlSysPQhvMA0GCSqGSIb3DQEBCwUA
-&#x2026;
-&#x2013;&#x2014;END CERTIFICATE&#x2013;&#x2014;
- 1 s:C = US, O = Let's Encrypt, CN = R11
-   i:C = US, O = Internet Security Research Group, CN = ISRG Root X1
-   a:PKEY: rsaEncryption, 2048 (bit); sigalg: RSA-SHA256
-   v:NotBefore: Mar 13 00:00:00 2024 GMT; NotAfter: Mar 12 23:59:59 2027 GMT
-&#x2013;&#x2014;BEGIN CERTIFICATE&#x2013;&#x2014;
-MIIFBjCCAu6gAwIBAgIRAIp9PhPWLzDvI4a9KQdrNPgwDQYJKoZIhvcNAQELBQAw
-&#x2026;
-&#x2013;&#x2014;END CERTIFICATE&#x2013;&#x2014;
-&#x2014;
-Server certificate
-subject=CN = wildebeest1p.gnu.org
-issuer=C = US, O = Let's Encrypt, CN = R11
-&#x2014;
+...
+-----END CERTIFICATE-----
+ 1 s:C = US, O = Let<span class="org-string">'s Encrypt, CN = R11</span>
+<span class="org-string">   i:C = US, O = Internet Security Research Group, CN = ISRG Root X1</span>
+<span class="org-string">   a:PKEY: rsaEncryption, 2048 (bit); sigalg: RSA-SHA256</span>
+<span class="org-string">   v:NotBefore: Mar 13 00:00:00 2024 GMT; NotAfter: Mar 12 23:59:59 2027 GMT</span>
+<span class="org-string">-----BEGIN CERTIFICATE-----</span>
+<span class="org-string">MIIFBjCCAu6gAwIBAgIRAIp9PhPWLzDvI4a9KQdrNPgwDQYJKoZIhvcNAQELBQAw</span>
+<span class="org-string">...</span>
+<span class="org-string">-----END CERTIFICATE-----</span>
+<span class="org-string">---</span>
+<span class="org-string">Server certificate</span>
+<span class="org-string">subject=CN = wildebeest1p.gnu.org</span>
+<span class="org-string">issuer=C = US, O = Let'</span>s Encrypt, CN = R11
+---
 No client certificate CA names sent
 Peer signing digest: SHA256
 Peer signature type: RSA-PSS
 Server Temp Key: X25519, 253 bits
-&#x2014;
+---
 SSL handshake has read 4324 bytes and written 397 bytes
 Verification: OK
-&#x2014;
-New, TLSv1.3, Cipher is TLS<sub>AES</sub><sub>256</sub><sub>GCM</sub><sub>SHA384</sub>
+---
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
 Server public key is 2048 bit
 Secure Renegotiation IS NOT supported
 Compression: NONE
@@ -406,9 +400,11 @@ Expansion: NONE
 No ALPN negotiated
 Early data was not sent
 Verify return code: 0 (ok)
-&#x2014;
-DONE  #+end<sub>src</sub>
-</p>
+---
+DONE
+</pre>
+</div></li>
+</ul>
 
 <p>
 Next we obtain information about the subject:
@@ -421,7 +417,7 @@ Next we obtain information about the subject:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2024-12-14 Sat 19:47</p>
+<p class="date">Created: 2024-12-28 Sat 19:05</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
