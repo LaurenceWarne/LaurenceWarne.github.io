@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-23 Thu 19:00 -->
+<!-- 2025-02-13 Thu 11:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Vpcs</title>
@@ -236,25 +236,25 @@ Previous: <a href='./transit-gateways.html'>Transit Gateways</a><span style='flo
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8730528">1. Subnets</a>
+<li><a href="#orgec9e67a">1. Subnets</a>
 <ul>
-<li><a href="#orgfce845f">1.1. Routing Encore</a></li>
+<li><a href="#org3b345da">1.1. Routing Encore</a></li>
 </ul>
 </li>
-<li><a href="#orgcd30019">2. DNS</a></li>
+<li><a href="#org00ffbc6">2. DNS</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8730528" class="outline-2">
-<h2 id="org8730528"><span class="section-number-2">1.</span> Subnets</h2>
+<div id="outline-container-orgec9e67a" class="outline-2">
+<h2 id="orgec9e67a"><span class="section-number-2">1.</span> Subnets</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A subnet is said to be <b>public</b> if and only if it a route exists in it's route table to an <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">internet gateway</a>, else a subnet is said to be <b>private</b>.  For example:
 </p>
 
 
-<div id="orge5a7042" class="figure">
+<div id="orgb0edacc" class="figure">
 <p><img src="./subnet-route-table.png" alt="subnet-route-table.png" />
 </p>
 </div>
@@ -272,8 +272,8 @@ In order to make instances in private subnets able to access the internet, it's 
 </p>
 </div>
 
-<div id="outline-container-orgfce845f" class="outline-3">
-<h3 id="orgfce845f"><span class="section-number-3">1.1.</span> Routing Encore</h3>
+<div id="outline-container-org3b345da" class="outline-3">
+<h3 id="org3b345da"><span class="section-number-3">1.1.</span> Routing Encore</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Also noteworthy is by default all subnets within a VPC can communicate with each other.  This is illustrated by the first entry in the image above with Target <code>local</code>, which by default is added to all route tables.
@@ -286,8 +286,8 @@ If your route table has multiple routes, the most specific route that matches th
 </div>
 </div>
 
-<div id="outline-container-orgcd30019" class="outline-2">
-<h2 id="orgcd30019"><span class="section-number-2">2.</span> DNS</h2>
+<div id="outline-container-org00ffbc6" class="outline-2">
+<h2 id="org00ffbc6"><span class="section-number-2">2.</span> DNS</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 DNS support is determined by the <code>EnableDnsSupport</code> and <code>EnableDnsHostnames</code> VPC attributes.  The former (enabled by default) means DNS queries to the local Route 53 Resolver for the applicable AZ succeed on the VPC; the latter means instances with public IPs will be assigned public IP addresses.
@@ -301,7 +301,7 @@ DNS support is determined by the <code>EnableDnsSupport</code> and <code>EnableD
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2025-01-23 Thu 19:00</p>
+<p class="date">Created: 2025-02-13 Thu 11:40</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
