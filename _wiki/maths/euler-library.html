@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-30 Fri 17:53 -->
+<!-- 2025-10-07 Tue 15:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Euler Library</title>
@@ -268,64 +268,64 @@ Next: <a href='./questions.html'>Questions</a><span style='float: right;'>Up: <a
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6309f4e">1. Linear Recurrence Closure</a>
+<li><a href="#orgacc5bda">1. Linear Recurrence Closure</a>
 <ul>
-<li><a href="#org57a3658">1.1. Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#org076e02f">1.1. Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org092c483">2. Kitamasa Method for Linear Recurrences</a>
+<li><a href="#orga439b70">2. Kitamasa Method for Linear Recurrences</a>
 <ul>
-<li><a href="#org1315bcf">2.1. Polynomials</a>
+<li><a href="#orgeb6afc2">2.1. Polynomials</a>
 <ul>
-<li><a href="#org1f84d44">2.1.1. Example</a></li>
+<li><a href="#org34bcb9e">2.1.1. Example</a></li>
 </ul>
 </li>
-<li><a href="#orge85c9e7">2.2. 💖 Matrices 💖</a></li>
+<li><a href="#org81fbf9b">2.2. 💖 Matrices 💖</a></li>
 </ul>
 </li>
-<li><a href="#org2a088c1">3. Factorisation in Quadratic Integer Rings</a>
+<li><a href="#orgf7ac8ae">3. Factorisation in Quadratic Integer Rings</a>
 <ul>
-<li><a href="#org1d31634">3.1. Gaussian Integers</a>
+<li><a href="#org5c05e43">3.1. Gaussian Integers</a>
 <ul>
-<li><a href="#orgb0b753b">3.1.1. Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
-<li><a href="#orge984ef4">3.1.2. Sum of Squares</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org2c24c57">4. Euler Transform</a></li>
-<li><a href="#org6dabd26">5. Arithmetic Functions</a></li>
-<li><a href="#orgc1e0efa">6. Floor Sums</a></li>
-<li><a href="#org1211ca8">7. Markov Chains</a></li>
-<li><a href="#org33e2740">8. Binomial Coefficients Modulo \( p \)</a></li>
-<li><a href="#org96c6cc4">9. Diophantine Equations</a>
-<ul>
-<li><a href="#org215db52">9.1. Nonnegative Solutions to Linear Equations</a>
-<ul>
-<li><a href="#org90cf8ff">9.1.1. Python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#orgd2fb330">3.1.1. Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
+<li><a href="#org3c86e75">3.1.2. Sum of Squares</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org2375ede">10. Nim</a></li>
-<li><a href="#orgd90d02c">11. Partisan Game Theory</a>
+<li><a href="#org0fd1ed6">4. Euler Transform</a></li>
+<li><a href="#orgf0ca672">5. Arithmetic Functions</a></li>
+<li><a href="#org643b55d">6. Floor Sums</a></li>
+<li><a href="#org4d4e4a8">7. Markov Chains</a></li>
+<li><a href="#orgb9a4845">8. Binomial Coefficients Modulo \( p \)</a></li>
+<li><a href="#orgf8c0e62">9. Diophantine Equations</a>
 <ul>
-<li><a href="#org6446cca">11.1. Resources</a></li>
+<li><a href="#orgb8d1d9a">9.1. Nonnegative Solutions to Linear Equations</a>
+<ul>
+<li><a href="#orga83a357">9.1.1. Python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgc728564">12. Graph Theory</a>
-<ul>
-<li><a href="#org59e7799">12.1. Bipartite Graphs</a></li>
 </ul>
 </li>
-<li><a href="#orgb8f463f">13. Transforms</a></li>
-<li><a href="#orgbe5f513">14. Assorted</a></li>
+<li><a href="#orgf306f51">10. Nim</a></li>
+<li><a href="#orge0f31ce">11. Partisan Game Theory</a>
+<ul>
+<li><a href="#orgcf3b59c">11.1. Resources</a></li>
+</ul>
+</li>
+<li><a href="#org3ba58a9">12. Graph Theory</a>
+<ul>
+<li><a href="#org585f31a">12.1. Bipartite Graphs</a></li>
+</ul>
+</li>
+<li><a href="#org329ee94">13. Transforms</a></li>
+<li><a href="#org8f438d2">14. Assorted</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6309f4e" class="outline-2">
-<h2 id="org6309f4e"><span class="section-number-2">1.</span> Linear Recurrence Closure</h2>
+<div id="outline-container-orgacc5bda" class="outline-2">
+<h2 id="orgacc5bda"><span class="section-number-2">1.</span> Linear Recurrence Closure</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 If \( a_n \) and \( b_n \) are linear recurrences, then:
@@ -337,8 +337,8 @@ If \( a_n \) and \( b_n \) are linear recurrences, then:
 </ol>
 </div>
 
-<div id="outline-container-org57a3658" class="outline-3">
-<h3 id="org57a3658"><span class="section-number-3">1.1.</span> Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h3>
+<div id="outline-container-org076e02f" class="outline-3">
+<h3 id="org076e02f"><span class="section-number-3">1.1.</span> Proof (1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Let \( C_a(x) \) and \( C_b(x) \) be the characteristic polynomials of \( a_n \) and \( b_n \) respectively.  Then we claim 
@@ -400,12 +400,12 @@ Since the matrix in nonsingular (it is a confluent Vandermonde matrix), its colu
 <pre class="src src-python"><span class="org-keyword">import</span> sympy <span class="org-keyword">as</span> sp
 <span class="org-keyword">from</span> sympy <span class="org-keyword">import</span> Matrix, Poly
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">The base cases</span>
-<span class="org-variable-name">ics1</span> <span class="org-operator">=</span> [1, 1]
+<span class="org-comment-delimiter"># </span><span class="org-comment">The base cases
+</span><span class="org-variable-name">ics1</span> <span class="org-operator">=</span> [1, 1]
 <span class="org-variable-name">ics2</span> <span class="org-operator">=</span> [1, 2, 5]
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">The recurrences we want to add, defined here for clarity</span>
-<span class="org-keyword">def</span> <span class="org-function-name">a_n</span>(n, ics<span class="org-operator">=</span>ics1):
+<span class="org-comment-delimiter"># </span><span class="org-comment">The recurrences we want to add, defined here for clarity
+</span><span class="org-keyword">def</span> <span class="org-function-name">a_n</span>(n, ics<span class="org-operator">=</span>ics1):
     <span class="org-keyword">if</span> n <span class="org-operator">&lt;=</span> <span class="org-builtin">len</span>(ics):
         <span class="org-keyword">return</span> ics[n <span class="org-operator">-</span> 1]
     <span class="org-keyword">else</span>:
@@ -418,10 +418,10 @@ Since the matrix in nonsingular (it is a confluent Vandermonde matrix), its colu
         <span class="org-keyword">return</span> 4<span class="org-operator">*</span>b_n(n <span class="org-operator">-</span> 1) <span class="org-operator">-</span> 5<span class="org-operator">*</span>b_n(n <span class="org-operator">-</span> 2) <span class="org-operator">+</span> 2<span class="org-operator">*</span>b_n(n <span class="org-operator">-</span> 3)
 
 <span class="org-variable-name">x</span> <span class="org-operator">=</span> sp.Symbol(<span class="org-string">"x"</span>)
-<span class="org-comment-delimiter"># </span><span class="org-comment">x_n = x_{n - 1} + 2*x_{n - 2}</span>
-<span class="org-variable-name">char_poly1</span> <span class="org-operator">=</span> x<span class="org-operator">**</span>2 <span class="org-operator">-</span> x <span class="org-operator">-</span> 2 
-<span class="org-comment-delimiter"># </span><span class="org-comment">x_n = 4*x_{n - 1} - 5*x{n - 2} + 2*x{n - 3}</span>
-<span class="org-variable-name">char_poly2</span> <span class="org-operator">=</span> x<span class="org-operator">**</span>3 <span class="org-operator">-</span> 4<span class="org-operator">*</span>x<span class="org-operator">**</span>2 <span class="org-operator">+</span> 5<span class="org-operator">*</span>x <span class="org-operator">-</span> 2
+<span class="org-comment-delimiter"># </span><span class="org-comment">x_n = x_{n - 1} + 2*x_{n - 2}
+</span><span class="org-variable-name">char_poly1</span> <span class="org-operator">=</span> x<span class="org-operator">**</span>2 <span class="org-operator">-</span> x <span class="org-operator">-</span> 2 
+<span class="org-comment-delimiter"># </span><span class="org-comment">x_n = 4*x_{n - 1} - 5*x{n - 2} + 2*x{n - 3}
+</span><span class="org-variable-name">char_poly2</span> <span class="org-operator">=</span> x<span class="org-operator">**</span>3 <span class="org-operator">-</span> 4<span class="org-operator">*</span>x<span class="org-operator">**</span>2 <span class="org-operator">+</span> 5<span class="org-operator">*</span>x <span class="org-operator">-</span> 2
 
 <span class="org-variable-name">p</span> <span class="org-operator">=</span> Poly(
     sp.simplify(char_poly1 <span class="org-operator">*</span> char_poly2 <span class="org-operator">/</span> sp.gcd(char_poly1, char_poly2))
@@ -429,14 +429,14 @@ Since the matrix in nonsingular (it is a confluent Vandermonde matrix), its colu
 <span class="org-variable-name">coeffs</span> <span class="org-operator">=</span> p.all_coeffs()
 <span class="org-builtin">print</span>(p)
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">We create the companion matrix of our polynomial</span>
-<span class="org-variable-name">mat</span> <span class="org-operator">=</span> Matrix.diag([1]<span class="org-operator">*</span>(<span class="org-builtin">len</span>(coeffs) <span class="org-operator">-</span> 1))
+<span class="org-comment-delimiter"># </span><span class="org-comment">We create the companion matrix of our polynomial
+</span><span class="org-variable-name">mat</span> <span class="org-operator">=</span> Matrix.diag([1]<span class="org-operator">*</span>(<span class="org-builtin">len</span>(coeffs) <span class="org-operator">-</span> 1))
 mat.row_del(<span class="org-operator">-</span>1)
 <span class="org-variable-name">mat</span> <span class="org-operator">=</span> mat.row_insert(0, Matrix([[<span class="org-operator">-</span>c <span class="org-keyword">for</span> c <span class="org-keyword">in</span> coeffs[1:]]]))
 <span class="org-builtin">print</span>(mat)
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">Finally we show n applications of our matrix gives what we expect</span>
-<span class="org-variable-name">ics</span> <span class="org-operator">=</span> Matrix([[a_n(n) <span class="org-operator">+</span> b_n(n)] <span class="org-keyword">for</span> n <span class="org-keyword">in</span> <span class="org-builtin">range</span>(1, <span class="org-builtin">len</span>(coeffs))][::<span class="org-operator">-</span>1])
+<span class="org-comment-delimiter"># </span><span class="org-comment">Finally we show n applications of our matrix gives what we expect
+</span><span class="org-variable-name">ics</span> <span class="org-operator">=</span> Matrix([[a_n(n) <span class="org-operator">+</span> b_n(n)] <span class="org-keyword">for</span> n <span class="org-keyword">in</span> <span class="org-builtin">range</span>(1, <span class="org-builtin">len</span>(coeffs))][::<span class="org-operator">-</span>1])
 <span class="org-variable-name">arr</span> <span class="org-operator">=</span> <span class="org-builtin">list</span>(ics)[::<span class="org-operator">-</span>1] <span class="org-operator">+</span> [(mat<span class="org-operator">**</span>n <span class="org-operator">*</span> ics)[0] <span class="org-keyword">for</span> n <span class="org-keyword">in</span> <span class="org-builtin">range</span>(1, 10)]
 <span class="org-builtin">print</span>(arr)
 <span class="org-builtin">print</span>([a_n(n) <span class="org-operator">+</span> b_n(n) <span class="org-keyword">for</span> n <span class="org-keyword">in</span> <span class="org-builtin">range</span>(1, 14)])
@@ -450,12 +450,12 @@ See also <a href="https://math.stackexchange.com/questions/1348838/sum-and-produ
 </div>
 </div>
 
-<div id="outline-container-org092c483" class="outline-2">
-<h2 id="org092c483"><span class="section-number-2">2.</span> Kitamasa Method for Linear Recurrences</h2>
+<div id="outline-container-orga439b70" class="outline-2">
+<h2 id="orga439b70"><span class="section-number-2">2.</span> Kitamasa Method for Linear Recurrences</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org1315bcf" class="outline-3">
-<h3 id="org1315bcf"><span class="section-number-3">2.1.</span> Polynomials</h3>
+<div id="outline-container-orgeb6afc2" class="outline-3">
+<h3 id="orgeb6afc2"><span class="section-number-3">2.1.</span> Polynomials</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Suppose \( b_n \) is a linear recurrence with characteristic polynomial \( f(x) = x^m + ... + c \), and a set of base cases \( b_0 ... b_{m - 1} \).  Then it is well known:
@@ -515,8 +515,8 @@ Alternate explanation: <a href="https://codeforces.com/blog/entry/61306">https:/
 </p>
 </div>
 
-<div id="outline-container-org1f84d44" class="outline-4">
-<h4 id="org1f84d44"><span class="section-number-4">2.1.1.</span> Example</h4>
+<div id="outline-container-org34bcb9e" class="outline-4">
+<h4 id="org34bcb9e"><span class="section-number-4">2.1.1.</span> Example</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 Suppose \( b_n = 2^n + n = 2^n + n(1)^n \), and so has characteristic polynomial \( f(x) = (x - 1)^2(x - 2) = x^3 - 4x^2 + 5x - 2 \) , and so \( b_n = 4b_{n - 1} - 5b_{n - 2} + 2b_{n - 3} \), with base cases \( b_0 = 1, \ b_1 = 3, \ b_2 = 6 \).  Suppose we want to find \( b_7 \).  Then:
@@ -535,8 +535,8 @@ And so we find that \( 120b_2 - 233b_1 + 114b_0 = 135 = 2^7 + 7 \).
 </div>
 </div>
 
-<div id="outline-container-orge85c9e7" class="outline-3">
-<h3 id="orge85c9e7"><span class="section-number-3">2.2.</span> 💖 Matrices 💖</h3>
+<div id="outline-container-org81fbf9b" class="outline-3">
+<h3 id="org81fbf9b"><span class="section-number-3">2.2.</span> 💖 Matrices 💖</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 And so our problem reduces to finding \( x^N \pmod{f(x)} \), where \( f(x) \) is the characteristic polynomial of our recurrence.
@@ -545,12 +545,12 @@ And so our problem reduces to finding \( x^N \pmod{f(x)} \), where \( f(x) \) is
 </div>
 </div>
 
-<div id="outline-container-org2a088c1" class="outline-2">
-<h2 id="org2a088c1"><span class="section-number-2">3.</span> Factorisation in Quadratic Integer Rings</h2>
+<div id="outline-container-orgf7ac8ae" class="outline-2">
+<h2 id="orgf7ac8ae"><span class="section-number-2">3.</span> Factorisation in Quadratic Integer Rings</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org1d31634" class="outline-3">
-<h3 id="org1d31634"><span class="section-number-3">3.1.</span> Gaussian Integers</h3>
+<div id="outline-container-org5c05e43" class="outline-3">
+<h3 id="org5c05e43"><span class="section-number-3">3.1.</span> Gaussian Integers</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 \( a + bi \in \mathbb{Z}[i]  \) is prime iff one of the components is zero and the other is an associate of a (normal) prime of the form \( 3 \pmod 4 \), or its norm is (a normal) prime.  This follows from the fact that \( p \) can be written as the sum of two squares iff -1 is a quadratic residue modulo \( p \).  Note by <a href="https://en.wikipedia.org/wiki/Fermat%27s_theorem_on_sums_of_two_squares">Fermat's Two Square Theorem</a> we can always write \( p \equiv 1 \pmod 4 \) as a sum of two squares.
@@ -560,8 +560,8 @@ And so our problem reduces to finding \( x^N \pmod{f(x)} \), where \( f(x) \) is
 It follows we can find the prime factorisation of \( n \in \mathbb{Z} \) by taking its normal factorisation and further decomposing primes of the form \( 1 \pmod 4 \).  Solving \( p = (a + bi)(a - bi) = a^2 + b^2 \) can be done efficiently by first solving for \( x^2 \equiv -1 \pmod p \) (using Tonelli Shanks), we then find \( a + bi = gcd(p, \ x + i) \).
 </p>
 </div>
-<div id="outline-container-orgb0b753b" class="outline-4">
-<h4 id="orgb0b753b"><span class="section-number-4">3.1.1.</span> Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
+<div id="outline-container-orgd2fb330" class="outline-4">
+<h4 id="orgd2fb330"><span class="section-number-4">3.1.1.</span> Proof&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 If \( p | x^2 + 1 \) then \( p | (x + i)(x - i) \), arguing for a contradiction we see we cannot have \( p|(x + i) \) or \( p | (x - i) \).  Thus \( gcd(p, \ x + i) \) and \( gcd(p, \ x - i) \) are not units so we can find a proper divisor of \( p \) by computing either of them.  Clearly \( a + bi = gcd(p, x \pm i) \) has nonzero real and imaginary parts (since \( p \) is prime in \( \mathbb{Z}  \)), and so if \( (c + di)(a + bi) = p \) we must have \( c + di = a - bi \) since \( p \) is real.  This completes the proof.
@@ -569,8 +569,8 @@ If \( p | x^2 + 1 \) then \( p | (x + i)(x - i) \), arguing for a contradiction 
 </div>
 </div>
 
-<div id="outline-container-orge984ef4" class="outline-4">
-<h4 id="orge984ef4"><span class="section-number-4">3.1.2.</span> Sum of Squares</h4>
+<div id="outline-container-org3c86e75" class="outline-4">
+<h4 id="org3c86e75"><span class="section-number-4">3.1.2.</span> Sum of Squares</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 This gives us a way to compute all the ways in which \( n \) can be written as the sum of squares: <a href="https://mathoverflow.net/a/319809/332110">https://mathoverflow.net/a/319809/332110</a>.  See also <a href="https://mathworld.wolfram.com/SumofSquaresFunction.html">https://mathworld.wolfram.com/SumofSquaresFunction.html</a>.
@@ -580,8 +580,8 @@ This gives us a way to compute all the ways in which \( n \) can be written as t
 </div>
 </div>
 
-<div id="outline-container-org2c24c57" class="outline-2">
-<h2 id="org2c24c57"><span class="section-number-2">4.</span> Euler Transform</h2>
+<div id="outline-container-org0fd1ed6" class="outline-2">
+<h2 id="org0fd1ed6"><span class="section-number-2">4.</span> Euler Transform</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Given we know the number of connected graph \( a_n \) satsifying some property, we can calculate the total number of graphs satsifying the property (\( b_n \)) using the Euler Transform:
@@ -605,8 +605,8 @@ c_n = \sum_{d|n} d a_d
 </div>
 </div>
 
-<div id="outline-container-org6dabd26" class="outline-2">
-<h2 id="org6dabd26"><span class="section-number-2">5.</span> Arithmetic Functions</h2>
+<div id="outline-container-orgf0ca672" class="outline-2">
+<h2 id="orgf0ca672"><span class="section-number-2">5.</span> Arithmetic Functions</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Sums of arithmetic functions:
@@ -664,8 +664,8 @@ Sums of arithmetic functions:
 </div>
 </div>
 
-<div id="outline-container-orgc1e0efa" class="outline-2">
-<h2 id="orgc1e0efa"><span class="section-number-2">6.</span> Floor Sums</h2>
+<div id="outline-container-org643b55d" class="outline-2">
+<h2 id="org643b55d"><span class="section-number-2">6.</span> Floor Sums</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 We can compute the sum:
@@ -680,8 +680,8 @@ Also known as the <a href="https://en.wikipedia.org/wiki/Divisor_summatory_funct
 
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">divisor_sum</span>(n):
-    <span class="org-variable-name">u</span> <span class="org-operator">=</span> <span class="org-builtin">int</span>(math.sqrt(n))  <span class="org-comment-delimiter"># </span><span class="org-comment">equivalent to math.isqrt(n) in python 3.8</span>
-    <span class="org-keyword">return</span> 2<span class="org-operator">*</span><span class="org-builtin">sum</span>(n<span class="org-operator">//</span>k <span class="org-keyword">for</span> k <span class="org-keyword">in</span> <span class="org-builtin">range</span>(1, u <span class="org-operator">+</span> 1)) <span class="org-operator">-</span> u<span class="org-operator">*</span>u
+    <span class="org-variable-name">u</span> <span class="org-operator">=</span> <span class="org-builtin">int</span>(math.sqrt(n))  <span class="org-comment-delimiter"># </span><span class="org-comment">equivalent to math.isqrt(n) in python 3.8
+</span>    <span class="org-keyword">return</span> 2<span class="org-operator">*</span><span class="org-builtin">sum</span>(n<span class="org-operator">//</span>k <span class="org-keyword">for</span> k <span class="org-keyword">in</span> <span class="org-builtin">range</span>(1, u <span class="org-operator">+</span> 1)) <span class="org-operator">-</span> u<span class="org-operator">*</span>u
 </pre>
 </div>
 
@@ -691,8 +691,8 @@ Also known are fast methods to compute \( \sum_{x = 0}^n \left \lfloor \frac{ax 
 </div>
 </div>
 
-<div id="outline-container-org1211ca8" class="outline-2">
-<h2 id="org1211ca8"><span class="section-number-2">7.</span> Markov Chains</h2>
+<div id="outline-container-org4d4e4a8" class="outline-2">
+<h2 id="org4d4e4a8"><span class="section-number-2">7.</span> Markov Chains</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 An <a href="https://en.wikipedia.org/wiki/Absorbing_Markov_chain">absorbing Markov chain</a> has the following form:
@@ -753,8 +753,8 @@ Then for example <code>sage</code> <code>(In - Q).solve_right(ones_vector)</code
 </div>
 </div>
 
-<div id="outline-container-org33e2740" class="outline-2">
-<h2 id="org33e2740"><span class="section-number-2">8.</span> Binomial Coefficients Modulo \( p \)</h2>
+<div id="outline-container-orgb9a4845" class="outline-2">
+<h2 id="orgb9a4845"><span class="section-number-2">8.</span> Binomial Coefficients Modulo \( p \)</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 <a href="https://en.wikipedia.org/wiki/Lucas%27s_theorem">Lucas' Theorem</a> states that if \( m_km_{k - 1}\cdots m_0 \) and \( n_kn_{k - 1}\cdots n_0 \) are the base \( p \) digit representations of \( m \) and \( n \) respectively, then:
@@ -778,12 +778,12 @@ The number of entries in the mth row of Pascal's triangle that are not divisible
 </div>
 </div>
 
-<div id="outline-container-org96c6cc4" class="outline-2">
-<h2 id="org96c6cc4"><span class="section-number-2">9.</span> Diophantine Equations</h2>
+<div id="outline-container-orgf8c0e62" class="outline-2">
+<h2 id="orgf8c0e62"><span class="section-number-2">9.</span> Diophantine Equations</h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-org215db52" class="outline-3">
-<h3 id="org215db52"><span class="section-number-3">9.1.</span> Nonnegative Solutions to Linear Equations</h3>
+<div id="outline-container-orgb8d1d9a" class="outline-3">
+<h3 id="orgb8d1d9a"><span class="section-number-3">9.1.</span> Nonnegative Solutions to Linear Equations</h3>
 <div class="outline-text-3" id="text-9-1">
 <p>
 Consider nonnegative solutions to \( x_1 + \cdots + x_k = n \) where \( n \) is known.  Using stars and bars, we can see the total numbers of n-tuple solutions is \( \binom{n + k - 1}{k - 1} \).
@@ -840,15 +840,15 @@ The base cases \( f(0) \cdots f(k) \)  can be obtained by manually expanding \( 
 </p>
 </div>
 
-<div id="outline-container-org90cf8ff" class="outline-4">
-<h4 id="org90cf8ff"><span class="section-number-4">9.1.1.</span> Python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
+<div id="outline-container-orga83a357" class="outline-4">
+<h4 id="orga83a357"><span class="section-number-4">9.1.1.</span> Python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="collapsible">collapsible</span></span></h4>
 <div class="outline-text-4" id="text-9-1-1">
 <div class="org-src-container">
 <pre class="src src-python"><span class="org-keyword">from</span> collections <span class="org-keyword">import</span> defaultdict
 
-<span class="org-keyword">def</span> <span class="org-function-name">recurrence</span>(coeffs):  <span class="org-comment-delimiter"># </span><span class="org-comment">Usage: recurrence([3, 4, 5, 1, 9])</span>
-    <span class="org-comment-delimiter"># </span><span class="org-comment">return an array [a1, a2, a3...] s.t. f(n) = a1*f(n - 1) + a2*f(n - 2) + ...</span>
-    <span class="org-variable-name">d</span> <span class="org-operator">=</span> defaultdict(<span class="org-builtin">int</span>, {0: 1})
+<span class="org-keyword">def</span> <span class="org-function-name">recurrence</span>(coeffs):  <span class="org-comment-delimiter"># </span><span class="org-comment">Usage: recurrence([3, 4, 5, 1, 9])
+</span>    <span class="org-comment-delimiter"># </span><span class="org-comment">return an array [a1, a2, a3...] s.t. f(n) = a1*f(n - 1) + a2*f(n - 2) + ...
+</span>    <span class="org-variable-name">d</span> <span class="org-operator">=</span> defaultdict(<span class="org-builtin">int</span>, {0: 1})
     <span class="org-keyword">for</span> pw <span class="org-keyword">in</span> coeffs:
         <span class="org-variable-name">new_dct</span> <span class="org-operator">=</span> d.copy()
         <span class="org-keyword">for</span> k, v <span class="org-keyword">in</span> d.items(): <span class="org-variable-name">new_dct</span>[k <span class="org-operator">+</span> pw] <span class="org-operator">+=</span> <span class="org-operator">-</span>1<span class="org-operator">*</span>v
@@ -863,8 +863,8 @@ The base cases \( f(0) \cdots f(k) \)  can be obtained by manually expanding \( 
 </div>
 </div>
 
-<div id="outline-container-org2375ede" class="outline-2">
-<h2 id="org2375ede"><span class="section-number-2">10.</span> Nim</h2>
+<div id="outline-container-orgf306f51" class="outline-2">
+<h2 id="orgf306f51"><span class="section-number-2">10.</span> Nim</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 The Sprague-Grundy Theorem states that every impartial game is equivalent to a game of Nim with a single heap.
@@ -872,8 +872,8 @@ The Sprague-Grundy Theorem states that every impartial game is equivalent to a g
 </div>
 </div>
 
-<div id="outline-container-orgd90d02c" class="outline-2">
-<h2 id="orgd90d02c"><span class="section-number-2">11.</span> Partisan Game Theory</h2>
+<div id="outline-container-orge0f31ce" class="outline-2">
+<h2 id="orge0f31ce"><span class="section-number-2">11.</span> Partisan Game Theory</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 We may represent a partisan game as \( G = \{ G^L | G^R \} \) where the \( G^L, G^R \) represent the set of games a player can move to.  We may assign a number to \( G \) according to the <b>move advantage</b> for either player; though only if there exist no \( x \in G^L, y \in G^R \) such that \( y < x \).  A positive value represents an advantage for the left player (\( L \)), and negative an advantage for the right (\( R \)) (with zero representing a win for whoever moves second, ie no moves).  Examples (for \( n \ge 0 \)):
@@ -900,8 +900,8 @@ The <b>Simplicity Theorem</b> states that \( \{ a | b \} \) is equal to the firs
 </p>
 </div>
 
-<div id="outline-container-org6446cca" class="outline-3">
-<h3 id="org6446cca"><span class="section-number-3">11.1.</span> Resources</h3>
+<div id="outline-container-orgcf3b59c" class="outline-3">
+<h3 id="orgcf3b59c"><span class="section-number-3">11.1.</span> Resources</h3>
 <div class="outline-text-3" id="text-11-1">
 <ul class="org-ul">
 <li><a href="https://www.maths.dur.ac.uk/users/herbert.gangl/LIT/ww1chap2.pdf">https://www.maths.dur.ac.uk/users/herbert.gangl/LIT/ww1chap2.pdf</a></li>
@@ -910,12 +910,12 @@ The <b>Simplicity Theorem</b> states that \( \{ a | b \} \) is equal to the firs
 </div>
 </div>
 
-<div id="outline-container-orgc728564" class="outline-2">
-<h2 id="orgc728564"><span class="section-number-2">12.</span> Graph Theory</h2>
+<div id="outline-container-org3ba58a9" class="outline-2">
+<h2 id="org3ba58a9"><span class="section-number-2">12.</span> Graph Theory</h2>
 <div class="outline-text-2" id="text-12">
 </div>
-<div id="outline-container-org59e7799" class="outline-3">
-<h3 id="org59e7799"><span class="section-number-3">12.1.</span> Bipartite Graphs</h3>
+<div id="outline-container-org585f31a" class="outline-3">
+<h3 id="org585f31a"><span class="section-number-3">12.1.</span> Bipartite Graphs</h3>
 <div class="outline-text-3" id="text-12-1">
 <p>
 Finding a maximal matching can be done in \( O(nm) \) time where \( n,m \) denote the number of vertices and edges respectively.
@@ -943,8 +943,8 @@ Finding a maximal matching can be done in \( O(nm) \) time where \( n,m \) denot
 </div>
 </div>
 
-<div id="outline-container-orgb8f463f" class="outline-2">
-<h2 id="orgb8f463f"><span class="section-number-2">13.</span> Transforms</h2>
+<div id="outline-container-org329ee94" class="outline-2">
+<h2 id="org329ee94"><span class="section-number-2">13.</span> Transforms</h2>
 <div class="outline-text-2" id="text-13">
 <p>
 <a href="http://www.serbanology.com/article/A%20Bitwise%20Convolution%20Tutorial">http://www.serbanology.com/article/A%20Bitwise%20Convolution%20Tutorial</a>
@@ -953,8 +953,8 @@ Finding a maximal matching can be done in \( O(nm) \) time where \( n,m \) denot
 </div>
 </div>
 
-<div id="outline-container-orgbe5f513" class="outline-2">
-<h2 id="orgbe5f513"><span class="section-number-2">14.</span> Assorted</h2>
+<div id="outline-container-org8f438d2" class="outline-2">
+<h2 id="org8f438d2"><span class="section-number-2">14.</span> Assorted</h2>
 <div class="outline-text-2" id="text-14">
 <ul class="org-ul">
 <li>\( f_{n + 1} = a_nf_n + \cdots + a_0f_{n - k} \) is totally periodic modulo \( n \) if \( a_0 \) is a unit in \( \mathbb{Z}_n \)</li>
@@ -964,7 +964,7 @@ Finding a maximal matching can be done in \( O(nm) \) time where \( n,m \) denot
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2025-05-30 Fri 17:53</p>
+<p class="date">Created: 2025-10-07 Tue 15:40</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

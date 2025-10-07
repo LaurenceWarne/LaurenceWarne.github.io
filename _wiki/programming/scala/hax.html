@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-30 Fri 17:53 -->
+<!-- 2025-10-07 Tue 15:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hax</title>
@@ -236,18 +236,18 @@ Next: <a href='./metals-notes.html'>Metals Notes</a><span style='float: right;'>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org17bcbc7">1. Unapplying a String Interpolator</a></li>
-<li><a href="#orgc7d73dc">2. null to Option</a></li>
-<li><a href="#org327ad19">3. Apply on Different Data Structures</a>
+<li><a href="#org16db5e4">1. Unapplying a String Interpolator</a></li>
+<li><a href="#org5060040">2. null to Option</a></li>
+<li><a href="#org4c40815">3. Apply on Different Data Structures</a>
 <ul>
-<li><a href="#org4954dcf">3.1. Lists</a></li>
-<li><a href="#org3ad4768">3.2. Sets</a></li>
+<li><a href="#org62b6e76">3.1. Lists</a></li>
+<li><a href="#orge81d4ee">3.2. Sets</a></li>
 </ul>
 </li>
-<li><a href="#org7d59477">4. For Comprehension One-liner</a></li>
-<li><a href="#orgdcb1820">5. Tuple to Case Class</a></li>
-<li><a href="#org8deb583">6. Quicksort</a></li>
-<li><a href="#orgd8b3832">7. Capturing Standard Output</a></li>
+<li><a href="#org56754f7">4. For Comprehension One-liner</a></li>
+<li><a href="#org2c45067">5. Tuple to Case Class</a></li>
+<li><a href="#org8ce535e">6. Quicksort</a></li>
+<li><a href="#org825b288">7. Capturing Standard Output</a></li>
 </ul>
 </div>
 </div>
@@ -255,8 +255,8 @@ Next: <a href='./metals-notes.html'>Metals Notes</a><span style='float: right;'>
 Scala LyfHax.
 </p>
 
-<div id="outline-container-org17bcbc7" class="outline-2">
-<h2 id="org17bcbc7"><span class="section-number-2">1.</span> Unapplying a String Interpolator</h2>
+<div id="outline-container-org16db5e4" class="outline-2">
+<h2 id="org16db5e4"><span class="section-number-2">1.</span> Unapplying a String Interpolator</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Since 2.13 you can use <code>unapply</code> with string interpolators:
@@ -273,8 +273,8 @@ Since 2.13 you can use <code>unapply</code> with string interpolators:
 </div>
 </div>
 
-<div id="outline-container-orgc7d73dc" class="outline-2">
-<h2 id="orgc7d73dc"><span class="section-number-2">2.</span> null to Option</h2>
+<div id="outline-container-org5060040" class="outline-2">
+<h2 id="org5060040"><span class="section-number-2">2.</span> null to Option</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We can easily turn possible <code>null</code> values into an <code>Option</code> via <code>apply</code>:
@@ -293,12 +293,12 @@ Note without the type hint here the <code>Option</code> will have type <code>Opt
 </div>
 </div>
 
-<div id="outline-container-org327ad19" class="outline-2">
-<h2 id="org327ad19"><span class="section-number-2">3.</span> Apply on Different Data Structures</h2>
+<div id="outline-container-org4c40815" class="outline-2">
+<h2 id="org4c40815"><span class="section-number-2">3.</span> Apply on Different Data Structures</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org4954dcf" class="outline-3">
-<h3 id="org4954dcf"><span class="section-number-3">3.1.</span> Lists</h3>
+<div id="outline-container-org62b6e76" class="outline-3">
+<h3 id="org62b6e76"><span class="section-number-3">3.1.</span> Lists</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 We can use the <code>apply</code> method on List objects to obtain the value at an index, but beware this is not safe, <code>lift</code> is usually a better option.
@@ -307,12 +307,12 @@ We can use the <code>apply</code> method on List objects to obtain the value at 
 <div class="org-src-container">
 <pre class="src src-scala"><span class="org-keyword">val</span> <span class="org-variable-name">myList</span> <span class="org-keyword">=</span> <span class="org-constant">List</span>(<span class="org-constant">1</span>, <span class="org-constant">2</span>, <span class="org-constant">3</span>)
 myList(<span class="org-constant">1</span>)
-<span class="org-comment-delimiter">// </span><span class="org-comment">2</span>
-myList(<span class="org-constant">3</span>)
-<span class="org-comment-delimiter">// </span><span class="org-comment">java.lang.IndexOutOfBoundsException: 3</span>
-<span class="org-comment-delimiter">//   </span><span class="org-comment">scala.collection.LinearSeqOps.apply(LinearSeq.scala:117)</span>
-<span class="org-comment-delimiter">//   </span><span class="org-comment">scala.collection.LinearSeqOps.apply$(LinearSeq.scala:114)</span>
-<span class="org-comment-delimiter">//   </span><span class="org-comment">scala.collection.immutable.List.apply(List.scala:79)</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">2
+</span>myList(<span class="org-constant">3</span>)
+<span class="org-comment-delimiter">// </span><span class="org-comment">java.lang.IndexOutOfBoundsException: 3
+</span><span class="org-comment-delimiter">//   </span><span class="org-comment">scala.collection.LinearSeqOps.apply(LinearSeq.scala:117)
+</span><span class="org-comment-delimiter">//   </span><span class="org-comment">scala.collection.LinearSeqOps.apply$(LinearSeq.scala:114)
+</span><span class="org-comment-delimiter">//   </span><span class="org-comment">scala.collection.immutable.List.apply(List.scala:79)</span>
 </pre>
 </div>
 
@@ -322,8 +322,8 @@ myList(<span class="org-constant">3</span>)
 </div>
 </div>
 
-<div id="outline-container-org3ad4768" class="outline-3">
-<h3 id="org3ad4768"><span class="section-number-3">3.2.</span> Sets</h3>
+<div id="outline-container-orge81d4ee" class="outline-3">
+<h3 id="orge81d4ee"><span class="section-number-3">3.2.</span> Sets</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 <code>apply</code> on Sets can be used to test membership:
@@ -332,16 +332,16 @@ myList(<span class="org-constant">3</span>)
 <div class="org-src-container">
 <pre class="src src-scala"><span class="org-keyword">val</span> <span class="org-variable-name">bellsLt1k</span> <span class="org-keyword">=</span> <span class="org-constant">Set</span>(<span class="org-constant">1</span>, <span class="org-constant">2</span>, <span class="org-constant">5</span>, <span class="org-constant">15</span>, <span class="org-constant">52</span>, <span class="org-constant">203</span>, <span class="org-constant">877</span>)
 bellsLt1k(<span class="org-constant">203</span>)
-<span class="org-comment-delimiter">// </span><span class="org-comment">true</span>
-bellsLt1k(<span class="org-constant">10</span>)
+<span class="org-comment-delimiter">// </span><span class="org-comment">true
+</span>bellsLt1k(<span class="org-constant">10</span>)
 <span class="org-comment-delimiter">// </span><span class="org-comment">false</span>
 </pre>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org7d59477" class="outline-2">
-<h2 id="org7d59477"><span class="section-number-2">4.</span> For Comprehension One-liner</h2>
+<div id="outline-container-org56754f7" class="outline-2">
+<h2 id="org56754f7"><span class="section-number-2">4.</span> For Comprehension One-liner</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-scala"><span class="org-keyword">val</span> <span class="org-variable-name">rollOfTwoDie</span> <span class="org-keyword">=</span> (<span class="org-keyword">for</span> (x <span class="org-keyword">&lt;-</span> (<span class="org-constant">1</span> to <span class="org-constant">6</span>); y <span class="org-keyword">&lt;-</span> (<span class="org-constant">1</span> to <span class="org-constant">6</span>)) <span class="org-keyword">yield</span> x + y).sorted
@@ -351,8 +351,8 @@ bellsLt1k(<span class="org-constant">10</span>)
 </div>
 </div>
 
-<div id="outline-container-orgdcb1820" class="outline-2">
-<h2 id="orgdcb1820"><span class="section-number-2">5.</span> Tuple to Case Class</h2>
+<div id="outline-container-org2c45067" class="outline-2">
+<h2 id="org2c45067"><span class="section-number-2">5.</span> Tuple to Case Class</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 We can use the <code>.tupled</code> method of <a href="https://www.scala-lang.org/api/current/scala/Function2.html">FunctionN</a> to nicely obtain a case class instance from a tuple:
@@ -362,17 +362,17 @@ We can use the <code>.tupled</code> method of <a href="https://www.scala-lang.or
 <pre class="src src-scala"><span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">Book</span>(title<span class="org-keyword">:</span> <span class="org-type">String</span>, author<span class="org-keyword">:</span> <span class="org-type">String</span>)
 
 <span class="org-keyword">val</span> <span class="org-variable-name">bookData</span> <span class="org-keyword">=</span> (<span class="org-string">"Old Man's War"</span>, <span class="org-string">"John Scalzi"</span>)
-<span class="org-comment-delimiter">// </span><span class="org-comment">Pre Scala 2.11.8</span>
-<span class="org-keyword">val</span> <span class="org-variable-name">book1</span> <span class="org-keyword">=</span> (<span class="org-constant">Book</span>.apply <span class="org-keyword">_</span>).tupled(bookData)
-<span class="org-comment-delimiter">// </span><span class="org-comment">The companion object of case class extends FunctionN so we can do this is 2.11.8+</span>
-<span class="org-keyword">val</span> <span class="org-variable-name">book2</span> <span class="org-keyword">=</span> <span class="org-constant">Book</span>.tupled(bookData)
+<span class="org-comment-delimiter">// </span><span class="org-comment">Pre Scala 2.11.8
+</span><span class="org-keyword">val</span> <span class="org-variable-name">book1</span> <span class="org-keyword">=</span> (<span class="org-constant">Book</span>.apply <span class="org-keyword">_</span>).tupled(bookData)
+<span class="org-comment-delimiter">// </span><span class="org-comment">The companion object of case class extends FunctionN so we can do this is 2.11.8+
+</span><span class="org-keyword">val</span> <span class="org-variable-name">book2</span> <span class="org-keyword">=</span> <span class="org-constant">Book</span>.tupled(bookData)
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org8deb583" class="outline-2">
-<h2 id="org8deb583"><span class="section-number-2">6.</span> Quicksort</h2>
+<div id="outline-container-org8ce535e" class="outline-2">
+<h2 id="org8ce535e"><span class="section-number-2">6.</span> Quicksort</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Obligatory quicksort implementation:
@@ -394,8 +394,8 @@ Obligatory quicksort implementation:
 </div>
 </div>
 
-<div id="outline-container-orgd8b3832" class="outline-2">
-<h2 id="orgd8b3832"><span class="section-number-2">7.</span> Capturing Standard Output</h2>
+<div id="outline-container-org825b288" class="outline-2">
+<h2 id="org825b288"><span class="section-number-2">7.</span> Capturing Standard Output</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 You can easily capture standard output using <code>Console.withOut</code>.  This saves you from having to reset the output stream when you're done if you were to use <code>System.setOut</code>.
@@ -403,8 +403,8 @@ You can easily capture standard output using <code>Console.withOut</code>.  This
 
 <div class="org-src-container">
 <pre class="src src-scala"><span class="org-keyword">val</span> <span class="org-variable-name">baos</span> <span class="org-keyword">=</span> <span class="org-keyword">new</span> <span class="org-type">java</span>.io.<span class="org-constant">ByteArrayOutputStream</span>()
-<span class="org-comment-delimiter">// </span><span class="org-comment">Note println is an alias for Console.println</span>
-<span class="org-constant">Console</span>.withOut(baos)(println(<span class="org-string">"hello"</span>))
+<span class="org-comment-delimiter">// </span><span class="org-comment">Note println is an alias for Console.println
+</span><span class="org-constant">Console</span>.withOut(baos)(println(<span class="org-string">"hello"</span>))
 println(baos)
 <span class="org-comment-delimiter">// </span><span class="org-comment">"hello"</span>
 </pre>
@@ -414,7 +414,7 @@ println(baos)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2025-05-30 Fri 17:53</p>
+<p class="date">Created: 2025-10-07 Tue 15:40</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

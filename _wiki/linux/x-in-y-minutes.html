@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-30 Fri 17:53 -->
+<!-- 2025-10-07 Tue 15:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X In Y Minutes</title>
@@ -237,8 +237,8 @@ x in y minutes saga for random linux stuff.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell"><span class="org-comment-delimiter"># </span><span class="org-comment">Use du to check disk usage, ls -l is not recursive</span>
-$ du -h -d 1 org
+<pre class="src src-shell"><span class="org-comment-delimiter"># </span><span class="org-comment">Use du to check disk usage, ls -l is not recursive
+</span>$ du -h -d 1 org
 28K     org/linux
 704K    org/maths
 1.5M    org/.git
@@ -246,14 +246,14 @@ $ du -h -d 1 org
 12K     org/.github
 2.5M    org
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">linux distinguishes virtual memory into user space and kernel space.  Device drivers,</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">kernel extensions, and the kernel itself run in kernel space whereas user</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">applications run in user space</span>
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">syscalls are function calls from user space to kernel space, to see a list of</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">available syscalls for your system run 'man syscalls'.  Using strace we can see</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">what syscalls an application makes:</span>
-$ strace
+<span class="org-comment-delimiter"># </span><span class="org-comment">linux distinguishes virtual memory into user space and kernel space.  Device drivers,
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">kernel extensions, and the kernel itself run in kernel space whereas user
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">applications run in user space
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">syscalls are function calls from user space to kernel space, to see a list of
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">available syscalls for your system run 'man syscalls'.  Using strace we can see
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">what syscalls an application makes:
+</span>$ strace
 strace echo hi | cat
 <span class="org-function-name">execve</span>(<span class="org-string">"/usr/bin/echo"</span>, [<span class="org-string">"echo"</span>, <span class="org-string">"hi"</span>], 0x7ffc25fd9838 /* 70 vars */) = 0
 <span class="org-function-name">brk</span>(NULL)                               = 0x563b21676000
@@ -291,60 +291,60 @@ hi
 <span class="org-function-name">exit_group</span>(0)                           = ?
 +++ exited with 0 +++
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">File descriptors index a per-process file descriptor table which in turn</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">indexes into a system-wide table of files opened by all process called the file table</span>
-$ nop &amp;
-$ ls /proc/$<span class="org-variable-name">!</span>/fd  <span class="org-comment-delimiter"># </span><span class="org-comment">You may need to escape the ! with zsh</span>
-0  1  2
+<span class="org-comment-delimiter"># </span><span class="org-comment">File descriptors index a per-process file descriptor table which in turn
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">indexes into a system-wide table of files opened by all process called the file table
+</span>$ nop &amp;
+$ ls /proc/$<span class="org-variable-name">!</span>/fd  <span class="org-comment-delimiter"># </span><span class="org-comment">You may need to escape the ! with zsh
+</span>0  1  2
 $ file /proc/$<span class="org-variable-name">!</span>/fd/2
 /proc/PID/fd/2: symbolic link to /dev/pts/5
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">Note /prod/PID/fd/0, /prod/PID/fd/1, /prod/PID/fd/2 always point to stdin, stdout and</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">stderr, for the previous command, all 3 however will point to the psuedo-terminal</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">/dev/pts/5.  If instead we use the command:</span>
-$ nop &gt; out.file &amp;
+<span class="org-comment-delimiter"># </span><span class="org-comment">Note /prod/PID/fd/0, /prod/PID/fd/1, /prod/PID/fd/2 always point to stdin, stdout and
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">stderr, for the previous command, all 3 however will point to the psuedo-terminal
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">/dev/pts/5.  If instead we use the command:
+</span>$ nop &gt; out.file &amp;
 $ file /proc/$<span class="org-variable-name">!</span>/fd/0
 /proc/PID/fd/1: symbolic link to /home/laurencewarne/out.file
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">We see stdout indeed points to a file.</span>
-
-<span class="org-comment-delimiter">#############</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">Processes #</span>
-<span class="org-comment-delimiter">#############</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">On linux processes are grouped into groups, which are further grouped into sessions.</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">Lets have a look at what commands are running in our shell session:</span>
-$ ps -o command,pid,ppid,pgid,sid --ppid $<span class="org-variable-name">$</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">We see stdout indeed points to a file.
+</span>
+<span class="org-comment-delimiter">#############</span><span class="org-comment">
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Processes #
+</span><span class="org-comment-delimiter">#############</span><span class="org-comment">
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">On linux processes are grouped into groups, which are further grouped into sessions.
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Lets have a look at what commands are running in our shell session:
+</span>$ ps -o command,pid,ppid,pgid,sid --ppid $<span class="org-variable-name">$</span>
 COMMAND                         PID    PPID    PGID     SID
 ps -o command,pid,ppid,pgid   19765    4739   19765    4739
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">PGID and SID point to the process group leader and session leader respectively.</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">Here we see our ps process is a process group leader (the sole member of its group),</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">but not a session leader, in fact the session group leader is the shell process</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">(zsh in my case).</span>
-
+<span class="org-comment-delimiter"># </span><span class="org-comment">PGID and SID point to the process group leader and session leader respectively.
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">Here we see our ps process is a process group leader (the sole member of its group),
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">but not a session leader, in fact the session group leader is the shell process
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">(zsh in my case).
+</span>
 $ ps -o command,pid,ppid,pgid,sid --ppid $<span class="org-variable-name">$</span> | cat
 COMMAND                         PID    PPID    PGID     SID
 ps -o command,pid,ppid,pgid   20135    4739   20135    4739
 cat                           20136    4739   20135    4739
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">Here we see a slight difference, cat has it's process group id set to the pid of</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">the ps command.  Process groups are useful as it's possible to direct signals</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">to whole process groups instead of singular processes using the killpg() system</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">call or prepending '-' to the kill command.</span>
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">Sessions are usually tied to a controlling terminal, e.g. bash.  If the exiting</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">process is a session leader and its controlling terminal is the controlling</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">terminal of the session, then each process in the foreground process group of</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">this controlling terminal is sent a SIGHUP signal, and the terminal is</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">disassociated from this session, allowing it to be acquired by a new controlling</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">process.More info can be found here: https://man7.org/linux/man-pages/man3/exit.3.html</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">another link is here: https://man7.org/linux/man-pages/man3/exit.3.html.</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Here we see a slight difference, cat has it's process group id set to the pid of
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">the ps command.  Process groups are useful as it's possible to direct signals
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">to whole process groups instead of singular processes using the killpg() system
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">call or prepending '-' to the kill command.
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Sessions are usually tied to a controlling terminal, e.g. bash.  If the exiting
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">process is a session leader and its controlling terminal is the controlling
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">terminal of the session, then each process in the foreground process group of
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">this controlling terminal is sent a SIGHUP signal, and the terminal is
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">disassociated from this session, allowing it to be acquired by a new controlling
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">process.More info can be found here: https://man7.org/linux/man-pages/man3/exit.3.html
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">another link is here: https://man7.org/linux/man-pages/man3/exit.3.html.</span>
 </pre>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2025-05-30 Fri 17:53</p>
+<p class="date">Created: 2025-10-07 Tue 15:40</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

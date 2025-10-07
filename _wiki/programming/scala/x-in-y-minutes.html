@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-30 Fri 17:53 -->
+<!-- 2025-10-07 Tue 15:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X In Y Minutes</title>
@@ -236,10 +236,10 @@ Previous: <a href='./resources.html'>Resources</a><span style='float: right;'>Up
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org36c49b4">1. Naming</a></li>
-<li><a href="#orgb838d83">2. Sorting</a></li>
-<li><a href="#org02c6ddd">3. Types</a></li>
-<li><a href="#org9fb78ef">4. Collections</a></li>
+<li><a href="#org4c07c4f">1. Naming</a></li>
+<li><a href="#org6ac7655">2. Sorting</a></li>
+<li><a href="#org47f2b8c">3. Types</a></li>
+<li><a href="#org8cfd9ae">4. Collections</a></li>
 </ul>
 </div>
 </div>
@@ -258,8 +258,8 @@ First of all, the following are implicitly imported in every scala file:
 </pre>
 </div>
 
-<div id="outline-container-org36c49b4" class="outline-2">
-<h2 id="org36c49b4"><span class="section-number-2">1.</span> Naming</h2>
+<div id="outline-container-org4c07c4f" class="outline-2">
+<h2 id="org4c07c4f"><span class="section-number-2">1.</span> Naming</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Note in Scala 2 val and defs cannot appear as toplevel definitions.
@@ -268,24 +268,24 @@ Note in Scala 2 val and defs cannot appear as toplevel definitions.
 <div class="org-src-container">
 <pre class="src src-scala"><span class="org-keyword">object</span> <span class="org-constant">Naming</span> {
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Ordinarily, we wouldn't need to provide the type of x here since it can</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">be determined via type inference, but here we voluntarily provide a</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">'type ascription'</span>
-  <span class="org-keyword">val</span> <span class="org-variable-name">x</span><span class="org-keyword">:</span> <span class="org-type">Int</span> <span class="org-keyword">=</span> <span class="org-constant">3</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Ordinarily, we wouldn't need to provide the type of x here since it can
+</span>  <span class="org-comment-delimiter">// </span><span class="org-comment">be determined via type inference, but here we voluntarily provide a
+</span>  <span class="org-comment-delimiter">// </span><span class="org-comment">'type ascription'
+</span>  <span class="org-keyword">val</span> <span class="org-variable-name">x</span><span class="org-keyword">:</span> <span class="org-type">Int</span> <span class="org-keyword">=</span> <span class="org-constant">3</span>
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Here Show is a Single Abstract Method (SAM) type</span>
-  <span class="org-keyword">trait</span> <span class="org-type">Show</span>[<span class="org-constant">A</span>] {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Here Show is a Single Abstract Method (SAM) type
+</span>  <span class="org-keyword">trait</span> <span class="org-type">Show</span>[<span class="org-constant">A</span>] {
     <span class="org-keyword">def</span> <span class="org-function-name">show</span>(a<span class="org-keyword">:</span> <span class="org-type">A</span>)<span class="org-keyword">:</span> <span class="org-type">String</span>
   }
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Since Scala 2.12 function literals are accepted as valid SAM expressions:</span>
-  <span class="org-scala-font-lockXimplicit">implicit</span> <span class="org-keyword">val</span> <span class="org-variable-name">intShow</span><span class="org-keyword">:</span> <span class="org-type">Show</span>[<span class="org-constant">Int</span>] <span class="org-keyword">=</span> n <span class="org-keyword">=&gt;</span> s<span class="org-string">"here is my integer: </span><span class="org-variable-name">$n</span><span class="org-string">"</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Since Scala 2.12 function literals are accepted as valid SAM expressions:
+</span>  <span class="org-scala-font-lockXimplicit">implicit</span> <span class="org-keyword">val</span> <span class="org-variable-name">intShow</span><span class="org-keyword">:</span> <span class="org-type">Show</span>[<span class="org-constant">Int</span>] <span class="org-keyword">=</span> n <span class="org-keyword">=&gt;</span> s<span class="org-string">"here is my integer: </span><span class="org-variable-name">$n</span><span class="org-string">"</span>
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">A type alias</span>
-  <span class="org-keyword">type</span> <span class="org-constant">MyInt</span> <span class="org-keyword">=</span> <span class="org-constant">Int</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">A type alias
+</span>  <span class="org-keyword">type</span> <span class="org-constant">MyInt</span> <span class="org-keyword">=</span> <span class="org-constant">Int</span>
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Beware, implicit classes and defs will still apply to Int!</span>
-  <span class="org-keyword">import</span> scala.concurrent.duration.<span class="org-keyword">_</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Beware, implicit classes and defs will still apply to Int!
+</span>  <span class="org-keyword">import</span> scala.concurrent.duration.<span class="org-keyword">_</span>
   <span class="org-scala-font-lockXimplicit">implicit</span> <span class="org-keyword">def</span> <span class="org-function-name">myIntToDuration</span>(n<span class="org-keyword">:</span> <span class="org-type">MyInt</span>)<span class="org-keyword">:</span> <span class="org-type">Duration</span> <span class="org-keyword">=</span> <span class="org-constant">Duration</span>(n, <span class="org-constant">SECONDS</span>)
 
   <span class="org-keyword">val</span> <span class="org-variable-name">myDuration</span><span class="org-keyword">:</span> <span class="org-type">Duration</span> <span class="org-keyword">=</span> <span class="org-constant">3</span>
@@ -295,8 +295,8 @@ Note in Scala 2 val and defs cannot appear as toplevel definitions.
 </div>
 </div>
 
-<div id="outline-container-orgb838d83" class="outline-2">
-<h2 id="orgb838d83"><span class="section-number-2">2.</span> Sorting</h2>
+<div id="outline-container-org6ac7655" class="outline-2">
+<h2 id="org6ac7655"><span class="section-number-2">2.</span> Sorting</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Also worth looking up are the notions of <a href="https://en.wikipedia.org/wiki/Partially_ordered_set">partial orderings</a>, <a href="https://en.wikipedia.org/wiki/Total_order">total orderings</a> and <a href="https://en.wikipedia.org/wiki/Well-order">well-orderings</a>.
@@ -304,52 +304,52 @@ Also worth looking up are the notions of <a href="https://en.wikipedia.org/wiki/
 <div class="org-src-container">
 <pre class="src src-scala"><span class="org-keyword">object</span> <span class="org-constant">Sorting</span> {
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Ordered is the equivalent to (and indeed extends) java's Comparable, ie it</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">represents 'natural' orderings</span>
-  <span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">DummyInt</span>(x<span class="org-keyword">:</span> <span class="org-type">Int</span>) <span class="org-keyword">extends</span> <span class="org-type">Ordered</span>[<span class="org-constant">DummyInt</span>] {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Ordered is the equivalent to (and indeed extends) java's Comparable, ie it
+</span>  <span class="org-comment-delimiter">// </span><span class="org-comment">represents 'natural' orderings
+</span>  <span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">DummyInt</span>(x<span class="org-keyword">:</span> <span class="org-type">Int</span>) <span class="org-keyword">extends</span> <span class="org-type">Ordered</span>[<span class="org-constant">DummyInt</span>] {
     <span class="org-keyword">def</span> <span class="org-function-name">compare</span>(that<span class="org-keyword">:</span> <span class="org-type">DummyInt</span>)<span class="org-keyword">:</span> <span class="org-type">Int</span> <span class="org-keyword">=</span> x - that.x
   }
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Similarly, Ordered is the equivalent to java's Comparator, note both are</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">available without import, as they are Members of the scala package</span>
-  <span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">DummyLong</span>(x<span class="org-keyword">:</span> <span class="org-type">Long</span>) <span class="org-keyword">extends</span> <span class="org-type">AnyVal</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Ordering can be considered a contravariant functor, with 'on' providing the</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">equivalent of contramap</span>
-  <span class="org-scala-font-lockXimplicit">implicit</span> <span class="org-keyword">val</span> <span class="org-variable-name">dummyLongOrdering</span><span class="org-keyword">:</span> <span class="org-type">Ordering</span>[<span class="org-constant">DummyLong</span>] <span class="org-keyword">=</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Similarly, Ordered is the equivalent to java's Comparator, note both are
+</span>  <span class="org-comment-delimiter">// </span><span class="org-comment">available without import, as they are Members of the scala package
+</span>  <span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">DummyLong</span>(x<span class="org-keyword">:</span> <span class="org-type">Long</span>) <span class="org-keyword">extends</span> <span class="org-type">AnyVal</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Ordering can be considered a contravariant functor, with 'on' providing the
+</span>  <span class="org-comment-delimiter">// </span><span class="org-comment">equivalent of contramap
+</span>  <span class="org-scala-font-lockXimplicit">implicit</span> <span class="org-keyword">val</span> <span class="org-variable-name">dummyLongOrdering</span><span class="org-keyword">:</span> <span class="org-type">Ordering</span>[<span class="org-constant">DummyLong</span>] <span class="org-keyword">=</span>
     <span class="org-constant">Ordering</span>[<span class="org-constant">Long</span>].on(dummyLong <span class="org-keyword">=&gt;</span> dummyLong.x)
 
   <span class="org-keyword">val</span> <span class="org-variable-name">myList</span> <span class="org-keyword">=</span> <span class="org-constant">List</span>(<span class="org-constant">DummyInt</span>(<span class="org-constant">10</span>), <span class="org-constant">DummyInt</span>(<span class="org-constant">1</span>), <span class="org-constant">DummyInt</span>(<span class="org-constant">-2</span>), <span class="org-constant">DummyInt</span>(<span class="org-constant">7</span>))
   println(myList.sorted)
-  <span class="org-comment-delimiter">// </span><span class="org-comment">List(DummyInt(x = -2), DummyInt(x = 1), DummyInt(x = 7), DummyInt(x = 10))</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">List(DummyInt(x = -2), DummyInt(x = 1), DummyInt(x = 7), DummyInt(x = 10))
+</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Note the signature of sorted is sorted[B &gt;: A](implicit ord: Ordering[B])
+</span>  <span class="org-comment-delimiter">// </span><span class="org-comment">but the companion of Ordered provides an implicit conversion from Ordered[A]
+</span>  <span class="org-comment-delimiter">// </span><span class="org-comment">to Ordering[A] (https://www.scala-lang.org/api/current/scala/math/Ordered$.html)
+</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">An ordering on DummyLong induces an ordering on Seqs of DummyLongs
+</span>  <span class="org-comment-delimiter">// </span><span class="org-comment">(the lexicographic ordering), we can obtain it via the import
+</span>  <span class="org-keyword">import</span> scala.math.<span class="org-constant">Ordering</span>.<span class="org-constant">Implicits</span>.<span class="org-keyword">_</span>
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Note the signature of sorted is sorted[B &gt;: A](implicit ord: Ordering[B])</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">but the companion of Ordered provides an implicit conversion from Ordered[A]</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">to Ordering[A] (https://www.scala-lang.org/api/current/scala/math/Ordered$.html)</span>
-
-  <span class="org-comment-delimiter">// </span><span class="org-comment">An ordering on DummyLong induces an ordering on Seqs of DummyLongs</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">(the lexicographic ordering), we can obtain it via the import</span>
-  <span class="org-keyword">import</span> scala.math.<span class="org-constant">Ordering</span>.<span class="org-constant">Implicits</span>.<span class="org-keyword">_</span>
-
-  <span class="org-comment-delimiter">// </span><span class="org-comment">This import also brings into scope '&lt;' (and others) to use with Orderings</span>
-  println(<span class="org-constant">List</span>(<span class="org-constant">DummyLong</span>(<span class="org-constant">10</span>)) &lt; <span class="org-constant">List</span>(<span class="org-constant">DummyLong</span>(<span class="org-constant">10</span>), <span class="org-constant">DummyLong</span>(<span class="org-constant">1</span>)))
-  <span class="org-comment-delimiter">// </span><span class="org-comment">true</span>
-}
+  <span class="org-comment-delimiter">// </span><span class="org-comment">This import also brings into scope '&lt;' (and others) to use with Orderings
+</span>  println(<span class="org-constant">List</span>(<span class="org-constant">DummyLong</span>(<span class="org-constant">10</span>)) &lt; <span class="org-constant">List</span>(<span class="org-constant">DummyLong</span>(<span class="org-constant">10</span>), <span class="org-constant">DummyLong</span>(<span class="org-constant">1</span>)))
+  <span class="org-comment-delimiter">// </span><span class="org-comment">true
+</span>}
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org02c6ddd" class="outline-2">
-<h2 id="org02c6ddd"><span class="section-number-2">3.</span> Types</h2>
+<div id="outline-container-org47f2b8c" class="outline-2">
+<h2 id="org47f2b8c"><span class="section-number-2">3.</span> Types</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-scala"><span class="org-keyword">object</span> <span class="org-constant">Types</span> {
-  <span class="org-comment-delimiter">// </span><span class="org-comment">A singleton type is a type which depends on a literal</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">See: https://docs.scala-lang.org/sips/42.type.html</span>
-  <span class="org-keyword">val</span> <span class="org-variable-name">lsSingle</span><span class="org-keyword">:</span> <span class="org-type">List</span>[<span class="org-constant">1</span>] <span class="org-keyword">=</span> <span class="org-constant">List</span>(<span class="org-constant">1</span>, <span class="org-constant">1</span>)
+  <span class="org-comment-delimiter">// </span><span class="org-comment">A singleton type is a type which depends on a literal
+</span>  <span class="org-comment-delimiter">// </span><span class="org-comment">See: https://docs.scala-lang.org/sips/42.type.html
+</span>  <span class="org-keyword">val</span> <span class="org-variable-name">lsSingle</span><span class="org-keyword">:</span> <span class="org-type">List</span>[<span class="org-constant">1</span>] <span class="org-keyword">=</span> <span class="org-constant">List</span>(<span class="org-constant">1</span>, <span class="org-constant">1</span>)
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Let's introduce TypeTags!  Consider the following:</span>
-  <span class="org-scala-font-lockXsealed">sealed</span> <span class="org-keyword">trait</span> <span class="org-type">BankBalance</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Let's introduce TypeTags!  Consider the following:
+</span>  <span class="org-scala-font-lockXsealed">sealed</span> <span class="org-keyword">trait</span> <span class="org-type">BankBalance</span>
   <span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">Savings</span>(value<span class="org-keyword">:</span> <span class="org-type">Int</span>) <span class="org-keyword">extends</span> <span class="org-type">BankBalance</span>
   <span class="org-keyword">case</span> <span class="org-keyword">class</span> <span class="org-type">Debt</span>(value<span class="org-keyword">:</span> <span class="org-type">Int</span>) <span class="org-keyword">extends</span> <span class="org-type">BankBalance</span>
 
@@ -358,12 +358,12 @@ Also worth looking up are the notions of <a href="https://en.wikipedia.org/wiki/
     <span class="org-keyword">case</span> <span class="org-keyword">_:</span> <span class="org-type">List</span>[<span class="org-constant">BankBalance</span>] <span class="org-keyword">=&gt;</span> <span class="org-string">"OK"</span>
   }
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">The method above produces the compiler warning:</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">'the type test for List[test.Debt] cannot be checked at runtime'</span>
-  <span class="org-comment-delimiter">// </span><span class="org-comment">This is because of type erasure.</span>
-
-  <span class="org-comment-delimiter">// </span><span class="org-comment">We can use TypeTags to fix this:</span>
-  <span class="org-keyword">import</span> scala.reflect.runtime.universe.<span class="org-keyword">_</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">The method above produces the compiler warning:
+</span>  <span class="org-comment-delimiter">// </span><span class="org-comment">'the type test for List[test.Debt] cannot be checked at runtime'
+</span>  <span class="org-comment-delimiter">// </span><span class="org-comment">This is because of type erasure.
+</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">We can use TypeTags to fix this:
+</span>  <span class="org-keyword">import</span> scala.reflect.runtime.universe.<span class="org-keyword">_</span>
 
   <span class="org-keyword">def</span> <span class="org-function-name">check2</span>[<span class="org-constant">A</span> <span class="org-keyword">&lt;:</span> <span class="org-constant">BankBalance</span> <span class="org-keyword">:</span> <span class="org-type">TypeTag</span>](xs<span class="org-keyword">:</span> <span class="org-type">List</span>[<span class="org-constant">A</span>]) <span class="org-keyword">=</span> typeOf[<span class="org-constant">A</span>] <span class="org-keyword">match</span> {
     <span class="org-keyword">case</span> <span class="org-variable-name">t</span> <span class="org-keyword">if</span> t =:= typeOf[<span class="org-constant">Debt</span>] <span class="org-keyword">=&gt;</span> s<span class="org-string">"Debts of size </span><span class="org-variable-name">${l.sum}</span><span class="org-string">!"</span>
@@ -375,18 +375,18 @@ Also worth looking up are the notions of <a href="https://en.wikipedia.org/wiki/
 </div>
 </div>
 
-<div id="outline-container-org9fb78ef" class="outline-2">
-<h2 id="org9fb78ef"><span class="section-number-2">4.</span> Collections</h2>
+<div id="outline-container-org8cfd9ae" class="outline-2">
+<h2 id="org8cfd9ae"><span class="section-number-2">4.</span> Collections</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-scala"><span class="org-keyword">object</span> <span class="org-constant">collections</span> {
-  <span class="org-comment-delimiter">// </span><span class="org-comment">A standard Java array</span>
-  <span class="org-keyword">val</span> <span class="org-variable-name">a</span> <span class="org-keyword">=</span> <span class="org-constant">Array</span>(<span class="org-constant">1</span>, <span class="org-constant">2</span>, <span class="org-constant">3</span>)
+  <span class="org-comment-delimiter">// </span><span class="org-comment">A standard Java array
+</span>  <span class="org-keyword">val</span> <span class="org-variable-name">a</span> <span class="org-keyword">=</span> <span class="org-constant">Array</span>(<span class="org-constant">1</span>, <span class="org-constant">2</span>, <span class="org-constant">3</span>)
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Beware == on Array returns true iff the arrays point to the same reference</span>
-  a == <span class="org-constant">Array</span>(<span class="org-constant">1</span>, <span class="org-constant">2</span>, <span class="org-constant">3</span>)
-  <span class="org-comment-delimiter">// </span><span class="org-comment">false</span>
-}
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Beware == on Array returns true iff the arrays point to the same reference
+</span>  a == <span class="org-constant">Array</span>(<span class="org-constant">1</span>, <span class="org-constant">2</span>, <span class="org-constant">3</span>)
+  <span class="org-comment-delimiter">// </span><span class="org-comment">false
+</span>}
 </pre>
 </div>
 </div>
@@ -394,7 +394,7 @@ Also worth looking up are the notions of <a href="https://en.wikipedia.org/wiki/
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2025-05-30 Fri 17:53</p>
+<p class="date">Created: 2025-10-07 Tue 15:40</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
