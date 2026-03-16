@@ -6,7 +6,7 @@
 <!-- 2026-03-16 Mon 18:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Integral Theorems</title>
+<title>Cdk</title>
 <meta name="author" content="root" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -228,127 +228,25 @@ while (tags.length > 0) {
     tags[0].remove();
 }
 }</script>
-<script>
-  window.MathJax = {
-    tex: {
-      ams: {
-        multlineWidth: '85%'
-      },
-      tags: 'ams',
-      tagSide: 'right',
-      tagIndent: '.8em'
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    svg: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    output: {
-      font: 'mathjax-modern',
-      displayOverflow: 'overflow'
-    }
-  };
-</script>
-
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 </head>
 <body>
 <div id="content" class="content">
-Previous: <a href='./holomorphic-functions.html'>Holomorphic Functions</a><span style='float: right;'>Up: <a href='./complex-analysis.html'>Complex Analysis</a></span><hr><h1 class="title">Integral Theorems</h1>
+Previous: <a href='./alarms.html'>Alarms</a>, Next: <a href='./deployments.html'>Deployments</a><span style='float: right;'>Up: <a href='./cloud.html'>Cloud</a></span><hr><h1 class="title">Cdk</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga37ad4c">1. Cauchy's Integral Theroem</a></li>
-<li><a href="#org8999923">2. Cauchy's Integral Formula</a></li>
-<li><a href="#orgbdd3c77">3. Cauchy's Residue Theorem</a></li>
+<li><a href="#orgc954b9f">1. Good to Know</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga37ad4c" class="outline-2">
-<h2 id="orga37ad4c"><span class="section-number-2">1.</span> Cauchy's Integral Theroem</h2>
+<div id="outline-container-orgc954b9f" class="outline-2">
+<h2 id="orgc954b9f"><span class="section-number-2">1.</span> Good to Know</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-If \( f \) is <b>holomorphic</b> on a simply connected domain \( D \), and \( \gamma \) is a closed curve, then:
-</p>
-
-<p>
-\[
- \oint_\gamma f(z) dz = 0
-\]
-</p>
-</div>
-</div>
-
-<div id="outline-container-org8999923" class="outline-2">
-<h2 id="org8999923"><span class="section-number-2">2.</span> Cauchy's Integral Formula</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-Let:
-</p>
-<ol class="org-ol">
-<li>\( D \) be the closed disk \( D = \{ z : |z - z_0| \le r \} \) centered at \( z_0 \)</li>
-<li>\( f: D \to \mathbb{C} \) be a holomorphic function</li>
-<li>\( \gamma \) be the counterclockwise circle forming the boundary of \( D \)</li>
-</ol>
-
-<p>
-Then:
-</p>
-
-<p>
-\[
-f(a) = \frac{1}{2\pi i}\oint_\gamma \frac{f(z)}{z - a} dz
-\]
-</p>
-
-<p>
-Holds for all \( a \) in the interior of \( D \).
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgbdd3c77" class="outline-2">
-<h2 id="orgbdd3c77"><span class="section-number-2">3.</span> Cauchy's Residue Theorem</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-Let:
-</p>
-<ol class="org-ol">
-<li>\( a_n \in U \) be some finite set of points</li>
-<li>\( D = U \backslash a_n \) be a simply connected domain</li>
-<li>\( f: D \to \mathbb{C} \) a holomorphic function</li>
-<li>\( \gamma \) a closed contour in \( D \)</li>
-</ol>
-
-<p>
-Then:
-</p>
-
-<p>
-\[
-\oint_\gamma f(z) dz = 2\pi i \sum Res(f, a_k)
-\]
-</p>
-
-<p>
-It is worth noting that CRT is a generalisation of both of the theorems above, the first follows by noting \( a_n \) is empty.  For the second:
-</p>
-
-\begin{align*}
-\oint_\gamma \frac{f(z)}{z - a} dz &= 2\pi i \ Res\left(\frac{f(z)}{z - a}, a\right) \\
-&= 2\pi i \ f(a)
-\end{align*}
+<ul class="org-ul">
+<li>You <b>cannot</b> perform an update which would result in the deletion of a named resource (source: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-name.html">https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-name.html</a>).  The reason for this is that when Cloudformation decides it needs to replace a resource, it will (usually) first create the new resource before deleting the old one.  There are ways around this, for example RDS parameter groups are re-created if their engine version is changed, so it might be a good idea to incorporate the engine version in the name.</li>
+</ul>
 </div>
 </div>
 </div>
