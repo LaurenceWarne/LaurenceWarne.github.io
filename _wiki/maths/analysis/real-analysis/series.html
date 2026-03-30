@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-03-16 Mon 18:07 -->
+<!-- 2026-03-30 Mon 17:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Series</title>
 <meta name="author" content="root" />
 <meta name="generator" content="Org Mode" />
-<style>
+<style type="text/css">
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -268,35 +268,34 @@ Previous: <a href='./sequences.html'>Sequences</a><span style='float: right;'>Up
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd829e90">1. Definition</a></li>
-<li><a href="#org829c26e">2. Tests</a>
+<li><a href="#orge7089fc">1. Definition</a></li>
+<li><a href="#orgbd906b4">2. Tests</a>
 <ul>
-<li><a href="#orgdd6d365">2.1. Nth Term Test</a>
+<li><a href="#org531b98a">2.1. Nth Term Test</a>
 <ul>
-<li><a href="#org545083e">2.1.1. Proof</a></li>
+<li><a href="#orgdbe52c9">2.1.1. Proof</a></li>
 </ul>
 </li>
-<li><a href="#orga7cfb24">2.2. Integral Test</a></li>
-<li><a href="#org6650584">2.3. Comparison Test</a>
+<li><a href="#orgde2ebae">2.2. Integral Test</a></li>
+<li><a href="#org985228d">2.3. Comparison Test</a>
 <ul>
-<li><a href="#orgda56547">2.3.1. Proof</a></li>
+<li><a href="#org1ed9145">2.3.1. Proof</a></li>
 </ul>
 </li>
-<li><a href="#org96c51c1">2.4. Ratio Test</a></li>
-<li><a href="#org3b292e2">2.5. Root Test</a>
+<li><a href="#orgf67625e">2.4. Ratio Test</a></li>
+<li><a href="#orga687c49">2.5. Root Test</a>
 <ul>
-<li><a href="#org400eaaa">2.5.1. Proof</a></li>
+<li><a href="#org66a91ed">2.5.1. Proof</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgb7279d3">3. Problems</a></li>
+<li><a href="#orgb45c7d1">3. Problems</a></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-orgd829e90" class="outline-2">
-<h2 id="orgd829e90"><span class="section-number-2">1.</span> Definition</h2>
+<div id="outline-container-orge7089fc" class="outline-2">
+<h2 id="orge7089fc"><span class="section-number-2">1.</span> Definition</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Given some (infinite) sequence \( (a_n)_n \) we can consider its <b>infinite series</b>, denoted:
@@ -323,25 +322,22 @@ If \( S_n \) converges we say the series is <b>convergent</b>, else we say the s
 </p>
 </div>
 </div>
-
-<div id="outline-container-org829c26e" class="outline-2">
-<h2 id="org829c26e"><span class="section-number-2">2.</span> Tests</h2>
+<div id="outline-container-orgbd906b4" class="outline-2">
+<h2 id="orgbd906b4"><span class="section-number-2">2.</span> Tests</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 There is no general process for checking if a series converges, but we can apply tests which provide definitive statements for some series.
 </p>
 </div>
-
-<div id="outline-container-orgdd6d365" class="outline-3">
-<h3 id="orgdd6d365"><span class="section-number-3">2.1.</span> Nth Term Test</h3>
+<div id="outline-container-org531b98a" class="outline-3">
+<h3 id="org531b98a"><span class="section-number-3">2.1.</span> Nth Term Test</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 If a series converges then its corresponding sequence must be null.
 </p>
 </div>
-
-<div id="outline-container-org545083e" class="outline-4">
-<h4 id="org545083e"><span class="section-number-4">2.1.1.</span> Proof</h4>
+<div id="outline-container-orgdbe52c9" class="outline-4">
+<h4 id="orgdbe52c9"><span class="section-number-4">2.1.1.</span> Proof</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 Suppose \( S_n \) converges to some \( L \) then by the shifted sequence rule, \( S_{n + 1} \) also converges to the same \( L \). By the algebra of limits theorem:
@@ -365,9 +361,8 @@ converges to \( L - L = 0 \), but
 </div>
 </div>
 </div>
-
-<div id="outline-container-orga7cfb24" class="outline-3">
-<h3 id="orga7cfb24"><span class="section-number-3">2.2.</span> Integral Test</h3>
+<div id="outline-container-orgde2ebae" class="outline-3">
+<h3 id="orgde2ebae"><span class="section-number-3">2.2.</span> Integral Test</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Let the sequence \( (a_n)_n \) be defined by \( a_n = f(n) \) then if the following are true for \( f \): 
@@ -390,9 +385,8 @@ Then the integral test states that:
 </p>
 </div>
 </div>
-
-<div id="outline-container-org6650584" class="outline-3">
-<h3 id="org6650584"><span class="section-number-3">2.3.</span> Comparison Test</h3>
+<div id="outline-container-org985228d" class="outline-3">
+<h3 id="org985228d"><span class="section-number-3">2.3.</span> Comparison Test</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Given two sequences \( a_n \) and \( b_n \), for which
@@ -423,9 +417,8 @@ And
    \]
 </p>
 </div>
-
-<div id="outline-container-orgda56547" class="outline-4">
-<h4 id="orgda56547"><span class="section-number-4">2.3.1.</span> Proof</h4>
+<div id="outline-container-org1ed9145" class="outline-4">
+<h4 id="org1ed9145"><span class="section-number-4">2.3.1.</span> Proof</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 Consider the sequence of partial sums: \( S_n = \sum_{k=1}^n a_k, \ R_n = \sum_{k=1}^n b_k \). Given the convergence of \( R_n \) we know that it must have an upper bound \( B \).
@@ -446,9 +439,8 @@ And we also have from (1) that \( S_n \) is monotone increasing. Hence since \( 
 </div>
 </div>
 </div>
-
-<div id="outline-container-org96c51c1" class="outline-3">
-<h3 id="org96c51c1"><span class="section-number-3">2.4.</span> Ratio Test</h3>
+<div id="outline-container-orgf67625e" class="outline-3">
+<h3 id="orgf67625e"><span class="section-number-3">2.4.</span> Ratio Test</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Let 
@@ -475,9 +467,8 @@ The proof of this statement follows via construction of an appropriate geometric
 </p>
 </div>
 </div>
-
-<div id="outline-container-org3b292e2" class="outline-3">
-<h3 id="org3b292e2"><span class="section-number-3">2.5.</span> Root Test</h3>
+<div id="outline-container-orga687c49" class="outline-3">
+<h3 id="orga687c49"><span class="section-number-3">2.5.</span> Root Test</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 Let
@@ -514,9 +505,8 @@ We can also use this test to define the RoC as:
 This works as the RoC makes no claims on the convergence at the boundaries, we can also substitute in \( \infty \) for the limit superior if \( (|a_n|^\frac{1}{n})_n \) does not have a convergent subsequence.
 </p>
 </div>
-
-<div id="outline-container-org400eaaa" class="outline-4">
-<h4 id="org400eaaa"><span class="section-number-4">2.5.1.</span> Proof</h4>
+<div id="outline-container-org66a91ed" class="outline-4">
+<h4 id="org66a91ed"><span class="section-number-4">2.5.1.</span> Proof</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <p>
 Suppose \( L < 1 \), then by the properties of the limit superior:
@@ -565,9 +555,8 @@ Hence if property 1. above is satisfied, \( a_n \) not only converges, but conve
 </div>
 </div>
 </div>
-
-<div id="outline-container-orgb7279d3" class="outline-2">
-<h2 id="orgb7279d3"><span class="section-number-2">3.</span> Problems</h2>
+<div id="outline-container-orgb45c7d1" class="outline-2">
+<h2 id="orgb45c7d1"><span class="section-number-2">3.</span> Problems</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>Show \( \sum_{n=1}^{\infty} \frac{1}{n} \) does not converge and hence show that \( \sum_{n=1}^{\infty} \frac{1}{2n + 1} \) does not converge.</li>
@@ -577,7 +566,7 @@ Hence if property 1. above is satisfied, \( a_n \) not only converges, but conve
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2026-03-16 Mon 18:07</p>
+<p class="date">Created: 2026-03-30 Mon 17:24</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

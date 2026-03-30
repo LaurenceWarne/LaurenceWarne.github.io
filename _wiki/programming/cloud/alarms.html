@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-03-16 Mon 18:07 -->
+<!-- 2026-03-30 Mon 17:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Alarms</title>
 <meta name="author" content="root" />
 <meta name="generator" content="Org Mode" />
-<style>
+<style type="text/css">
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -236,17 +236,16 @@ Next: <a href='./cdk.html'>Cdk</a><span style='float: right;'>Up: <a href='./clo
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1279c7a">1. Alarms</a>
+<li><a href="#org219e908">1. Alarms</a>
 <ul>
-<li><a href="#org856e2f9">1.1. Example:</a></li>
+<li><a href="#org0b05436">1.1. Example:</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org1279c7a" class="outline-2">
-<h2 id="org1279c7a"><span class="section-number-2">1.</span> Alarms</h2>
+<div id="outline-container-org219e908" class="outline-2">
+<h2 id="org219e908"><span class="section-number-2">1.</span> Alarms</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The most common kind of alarm is a <b>metric alarm</b> which is an alarm linked to a Cloudwatch metric (though more sophisticated alarms are available).  Alarms of this kind are typically configured to trigger after said metric exceeds a threshold in a given number of time periods.
@@ -256,9 +255,8 @@ The most common kind of alarm is a <b>metric alarm</b> which is an alarm linked 
 <b>Actions</b> are associated with alarms and are dispatched once alarms reach <code>ALARM</code> state, a common example would be to send a notification to an <a href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">SNS topic</a>.
 </p>
 </div>
-
-<div id="outline-container-org856e2f9" class="outline-3">
-<h3 id="org856e2f9"><span class="section-number-3">1.1.</span> Example:</h3>
+<div id="outline-container-org0b05436" class="outline-3">
+<h3 id="org0b05436"><span class="section-number-3">1.1.</span> Example:</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 If you alarm on 4 out of 5 data points with a period of 1 minute, then:
@@ -279,7 +277,7 @@ See also: <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitorin
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2026-03-16 Mon 18:07</p>
+<p class="date">Created: 2026-03-30 Mon 17:24</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

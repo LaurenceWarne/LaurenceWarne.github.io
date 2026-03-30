@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-03-16 Mon 18:07 -->
+<!-- 2026-03-30 Mon 17:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Email Auth</title>
 <meta name="author" content="root" />
 <meta name="generator" content="Org Mode" />
-<style>
+<style type="text/css">
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -236,16 +236,15 @@ Previous: <a href='./dns.html'>Dns</a>, Next: <a href='./http-headers.html'>Http
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org538915e">1. SPF</a></li>
+<li><a href="#org0e04fde">1. SPF</a></li>
 </ul>
 </div>
 </div>
 <p>
 A good source on SPF, DKIM and DMARC can be found here: <a href="https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dmarc.html">https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dmarc.html</a>.
 </p>
-
-<div id="outline-container-org538915e" class="outline-2">
-<h2 id="org538915e"><span class="section-number-2">1.</span> SPF</h2>
+<div id="outline-container-org0e04fde" class="outline-2">
+<h2 id="org0e04fde"><span class="section-number-2">1.</span> SPF</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 An SPF record is a kind of DNS text record which lists servers authorized to send emails from a given domain.  It checks the domain of an email <code>return-path</code> (also known confusingly as bounce address, reverse path, envelope from, envelope sender, return address, and MAIL FROM) matches matches an IP in this given list.
@@ -259,7 +258,7 @@ A example round trip can be found in the <code>How does a mail server check an S
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2026-03-16 Mon 18:07</p>
+<p class="date">Created: 2026-03-30 Mon 17:24</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

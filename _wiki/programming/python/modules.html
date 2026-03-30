@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-03-16 Mon 18:07 -->
+<!-- 2026-03-30 Mon 17:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Modules</title>
 <meta name="author" content="root" />
 <meta name="generator" content="Org Mode" />
-<style>
+<style type="text/css">
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -236,19 +236,18 @@ Previous: <a href='./hax.html'>Hax</a><span style='float: right;'>Up: <a href='.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgceea458">1. Nomenclature</a></li>
-<li><a href="#org5882e5a">2. The Import Statement</a>
+<li><a href="#org956d9d8">1. Nomenclature</a></li>
+<li><a href="#org0c7fe51">2. The Import Statement</a>
 <ul>
-<li><a href="#org7bc08d8">2.1. From</a></li>
+<li><a href="#org2cd6a8b">2.1. From</a></li>
 </ul>
 </li>
-<li><a href="#org3f7857e">3. The <code>__init__.py</code> File</a></li>
+<li><a href="#org29edece">3. The <code>__init__.py</code> File</a></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-orgceea458" class="outline-2">
-<h2 id="orgceea458"><span class="section-number-2">1.</span> Nomenclature</h2>
+<div id="outline-container-org956d9d8" class="outline-2">
+<h2 id="org956d9d8"><span class="section-number-2">1.</span> Nomenclature</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><b>Module</b> An object that serves as a unit of python code.</li>
@@ -257,9 +256,8 @@ Previous: <a href='./hax.html'>Hax</a><span style='float: right;'>Up: <a href='.
 </ol>
 </div>
 </div>
-
-<div id="outline-container-org5882e5a" class="outline-2">
-<h2 id="org5882e5a"><span class="section-number-2">2.</span> The Import Statement</h2>
+<div id="outline-container-org0c7fe51" class="outline-2">
+<h2 id="org0c7fe51"><span class="section-number-2">2.</span> The Import Statement</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We can use the <code>import</code> statement to use code from other modules in our module. 
@@ -283,9 +281,8 @@ When a module is first imported, Python searches for the module and if found, it
 Importing a module doesn't automatically import all of its submodules, but a package may choose to do this in its <code>__init__.py</code>. For more info see <a href="https://stackoverflow.com/questions/22840671/what-is-the-difference-between-importing-python-sub-modules-from-numpy-matplotl?noredirect=1&amp;lq=1">this</a> post.
 </p>
 </div>
-
-<div id="outline-container-org7bc08d8" class="outline-3">
-<h3 id="org7bc08d8"><span class="section-number-3">2.1.</span> From</h3>
+<div id="outline-container-org2cd6a8b" class="outline-3">
+<h3 id="org2cd6a8b"><span class="section-number-3">2.1.</span> From</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 We can use the <code>from</code> statement to import subpackages, classes and functions into our script.
@@ -302,9 +299,8 @@ plt.show()
 </div>
 </div>
 </div>
-
-<div id="outline-container-org3f7857e" class="outline-2">
-<h2 id="org3f7857e"><span class="section-number-2">3.</span> The <code>__init__.py</code> File</h2>
+<div id="outline-container-org29edece" class="outline-2">
+<h2 id="org29edece"><span class="section-number-2">3.</span> The <code>__init__.py</code> File</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Any directory with an <code>__init__.py</code> file is recognised as a <b>valid package</b>.
@@ -314,12 +310,13 @@ Any directory with an <code>__init__.py</code> file is recognised as a <b>valid 
 When a regular package is imported, this <code>__init__.py</code> file is implicitly executed, and the objects it defines are bound to names in the package’s namespace. The <code>__init__.py</code> file can contain the same Python code that any other module can contain, and Python will add some additional attributes to the module when it is imported.
 </p>
 
-<pre class="example">
-my_package/
+<div class="org-src-container">
+<pre class="src src-nil">my_package/
     __init__.py
     my_module.py
     my_other_module.py
 </pre>
+</div>
 
 <p>
 In <code>__init__.py</code>:
@@ -352,7 +349,7 @@ It's common however for an <code>__init__.py</code> file to be left completely e
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2026-03-16 Mon 18:07</p>
+<p class="date">Created: 2026-03-30 Mon 17:24</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

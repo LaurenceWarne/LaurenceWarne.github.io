@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-03-16 Mon 18:07 -->
+<!-- 2026-03-30 Mon 17:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Metals Notes</title>
 <meta name="author" content="root" />
 <meta name="generator" content="Org Mode" />
-<style>
+<style type="text/css">
   #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
@@ -236,19 +236,19 @@ Previous: <a href='./hax.html'>Hax</a>, Next: <a href='./repositories.html'>Repo
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgea27d5b">1. Links</a></li>
-<li><a href="#org319eb4e">2. Custom Class Loading</a></li>
-<li><a href="#org4beb814">3. Diagnostics</a>
+<li><a href="#org0726893">1. Links</a></li>
+<li><a href="#orgf134331">2. Custom Class Loading</a></li>
+<li><a href="#org4a26c03">3. Diagnostics</a>
 <ul>
-<li><a href="#orgcfc40bd">3.1. Flow</a></li>
+<li><a href="#org8d55ab1">3.1. Flow</a></li>
 </ul>
 </li>
-<li><a href="#orga84d633">4. Build Servers</a></li>
-<li><a href="#org1ac0fd4">5. Random Objects Passed Around</a></li>
-<li><a href="#org578ca26">6. Semanticdb</a></li>
-<li><a href="#org42fb877">7. Symbol Indexing Flow</a></li>
-<li><a href="#org3d359a6">8. Code Lenses</a></li>
-<li><a href="#orgd973c20">9. Heirarchy</a></li>
+<li><a href="#org89192c3">4. Build Servers</a></li>
+<li><a href="#org6c69b89">5. Random Objects Passed Around</a></li>
+<li><a href="#orgc166930">6. Semanticdb</a></li>
+<li><a href="#orgde4628f">7. Symbol Indexing Flow</a></li>
+<li><a href="#orgc09fec9">8. Code Lenses</a></li>
+<li><a href="#orga23356e">9. Heirarchy</a></li>
 </ul>
 </div>
 </div>
@@ -263,9 +263,8 @@ SemanticDB is used for definition navigation and find references, etc within a p
 <p>
 To get the presentation compiler for a particular file path, <code>loadCompiler</code> is used throughout <code>scala.meta.internal.metals.Compilers.scala</code>.
 </p>
-
-<div id="outline-container-orgea27d5b" class="outline-2">
-<h2 id="orgea27d5b"><span class="section-number-2">1.</span> Links</h2>
+<div id="outline-container-org0726893" class="outline-2">
+<h2 id="org0726893"><span class="section-number-2">1.</span> Links</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=fpzN_vTBy18">A Dive into how Metals works by Chris Kipp</a></li>
@@ -274,9 +273,8 @@ To get the presentation compiler for a particular file path, <code>loadCompiler<
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org319eb4e" class="outline-2">
-<h2 id="org319eb4e"><span class="section-number-2">2.</span> Custom Class Loading</h2>
+<div id="outline-container-orgf134331" class="outline-2">
+<h2 id="orgf134331"><span class="section-number-2">2.</span> Custom Class Loading</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We need a presentation compiler for each build target since different build targets can have different classpaths and compiler settings.
@@ -287,9 +285,8 @@ The presentation compiler APIs are compiled against exact Scala versions of the 
 </p>
 </div>
 </div>
-
-<div id="outline-container-org4beb814" class="outline-2">
-<h2 id="org4beb814"><span class="section-number-2">3.</span> Diagnostics</h2>
+<div id="outline-container-org4a26c03" class="outline-2">
+<h2 id="org4a26c03"><span class="section-number-2">3.</span> Diagnostics</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="https://github.com/scalameta/metals/blob/main/docs/editors/overview.md">https://github.com/scalameta/metals/blob/main/docs/editors/overview.md</a>
@@ -305,9 +302,8 @@ The presentation compiler APIs are compiled against exact Scala versions of the 
 </ul></li>
 </ul>
 </div>
-
-<div id="outline-container-orgcfc40bd" class="outline-3">
-<h3 id="orgcfc40bd"><span class="section-number-3">3.1.</span> Flow</h3>
+<div id="outline-container-org8d55ab1" class="outline-3">
+<h3 id="org8d55ab1"><span class="section-number-3">3.1.</span> Flow</h3>
 <div class="outline-text-3" id="text-3-1">
 <ol class="org-ol">
 <li>metals sends a <code>buildTarget/compile</code> (<a href="https://build-server-protocol.github.io/docs/specification#compile-request">link</a>) request to the BSP server (in <code>BuildServerConnection.compile</code>), to ask the build server to compile a list of build targets.</li>
@@ -319,18 +315,16 @@ The presentation compiler APIs are compiled against exact Scala versions of the 
 </div>
 </div>
 </div>
-
-<div id="outline-container-orga84d633" class="outline-2">
-<h2 id="orga84d633"><span class="section-number-2">4.</span> Build Servers</h2>
+<div id="outline-container-org89192c3" class="outline-2">
+<h2 id="org89192c3"><span class="section-number-2">4.</span> Build Servers</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Switch occurs in <code>BspConnector.switchBuildServer</code>.  Build servers are generated by <code>BuildServerProvider</code> (an extension of the <code>BuildTool</code> trait) instances.
 </p>
 </div>
 </div>
-
-<div id="outline-container-org1ac0fd4" class="outline-2">
-<h2 id="org1ac0fd4"><span class="section-number-2">5.</span> Random Objects Passed Around</h2>
+<div id="outline-container-org6c69b89" class="outline-2">
+<h2 id="org6c69b89"><span class="section-number-2">5.</span> Random Objects Passed Around</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-scala"><span class="org-keyword">val</span> <span class="org-variable-name">buffers</span><span class="org-keyword">:</span> <span class="org-type">Buffers</span> <span class="org-comment-delimiter">// </span><span class="org-comment">holds currently loaded files
@@ -341,9 +335,8 @@ Switch occurs in <code>BspConnector.switchBuildServer</code>.  Build servers are
 </div>
 </div>
 </div>
-
-<div id="outline-container-org578ca26" class="outline-2">
-<h2 id="org578ca26"><span class="section-number-2">6.</span> <a href="https://scalameta.org/docs/semanticdb/guide.html">Semanticdb</a></h2>
+<div id="outline-container-orgc166930" class="outline-2">
+<h2 id="orgc166930"><span class="section-number-2">6.</span> <a href="https://scalameta.org/docs/semanticdb/guide.html">Semanticdb</a></h2>
 <div class="outline-text-2" id="text-6">
 <p>
 A semanticdb payload associated with a file contains:
@@ -364,22 +357,21 @@ scala/meta/internal/metals/codelenses/<span class="org-constant">RunTestCodeLens
 <li><p>
 <code>Ocurrences</code> a list of identifiers from the source file with their line/column-based positions and unique identifiers pointing to corresponding definitions resolved by the compiler:
 </p>
-<pre class="example">
-[75:13..75:22) =&gt; scala/Option#getOrElse().
+<div class="org-src-container">
+<pre class="src src-nil">[75:13..75:22) =&gt; scala/Option#getOrElse().
 [75:23..75:26) =&gt; scala/package.Seq.
 [75:27..75:32) =&gt; scala/collection/SeqFactory.Delegate#empty().
 [82:14..82:26) &lt;= scala/meta/internal/metals/codelenses/RunTestCodeLens#isMainMethod().
 </pre>
+</div>
 <p>
 For example, <code>[2:4..2:11): println =&gt; scala/Predef.println(+1).</code> says that the identifier println on line 3 (zero-based numbering scheme!) refers to the second overload of println from scala/Predef
 </p></li>
 </ul>
 </div>
 </div>
-
-
-<div id="outline-container-org42fb877" class="outline-2">
-<h2 id="org42fb877"><span class="section-number-2">7.</span> Symbol Indexing Flow</h2>
+<div id="outline-container-orgde4628f" class="outline-2">
+<h2 id="orgde4628f"><span class="section-number-2">7.</span> Symbol Indexing Flow</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li><b>Indexer.scala</b> -&gt;
@@ -389,9 +381,8 @@ For example, <code>[2:4..2:11): println =&gt; scala/Predef.println(+1).</code> s
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org3d359a6" class="outline-2">
-<h2 id="org3d359a6"><span class="section-number-2">8.</span> Code Lenses</h2>
+<div id="outline-container-orgc09fec9" class="outline-2">
+<h2 id="orgc09fec9"><span class="section-number-2">8.</span> Code Lenses</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Code lenses are refreshed whenever:
@@ -402,9 +393,8 @@ Code lenses are refreshed whenever:
 </ul>
 </div>
 </div>
-
-<div id="outline-container-orgd973c20" class="outline-2">
-<h2 id="orgd973c20"><span class="section-number-2">9.</span> Heirarchy</h2>
+<div id="outline-container-orga23356e" class="outline-2">
+<h2 id="orga23356e"><span class="section-number-2">9.</span> Heirarchy</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 <code>MetalsLanguageServer.scala</code> -&gt;
@@ -521,7 +511,7 @@ Completions call tree:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: root</p>
-<p class="date">Created: 2026-03-16 Mon 18:07</p>
+<p class="date">Created: 2026-03-30 Mon 17:24</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
